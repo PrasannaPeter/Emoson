@@ -1,0 +1,60 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, textarea, input { margin: 0px; padding: 0px; border: 0px none; font: inherit; vertical-align: baseline; text-decoration: none; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none outside none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: none; }
+table { border-collapse: collapse; border-spacing: 0px; }
+a { color: inherit; outline: medium none; }
+.storyblock { position: relative; padding-top: 20px; }
+.storyblock > h2 { border-bottom: 1px solid rgb(221, 221, 221); margin-bottom: 15px; padding-bottom: 10px; text-transform: uppercase; font-size: 18px; font-family: 'Roboto Condensed', sans-serif; }
+div#stories li.user-avatar a { margin-left: 2px; margin-right: 12px; }
+div#stories li.user-avatar a:last-child { margin-right: 0px; }
+.heading-l { background: url("../images/heading-bg.png") repeat-x scroll left center transparent; color: rgb(51, 51, 51); font-size: 36px; margin-bottom: 13px; margin-top: 13px; text-align: center; }
+.heading-l h2 { display: inline-block; font-size: 36px; font-weight: 900; padding: 0 30px 5px; border: 0px none; text-transform: uppercase; background: url(../images/bg.jpg); }
+.box-1 { background: none repeat scroll 0 0 #FFFFFF; box-shadow: 0 0 4px #DDDDDD; border-radius: 3px; }
+.price-list li { border-bottom: 1px solid rgb(221, 221, 221); padding: 15px 0px; text-align: center; color: #4d4d4d; font-family: 'Roboto Condensed', sans-serif; }
+.price-list li:last-child { border-bottom: medium none; }
+.price-list { padding: 0px 20px; }
+.top_soical_icons a { border-radius: 3px 3px 3px 3px; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; background-color: rgb(70, 70, 70); width: 30px; height: 31px; }
+.top_soical_icons a:hover { text-decoration: none; }
+.top_soical_icons i { color: rgb(116, 116, 116); left: 5px; position: relative; text-align: center; }
+.top_soical_icons li { float: left; }
+.btn.blue { background: #2aadde; border-bottom: 3px solid #1797c7; color:#fff;}
+.title-1 { font-size: 18px !important; font-family: font-family: 'Roboto Condensed', sans-serif;
+text-transform: uppercase; border-bottom:
+}
+.title-3 { font-size: 18px !important; font-family: font-family: 'Roboto Condensed', sans-serif;
+text-transform: uppercase; border-bottom: 1px solid #ddd; border-bottom: 1px solid #DDDDDD; margin-bottom: 20px; padding-bottom: 10px; }
+.title-2 { font-size: 24px; font-family: font-family: 'Roboto Condensed', sans-serif;
+text-transform: uppercase; font-weight: bold; }
+.price-list .title-2 { color: #2aadde; }
+.price-list .btn { padding: 4px 20px !important; }
+.header-wrapper .span6 { margin-bottom: 0 !important; }
+.breadcrumb-inner { float: right; }
+.breadcrumb-inner li { background: url("../images/devider.png") no-repeat scroll -2px center rgba(0, 0, 0, 0); float: left; list-style: none outside none; padding: 0 8px 0 11px; }
+.breadcrumb-inner li:first-child { background: none; }
+.breadcrumb-inner a { font-size: 12px; text-transform: capitalize; position: relative; top: -2px; font-family: "Lato"; }
+.post-box.box-1 { padding: 40px 40px 35px; float: left; }
+/*Social Media Icons*/
+.social_media_icons li { list-style: none; display: inline; }
+.social_media_icons a { margin-right: 6px; display: inline-block; border-radius: 3px; background-color: rgb( 235, 235, 235 ); box-shadow: 0px 2px 0px 0px rgb( 204, 204, 204 ); width: 31px; height: 31px; }
+.social_media_icons a:hover { background: #2AADDE; }
+.social_media_icons i { color: #FFFFFF; font-size: 15px; left: 9px; position: relative; text-align: center; top: 3px; }
+.page-nav .btn { background-color: #EBEBEB !important; border-radius: 3px 3px 3px 3px; box-shadow: 0 0 0 !important; border-bottom: 3px solid #cccccc; text-transform: uppercase; border-top: none; border-left: none; border-right: none; }
+.social_media_icons.job { margin-top: 10px; display: none; }
+.page-nav .next-btn:hover, .page-nav .pre-btn:hover, .jobbtn:hover { background: #2AADDE !important; border-bottom: 3px solid #1797C7 !important; }
+.page-nav .next-btn, .page-nav .pre-btn { width: 89px; }
+.overall { background: none repeat scroll 0 0 #F2F2F2; }
+.overall h3 { color: #3C5555; float: left; font-size: 18px; position: relative; text-align: center; top: -14px; width: 90px; }
+.personal-rate td { color: #3C5555 !important;}
+.overall img { float: right; }
+.overall { background: none repeat scroll 0 0 #F2F2F2; display: block; height: 25px; padding: 20px !important; }
+/*candidate*/
+.candidate-links { position: absolute; right: 0; }
+.candidates-box p { padding-top: 0px; font-size: 14px; }
+.candidate-meta { float: left; margin-left: 0; margin-top: 10px; width: 100%; position: relative; }
+.candidate-meta li { color: #999999; float: left; font-size: 14px; text-align: center; }
+.candidate-meta span, .recruiter_info a { color: #2AADDE; }
+
+.pull-center { position: absolute; text-align: center; width: 100%; }

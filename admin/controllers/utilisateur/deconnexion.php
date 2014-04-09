@@ -1,0 +1,4 @@
+<?php
+
+	$deconnexion = Utilisateur::deconnexion();
+
