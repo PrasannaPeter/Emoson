@@ -17,7 +17,6 @@ class Utilisateur
 
 		// Requete qui selectionne les utilisateur/mdp
 		$tableau_utilisateur = M_Utilisateur::verifUtilisateur($loginUtilisateur);
-
 		if(is_object($tableau_utilisateur))
 			$tableau_utilisateur = $tableau_utilisateur->fetch();
 
@@ -41,6 +40,11 @@ class Utilisateur
 				$_SESSION['idUtilisateur'] = $infos_utilisateur['idUtilisateur'];
 				$_SESSION['roleUtilisateur'] = $infos_utilisateur['roleUtilisateur'];
 				$_SESSION['certifUtilisateur'] = $infos_utilisateur['certifUtilisateur'];
+			}
+			else
+			{
+				$connect['msgNotif'] = "Le nom du utilisateur et/ou le mot de passe saisis est incorrect.";
+					return $connect;
 			}
 		}
 		// Sinon ...

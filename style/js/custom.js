@@ -212,7 +212,7 @@ $(document).ready(function () {
     var login1buttom = $('#find-job-buttom');
     var login2buttom = $('#post-job-buttom');*/
 
-    login1buttom.click(function () {
+/*    login1buttom.click(function () {
         login1form.find('.counter').fadeOut(speed / 5);
         login2form.slideDown(speed);
         login1form.slideUp(speed);
@@ -224,7 +224,7 @@ $(document).ready(function () {
         login1form.slideDown(speed);
         login2form.slideUp(speed);
         login1form.find('.counter').fadeIn(speed * 2.5);
-    });
+    });*/
 
     /* ---------------------------------------------------------------------- */
     /*	Input Customize

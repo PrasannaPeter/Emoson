@@ -9,7 +9,6 @@ if(!empty($_POST))
 	if(empty($_POST['login']) OR empty($_POST['password']))
 	{
 		$msgNotif = "Vous devez saisir un nom d'utilisateur et un mot de passe";
-
 	}
 	elseif(!empty($_POST['login']) AND !empty($_POST['password']))
 	{
@@ -17,9 +16,10 @@ if(!empty($_POST))
 		$login = $_POST['login'];
 		$password = $_POST['password'];
 
-		$connect = Utilisateur::connexion($login, $password, $type="ADMIN");
+		$connect = Utilisateur::connexion($login, $password, $type=NULL);
 
 		$msgNotif = $connect['msgNotif'];
+
 	}
 }
 
