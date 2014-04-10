@@ -91,7 +91,9 @@
         <section class="inner">
           <div id="site-description">
             <h3><img src="style/images/Logo.png" width="220" height="72"  alt=""/></h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Praesent sodales velit quis augue. Cras suscipit.</p>
+            <p>
+            Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous à contact@emoson.fr
+            </p>
           </div>
           <div id="footer-menu">
             <div id="nav-menu" class="footer-menu">

@@ -17,7 +17,7 @@
 <form class="form-horizontal" method="POST" action="index.php?module=entreprise&action=manage&type=inscription_entreprise<?php if(!empty($_GET['idUtilisateur'])){ echo '&idEntreprise='.$_GET['idEntreprise']; }else{} ?>">
   <fieldset>
     <div id="legend">
-      <legend class="">Informations Personnelles</legend>
+      <legend class=""><h2>Informations de contact</h2></legend><br />
     </div>
     <div class="control-group">
       <!-- Identifiant -->
@@ -70,7 +70,7 @@
   <br />
   <fieldset>
     <div id="legend">
-      <legend class="">Informations Entreprise</legend>
+      <legend class=""><h2>Informations de l'entreprise</h2></legend><br />
     </div>
     <div class="control-group">
       <!-- Raison sociale -->

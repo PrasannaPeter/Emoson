@@ -16,7 +16,7 @@
 <form class="form-horizontal" action='' method="POST">
   <fieldset>
     <div id="legend">
-      <legend class="">Brief</legend>
+      <legend class=""><h2>Brief</h2></legend><br />
     </div>
     <div class="control-group">
       <!-- Taille de l'entreprise -->
