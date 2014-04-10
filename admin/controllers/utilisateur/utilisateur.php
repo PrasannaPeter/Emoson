@@ -62,26 +62,27 @@ class Utilisateur
 		{
 			case 'ADMIN':
 
-				if(site_admin())
-					header('Location:index.php');
-				else
-					header('Location:admin/index.php');
+				if(site_admin()){
+					header('Location: index.php');
+				}else{
+					header('Location: admin/index.php');
+				}
 			break;
 
 			case 'GRAPHISTE':
-				header('Location:index.php?module=dashboard&action=afficher');
+				header('Location: index.php?module=dashboard&action=afficher');
 			break;
 
 			case 'ENTREPRISE':
-				header('Location:index.php?module=dashboard&action=afficher');
+				header('Location: index.php?module=dashboard&action=afficher');
 			break;
 
 			default:
-			echo "???"; exit;
+			echo "???";
 				return $connect;
 			break;
 		}
-
+		exit;
 	}
 
 

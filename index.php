@@ -66,6 +66,21 @@ require_once 'core/init.php';
 	// Début du code HTML
 	require_once VIEWS.'/global/header.php';
 
+	if($_SESSION['loginError'])
+	{
+		?>
+		<script type="text/javascript">
+		$(document).ready(function()
+		{
+			$('#loginModal').modal('toggle');
+			$('.modal-header h3').text("<?php echo($_SESSION['loginError']); ?>");
+			$('.modal-header h3').css("color", "red");
+		});
+		</script>
+		<?php
+		unset($_SESSION['loginError']);
+	}
+
 	echo $content;
 
 	// Fin du code HTML

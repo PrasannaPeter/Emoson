@@ -8,7 +8,7 @@ unset($msgNotif);
 
 if(empty($_POST['login']) OR empty($_POST['password']))
 {
-	$msgNotif = "Vous devez saisir un nom d'utilisateur et un mot de passe";
+	$_SESSION['loginError']  = "Vous devez saisir un nom d'utilisateur et un mot de passe";
 }
 elseif(!empty($_POST['login']) AND !empty($_POST['password']))
 {
@@ -18,17 +18,9 @@ elseif(!empty($_POST['login']) AND !empty($_POST['password']))
 
 	$connect = Utilisateur::connexion($login, $password, $type=NULL);
 
-	$msgNotif = $connect['msgNotif'];
+	$_SESSION['loginError'] = $connect['msgNotif'];
 }
 
-require_once('index.php');
+header('Location:index.php');
 
 ?>
-<script type="text/javascript">
-$(document).ready(function()
-{
-	$('#loginModal').modal('toggle');
-	$('.modal-header h3').text("<?php echo($msgNotif); ?>");
-	$('.modal-header h3').css("color", "red");
-});
-</script>

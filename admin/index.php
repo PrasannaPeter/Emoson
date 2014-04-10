@@ -8,7 +8,6 @@ if($_SERVER['REQUEST_URI'] != $_SESSION['lastREQUEST_URI'])
 
 $_SESSION['lastREQUEST_URI'] = $_SERVER['REQUEST_URI'];
 
-
 // Si l'utilisateur est connecté, on charge la page
 if(is_connected())
 {
