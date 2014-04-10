@@ -13,10 +13,10 @@
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
-<form class="form-horizontal" action='' method="POST">
+<form class="form-horizontal" method="POST" action="index.php?module=utilisateur&action=manage&type=modifier_profil<?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>">
   <fieldset>
     <div id="legend">
-      <legend class="">Inscription</legend>
+      <legend class=""><h2>Inscription</h2></legend><br />
     </div>
     <div class="control-group">
       <!-- E-mail -->

@@ -26,21 +26,25 @@
     <hr>
 
     <a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button">Voir les projets</a>
-    <a class="btn btn-large btn-success" href="index.php?module=projet&action=historique" role="button">Historique</a>
     </center>
-    <br />
 
-    <h2>Projet en cours</h2>
+     <?php
+      //if(Utilisateur::is_certified($idUtilisateur)){ ?>
+
+    <h2>Mes Projet</h2>
     <br />
 
     <div class="alert alert-info">
-        <p>Aucun projet en cours.</p>
+        <p>Aucun projet.</p>
     </div>
+
+    <?php //} ?>
 
     <hr>
 
     <div class="alert alert-danger">
         <h6>Etat de la candidature</h6>
+              Fonction a faire
         <p>Vous devez compléter votre profil et portfolio avant de cliquer sur le bouton "Soumettre ma candidature".</p>
         <p>Plus votre candidature sera complète, plus vous aurez de chance d'être accepté.</p>
         <br />

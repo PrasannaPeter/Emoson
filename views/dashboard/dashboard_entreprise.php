@@ -20,22 +20,21 @@
     </div>
 
     <center>
-    <a class="btn btn-large btn-success" href="index.php?module=entreprise&action=modifier_profil" role="button">Modifier info. entreprise</a>
-    <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_portfolio" role="button">Modifier compte perso.</a>
+    <a class="btn btn-large btn-success" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button">Modifier info. entreprise</a>
+    <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_profil" role="button">Modifier compte perso.</a>
 
     <hr>
 
     <a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button">Voir les projets</a>
-    <a class="btn btn-large btn-success" href="index.php?module=projet&action=historique" role="button">Historique</a>
     <a class="btn btn-large btn-error" href="index.php?module=entreprise&action=remplir_brief" role="button">Nouveau brief</a>
     </center>
     <br />
 
-    <h2>Projet en cours</h2>
+    <h2>Projets</h2>
     <br />
 
     <div class="alert alert-info">
-        <p>Aucun projet en cours.</p>
+        <p>Aucun projet.</p>
     </div>
 
     <hr>

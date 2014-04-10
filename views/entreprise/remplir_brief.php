@@ -13,7 +13,7 @@
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
-<form class="form-horizontal" action='' method="POST">
+<form class="form-horizontal" method="POST" action="index.php?module=projet&action=manage&type=ajouter<?php if(!empty($_GET['idEntreprise'])){ echo '&idEntreprise='.$_GET['idEntreprise']; }else{} ?>">
   <fieldset>
     <div id="legend">
       <legend class=""><h2>Brief</h2></legend><br />
