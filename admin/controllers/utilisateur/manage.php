@@ -61,7 +61,11 @@ switch($type)
 		// Formulaire incomplet => affichage du formulaire
 		else if(empty($_POST['submit']))
 		{
-			require_once VIEWS.$controller.'/ajouter_'.$controller.'.php';
+			if(site_admin()){
+				require_once VIEWS.$controller.'/ajouter_'.$controller.'.php';
+			}else{
+				require_once VIEWS.'/designer/inscription_designer.php';
+			}
 		}
 		else
 		{
