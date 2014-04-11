@@ -12,7 +12,6 @@ if(!empty($_POST['CPEntreprise'])){$CPEntreprise = $_POST['CPEntreprise'];}
 if(!empty($_POST['numSiretEntreprise'])){$numSiretEntreprise = $_POST['numSiretEntreprise'];}
 if(!empty($_POST['typeEntreprise'])){$typeEntreprise = $_POST['typeEntreprise'];}
 
-// On inclus le modèle néccéssaire
 require_once CONTROLLERS.'/utilisateur/utilisateur.php';
 
 // recup front inscription :

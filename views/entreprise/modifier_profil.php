@@ -2,10 +2,9 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Inscription<span>Designer Sonore</span>
+    <h1 class="inner title-2">Modifier<span> mon profil</span>
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
-        <li> <a href="candidates.html">Designers sonores</a></li>
       </ul>
     </h1>
   </div>
@@ -14,33 +13,25 @@
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
-<form class="form-horizontal" method="POST" action="index.php?module=utilisateur&action=manage&type=ajouter">
-  <fieldset>
+<form class="form-horizontal" method="POST" action="index.php?module=utilisateur&action=manage&type=modifier<?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>">
+ <fieldset>
     <div id="legend">
-      <legend class=""><h2>Informations de connexion</h2></legend><br />
+      <legend class=""><h2>Informations de contact</h2></legend><br />
     </div>
     <div class="control-group">
       <!-- Identifiant -->
       <label class="control-label"  for="loginUtilisateur">Identifiant</label>
       <div class="controls">
         <input type="text" id="loginUtilisateur" name="loginUtilisateur" placeholder="" class="input-xlarge">
-        <p class="help-block">Votre identifiant sera utilisé pour la connexion</p>
+        <p class="help-block">L'identifiant sera utilisé pour la connexion</p>
       </div>
     </div>
-
     <div class="control-group">
       <!-- Mot de passe-->
       <label class="control-label" for="passUtilisateur">Mot de passe</label>
       <div class="controls">
         <input type="password" id="passUtilisateur" name="passUtilisateur" placeholder="" class="input-xlarge">
-        <p class="help-block">Vous devez garder ce mot de passe confidentiel. Il vous servira à vous connecter à l'application</p>
       </div>
-    </div>
-
-  </fieldset>
-  <fieldset>
-    <div id="legend">
-      <legend class=""><h2>Informations Personnelles</h2></legend><br />
     </div>
 
     <div class="control-group">
@@ -64,7 +55,6 @@
       <label class="control-label" for="emailUtilisateur">E-mail</label>
       <div class="controls">
         <input type="text" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
-        <p class="help-block">Veuillez renseigner une adresse mail valide</p>
       </div>
     </div>
 
@@ -75,16 +65,6 @@
         <input type="text" id="telUtilisateur" name="telUtilisateur" placeholder="" class="input-xlarge">
       </div>
     </div>
-
-    <div class="control-group">
-      <!-- Biographie -->
-      <label class="control-label" for="bioUtilisateur">Biographie</label>
-      <div class="controls">
-        <textarea class="form-control autogrow" id="bioUtilisateur" name="bioUtilisateur"></textarea>
-      </div>
-    </div>
-
-    <input type="hidden" name="roleUtilisateur" value="GRAPHISTE" />
 
     <div class="control-group">
       <!-- Button -->

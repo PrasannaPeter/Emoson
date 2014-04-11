@@ -13,29 +13,33 @@
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
-<form class="form-horizontal" action='' method="POST">
+<form class="form-horizontal" method="POST" action="index.php?module=projet&action=manage&type=ajouter<?php if(!empty($_GET['idEntreprise'])){ echo '&idEntreprise='.$_GET['idEntreprise']; }else{} ?>">
   <fieldset>
     <div id="legend">
-      <legend class=""><h2>Brief</h2></legend><br />
+      <legend class=""><h2>Faire une demande de projet</h2></legend><br />
     </div>
+<br>
+<strong><h3>Information générale</h3></strong>
+<br>
+<br>
     <div class="control-group">
       <!-- Taille de l'entreprise -->
-      <label class="control-label" for="tailleProjet">Taille de l'entreprise</label>
+      <label class="control-label" for="tailleProjet">Quelle est la taille de l'entreprise ?</label>
       <div class="controls">
-          <div class="checkbox-field">
-            <input id="tailleProjet_1" type="checkbox" value="1"/>
+          <div class="radio-field">
+            <input id="tailleProjet_1" type="radio" value="1"/>
             <label for="tailleProjet_1">1 à 10 personnes -TPE</label>
           </div>
-          <div class="checkbox-field">
-            <input id="tailleProjet_2" type="checkbox" value="2"/>
+          <div class="radio-field">
+            <input id="tailleProjet_2" type="radio" value="2"/>
             <label for="tailleProjet_2">10 à 250 personnes -  Petite et Moyenne entreprises</label>
           </div>
-          <div class="checkbox-field">
-            <input id="tailleProjet_3" type="checkbox" value="3"/>
+          <div class="radio-field">
+            <input id="tailleProjet_3" type="radio" value="3"/>
             <label for="tailleProjet_3">251 et 5000 : Entreprise à taille intermédiaire</label>
           </div>
-          <div class="checkbox-field">
-            <input id="tailleProjet_4" type="checkbox" value="4"/>
+          <div class="radio-field">
+            <input id="tailleProjet_4" type="radio" value="4"/>
             <label for="tailleProjet_4">+ de 5000 salariés : Grandes entreprises</label>
           </div>
       </div>
@@ -43,18 +47,18 @@
 
     <div class="control-group">
       <!-- Dernier Chiffre d'Affaire -->
-      <label class="control-label" for="DernierCAProjet">Dernier Chiffre d'Affaire</label>
+      <label class="control-label" for="DernierCAProjet">Quel est votre dernier chiffre d'affaire ?</label>
       <div class="controls">
-          <div class="checkbox-field">
-            <input id="DernierCAProjet_1" type="checkbox" value="1"/>
+          <div class="radio-field">
+            <input id="DernierCAProjet_1" type="radio" value="1"/>
             <label for="DernierCAProjet_1">0 à 500 000€</label>
           </div>
-          <div class="checkbox-field">
-            <input id="DernierCAProjet_2" type="checkbox" value="2"/>
+          <div class="radio-field">
+            <input id="DernierCAProjet_2" type="radio" value="2"/>
             <label for="DernierCAProjet_2">entre 500 000 € et 1 millions d’Euros</label>
           </div>
-          <div class="checkbox-field">
-            <input id="DernierCAProjet_3" type="checkbox" value="3"/>
+          <div class="radio-field">
+            <input id="DernierCAProjet_3" type="radio" value="3"/>
             <label for="DernierCAProjet_3">plus d’1 millions d’euros </label>
           </div>
       </div>
@@ -62,7 +66,7 @@
 
     <div class="control-group">
       <!-- Vos points de contact avec votre communauté -->
-      <label class="control-label" for="PTContactProjet">Vos points de contact avec votre communauté</label>
+      <label class="control-label" for="PTContactProjet">Vos points de contact avec votre communauté ?</label>
       <div class="controls">
           <div class="checkbox-field">
             <input id="PTContactProjet_1" type="checkbox" value="1"/>
@@ -108,10 +112,57 @@
     </div>
 
 <br>
-Proposititon de pack
+<strong><h3>Proposititon de pack</h3></strong>
 <br>
 <br>
-Proposition d'options
+<!--Partenaires Block-->
+        <div class="clear"></div>
+        <!--Prix Table Block-->
+        <div class="block-content ">
+          <section class="row-fluid">
+            <ul class="price-list span3 box-1">
+              <li class="pgk-title title-1">Bronze</li>
+              <li class="pgk-price title-2">15 €</li>
+              <li>Standard Positioning</li>
+              <li>1 Lorem Ipsum</li>
+              <div class="radio-field">
+                <center>
+                  <input id="TariftProjet_1" type="radio" value="1"/>
+                  <label for="TariftProjet_1" style="color:#2aadde;"><strong>Choisir</strong></label>
+                </center>
+              </div>
+            </ul>
+            <ul class="price-list span3 box-1">
+              <li class="pgk-title title-1">Silver</li>
+              <li class="pgk-price title-2">49 €</li>
+              <li>Extandad Positioning</li>
+              <li>5 Lorem Ipsum</li>
+              <div class="radio-field">
+                <center>
+                  <input id="TariftProjet_2" type="radio" value="2"/>
+                  <label for="TariftProjet_2" style="color:#2aadde;"><strong>Choisir</strong></label>
+                </center>
+              </div>
+            </ul>
+            <ul class="price-list span3 box-1">
+              <li class="pgk-title title-1">Gold</li>
+              <li class="pgk-price title-2">99 €</li>
+              <li>Extra Positioning</li>
+              <li>10 Lorem Ipsum</li>
+              <div class="radio-field">
+                <center>
+                  <input id="TariftProjet_3" type="radio" value="3"/>
+                  <label for="TariftProjet_3" style="color:#2aadde;"><strong>Choisir</strong></label>
+                </center>
+              </div>
+            </ul>
+          </section>
+        </div>
+
+        <!--Prix Table Block-->
+
+<br>
+<strong><h3>Proposition d'options</h3></strong>
 <br>
 <br>
 
