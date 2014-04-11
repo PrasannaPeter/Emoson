@@ -340,7 +340,7 @@ class Utilisateur
 
 				$verif_sql_insert = M_Utilisateur::verif_insert_utilisateur($loginUtilisateur);
 
-				if(!empty($verif_sql_insert['loginUtilisateur']))
+				if(!empty($verif_sql_insert['idUtilisateur']))
 				{
 					$error="error";
 					return $error;
@@ -353,7 +353,7 @@ class Utilisateur
 
 				$verif_sql_insert = M_Utilisateur::verif_insert_utilisateur($loginUtilisateur);
 
-				if(!empty($verif_sql_insert['loginUtilisateur']))
+				if(!empty($verif_sql_insert['idUtilisateur']))
 				{
 					$error="error";
 					return $error;

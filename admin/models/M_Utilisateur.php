@@ -100,7 +100,7 @@ class M_Utilisateur extends Utilisateur
 				break;
 
 				case 'enattente':
-					$req .= " WHERE certifUtilisateur = 0 ";
+					$req .= " WHERE certifUtilisateur = 0 AND roleUtilisateur = 'GRAPHISTE' ";
 				break;
 
 				case 'contact':
