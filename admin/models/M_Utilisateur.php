@@ -205,7 +205,7 @@ class M_Utilisateur extends Utilisateur
 	static function verif_insert_utilisateur($loginUtilisateur)
 	{
 		$bdd = PDO();
-
+               
 		if(!empty($idUtilisateur))
 		{
 			$verif_sql_insert = $bdd->query('
@@ -216,12 +216,29 @@ class M_Utilisateur extends Utilisateur
 		else
 		{
 			$verif_sql_insert = $bdd->query('
-				SELECT idUtilisateur
+				SELECT idUtilisateur,loginUtilisateur
 				FROM utilisateurs
 				WHERE loginUtilisateur = "'.$loginUtilisateur.'"
 			');
+                        
 			$sql_insert = $verif_sql_insert->fetch();
 		}
+		return($sql_insert);
+	}
+        
+        //verif email user lors de l inscription
+        static function verif_insert_utilisateurEmail($emailUtilisateur)
+	{
+		$bdd = PDO();
+
+                $verif_sql_insert = $bdd->query('
+                        SELECT idUtilisateur,loginUtilisateur
+                        FROM utilisateurs
+                        WHERE emailUtilisateur = "'.$emailUtilisateur.'"
+                ');
+
+                $sql_insert = $verif_sql_insert->fetch();
+
 		return($sql_insert);
 	}
 

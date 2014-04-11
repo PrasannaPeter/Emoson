@@ -11,8 +11,12 @@ if(!empty($_POST['passUtilisateur'])){$passUtilisateur = $_POST['passUtilisateur
 if(!empty($_POST['emailUtilisateur'])){$emailUtilisateur = $_POST['emailUtilisateur'];}
 if(!empty($_POST['bioUtilisateur'])){$bioUtilisateur = $_POST['bioUtilisateur'];}
 if(!empty($_POST['roleUtilisateur'])){$roleUtilisateur = $_POST['roleUtilisateur'];}
-if($_POST['certifUtilisateur'] == "on"){$certifUtilisateur = 1;}else{$certifUtilisateur = 0;}
-
+//if($_POST['certifUtilisateur'] == "on"){$certifUtilisateur = 1;}else{$certifUtilisateur = 0;}
+if($type=="ajouter"){
+    $certifUtilisateur = 0;
+}else{
+    $certifUtilisateur = 1;
+}
 switch($type)
 {
 	case "ajouter" :
@@ -44,11 +48,26 @@ switch($type)
 					header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
 				}
 			}else{
+                                
 				if($set_utilisateur=="ok")
 				{
 					$_SESSION['typeNotif'] = "success";
 					$_SESSION['titreNotif'] = "Votre inscription à bien été prise en compte, vous pouvez maintenant vous connecter pour remplir votre portfolio";
 					header('Location:index.php');
+				}
+                                else if($set_utilisateur=="errorEmailExist")
+				{
+					$_SESSION['typeNotif'] = "error";
+					$_SESSION['titreNotif'] = "L'utilisateur n'a pas été ajouté à l'application";
+					$_SESSION['msgNotif'] = "L'email entré éxiste déjà dans la base";
+					header('Location:index.php?module=designer&action=inscription_designer');
+				}
+                                else if($set_utilisateur=="errorUserExist")
+				{
+					$_SESSION['typeNotif'] = "error";
+					$_SESSION['titreNotif'] = "L'utilisateur n'a pas été ajouté à l'application";
+					$_SESSION['msgNotif'] = "L'utilisateur entré éxiste déjà dans la base";
+					header('Location:index.php?module=designer&action=inscription_designer');
 				}
 				else
 				{

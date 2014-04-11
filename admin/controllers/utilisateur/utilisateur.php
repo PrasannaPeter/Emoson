@@ -236,9 +236,9 @@ class Utilisateur
 		if(empty($idUtilisateur))
 		{
 			$type = "insert";
-
-			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur);
-
+                        
+			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur,$emailUtilisateur);
+                        
 			if(!empty($verif_sql) && $verif_sql=="error_ID")
 			{
 				return $verif_sql;
@@ -248,6 +248,14 @@ class Utilisateur
 				return $verif_sql;
 			}
 			else if(!empty($verif_sql) && $verif_sql=="error")
+			{
+				return $verif_sql;
+			}
+                         else if(!empty($verif_sql) && $verif_sql=="errorEmailExist")
+			{
+				return $verif_sql;
+			}
+                        else if(!empty($verif_sql) && $verif_sql=="errorUserExist")
 			{
 				return $verif_sql;
 			}
@@ -332,19 +340,25 @@ class Utilisateur
 	}
 
 
-	static function verif_sql($type, $loginUtilisateur=NULL, $idUtilisateur=NULL)
+	static function verif_sql($type, $loginUtilisateur=NULL, $emailUtilisateur=NULL,$idUtilisateur=NULL)
 	{
 		switch ($type)
 		{
 			case "insert":
-
+                            
 				$verif_sql_insert = M_Utilisateur::verif_insert_utilisateur($loginUtilisateur);
-
-				if(!empty($verif_sql_insert['loginUtilisateur']))
+                                if(!empty($verif_sql_insert['loginUtilisateur']))
 				{
-					$error="error";
+					$error="errorUserExist";
 					return $error;
 				}
+                                
+                                $verif_sql_insertEmail = M_Utilisateur::verif_insert_utilisateurEmail($emailUtilisateur);
+                                if(!empty($verif_sql_insertEmail['loginUtilisateur'])){
+                                    
+                                        $error="errorEmailExist";
+					return $error;
+                                }
 
 			break;
 

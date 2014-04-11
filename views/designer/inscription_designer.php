@@ -63,7 +63,7 @@
       <!-- E-mail -->
       <label class="control-label" for="emailUtilisateur">E-mail</label>
       <div class="controls">
-        <input type="text" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
+          <input type="email" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
         <p class="help-block">Veuillez renseigner une adresse mail valide</p>
       </div>
     </div>
