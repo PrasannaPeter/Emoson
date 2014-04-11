@@ -3,7 +3,7 @@
 	@author		:	Giriraj Namachivayam
 	@date 		:	Apr 25, 2013
 	@demourl		:	http://ngiriraj.com/socialMedia/oauthlogin/
-	@license		: 	Free to use, 
+	@license		: 	Free to use,
 */
 
 include "socialmedia_oauth_connect.php";

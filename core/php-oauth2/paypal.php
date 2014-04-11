@@ -4,8 +4,8 @@
 	@date 		:	Mar 20, 2013
 	@demourl		:	http://ngiriraj.com/socialMedia/oauthlogin/paypal.php
 	@document		:	http://ngiriraj.com/work/paypal-connect-by-using-oauth-in-php-2/
-	@license		: 	Free to use, 
-	@History		:	V1.0 - Released oauth 2.0 service providers login access	
+	@license		: 	Free to use,
+	@History		:	V1.0 - Released oauth 2.0 service providers login access
 	@oauth2		:	Support following oauth2 login
 					Bitly
 					Wordpress
@@ -17,8 +17,8 @@
 					Box
 					Reddit
 					Yammer
-					Yandex					
-	
+					Yandex
+
 */
 
 include "socialmedia_oauth_connect.php";
