@@ -13,18 +13,22 @@ class M_Projet extends Projet
 		if(!empty($idProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet
-				FROM projets
+				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				FROM projets P, utilisateurs U
 				WHERE idProjet ='.$idProjet.'
+				AND P.idUtilisateur = U.idUtilisateur;
+				AND roleUtilisateur = "ENTREPRISE"
 			');
 			$read_projet = $read_projet->fetch();
 		}
 		else if(!empty($titreProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet
-				FROM projets
-				WHERE titreProjet = "'.$titreProjet.'"
+				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				FROM projets P, utilisateurs U
+				WHERE idProjet ='.$idProjet.'
+				AND P.idUtilisateur = U.idUtilisateur;
+				AND roleUtilisateur = "ENTREPRISE"
 			');
 		}
 		else
@@ -62,6 +66,19 @@ class M_Projet extends Projet
 		return($read_projet);
 	}
 
+	static function read_contact()
+	{
+		$bdd = PDO();
+
+		$read_contact = $bdd->query('
+			SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+			FROM utilisateurs 
+			WHERE roleUtilisateur = "ENTREPRISE"
+		');
+
+		return($read_contact);
+	}
+
 
 	static function projet_accepter($idProjet)
 	{
@@ -89,13 +106,13 @@ class M_Projet extends Projet
 	}
 
 
-	static function insert_projet($titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet)
+	static function insert_projet($titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet, $idUtilisateur)
 	{
 		$bdd = PDO();
 
 		$sql_insert =$bdd->prepare('
-			INSERT INTO projets(titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, isActiveProjet, budgetMinProjet, budgetMaxProjet)
-			VALUES (:titreProjet, :descriptionProjet, :dateDebutProjet, :dateFinProjet, :nbPistes, :isActiveProjet, :budgetMinProjet, :budgetMaxProjet)
+			INSERT INTO projets(titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, isActiveProjet, budgetMinProjet, budgetMaxProjet, idUtilisateur)
+			VALUES (:titreProjet, :descriptionProjet, :dateDebutProjet, :dateFinProjet, :nbPistes, :isActiveProjet, :budgetMinProjet, :budgetMaxProjet, :idUtilisateur)
 					');
 
 		$sql_insert->execute(array(
@@ -108,6 +125,7 @@ class M_Projet extends Projet
 						'isActiveProjet' => $isActiveProjet,
 						'budgetMinProjet' => $budgetMinProjet,
 						'budgetMaxProjet' => $budgetMaxProjet,
+						'idUtilisateur' => $idUtilisateur,
 					));
 
 		return($sql_insert);

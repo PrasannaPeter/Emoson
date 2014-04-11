@@ -22,7 +22,7 @@ switch($type)
 		// INSERT
 		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($dateDebutProjet) && !empty($dateFinProjet) && !empty($nbPistes))
 		{
-			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $nomContact, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet);
+			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet, $idContact);
 
 			// Verifie l'action sinon erreur
 			if($set_projet=="ok")
