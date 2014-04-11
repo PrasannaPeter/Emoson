@@ -95,12 +95,12 @@
       </div>
     </div> -->
 
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
         <button class="btn btn-success">Confirmer</button>
+        </div>
       </div>
-    </div>
   </fieldset>
 </form>
 
