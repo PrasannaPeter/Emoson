@@ -158,7 +158,7 @@ class M_Entreprise extends Entreprise
 		if(!empty($idEntreprise))
 		{
 			$sql_delete = $bdd->query('
-				DELETE FROM Entreprises
+				DELETE FROM entreprises
 				WHERE idEntreprise = '.$idEntreprise.'
 			');
 		}
@@ -175,7 +175,7 @@ class M_Entreprise extends Entreprise
 		if(!empty($raisonSocialeEntreprise))
 		{
 			$verif_sql_insert = $bdd->query('
-				SELECT idEntreprise FROM Entreprises WHERE raisonSocialeEntreprise="'.$raisonSocialeEntreprise.'"
+				SELECT idEntreprise, raisonSocialeEntreprise FROM entreprises WHERE raisonSocialeEntreprise="'.$raisonSocialeEntreprise.'"
 			');
 			$sql_insert = $verif_sql_insert->fetch();
 		}
@@ -183,7 +183,7 @@ class M_Entreprise extends Entreprise
 		{
 			$verif_sql_insert = $bdd->query('
 				SELECT idEntreprise
-				FROM Entreprises
+				FROM entreprises
 				WHERE idEntreprise = "'.$idEntreprise.'"
 			');
 			$sql_insert = $verif_sql_insert->fetch();

@@ -13,7 +13,7 @@ class M_Projet extends Projet
 		if(!empty($idProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U
 				WHERE idProjet ='.$idProjet.'
 				AND P.idUtilisateur = U.idUtilisateur;
@@ -24,7 +24,7 @@ class M_Projet extends Projet
 		else if(!empty($titreProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U
 				WHERE idProjet ='.$idProjet.'
 				AND P.idUtilisateur = U.idUtilisateur;
@@ -71,8 +71,8 @@ class M_Projet extends Projet
 		$bdd = PDO();
 
 		$read_contact = $bdd->query('
-			SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
-			FROM utilisateurs 
+			SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
+			FROM utilisateurs
 			WHERE roleUtilisateur = "ENTREPRISE"
 		');
 
@@ -211,7 +211,7 @@ class M_Projet extends Projet
 		if(!empty($titreProjet))
 		{
 			$verif_sql_insert = $bdd->query('
-				SELECT idProjet FROM projets WHERE titreProjet="'.$titreProjet.'"
+				SELECT idProjet, titreProjet FROM projets WHERE titreProjet="'.$titreProjet.'"
 			');
 			$sql_insert = $verif_sql_insert->fetch();
 		}

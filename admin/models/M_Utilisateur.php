@@ -216,7 +216,7 @@ class M_Utilisateur extends Utilisateur
 		else
 		{
 			$verif_sql_insert = $bdd->query('
-				SELECT idUtilisateur
+				SELECT idUtilisateur, loginUtilisateur
 				FROM utilisateurs
 				WHERE loginUtilisateur = "'.$loginUtilisateur.'"
 			');
