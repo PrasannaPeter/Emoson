@@ -34,6 +34,12 @@ class Projet
 		return($get_projet);
 	}
 
+	static function get_contact()
+	{
+		$get_contact = M_Projet::read_contact();
+		return($get_contact);
+	}
+
 
 
 	static function get_assignation_projet($idGraphiste, $idProjet)

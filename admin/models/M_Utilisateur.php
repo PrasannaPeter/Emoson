@@ -100,7 +100,7 @@ class M_Utilisateur extends Utilisateur
 				break;
 
 				case 'enattente':
-					$req .= " WHERE certifUtilisateur = 0 ";
+					$req .= " WHERE certifUtilisateur = 0 AND roleUtilisateur = 'GRAPHISTE' ";
 				break;
 
 				case 'contact':
@@ -202,32 +202,23 @@ class M_Utilisateur extends Utilisateur
 
 	// Verification intégritée BDD
 
-	static function verif_insert_utilisateur($loginUtilisateur)
+	static function verif_login_utilisateurBDD($loginUtilisateur)
 	{
 		$bdd = PDO();
                
-		if(!empty($idUtilisateur))
-		{
-			$verif_sql_insert = $bdd->query('
-				SELECT loginUtilisateur FROM utilisateurs WHERE idUtilisateur='.$idUtilisateur.'
-			');
-			$sql_insert = $verif_sql_insert->fetch();
-		}
-		else
-		{
-			$verif_sql_insert = $bdd->query('
-				SELECT idUtilisateur,loginUtilisateur
+		$verif_sql_insert = $bdd->query('
+				SELECT idUtilisateur, loginUtilisateur
 				FROM utilisateurs
 				WHERE loginUtilisateur = "'.$loginUtilisateur.'"
 			');
                         
 			$sql_insert = $verif_sql_insert->fetch();
-		}
+		
 		return($sql_insert);
 	}
         
         //verif email user lors de l inscription
-        static function verif_insert_utilisateurEmail($emailUtilisateur)
+        static function verif_email_utilisateurBDD($emailUtilisateur)
 	{
 		$bdd = PDO();
 
@@ -239,6 +230,37 @@ class M_Utilisateur extends Utilisateur
 
                 $sql_insert = $verif_sql_insert->fetch();
 
+		return($sql_insert);
+	}
+        
+        //update verif si login existe deja 
+        static function verif_update_utilisateurBDD($loginUtilisateur)
+	{
+		$bdd = PDO();
+                
+                $verif_sql_insert = $bdd->query('
+                        SELECT count(loginUtilisateur) as nbLogin
+                        FROM utilisateurs
+                        WHERE loginUtilisateur = "'.$loginUtilisateur.'"
+                ');
+
+                $sql_insert = $verif_sql_insert->fetch();
+                
+		return($sql_insert);
+	}
+        
+        //verif email user lors de la modification
+        static function verif_update_email_utilisateurBDD($emailUtilisateur)
+	{
+		$bdd = PDO();
+
+                $verif_sql_insert = $bdd->query('
+                       SELECT count(loginUtilisateur) as nbLoginEmail
+                        FROM utilisateurs
+                        WHERE emailUtilisateur = "'.$emailUtilisateur.'"
+                ');
+                
+                $sql_insert = $verif_sql_insert->fetch();
 		return($sql_insert);
 	}
 

@@ -40,6 +40,20 @@ switch($type)
 					$_SESSION['msgNotif'] = "L'utilisateur entré éxiste déjà dans la base";
 					header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
 				}
+                                else if($set_utilisateur=="errorEmailExist")
+				{
+					$_SESSION['typeNotif'] = "error";
+					$_SESSION['titreNotif'] = "L'utilisateur n'a pas été ajouté à l'application";
+					$_SESSION['msgNotif'] = "L'email entré éxiste déjà dans la base";
+					header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+				}
+                                else if($set_utilisateur=="errorUserExist")
+				{
+					$_SESSION['typeNotif'] = "error";
+					$_SESSION['titreNotif'] = "L'utilisateur n'a pas été ajouté à l'application";
+					$_SESSION['msgNotif'] = "L'utilisateur entré éxiste déjà dans la base";
+					header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+				}
 				else if($set_utilisateur=="error")
 				{
 					$_SESSION['typeNotif'] = "error";
@@ -98,12 +112,12 @@ switch($type)
 	break;
 
 	case "modifier" :
-
+            
 		// UPDATE
 		if(!empty($idUtilisateur) && !empty($nomUtilisateur) && !empty($prenomUtilisateur) && !empty($loginUtilisateur) && !empty($emailUtilisateur))
 		{
 			$set_utilisateur = Utilisateur::set_utilisateur($idUtilisateur, $nomUtilisateur, $prenomUtilisateur, $telUtilisateur, $loginUtilisateur, $passUtilisateur, $emailUtilisateur, $bioUtilisateur, $roleUtilisateur, $certifUtilisateur);
-
+                        
 			// Verifie l'action sinon erreur
 			if($set_utilisateur=="error")
 			{
@@ -112,6 +126,20 @@ switch($type)
 				$_SESSION['msgNotif'] = "";
 				header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
 			}
+                        else if($set_utilisateur=="errorEmailExist")
+                        {
+                                $_SESSION['typeNotif'] = "error";
+                                $_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
+                                $_SESSION['msgNotif'] = "L'email entré éxiste déjà dans la base";
+                                header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+                        }
+                        else if($set_utilisateur=="errorUserExist")
+                        {
+                                $_SESSION['typeNotif'] = "error";
+                                $_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
+                                $_SESSION['msgNotif'] = "L'utilisateur entré éxiste déjà dans la base";
+                                header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+                        }
 			else if($set_utilisateur=="ok")
 			{
 				$_SESSION['typeNotif'] = "success";

@@ -206,13 +206,24 @@ class Utilisateur
 							</a>
 
 							<?php
+
 							if($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE")
-							{ ?>
-								<a href="index.php?module=utilisateur&action=assigner_projet&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
-								<i class="entypo-info"></i>
-								Proposer à un projet
-							</a>
-							<?php
+							{
+								if($tab_utilisateur['certifUtilisateur'] == true){
+									?>
+									<a href="index.php?module=utilisateur&action=manage&type=proposer_projet&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+									<i class="entypo-link"></i>
+									Proposer à un projet
+									</a>
+									<?php
+								}else{
+								?>
+									<a href="index.php?module=utilisateur&action=manage&type=certifier&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+									<i class="entypo-star"></i>
+									Certifier cet utilisateur
+									</a>
+									<?php
+								}
 							} ?>
 
 
@@ -229,8 +240,9 @@ class Utilisateur
 
 	static function set_utilisateur($idUtilisateur=NULL, $nomUtilisateur, $prenomUtilisateur, $telUtilisateur, $loginUtilisateur, $passUtilisateur=NULL, $emailUtilisateur, $bioUtilisateur, $roleUtilisateur, $certifUtilisateur)
 	{
-		if(!$certifUtilisateur)
+		if(!$certifUtilisateur){
 			$certifUtilisateur = 0;
+                }
 
 		// Si on a pas d'ID, INSERT
 		if(empty($idUtilisateur))
@@ -238,7 +250,7 @@ class Utilisateur
 			$type = "insert";
                         
 			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur,$emailUtilisateur);
-                        
+                       
 			if(!empty($verif_sql) && $verif_sql=="error_ID")
 			{
 				return $verif_sql;
@@ -284,8 +296,8 @@ class Utilisateur
 		{
 			$type = "update";
 
-			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur, $idUtilisateur);
-
+			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur);
+                        
 			if(!empty($verif_sql))
 			{
 					$updateUtilisateur = "error";
@@ -346,14 +358,15 @@ class Utilisateur
 		{
 			case "insert":
                             
-				$verif_sql_insert = M_Utilisateur::verif_insert_utilisateur($loginUtilisateur);
+				$verif_sql_insert = M_Utilisateur::verif_login_utilisateurBDD($loginUtilisateur);
+
                                 if(!empty($verif_sql_insert['loginUtilisateur']))
 				{
 					$error="errorUserExist";
 					return $error;
 				}
                                 
-                                $verif_sql_insertEmail = M_Utilisateur::verif_insert_utilisateurEmail($emailUtilisateur);
+                                $verif_sql_insertEmail = M_Utilisateur::verif_email_utilisateurBDD($emailUtilisateur);
                                 if(!empty($verif_sql_insertEmail['loginUtilisateur'])){
                                     
                                         $error="errorEmailExist";
@@ -365,13 +378,13 @@ class Utilisateur
 
 			case "update":
 
-				$verif_sql_insert = M_Utilisateur::verif_insert_utilisateur($loginUtilisateur);
+				$verif_sql_insert = M_Utilisateur::verif_login_utilisateurBDD($loginUtilisateur);
 
 				if(!empty($verif_sql_insert['loginUtilisateur']))
 				{
-					$error="error";
+					$error="errorUserExist";
 					return $error;
-				}
+                                }
 
 			break;
 

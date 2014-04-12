@@ -37,7 +37,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Email</label>
 							<div class="col-sm-5">
-								<input class="form-control" required="required" type="text" name="emailUtilisateur" value="<?php if(!empty($get_utilisateur['emailUtilisateur'])){ echo $get_utilisateur['emailUtilisateur']; }Else{echo "";}?>">
+								<input class="form-control" required="required" type="email" name="emailUtilisateur" value="<?php if(!empty($get_utilisateur['emailUtilisateur'])){ echo $get_utilisateur['emailUtilisateur']; }Else{echo "";}?>">
 							</div>
 						</div>
 

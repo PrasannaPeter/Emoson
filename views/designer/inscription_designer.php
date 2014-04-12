@@ -23,7 +23,7 @@
       <!-- Identifiant -->
       <label class="control-label"  for="loginUtilisateur">Identifiant</label>
       <div class="controls">
-        <input type="text" id="loginUtilisateur" name="loginUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" required="required" id="loginUtilisateur" name="loginUtilisateur" placeholder="" class="input-xlarge">
         <p class="help-block">Votre identifiant sera utilisé pour la connexion</p>
       </div>
     </div>
@@ -32,7 +32,7 @@
       <!-- Mot de passe-->
       <label class="control-label" for="passUtilisateur">Mot de passe</label>
       <div class="controls">
-        <input type="password" id="passUtilisateur" name="passUtilisateur" placeholder="" class="input-xlarge">
+        <input type="password" required="required"  id="passUtilisateur" name="passUtilisateur" placeholder="" class="input-xlarge">
         <p class="help-block">Vous devez garder ce mot de passe confidentiel. Il vous servira à vous connecter à l'application</p>
       </div>
     </div>
@@ -47,7 +47,7 @@
       <!-- Nom -->
       <label class="control-label"  for="nomUtilisateur">Nom</label>
       <div class="controls">
-        <input type="text" id="nomUtilisateur" name="nomUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" required="required" id="nomUtilisateur" name="nomUtilisateur" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -55,7 +55,7 @@
       <!-- Prénom -->
       <label class="control-label"  for="prenomUtilisateur">Prénom</label>
       <div class="controls">
-        <input type="text" id="prenomUtilisateur" name="prenomUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" required="required" id="prenomUtilisateur" name="prenomUtilisateur" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -63,7 +63,7 @@
       <!-- E-mail -->
       <label class="control-label" for="emailUtilisateur">E-mail</label>
       <div class="controls">
-          <input type="email" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
+          <input type="email" required="required" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
         <p class="help-block">Veuillez renseigner une adresse mail valide</p>
       </div>
     </div>
@@ -72,7 +72,7 @@
       <!-- N° Telephone -->
       <label class="control-label" for="telUtilisateur">N° Telephone</label>
       <div class="controls">
-        <input type="text" id="telUtilisateur" name="telUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" required="required" id="telUtilisateur" name="telUtilisateur" placeholder="" class="input-xlarge">
       </div>
     </div>
 
