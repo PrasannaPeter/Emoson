@@ -250,7 +250,7 @@ class Entreprise
 
 				$verif_sql_delete = M_Entreprise::verif_delete_entreprise($idEntreprise);
 
-				if(!!empty($verif_sql_delete))
+				if(!empty($verif_sql_delete))
 				{
 					$typeNotif = "error";
 					return $typeNotif;

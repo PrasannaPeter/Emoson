@@ -65,10 +65,18 @@
 
     <!-- User Menu -->
     <ul id="user-menu">
-        <a class="btn btn-warning" href="#loginModal" role="button" data-toggle="modal">Connexion</a>
-        <a class="btn btn-info" href="index.php?module=designer&action=inscription_designer">Inscription designer sonore</a>
-        <a class="btn btn-success" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>
-        <a class="btn btn-error" href="index.php?module=dashboard&action=afficher">Mon espace</a>
+        <?php if(!is_connected()){ ?>
+          <a class="btn btn-warning" href="#loginModal" role="button" data-toggle="modal">Connexion</a>
+          <a class="btn btn-info" href="index.php?module=designer&action=inscription_designer">Inscription designer sonore</a>
+          <a class="btn btn-success" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>
+        <?php }else{ ?>
+          <?php if($_SESSION['roleUtilisateur'] == "ADMIN"){ ?>
+            <a class="btn btn-success" href="admin/index.php">Administration</a>
+          <?php }else{ ?>
+            <a class="btn btn-success" href="index.php?module=dashboard&action=afficher">Mon espace</a>
+          <?php } ?>
+          <a class="btn btn-info" href="index.php?module=utilisateur&action=deconnexion">Déconnexion</a>
+        <?php } ?>
     </ul>
     <!-- /User Menu -->
   </div>
@@ -145,7 +153,7 @@
               Login
             </label>
             <div class="controls">
-              <input name="login" type="text" value="" id="login">
+              <input name="login" required="required" type="text" value="" id="login">
             </div>
           </div>
 
@@ -154,7 +162,7 @@
               Mot de passe
             </label>
             <div class="controls">
-              <input name="password" type="password" value="" id="password">
+              <input name="password" required="required" type="password" value="" id="password">
             </div>
           </div>
 

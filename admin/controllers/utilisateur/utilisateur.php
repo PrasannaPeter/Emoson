@@ -133,7 +133,10 @@ class Utilisateur
 	{
 		// Détruit les sessions => déconnexion
 		session_destroy();
-		header('Location:../index.php');
+		if(site_admin())
+			header('Location:../index.php');
+		else
+			header('Location:index.php');
 	}
 
 
@@ -248,9 +251,9 @@ class Utilisateur
 		if(empty($idUtilisateur))
 		{
 			$type = "insert";
-                        
+
 			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur,$emailUtilisateur);
-                       
+
 			if(!empty($verif_sql) && $verif_sql=="error_ID")
 			{
 				return $verif_sql;
@@ -297,7 +300,7 @@ class Utilisateur
 			$type = "update";
 
 			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur);
-                        
+
 			if(!empty($verif_sql))
 			{
 					$updateUtilisateur = "error";
@@ -357,18 +360,18 @@ class Utilisateur
 		switch ($type)
 		{
 			case "insert":
-                            
+
 				$verif_sql_insert = M_Utilisateur::verif_login_utilisateurBDD($loginUtilisateur);
 
-                                if(!empty($verif_sql_insert['loginUtilisateur']))
+                                if(!empty($verif_sql_insert['idUtilisateur']))
 				{
 					$error="errorUserExist";
 					return $error;
 				}
-                                
+
                                 $verif_sql_insertEmail = M_Utilisateur::verif_email_utilisateurBDD($emailUtilisateur);
-                                if(!empty($verif_sql_insertEmail['loginUtilisateur'])){
-                                    
+                                if(!empty($verif_sql_insertEmail['idUtilisateur'])){
+
                                         $error="errorEmailExist";
 					return $error;
                                 }
@@ -380,7 +383,7 @@ class Utilisateur
 
 				$verif_sql_insert = M_Utilisateur::verif_login_utilisateurBDD($loginUtilisateur);
 
-				if(!empty($verif_sql_insert['loginUtilisateur']))
+				if(!empty($verif_sql_insert['idUtilisateur']))
 				{
 					$error="errorUserExist";
 					return $error;
