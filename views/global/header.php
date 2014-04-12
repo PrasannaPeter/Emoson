@@ -56,10 +56,12 @@
 
     <!-- Language Menu -->
     <ul id="lang-menu">
-      <li id="en" class="current">Fr</li>
-      <li id="fr"><a href="#">En</a></li>
-      <li id="de"><a href="#">De</a></li>
-      <li id="it"><a href="#">It</a></li>
+      <li>Bonjour </li>
+      <?php if(!empty($_SESSION['loginUtilisateur'])){ ?>
+        <li><?php echo $_SESSION['loginUtilisateur']; ?></li>
+      <?php }else{ ?>
+        <li>visiteur</li>
+      <?php } ?>
     </ul>
     <!-- /Language Menu -->
 
