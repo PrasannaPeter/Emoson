@@ -206,11 +206,13 @@
 
 	<script src="assets/js/gsap/main-gsap.js" id="script-resource-1"></script>
 	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js" id="script-resource-2"></script>
+	<script src="assets/js/bootstrap-switch.min.js" id="script-resource-7"></script>
 	<script src="assets/js/bootstrap.min.js" id="script-resource-3"></script>
 	<script src="assets/js/joinable.js" id="script-resource-4"></script>
 	<script src="assets/js/resizeable.js" id="script-resource-5"></script>
 	<script src="assets/js/neon-api.js" id="script-resource-6"></script>
 	<script src="assets/js/jquery.dataTables.min.js" id="script-resource-7"></script>
+	<script src="assets/js/jquery.validate.min.js" id="script-resource-7"></script>
 	<script src="assets/js/dataTables.bootstrap.js" id="script-resource-8"></script>
 	<script src="assets/js/select2/select2.min.js" id="script-resource-9"></script>
 	<script src="assets/js/bootstrap-datepicker.js" id="script-resource-11"></script>

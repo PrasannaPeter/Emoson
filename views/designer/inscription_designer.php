@@ -14,7 +14,7 @@
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
-<form class="form-horizontal" method="POST" action="index.php?module=utilisateur&action=manage&type=ajouter">
+<form class="form-horizontal validate" method="POST" action="index.php?module=utilisateur&action=manage&type=ajouter">
   <fieldset>
     <div id="legend">
       <legend class=""><h2>Informations de connexion</h2></legend><br />
@@ -23,7 +23,7 @@
       <!-- Identifiant -->
       <label class="control-label"  for="loginUtilisateur">Identifiant</label>
       <div class="controls">
-        <input type="text" id="loginUtilisateur" name="loginUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="loginUtilisateur" name="loginUtilisateur" required="required" placeholder="" class="input-xlarge">
         <p class="help-block">Votre identifiant sera utilisé pour la connexion</p>
       </div>
     </div>
@@ -32,8 +32,8 @@
       <!-- Mot de passe-->
       <label class="control-label" for="passUtilisateur">Mot de passe</label>
       <div class="controls">
-        <input type="password" id="passUtilisateur" name="passUtilisateur" placeholder="" class="input-xlarge">
-        <p class="help-block">Vous devez garder ce mot de passe confidentiel. Il vous servira à vous connecter à l'application</p>
+        <input type="password" id="passUtilisateur" name="passUtilisateur" required="required" placeholder="" class="input-xlarge">
+        <p class="help-block">Vous devez garder ce mot de passe confidentiel.<br>Il vous servira à vous connecter à l'application.</p>
       </div>
     </div>
 
@@ -47,7 +47,7 @@
       <!-- Nom -->
       <label class="control-label"  for="nomUtilisateur">Nom</label>
       <div class="controls">
-        <input type="text" id="nomUtilisateur" name="nomUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="nomUtilisateur" name="nomUtilisateur" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -55,7 +55,7 @@
       <!-- Prénom -->
       <label class="control-label"  for="prenomUtilisateur">Prénom</label>
       <div class="controls">
-        <input type="text" id="prenomUtilisateur" name="prenomUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="prenomUtilisateur" name="prenomUtilisateur" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -63,7 +63,7 @@
       <!-- E-mail -->
       <label class="control-label" for="emailUtilisateur">E-mail</label>
       <div class="controls">
-        <input type="text" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
+        <input type="email" id="emailUtilisateur" name="emailUtilisateur" data-validate="email" required="required" class="input-xlarge">
         <p class="help-block">Veuillez renseigner une adresse mail valide</p>
       </div>
     </div>
@@ -80,7 +80,7 @@
       <!-- Biographie -->
       <label class="control-label" for="bioUtilisateur">Biographie</label>
       <div class="controls">
-        <textarea class="form-control autogrow" id="bioUtilisateur" name="bioUtilisateur"></textarea>
+        <textarea style="height:250px;" class="form-control autogrow" id="bioUtilisateur" name="bioUtilisateur"></textarea>
       </div>
     </div>
 

@@ -10,7 +10,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 			</div>
 
 			<div class="panel-body">
-				<form method="POST" action="index.php?module=entreprise&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>" class="form-horizontal form-groups-bordered">
+				<form method="POST" action="index.php?module=entreprise&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>" class="form-horizontal form-groups-bordered validate">
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Raison sociale</label>
@@ -36,14 +36,14 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Site Web</label>
 							<div class="col-sm-5">
-								<input class="form-control" required="required" type="text" name="siteWebEntreprise" value="<?php if(!empty($get_entreprise['siteWebEntreprise'])){ echo $get_entreprise['siteWebEntreprise']; }Else{echo "";}?>">
+								<input class="form-control" required="required" data-validate="url" type="text" name="siteWebEntreprise" value="<?php if(!empty($get_entreprise['siteWebEntreprise'])){ echo $get_entreprise['siteWebEntreprise']; }Else{echo "";}?>">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Num Siret</label>
 							<div class="col-sm-5">
-								<input class="form-control" required="required" type="text" name="numSiretEntreprise" value="<?php if(!empty($get_entreprise['numSiretEntreprise'])){ echo $get_entreprise['numSiretEntreprise']; }Else{echo "";}?>">
+								<input class="form-control" required="required" type="text" data-validate="number,maxlength[20]" name="numSiretEntreprise" value="<?php if(!empty($get_entreprise['numSiretEntreprise'])){ echo $get_entreprise['numSiretEntreprise']; }Else{echo "";}?>">
 							</div>
 						</div>
 
@@ -64,8 +64,9 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Code postal</label>
 							<div class="col-sm-5">
-								<input class="form-control" type="text" name="CPEntreprise" value="<?php if(!empty($get_entreprise['CPEntreprise'])){ echo $get_entreprise['CPEntreprise']; }Else{echo "";}?>">
+								<input type="text" class="form-control" name="CPEntreprise" data-validate="number,maxlength[6]" value="<?php if(!empty($get_entreprise['CPEntreprise'])){ echo $get_entreprise['CPEntreprise']; }Else{echo "";}?>">
 							</div>
+						</div>
 
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-5">

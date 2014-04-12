@@ -10,7 +10,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 			</div>
 
 			<div class="panel-body">
-				<form method="POST" action="index.php?module=utilisateur&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>" class="form-horizontal form-groups-bordered">
+				<form method="POST" action="index.php?module=utilisateur&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>" class="form-horizontal form-groups-bordered validate">
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Identifiant</label>
@@ -37,14 +37,14 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Email</label>
 							<div class="col-sm-5">
-								<input class="form-control" required="required" type="text" name="emailUtilisateur" value="<?php if(!empty($get_utilisateur['emailUtilisateur'])){ echo $get_utilisateur['emailUtilisateur']; }Else{echo "";}?>">
+								<input class="form-control" data-validate="email" required="required" type="text" name="emailUtilisateur" value="<?php if(!empty($get_utilisateur['emailUtilisateur'])){ echo $get_utilisateur['emailUtilisateur']; }Else{echo "";}?>">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Telephone</label>
 							<div class="col-sm-5">
-								<input class="form-control" type="text" name="telUtilisateur" value="<?php if(!empty($get_utilisateur['telUtilisateur'])){ echo $get_utilisateur['telUtilisateur']; }Else{echo "";}?>">
+								<input class="form-control" type="text" name="telUtilisateur" data-validate="maxlength[15]" value="<?php if(!empty($get_utilisateur['telUtilisateur'])){ echo $get_utilisateur['telUtilisateur']; }Else{echo "";}?>">
 							</div>
 						</div>
 
@@ -64,9 +64,10 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Certification</label>
+
 							<div class="col-sm-5">
-								<div class="checkbox">
-								<input type="checkbox" name="certifUtilisateur" <?php if($get_utilisateur['certifUtilisateur']){ echo "checked='checked'"; }Else{echo 0;} ?> >
+								<div class="make-switch">
+								    <input name="certifUtilisateur" type="checkbox" <?php if($get_utilisateur['certifUtilisateur']){ echo "checked='checked'"; }?> >
 								</div>
 							</div>
 						</div>
@@ -77,7 +78,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 
 								<?php if(!empty($_GET['idUtilisateur']))
 								{ echo '<input type="text" class="form-control" disabled 	name="passUtilisateur" value="">';} else
-								{ echo '<input type="text" class="form-control" name="passUtilisateur" value="">';}
+								{ echo '<input type="text" class="form-control" required="required" name="passUtilisateur" value="">';}
 								?>
 								<p>Seul le utilisateur peux modifier son mot de passe.</p>
 							</div>

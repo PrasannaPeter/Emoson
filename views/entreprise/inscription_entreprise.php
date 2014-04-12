@@ -23,7 +23,7 @@
       <!-- Identifiant -->
       <label class="control-label"  for="loginUtilisateur">Identifiant</label>
       <div class="controls">
-        <input type="text" id="loginUtilisateur" name="loginUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="loginUtilisateur" name="loginUtilisateur" required="required" placeholder="" class="input-xlarge">
         <p class="help-block">L'identifiant sera utilisé pour la connexion</p>
       </div>
     </div>
@@ -31,7 +31,7 @@
       <!-- Mot de passe-->
       <label class="control-label" for="passUtilisateur">Mot de passe</label>
       <div class="controls">
-        <input type="password" id="passUtilisateur" name="passUtilisateur" placeholder="" class="input-xlarge">
+        <input type="password" id="passUtilisateur" name="passUtilisateur" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -39,7 +39,7 @@
       <!-- Nom -->
       <label class="control-label"  for="nomUtilisateur">Nom</label>
       <div class="controls">
-        <input type="text" id="nomUtilisateur" name="nomUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="nomUtilisateur" name="nomUtilisateur" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -47,7 +47,7 @@
       <!-- Prénom -->
       <label class="control-label"  for="prenomUtilisateur">Prénom</label>
       <div class="controls">
-        <input type="text" id="prenomUtilisateur" name="prenomUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="prenomUtilisateur" name="prenomUtilisateur" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -55,7 +55,7 @@
       <!-- E-mail -->
       <label class="control-label" for="emailUtilisateur">E-mail</label>
       <div class="controls">
-        <input type="text" id="emailUtilisateur" name="emailUtilisateur" placeholder="" class="input-xlarge">
+        <input type="email" id="emailUtilisateur" name="emailUtilisateur" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -76,7 +76,7 @@
       <!-- Raison sociale -->
       <label class="control-label"  for="raisonSocialeEntreprise">Raison sociale</label>
       <div class="controls">
-        <input type="text" id="raisonSocialeEntreprise" name="raisonSocialeEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="raisonSocialeEntreprise" name="raisonSocialeEntreprise" required="required" placeholder="" class="input-xlarge">
       </div>
     </div>
 
@@ -84,7 +84,7 @@
       <!-- Statut juridique -->
       <label class="control-label"  for="typeEntreprise">Statut juridique</label>
       <div class="controls">
-        <input type="text" id="typeEntreprise" name="typeEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="typeEntreprise" name="typeEntreprise" placeholder="" required="required" class="input-xlarge">
       </div>
     </div>
 
@@ -92,7 +92,7 @@
       <!-- Secteur d'activité -->
       <label class="control-label"  for="secteurEntreprise">Secteur d'activité</label>
       <div class="controls">
-        <input type="text" id="secteurEntreprise" name="secteurEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="secteurEntreprise" name="secteurEntreprise" placeholder="" required="required" class="input-xlarge">
       </div>
     </div>
 
@@ -100,7 +100,7 @@
       <!-- Site web -->
       <label class="control-label" for="siteWebEntreprise">Site web</label>
       <div class="controls">
-        <input type="text" id="siteWebEntreprise" name="siteWebEntreprise" placeholder="" class="input-xlarge">
+        <input type="url" id="siteWebEntreprise" name="siteWebEntreprise" placeholder="" class="input-xlarge">
 
       </div>
     </div>

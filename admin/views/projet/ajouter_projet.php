@@ -78,15 +78,16 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Nombre de pistes</label>
 							<div class="col-sm-5">
-								<input class="form-control" required="required" type="text" name="nbPistes" value="<?php if(!empty($get_projet['nbPistes'])){ echo $get_projet['nbPistes']; }Else{echo "";}?>">
+								<input class="form-control" required="required" type="text" data-validate="number,maxlength[3]" name="nbPistes" value="<?php if(!empty($get_projet['nbPistes'])){ echo $get_projet['nbPistes']; }Else{echo "";}?>">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Actif ?</label>
+
 							<div class="col-sm-5">
-								<div class="checkbox">
-								<input type="checkbox" name="isActiveProjet" value="<?php if($get_projet['isActiveProjet']){ echo $get_projet['isActiveProjet']; }Else{echo 0;}?>">
+								<div class="make-switch">
+								    <input name="isActiveProjet" type="checkbox" <?php if($get_utilisateur['isActiveProjet']){ echo "checked='checked'"; }?> >
 								</div>
 							</div>
 						</div>
