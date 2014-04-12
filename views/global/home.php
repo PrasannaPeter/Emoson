@@ -546,45 +546,6 @@ foreach ($projets as $projet)
             </section>
           </div>
         </div>
-        <!--Partenaires Block-->
-        <div class="clear"></div>
-        <!--Prix Table Block-->
-        <div class="heading-l">
-          <h2> Nos Tarifs </h2>
-        </div>
-        <div class="block-content ">
-          <section class="row-fluid">
-            <ul class="price-list span3 box-1">
-              <li class="pgk-title title-1">Bronze</li>
-              <li class="pgk-price title-2">15 €</li>
-              <li>1 Job Ad</li>
-              <li>30 Days</li>
-              <li>Standard Positioning</li>
-              <li>1 Lorem Ipsum</li>
-              <li><a class="btn blue" href="#">Choisir</a></li>
-            </ul>
-            <ul class="price-list span3 box-1">
-              <li class="pgk-title title-1">Silver</li>
-              <li class="pgk-price title-2">49 €</li>
-              <li>5 Job Ad</li>
-              <li>45 Days</li>
-              <li>Extandad Positioning</li>
-              <li>5 Lorem Ipsum</li>
-              <li><a class="btn blue" href="#">Choisir</a></li>
-            </ul>
-            <ul class="price-list span3 box-1">
-              <li class="pgk-title title-1">Gold</li>
-              <li class="pgk-price title-2">99 €</li>
-              <li>10 Job Ad</li>
-              <li>60 Days</li>
-              <li>Extra Positioning</li>
-              <li>10 Lorem Ipsum</li>
-              <li><a class="btn blue" href="#">Choisir</a></li>
-            </ul>
-          </section>
-        </div>
-
-        <!--Prix Table Block-->
 
       <div class="clear"></div>
       <!-- Clear Line -->

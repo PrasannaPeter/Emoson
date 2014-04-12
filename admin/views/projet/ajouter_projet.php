@@ -1,7 +1,7 @@
 <?php
 if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 	$get_projet = $_SESSION['lastForm'];
-?>
+	?>
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-primary">
@@ -97,10 +97,59 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<h4>Information du contact</h4>
 
 						<hr>
+						<?php 
 
-						Selection user a faire
+						//Si le contact existe deja on affiche ses info dans des input
+						if(!empty($get_projet['nomUtilisateur']) || !empty($get_projet['prenomUtilisateur']) || !empty($get_projet['telUtilisateur']) || !empty($get_projet['emailUtilisateur']) )
+						{ 
+						?>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Nom contact</label>
+								<div class="col-sm-5">
+									<input class="form-control" required="required" type="text" name="nomContact" value="<?php echo $get_projet['nomUtilisateur']; ?>">
+								</div>
+							</div>
 
-
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Prenom contact</label>
+								<div class="col-sm-5">
+									<input class="form-control" required="required" type="text" name="prenomContact" value="<?php echo $get_projet['prenomUtilisateur']; ?>">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Tel contact</label>
+								<div class="col-sm-5">
+									<input class="form-control" required="required" type="text" name="telContact" value="<?php echo $get_projet['telUtilisateur']; ?>">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Email contact</label>
+								<div class="col-sm-5">
+									<input class="form-control" required="required" type="text" name="emailContact" value="<?php echo $get_projet['emailUtilisateur']; ?>">
+								</div>
+							</div>
+						<?php
+						}
+						//Sinon on rempli la liste déroulante avec les contacts de la BDD
+						else
+						{
+							$contact = Projet::get_contact();
+							
+							if(empty($contact))
+				    		{ 
+				    			echo "<p>Pas de resultat</p>";
+				    		}
+				    		else
+				    		{
+				    			echo '<select name="contact">';
+		    					while($tab_contact = $contact->fetch())
+		    					{
+		    						echo '<option value ="'.$tab_contact['idUtilisateur'].'">'.$tab_contact['nomUtilisateur'].'-'.$tab_contact['prenomUtilisateur'].'</option>';
+		    					};
+		    					echo '</select>';
+				    		}
+						}
+						?>
 						<div class="form-group">
 							<div class="col-sm-offset-3 col-sm-5">
 								<button class="btn btn-default" type="submit" name="submit" value="ok">Confirmer</button>

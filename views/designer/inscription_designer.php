@@ -72,7 +72,7 @@
       <!-- N° Telephone -->
       <label class="control-label" for="telUtilisateur">N° Telephone</label>
       <div class="controls">
-        <input type="text" id="telUtilisateur" name="telUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" required="required" id="telUtilisateur" name="telUtilisateur" placeholder="" class="input-xlarge">
       </div>
     </div>
 

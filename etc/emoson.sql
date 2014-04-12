@@ -2,6 +2,8 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+CREATE SCHEMA IF NOT EXISTS `emoson` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `emoson` ;
 
 -- -----------------------------------------------------
 -- Table `emoson`.`comptes_lies`
@@ -40,6 +42,8 @@ AUTO_INCREMENT = 1;
 
 CREATE INDEX `fk_utilisateurs_comptes_lies1_idx` ON `emoson`.`utilisateurs` (`idCompte` ASC);
 
+CREATE UNIQUE INDEX `loginUtilisateur_UNIQUE` ON `emoson`.`utilisateurs` (`loginUtilisateur` ASC);
+
 
 -- -----------------------------------------------------
 -- Table `emoson`.`entreprises`
@@ -68,23 +72,43 @@ CREATE INDEX `fk_entreprises_utilisateurs1_idx` ON `emoson`.`entreprises` (`idUt
 
 
 -- -----------------------------------------------------
+-- Table `emoson`.`pack`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emoson`.`pack` (
+  `idPack` INT NOT NULL AUTO_INCREMENT,
+  `titrePack` VARCHAR(45) NOT NULL,
+  `descPack` VARCHAR(45) NOT NULL,
+  `prixPack` FLOAT NOT NULL,
+  PRIMARY KEY (`idPack`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `emoson`.`projets`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emoson`.`projets` (
   `idProjet` INT(11) NOT NULL AUTO_INCREMENT,
   `titreProjet` VARCHAR(90) NOT NULL,
   `descriptionProjet` LONGTEXT NOT NULL,
-  `dateDebutProjet` DATE NOT NULL,
-  `dateFinProjet` DATE NOT NULL,
-  `budgetMinProjet` VARCHAR(90) NOT NULL,
-  `budgetMaxProjet` VARCHAR(90) NOT NULL,
   `isActiveProjet` TINYINT(1) NULL DEFAULT 0,
-  `nbPistes` INT NOT NULL,
-  `idUtilisateur` INT NULL,
-  `idEntreprise` INT NULL,
-  PRIMARY KEY (`idProjet`))
+  `idUtilisateur` INT NOT NULL,
+  `tailleEntreprise` INT NOT NULL,
+  `caEntreprise` INT NOT NULL,
+  `ptsContactEntreprise` VARCHAR(60) NULL,
+  `optionProjet` VARCHAR(45) NULL,
+  `nbARProjet` INT NULL,
+  `nbDesignerSouhaite` INT NULL,
+  `idPack` INT NOT NULL,
+  PRIMARY KEY (`idProjet`),
+  CONSTRAINT `fk_projets_pack1`
+    FOREIGN KEY (`idPack`)
+    REFERENCES `emoson`.`pack` (`idPack`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 1;
+
+CREATE INDEX `fk_projets_pack1_idx` ON `emoson`.`projets` (`idPack` ASC);
 
 
 -- -----------------------------------------------------
@@ -236,16 +260,4 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `telUtilisateur`, `loginUtilisateur`, `passUtilisateur`, `emailUtilisateur`, `roleUtilisateur`, `bioUtilisateur`, `idCompte`, `certifUtilisateur`) VALUES
-(3, 'GIRAUD', 'Valentin', 2147483647, 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'admin@gmail.com', 'ADMIN', NULL, NULL, 1),
-(4, 'Duvale', 'Pierre', 1242545214, 'Designertest', 'e0f188baba61cea79a7222e933c66d9f9520f235', 'p.duval@test.fr', 'GRAPHISTE', 'Je suis designer', NULL, 0),
-(5, 'Dupr', 'Jean', 1242545214, 'designer2', '78c236ff1b1c183fb7143a9887979c6e31662d95', 'durpre.jean@hotmail.fr', 'GRAPHISTE', 'Je suis designer', NULL, 0),
-(17, 'Soluta unde quia exercitationem pariatur Quo non mollit fugiat', 'Omnis similique dolor proident ex perspiciatis qui itaque eum dolorem', 0, 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'tetokanol@hotmail.com', 'ENTREPRISE', NULL, NULL, 0),
-(24, 'Consequuntur repellendus Aut veritatis sunt et non nulla cupiditate unde obcaecati sed deb', 'Quo quia nostrud saepe est nisi ullamco maxime provident laborum Eaque expedita dolor sequ', 0, 'test', '576f2afcdca7238248dd1939e21d2bf0ee6432e8', 'dyvacufym@yahoo.com', 'GRAPHISTE', 'Cumque quis cupidatat sapiente ex quas qui voluptas consequatur quis suscipit consequuntur dolores beatae qui.', NULL, 0),
-(26, 'designer test', 'test', 0, 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'giraud.valentin@gmail.com', 'GRAPHISTE', NULL, NULL, 0),
-(33, 'Quas dolore tempora veniam totam magna laborum in culpa repellendus Doloremque quas assume', 'Fuga Dolores dolore labore beatae dolore', 0, 'aze', '5c8eaceb3f662f01e202b6e9a0cbf01f7e8c7222', 'fujyxy@gmail.com', 'VISITEUR', 'Doloremque ratione quae in quasi iure quis magna aliquip pariatur? Provident, fuga. Laboriosam, in sunt.', NULL, 1);
-
-
-INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `dateDebutProjet`, `dateFinProjet`, `budgetMinProjet`, `budgetMaxProjet` , `isActiveProjet`, `nbPistes`) VALUES
-(1, 'Projet TEST', 'Projet TEST', '2014-05-03', '2014-07-03', '--10', '--155', 0, 3);
-
-
+(1, 'AdminTest', 'testeur', 5478987, 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'test@test.com', 'ADMIN', NULL, NULL, 0);

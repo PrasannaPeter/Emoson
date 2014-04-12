@@ -16,7 +16,7 @@
 <form class="form-horizontal" method="POST" action="index.php?module=utilisateur&action=manage&type=modifier_profil<?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>">
   <fieldset>
     <div id="legend">
-      <legend class=""><h2>Inscription</h2></legend><br />
+      <legend class=""><h2>Modifier mon profil</h2></legend><br />
     </div>
     <div class="control-group">
       <!-- E-mail -->
@@ -41,6 +41,20 @@
         <textarea class="form-control autogrow" id="bioUtilisateur" name="bioUtilisateur"></textarea>
       </div>
     </div>
+  </fieldset>
+  <fieldset>
+    <div id="legend">
+      <legend class=""><h2>Ajouter un compte externe</h2></legend><br />
+    </div>
+      <div class="control-group">
+        <!-- Button -->
+        <div class="controls">
+          <button class="btn" style="background-color:#133783;"><i class="fa fa-facebook"> | Facebook</i></button>
+          <button class="btn" style="background-color:#4393bb;"><i class="fa fa-linkedin"> | LinkedIn</i></button>
+        </div>
+      </div>
+      <br/>
+  </fieldset>
 
     <div class="control-group">
       <!-- Button -->
@@ -48,7 +62,6 @@
         <button class="btn btn-success">Confirmer</button>
       </div>
     </div>
-  </fieldset>
 </form>
 
     </div>
