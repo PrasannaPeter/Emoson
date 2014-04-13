@@ -156,7 +156,7 @@ Si oui, définissez le nombre de messages par mois </p>
       <!-- Aller / Retour supplémentaire -->
       <label class="control-label" for="ARProjet">Aller / Retour supplémentaire</label>
       <div class="controls">
-        <input type="text" id="ARProjet" name="ARProjet" placeholder="" class="input-xlarge">
+        <input type="number" id="ARProjet" name="ARProjet" placeholder="" class="input-xlarge">
         <p class="help-block">Mettez le nombre d'aller - retour supplémentaire souhaité</p>
       </div>
     </div>
@@ -165,7 +165,7 @@ Si oui, définissez le nombre de messages par mois </p>
       <!-- Proposition logo d'un designer supplémentaire -->
       <label class="control-label" for="logoProjet">Proposition logo d'un designer supplémentaire</label>
       <div class="controls">
-        <input type="text" id="logoProjet" name="logoProjet" placeholder="" class="input-xlarge">
+        <input type="number" id="logoProjet" name="logoProjet" placeholder="" class="input-xlarge">
         <p class="help-block">Mettez le nombre de designer supplémentaire souhaité</p>
       </div>
     </div>

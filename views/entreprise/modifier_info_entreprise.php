@@ -17,7 +17,7 @@
   <fieldset>
     <div id="legend">
       <legend class=""><h2>Informations de l'entreprise</h2></legend><br />
-    </div>
+    </div><?php var_dump($tab_entreprise); ?>
     <div class="control-group">
       <!-- Raison sociale -->
       <label class="control-label"  for="raisonSocialeEntreprise">Raison sociale</label>
