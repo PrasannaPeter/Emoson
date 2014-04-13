@@ -13,7 +13,7 @@ class M_Projet extends Projet
 		if(!empty($idProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U
 				WHERE idProjet ='.$idProjet.'
 				AND P.idUtilisateur = U.idUtilisateur;
@@ -24,7 +24,7 @@ class M_Projet extends Projet
 		else if(!empty($titreProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U
 				WHERE idProjet ='.$idProjet.'
 				AND P.idUtilisateur = U.idUtilisateur;
@@ -34,7 +34,7 @@ class M_Projet extends Projet
 		else
 		{
 			$read_projet = '
-				SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, nbPistes, isActiveProjet, budgetMinProjet, budgetMaxProjet
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet
 				FROM projets
 			';
 
@@ -59,7 +59,7 @@ class M_Projet extends Projet
 				}
 			}
 
-			$read_projet .= ' ORDER BY budgetMaxProjet';
+//			$read_projet .= ' ORDER BY budgetMaxProjet';
 			$read_projet = $bdd->query($read_projet);
 		}
 
@@ -111,7 +111,7 @@ class M_Projet extends Projet
 		$bdd = PDO();
 
 		$sql_insert =$bdd->prepare('
-			INSERT INTO projets(titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, isActiveProjet, budgetMinProjet, budgetMaxProjet, idUtilisateur)
+			INSERT INTO projets(titreProjet, descriptionProjet, isActiveProjet, budgetMinProjet, budgetMaxProjet, idUtilisateur)
 			VALUES (:titreProjet, :descriptionProjet, :dateDebutProjet, :dateFinProjet, :nbPistes, :isActiveProjet, :budgetMinProjet, :budgetMaxProjet, :idUtilisateur)
 					');
 
