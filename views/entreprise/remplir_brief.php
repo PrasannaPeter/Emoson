@@ -114,51 +114,16 @@
 <br>
 <strong><h3>Proposititon de pack</h3></strong>
 <br>
-<br>
-<!--Partenaires Block-->
-        <div class="clear"></div>
-        <!--Prix Table Block-->
-        <div class="block-content ">
-          <section class="row-fluid">
-            <ul class="price-list span3 box-1">
-              <li class="pgk-title title-1">Bronze</li>
-              <li class="pgk-price title-2">15 €</li>
-              <li>Standard Positioning</li>
-              <li>1 Lorem Ipsum</li>
-              <div class="radio-field">
-                <center>
-                  <input id="TariftProjet_1" type="radio" value="1"/>
-                  <label for="TariftProjet_1" style="color:#2aadde;"><strong>Choisir</strong></label>
-                </center>
-              </div>
-            </ul>
-            <ul class="price-list span3 box-1">
-              <li class="pgk-title title-1">Silver</li>
-              <li class="pgk-price title-2">49 €</li>
-              <li>Extandad Positioning</li>
-              <li>5 Lorem Ipsum</li>
-              <div class="radio-field">
-                <center>
-                  <input id="TariftProjet_2" type="radio" value="2"/>
-                  <label for="TariftProjet_2" style="color:#2aadde;"><strong>Choisir</strong></label>
-                </center>
-              </div>
-            </ul>
-            <ul class="price-list span3 box-1">
-              <li class="pgk-title title-1">Gold</li>
-              <li class="pgk-price title-2">99 €</li>
-              <li>Extra Positioning</li>
-              <li>10 Lorem Ipsum</li>
-              <div class="radio-field">
-                <center>
-                  <input id="TariftProjet_3" type="radio" value="3"/>
-                  <label for="TariftProjet_3" style="color:#2aadde;"><strong>Choisir</strong></label>
-                </center>
-              </div>
-            </ul>
-          </section>
-        </div>
-
+<div class="clear"></div>
+<!--Prix Table Block-->
+<div class="block-content ">
+  <section class="row-fluid">
+<?php
+  require_once('admin/controllers/pack/pack.php');
+  Pack::vignette_pack($type="actif");
+?>
+  </section>
+</div>
         <!--Prix Table Block-->
 
 <br>

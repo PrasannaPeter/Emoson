@@ -127,6 +127,20 @@
                 </li>
             </ul>
         </li>
+        <li>
+            <a href=""><i class="entypo-doc"></i><span>Packs</span></a>
+            <ul>
+                <li>
+                    <a href="index.php?module=pack&action=manage&type=ajouter"><i class="entypo-plus"></i>
+                    <span>Ajouter</span></a>
+                </li>
+
+                <li>
+                    <a href="index.php?module=pack&action=afficher_pack"><i class="entypo-docs"></i>
+                    <span>Tous</span></a>
+                </li>
+            </ul>
+        </li>
     </ul>
 
 </div>

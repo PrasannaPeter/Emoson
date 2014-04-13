@@ -15,7 +15,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                      <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
                   <?php if(!empty($_SESSION['loginUtilisateur'])){ ?>
-                    <?php echo $_SESSION['loginUtilisateur']; ?>
+                    <?php echo "Bonjour ".$_SESSION['loginUtilisateur']; ?>
                   <?php } ?>
                 </a>
 
