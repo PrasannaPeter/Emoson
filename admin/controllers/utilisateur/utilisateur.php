@@ -207,29 +207,6 @@ class Utilisateur
 								<i class="entypo-info"></i>
 								Profile
 							</a>
-
-							<?php
-
-							if($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE")
-							{
-								if($tab_utilisateur['certifUtilisateur'] == true){
-									?>
-									<a href="index.php?module=utilisateur&action=manage&type=proposer_projet&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
-									<i class="entypo-link"></i>
-									Proposer à un projet
-									</a>
-									<?php
-								}else{
-								?>
-									<a href="index.php?module=utilisateur&action=manage&type=certifier&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
-									<i class="entypo-star"></i>
-									Certifier cet utilisateur
-									</a>
-									<?php
-								}
-							} ?>
-
-
 						</td>
 
 					</tr>
@@ -299,28 +276,19 @@ class Utilisateur
 		{
 			$type = "update";
 
-			$verif_sql = Utilisateur::verif_sql($type, $loginUtilisateur);
+			$sql_update = M_Utilisateur::update_utilisateur($idUtilisateur, $nomUtilisateur, $prenomUtilisateur, $telUtilisateur, $loginUtilisateur, $passUtilisateur, $emailUtilisateur, $bioUtilisateur, $roleUtilisateur, $certifUtilisateur);
 
-			if(!empty($verif_sql))
+			if($sql_update == true)
 			{
-					$updateUtilisateur = "error";
-					return($updateUtilisateur);
+				$updateUtilisateur = "ok";
 			}
 			else
 			{
-				$sql_update = M_Utilisateur::update_utilisateur($idUtilisateur, $nomUtilisateur, $prenomUtilisateur, $telUtilisateur, $loginUtilisateur, $passUtilisateur, $emailUtilisateur, $bioUtilisateur, $roleUtilisateur, $certifUtilisateur);
-
-				if($sql_update == true)
-				{
-					$updateUtilisateur = "ok";
-				}
-				else
-				{
-					$updateUtilisateur = "error";
-				}
-
-				return($updateUtilisateur);
+				$updateUtilisateur = "error";
 			}
+
+			return($updateUtilisateur);
+
 		}
 	}
 

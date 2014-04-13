@@ -205,18 +205,18 @@ class M_Utilisateur extends Utilisateur
 	static function verif_login_utilisateurBDD($loginUtilisateur)
 	{
 		$bdd = PDO();
-               
+
 		$verif_sql_insert = $bdd->query('
 				SELECT idUtilisateur, loginUtilisateur
 				FROM utilisateurs
 				WHERE loginUtilisateur = "'.$loginUtilisateur.'"
 			');
-                        
+
 			$sql_insert = $verif_sql_insert->fetch();
-		
+
 		return($sql_insert);
 	}
-        
+
         //verif email user lors de l inscription
         static function verif_email_utilisateurBDD($emailUtilisateur)
 	{
@@ -232,12 +232,12 @@ class M_Utilisateur extends Utilisateur
 
 		return($sql_insert);
 	}
-        
-        //update verif si login existe deja 
+
+        //update verif si login existe deja
         static function verif_update_utilisateurBDD($loginUtilisateur)
 	{
 		$bdd = PDO();
-                
+
                 $verif_sql_insert = $bdd->query('
                         SELECT count(loginUtilisateur) as nbLogin
                         FROM utilisateurs
@@ -245,10 +245,10 @@ class M_Utilisateur extends Utilisateur
                 ');
 
                 $sql_insert = $verif_sql_insert->fetch();
-                
+
 		return($sql_insert);
 	}
-        
+
         //verif email user lors de la modification
         static function verif_update_email_utilisateurBDD($emailUtilisateur)
 	{
@@ -259,7 +259,7 @@ class M_Utilisateur extends Utilisateur
                         FROM utilisateurs
                         WHERE emailUtilisateur = "'.$emailUtilisateur.'"
                 ');
-                
+
                 $sql_insert = $verif_sql_insert->fetch();
 		return($sql_insert);
 	}
