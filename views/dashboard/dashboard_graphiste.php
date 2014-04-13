@@ -29,7 +29,9 @@
     </center>
 
      <?php
-      //if(Utilisateur::is_certified($idUtilisateur)){ ?>
+    require_once('admin/controllers/utilisateur/utilisateur.php');
+    $info_designer = Utilisateur::get_utilisateur($idUtilisateur=$_SESSION['idUtilisateur'], $type=NULL);
+    if($info_designer['certifUtilisateur'] == true){ ?>
 
     <h2>Mes Projet</h2>
     <br />
@@ -38,7 +40,9 @@
         <p>Aucun projet.</p>
     </div>
 
-    <?php //} ?>
+    <?php } ?>
+
+    <?php    if($info_designer['certifUtilisateur'] == false){ ?>
 
     <hr>
 
@@ -81,6 +85,7 @@
         <br />
     </div>
     <?php // } ?>
+    <?php    } ?>
 
 </div>
 </div>
