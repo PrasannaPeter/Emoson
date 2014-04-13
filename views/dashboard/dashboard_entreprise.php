@@ -20,8 +20,8 @@
     </div>
 
     <center>
-    <a class="btn btn-large btn-success" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button">Modifier info. entreprise</a>
-    <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_profil" role="button">Modifier compte perso.</a>
+    <a class="btn btn-large btn-success" href="index.php?module=entreprise&action=modifier_profil" role="button">Modifier profil</a>
+    <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button">Modifier info. entreprise</a>
 
     <hr>
 

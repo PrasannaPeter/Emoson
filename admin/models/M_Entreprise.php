@@ -29,10 +29,8 @@ class M_Entreprise extends Entreprise
 			// Filtre
 			if(!empty($type))
 			{
-				switch ($type)
-				{
-
-				}
+				if(!empty($type['byUserId']))
+					$read_entreprise .= " WHERE idUtilisateur = ".$type['byUserId'];
 			}
 
 			$read_entreprise = $bdd->query($read_entreprise);
