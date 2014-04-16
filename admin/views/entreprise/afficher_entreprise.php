@@ -16,7 +16,6 @@
 						<th>Ville</th>
 						<th>Code Postal</th>
 						<th>Type</th>
-						<th>Nb Projet</th>
 						<th>Options</th>
 					</tr>
 				</thead>
@@ -34,7 +33,6 @@
 						<th>Ville</th>
 						<th>Code Postal</th>
 						<th>Type</th>
-						<th>Nb Projet</th>
 						<th>Options</th>
 					</tr>
 				</tfoot>

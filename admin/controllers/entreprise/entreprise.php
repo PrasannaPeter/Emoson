@@ -57,7 +57,7 @@ class Entreprise
 			// Boucle remplissage du tableau
 			while($tab_entreprise = $read_entreprise->fetch())
 			{
-				$compter_projet = Entreprise::compter_projet($tab_entreprise['idEntreprise']);
+				//$compter_projet = Entreprise::compter_projet($tab_entreprise['idEntreprise']);
 
 				?>
 					<tr>
@@ -68,7 +68,6 @@ class Entreprise
 						<td><?php echo $tab_entreprise['villeEntreprise']; ?></td>
 						<td><?php echo $tab_entreprise['CPEntreprise']; ?></td>
 						<td><?php echo $tab_entreprise['libType']; ?></td>
-						<td><?php echo $compter_projet['nbProjet']; ?></td>
 						<td class="actions">
 						<center>
 							<li><a class="view tooltip" href="index.php?module=entreprise&action=detail_entreprise&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" title="Détail">Voir les détails</a></li>
