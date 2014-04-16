@@ -13,7 +13,7 @@ class M_Entreprise extends Entreprise
 		if(!empty($idEntreprise))
 		{
 			$read_entreprise = $bdd->query('
-				SELECT idEntreprise, raisonSocialeEntreprise, secteurEntreprise, siteWebEntreprise, adresseEntreprise, villeEntreprise, CPEntreprise, idUtilisateur, numSiretEntreprise
+				SELECT idEntreprise, raisonSocialeEntreprise, secteurEntreprise, siteWebEntreprise, adresseEntreprise, villeEntreprise, CPEntreprise, idUtilisateur, numSiretEntreprise, typeEntreprise
 				FROM entreprises
 				WHERE idEntreprise ='.$idEntreprise.'
 			');
@@ -22,7 +22,7 @@ class M_Entreprise extends Entreprise
 		else
 		{
 			$read_entreprise = '
-				SELECT idEntreprise, raisonSocialeEntreprise, secteurEntreprise, siteWebEntreprise, adresseEntreprise, villeEntreprise, CPEntreprise, idUtilisateur, numSiretEntreprise
+				SELECT idEntreprise, raisonSocialeEntreprise, secteurEntreprise, siteWebEntreprise, adresseEntreprise, villeEntreprise, CPEntreprise, idUtilisateur, numSiretEntreprise, typeEntreprise
 				FROM entreprises
 			';
 

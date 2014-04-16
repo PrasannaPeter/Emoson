@@ -87,7 +87,6 @@ class Entreprise
 
 	static function set_entreprise($idEntreprise=NULL, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur=NULL, $numSiretEntreprise,  $typeEntreprise)
 	{
-
 		// Si on a pas d'ID, INSERT
 		if(empty($idEntreprise))
 		{
@@ -119,20 +118,10 @@ class Entreprise
 		Else
 		{
 			$type = "update";
+			$sql_update = M_Entreprise::update_entreprise($idEntreprise, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise);
+			$updateEntreprise = "ok";
 
-			$verif_sql = Entreprise::verif_sql($type, $idEntreprise);
-
-			if(!empty($verif_sql))
-			{
-					$updateEntreprise = "error";
-					return($updateEntreprise);
-			}
-			else
-			{
-				$sql_update = M_Entreprise::update_entreprise($idEntreprise, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise);
-				$updateEntreprise = "ok";
-				return($updateEntreprise);
-			}
+			return($updateEntreprise);
 		}
 	}
 

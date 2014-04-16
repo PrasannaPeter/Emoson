@@ -9,7 +9,7 @@ if(!empty($_POST['siteWebEntreprise'])){$siteWebEntreprise = $_POST['siteWebEntr
 if(!empty($_POST['adresseEntreprise'])){$adresseEntreprise = $_POST['adresseEntreprise'];}
 if(!empty($_POST['villeEntreprise'])){$villeEntreprise = $_POST['villeEntreprise'];}
 if(!empty($_POST['CPEntreprise'])){$CPEntreprise = $_POST['CPEntreprise'];}
-if(!empty($_POST['numSiretEntreprise'])){$numSiretEntreprise = $_POST['numSiretEntreprise'];}
+if(!empty($_POST['numSiretEntreprise'])){$numSiretEntreprise = $_POST['numSiretEntreprise'];}else{$numSiretEntreprise = "";}
 if(!empty($_POST['typeEntreprise'])){$typeEntreprise = $_POST['typeEntreprise'];}
 
 require_once CONTROLLERS.'/utilisateur/utilisateur.php';
@@ -23,6 +23,12 @@ if(!empty($_POST['loginUtilisateur'])){$loginUtilisateur = $_POST['loginUtilisat
 if(!empty($_POST['passUtilisateur'])){$passUtilisateur = $_POST['passUtilisateur'];}
 if(!empty($_POST['emailUtilisateur'])){$emailUtilisateur = $_POST['emailUtilisateur'];}
 
+
+// security because user can modify html and send bad value
+if(!site_admin() && $type="modifier"){
+	$idUtilisateur=$_SESSION['idUtilisateur'];
+}
+
 switch($type)
 {
 	case "ajouter" :
@@ -30,7 +36,7 @@ switch($type)
 		// INSERT
 		if(!empty($raisonSocialeEntreprise) && !empty($secteurEntreprise) && !empty($siteWebEntreprise) && !empty($adresseEntreprise) && !empty($villeEntreprise) && !empty($CPEntreprise) && !empty($typeEntreprise))
 		{
-			$set_entreprise = Entreprise::set_entreprise($idEntreprise=NULL, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $numSiretEntreprise=NULL, $typeEntreprise);
+			$set_entreprise = Entreprise::set_entreprise($idEntreprise=NULL, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise);
 
 			// Verifie l'action sinon erreur
 			if($set_entreprise=="ok")
@@ -75,31 +81,51 @@ switch($type)
 		// UPDATE
 		if(!empty($raisonSocialeEntreprise) && !empty($secteurEntreprise) && !empty($siteWebEntreprise) && !empty($adresseEntreprise) && !empty($villeEntreprise) && !empty($CPEntreprise) && !empty($typeEntreprise))
 		{
-			$set_entreprise = Entreprise::set_entreprise($idEntreprise, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $numSiretEntreprise=NULL, $typeEntreprise);
-
-			// Verifie l'action sinon erreur
-			if($set_entreprise=="error")
-			{
-				$_SESSION['typeNotif'] = "error";
-				$_SESSION['titreNotif'] = "L'entreprise n'a pas pu être modifié";
-				$_SESSION['msgNotif'] = "";
-				header('Location:index.php?module=entreprise&action=afficher_entreprise');
-			}
-			else if($set_entreprise=="ok")
-			{
-				$_SESSION['typeNotif'] = "success";
-				$_SESSION['titreNotif'] = "L'entreprise a bien été modifié";
-				$_SESSION['msgNotif'] = "";
-				header('Location:index.php?module=entreprise&action=afficher_entreprise');
-			}
+			$set_entreprise = Entreprise::set_entreprise($idEntreprise, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise);
+				if(site_admin()){
+					// Verifie l'action sinon erreur
+					if($set_entreprise=="error")
+					{
+						$_SESSION['typeNotif'] = "error";
+						$_SESSION['titreNotif'] = "L'entreprise n'a pas pu être modifié";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module=entreprise&action=afficher_entreprise');
+					}
+					else if($set_entreprise=="ok")
+					{
+						$_SESSION['typeNotif'] = "success";
+						$_SESSION['titreNotif'] = "L'entreprise a bien été modifié";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module=entreprise&action=afficher_entreprise');
+					}
+				}else{
+					// Verifie l'action sinon erreur
+					if($set_entreprise=="error")
+					{
+						$_SESSION['typeNotif'] = "error";
+						$_SESSION['titreNotif'] = "Une erreur est survenue lors de la modification des informations de l'entreprise";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module=entreprise&action=modifier_info_entreprise');
+					}
+					else if($set_entreprise=="ok")
+					{
+						$_SESSION['typeNotif'] = "success";
+						$_SESSION['titreNotif'] = "Les informations de l'entreprise ont bien été modifiées";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module=entreprise&action=modifier_info_entreprise');
+					}
+				}
 		}
 		// Formulaire incomplet => affichage du formulaire
 		else if(empty($_POST['submit']))
 		{
+			if(site_admin()){
 			// Pré remplissage
-			$get_entreprise = Entreprise::get_entreprise($idEntreprise);
-
-			require_once VIEWS.$controller.'/ajouter_entreprise.php';
+				$get_entreprise = Entreprise::get_entreprise($idEntreprise);
+				require_once VIEWS.$controller.'/ajouter_entreprise.php';
+			}else{
+				require_once VIEWS.'/entreprise/modifier_info_entreprise.php';
+			}
 		}
 		else
 		{

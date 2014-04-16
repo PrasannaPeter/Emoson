@@ -1,6 +1,7 @@
 <?php
 
 // On récupère les informations du formulaire (si saisie)
+// faille !
 if(!empty($_GET['idUtilisateur'])){$idUtilisateur = $_GET['idUtilisateur'];}
 if(!empty($_GET['type'])){$type = $_GET['type'];}
 if(!empty($_POST['nomUtilisateur'])){$nomUtilisateur = $_POST['nomUtilisateur'];}
@@ -12,6 +13,15 @@ if(!empty($_POST['emailUtilisateur'])){$emailUtilisateur = $_POST['emailUtilisat
 if(!empty($_POST['bioUtilisateur'])){$bioUtilisateur = $_POST['bioUtilisateur'];}
 if(!empty($_POST['roleUtilisateur'])){$roleUtilisateur = $_POST['roleUtilisateur'];}
 if($_POST['certifUtilisateur'] == "on"){$certifUtilisateur = 1;}else{$certifUtilisateur = 0;}
+
+// security because user can modify html and send bad value
+if(!site_admin() && $type="modifier"){
+	$info_user = Utilisateur::get_utilisateur($idUtilisateur=$_SESSION['idUtilisateur'], $typeX=NULL);
+	$loginUtilisateur = $info_user['loginUtilisateur'];
+	$roleUtilisateur = $info_user['roleUtilisateur'];
+	$certifUtilisateur = $info_user['certifUtilisateur'];
+	$idUtilisateur=$info_user['idUtilisateur'];
+}
 
 switch($type)
 {
@@ -113,35 +123,57 @@ switch($type)
 		if(!empty($idUtilisateur) && !empty($nomUtilisateur) && !empty($prenomUtilisateur) && !empty($loginUtilisateur) && !empty($emailUtilisateur))
 		{
 			$set_utilisateur = Utilisateur::set_utilisateur($idUtilisateur, $nomUtilisateur, $prenomUtilisateur, $telUtilisateur, $loginUtilisateur, $passUtilisateur, $emailUtilisateur, $bioUtilisateur, $roleUtilisateur, $certifUtilisateur);
+				if(site_admin()){
+					// Verifie l'action sinon erreur
+					if($set_utilisateur=="error")
+					{
+						$_SESSION['typeNotif'] = "error";
+						$_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+					}
+                    else if($set_utilisateur=="errorEmailExist")
+                    {
+                            $_SESSION['typeNotif'] = "error";
+                            $_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
+                            $_SESSION['msgNotif'] = "L'email entré éxiste déjà dans la base";
+                            header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+                    }
+                    else if($set_utilisateur=="errorUserExist")
+                    {
+                            $_SESSION['typeNotif'] = "error";
+                            $_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
+                            $_SESSION['msgNotif'] = "L'utilisateur entré éxiste déjà dans la base";
+                            header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+                    }
+					else if($set_utilisateur=="ok")
+					{
+						$_SESSION['typeNotif'] = "success";
+						$_SESSION['titreNotif'] = "L'utilisateur a bien été modifié";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+					}
+			}else{
+					if($roleUtilisateur == "GRAPHISTE")
+						$module = "designer";
+					else
+						$module = "entreprise";
 
-			// Verifie l'action sinon erreur
-			if($set_utilisateur=="error")
-			{
-				$_SESSION['typeNotif'] = "error";
-				$_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
-				$_SESSION['msgNotif'] = "";
-				header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
-			}
-                        else if($set_utilisateur=="errorEmailExist")
-                        {
-                                $_SESSION['typeNotif'] = "error";
-                                $_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
-                                $_SESSION['msgNotif'] = "L'email entré éxiste déjà dans la base";
-                                header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
-                        }
-                        else if($set_utilisateur=="errorUserExist")
-                        {
-                                $_SESSION['typeNotif'] = "error";
-                                $_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être modifié";
-                                $_SESSION['msgNotif'] = "L'utilisateur entré éxiste déjà dans la base";
-                                header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
-                        }
-			else if($set_utilisateur=="ok")
-			{
-				$_SESSION['typeNotif'] = "success";
-				$_SESSION['titreNotif'] = "L'utilisateur a bien été modifié";
-				$_SESSION['msgNotif'] = "";
-				header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
+					// Verifie l'action sinon erreur
+					if($set_utilisateur=="error")
+					{
+						$_SESSION['typeNotif'] = "error";
+						$_SESSION['titreNotif'] = "Une erreur est survenue lors de la modification de vos informations";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module='.$module.'&action=modifier_profil');
+					}
+					else if($set_utilisateur=="ok")
+					{
+						$_SESSION['typeNotif'] = "success";
+						$_SESSION['titreNotif'] = "Vos informations ont bien été modifiées";
+						$_SESSION['msgNotif'] = "";
+						header('Location:index.php?module='.$module.'&action=modifier_profil');
+					}
 			}
 		}
 		// Formulaire incomplet => affichage du formulaire
@@ -149,15 +181,22 @@ switch($type)
 		{
 			// Pré remplissage
 			$get_utilisateur = Utilisateur::get_utilisateur($idUtilisateur);
+			if(site_admin())
+				require_once VIEWS.$controller.'/ajouter_utilisateur.php';
+			else
+				require_once VIEWS.'entreprise/modifier_profil.php';
 
-			require_once VIEWS.$controller.'/ajouter_utilisateur.php';
 		}
 		else
 		{
 			$_SESSION['typeNotif'] = "error";
 			$_SESSION['titreNotif'] = "Vous devez remplir tout les champs du formulaire";
 			$_SESSION['msgNotif'] = "";
-			header('Location:index.php?module=utilisateur&action=manage&type=modifier&idUtilisateur='.$idUtilisateur.'');
+
+			if(site_admin())
+				header('Location:index.php?module=utilisateur&action=manage&type=modifier&idUtilisateur='.$idUtilisateur.'');
+			else
+				header('Location:index.php?module=entreprise&action=modifier_profil');
 		}
 
 	break;

@@ -21,21 +21,6 @@
     <div id="legend">
       <legend class=""><h2>Informations de contact</h2></legend><br />
     </div>
-    <div class="control-group">
-      <!-- Identifiant -->
-      <label class="control-label"  for="loginUtilisateur">Identifiant</label>
-      <div class="controls">
-        <input type="text" id="loginUtilisateur" name="loginUtilisateur" placeholder="" class="input-xlarge" value="<?php if(!empty($info_user['loginUtilisateur'])){ echo $info_user['loginUtilisateur']; } ?>">
-        <p class="help-block">L'identifiant sera utilisé pour la connexion</p>
-      </div>
-    </div>
-    <div class="control-group">
-      <!-- Mot de passe-->
-      <label class="control-label" for="passUtilisateur">Mot de passe</label>
-      <div class="controls">
-        <input type="password" id="passUtilisateur" name="passUtilisateur" placeholder="" class="input-xlarge" disabled="disabled">
-      </div>
-    </div>
 
     <div class="control-group">
       <!-- Nom -->
