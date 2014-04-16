@@ -70,7 +70,7 @@
                 </li>
 
                 <li>
-                    <a href="index.php?module=utilisateur&action=afficher_attente"><i class="entypo-bell"></i>
+                    <a href="index.php?module=utilisateur&action=afficher_enattente"><i class="entypo-bell"></i>
                     <span>Attente certification</span></a>
                 </li>
 
