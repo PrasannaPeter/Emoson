@@ -203,9 +203,9 @@ class Utilisateur
 								Delete
 							</a>
 
-							<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
+							<a href="../index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" target="_blank" class="btn btn-info btn-sm btn-icon icon-left">
 								<i class="entypo-info"></i>
-								Profile
+								Profil
 							</a>
 						</td>
 
