@@ -14,23 +14,15 @@
         {
             $idProjet = $_GET['idProjet'];
         
-		
-
     		$projet_proposer = Projet::get_tab_projet_accepter($idProjet);
-    		
-    		if(empty($projet_proposer))
-    		{ 
-    			echo "<p>Pas de resultat</p>";
-    		}
-    		else
-    		{
-    			echo '<p>Ce projet à déja été proposé à </p>';
-    			echo '<table border="1" >
+
+    			echo '<h4>Ce projet à d&eacute;ja &eacute;t&eacute; propos&eacute; à </h4>';
+    			echo '<table class="datatable" >
     					<thead>
     						<tr>
     							<th>Nom</th>
-    							<th>Prénom</th>
-    							<th>Accepté</th>
+    							<th>Pr&eacute;nom</th>
+    							<th>Accept&eacute;</th>
     							<th></th>
     						</tr>
     					</thead>
@@ -42,11 +34,13 @@
     					echo '<td>'.$tab_proposer['nomUtilisateur'].'</td>';
     					echo '<td>'.$tab_proposer['prenomUtilisateur'].'</td>';
     					echo '<td>'.$tab_proposer['acceptation'].'</td>';
-    					echo '<td><a href="index.php?module=projet&action=manage&type=del_assigner_graphiste&idProjet='.$idProjet.'&idGraphiste='.$tab_proposer['idUtilisateur'].'"> Supprimer la proposition</a></td>'; ?>
+    					echo '<td><a href="index.php?module=projet&action=manage&type=del_assigner_graphiste&idProjet='.$idProjet.'&idGraphiste='.$tab_proposer['idUtilisateur'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer la proposition</a></td>'; 
+                        ?>
+
     				</tr>	
     			<?php
     			}	
-       		}?>
+       		?>
              </tbody>
             </table>
             <br>
@@ -62,28 +56,33 @@
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Prénom</th>
+                        <th>Pr&eacute;nom</th>
                         <th>Assigner</th>
                     </tr>
                 </thead>
                 <tbody>
             <?php
             $read_designer = Projet::get_designer($idDesigner = NULL, $type = NULL); 
-                
-            /*if(!empty($_POST))
-            {
-                dump($_POST['designer_assigner']);	
-            }*/        
+      
             // Boucle remplissage du tableau
             while($tab_designer = $read_designer->fetch())
             {	
-                ?>
-                    <tr>
-                        <td><?php echo $tab_designer['nomUtilisateur'].'</td><td>'.$tab_designer['prenomUtilisateur']; ?></td>
-                        <td><input type="checkbox" name="graphiste_assigner[]" title="Assigner le designer au projet" value="<?php echo $tab_designer['idUtilisateur']; ?>" <?php //if($get_assignation == "oui"){ echo "checked=\"checked\""; } ?> /></td>
-                        
-                    </tr>	
-                <?php	
+                //ne fonctionne pas
+                /*if ($tab_designer['idUtilisateur'])
+                {   
+                    echo '<tr><td>'.$tab_designer['nomUtilisateur'].'</td><td>'.$tab_designer['prenomUtilisateur'].'</td>';
+                    echo '<td><input type="checkbox" name="graphiste_assigner[]" title="Assigner le designer au projet" checked="checked" value="'.$tab_designer['idUtilisateur'].'"/></td>'; 
+                    echo '</tr>';
+                }
+                else
+                {
+                    echo '<td>'.$tab_designer['nomUtilisateur'].'</td><td>'.$tab_designer['prenomUtilisateur'].'</td>';
+                    echo '<td><input type="checkbox" name="graphiste_assigner[]" title="Assigner le designer au projet" value="'.$tab_designer['idUtilisateur'].'"/></td>';
+                    echo '</tr>';
+                }*/
+                echo '<td>'.$tab_designer['nomUtilisateur'].'</td><td>'.$tab_designer['prenomUtilisateur'].'</td>';
+                echo '<td><input type="checkbox" name="graphiste_assigner[]" title="Assigner le designer au projet" value="'.$tab_designer['idUtilisateur'].'"/></td>';
+                echo '</tr>';
             }	
         ?>
                 </tbody>

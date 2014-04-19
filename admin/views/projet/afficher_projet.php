@@ -9,15 +9,18 @@
 			<table class="table table-bordered datatable">
 				<thead>
 					<tr>
-						<th>Actif</th>
+						<th>ID</th>
 						<th>Titre</th>
 						<th>Description</th>
-						<th>Date de début</th>
-						<th>Date de fin</th>
-						<th>Budget Min.</th>
-						<th>Budget Max.</th>
-						<th>Nombre de pistes</th>
+						<th>Taille</th>
+						<th>Chiffre d'Affaire</th>
+						<th>Points</th>
 						<th>Options</th>
+						<th>Aller-Retour</th>
+						<th>Nombre de designer souhaité(s)</th>
+						<th>Pack</th>
+						<th>Actif</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -27,15 +30,18 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th>Actif</th>
+						<th>ID</th>
 						<th>Titre</th>
 						<th>Description</th>
-						<th>Date de début</th>
-						<th>Date de fin</th>
-						<th>Budget Min.</th>
-						<th>Budget Max.</th>
-						<th>Nombre de pistes</th>
+						<th>Taille</th>
+						<th>Chiffre d'Affaire</th>
+						<th>Points</th>
 						<th>Options</th>
+						<th>Aller-Retour</th>
+						<th>Nombre de designer souhaité(s)</th>
+						<th>Pack</th>
+						<th>Actif</th>
+						<th></th>
 					</tr>
 				</tfoot>
 			</table>

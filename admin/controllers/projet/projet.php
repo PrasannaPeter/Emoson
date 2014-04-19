@@ -40,6 +40,12 @@ class Projet
 		return($get_contact);
 	}
 
+	static function get_pack()
+	{
+		$get_pack = M_Projet::read_pack();
+		return($get_pack);
+	}
+
 
 
 	static function get_assignation_projet($idGraphiste, $idProjet)
@@ -73,61 +79,187 @@ class Projet
 	}
 
 
-
+	//Tableau qui affiche le projet
 	static function tab_projet($type=NULL)
 	{
-			if(!empty($type))
-			{
-				$read_projet = Projet::get_projet($idProjet=NULL, $type);
-			}
-			else
-			{
-				$read_projet = Projet::get_projet($idProjet=NULL, $type=NULL);
-			}
+		if(!empty($type))
+		{
+			$read_projet = Projet::get_projet($idProjet=NULL, $type);
+		}
+		else
+		{
+			$read_projet = Projet::get_projet($idProjet=NULL, $type=NULL);
+		}
 
-			// Boucle remplissage du tableau
-			while($tab_projet = $read_projet->fetch())
-			{
-				?>
-					<tr>
-						<td><?php echo $tab_projet['isActiveProjet']; ?></td>
-						<td><?php echo $tab_projet['titreProjet']; ?></td>
-						<td><?php echo $tab_projet['descriptionProjet']; ?></td>
-						<td><?php echo $tab_projet['dateDebutProjet']; ?></td>
-						<td><?php echo $tab_projet['dateFinProjet']; ?></td>
-						<td><?php echo $tab_projet['budgetMinProjet']; ?></td>
-						<td><?php echo $tab_projet['budgetMaxProjet']; ?></td>
-						<td><?php echo $tab_projet['nbPistes']; ?></td>
-						<td class="actions">
-							<a href="index.php?module=projet&action=manage&type=modifier&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Editer" class="btn btn-default btn-sm btn-icon icon-left">
-								<i class="entypo-pencil"></i>
-								Modifier
-							</a>
+		// Boucle remplissage du tableau
+		while($tab_projet = $read_projet->fetch())
+		{
+			?>
+			<tr>
+				<td><?php echo $tab_projet['idProjet']; ?></td>
+				<td><?php echo $tab_projet['titreProjet']; ?></td>
+				<td><?php echo substr($tab_projet['descriptionProjet'], 0, 50).'...'; ?></td>
+				<td><?php 
+				if ($tab_projet['tailleEntreprise'] == "1")
+				{
+					echo  "1 &agrave; 10 personnes -TPE";
+				}
+				else if ($tab_projet['tailleEntreprise'] == "2")
+				{
+					echo  "10 &agrave; 250 personnes - Petite et Moyenne entreprises";
+				}
+				else if ($tab_projet['tailleEntreprise'] == "3")
+				{
+					echo  "251 et 5000 : Entreprise &agrave; taille intermédiaire";
+				}
+				else if ($tab_projet['tailleEntreprise'] == "4")
+				{
+					echo  "+ de 5000 salariés : Grandes entreprises";
+				}
+				else
+				{
+					echo  "Aucun";
+				}
+				?></td>
+				<td><?php 
+				if ($tab_projet['caEntreprise'] == "1")
+				{
+					echo  "0 à 500 000€";
+				}
+				else if ($tab_projet['caEntreprise'] == "2")
+				{
+					echo  "entre 500 000 € et 1 millions d’Euros";
+				}
+				else if ($tab_projet['caEntreprise'] == "3")
+				{
+					echo  "plus d’1 millions d’euros";
+				}?></td>
+				<td><?php 
+				$pts = json_decode($tab_projet['ptsContactEntreprise']);
+				echo '<ul>';
+				for ($i = 0; $i < count($pts); $i++)
+				{
+					if ($pts[$i] == "1")
+					{
+						echo "<li>Téléphonie</li>"; 
+					}
+					else if ($pts[$i] == "2")
+					{
+						echo  "<li>Point de vente</li>";
+					}
+					else if ($pts[$i] == "3")
+					{
+						echo  "<li>Lieu accueillant du public</li>";
+					}
+					else if ($pts[$i] == "4")
+					{
+						echo  "<li>Vidéo</li>";
+					}
+					else if ($pts[$i] == "5")
+					{
+						echo  "<li>Siteweb</li>";
+					}
+					else if ($pts[$i] == "6")
+					{
+						echo  "<li>Application</li>";
+					}
+					else if ($pts[$i] == "7")
+					{
+						echo  "<li>Spot Radio</li>";
+					}
+					else if ($pts[$i] == "8")
+					{
+						echo  "<li>Spot TV</li>";
+					}
+					else if ($pts[$i] == "9")
+					{
+						echo  "<li>Social media : Facebook, Twitter, instagram, youtube..Etc…</li>";
+					}
+					else if ($pts[$i] == "10</li>")
+					{
+						echo  "<li>webradio</li>";
+					}
+					else if ($pts[$i] == "NULL")					{
+						echo  "Aucun";
+					}
+				}
+				echo '</ul>';
 
-							<a href="index.php?module=projet&action=manage&type=supprimer&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Supprimer" class="btn btn-danger btn-sm btn-icon icon-left">
-								<i class="entypo-trash"></i>
-								Supprimer
-							</a>
+				
+				?></td>
+				<td><?php 
+				$options = json_decode($tab_projet['optionProjet']);
 
-							<a href="#" class="btn btn-info btn-sm btn-icon icon-left">
-								<i class="entypo-info"></i>
-								Voir
-							</a>
-							<a href="index.php?module=projet&action=assigner_graphiste&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
-								<i class="entypo-info"></i>
-								Proposer ce projet
-							</a>
-						</td>
-					</tr>
-				<?php
-			}
+				echo '<ul>';
+				for ($i = 0; $i < count($options); $i++)
+				{
+					if ($options[$i] == "1")
+					{
+						echo "<li>Entre 1 à 5 messages par mois</li>"; 
+					}
+					else if ($options[$i] == "2")
+					{
+						echo  "<li>Entre 5 à 10 messages par mois</li>";
+					}
+					else if ($options[$i] == "3")
+					{
+						echo  "<li>Plus de 10</li>";
+					}
+					else if ($options[$i] == "NULL")
+					{
+						echo  "Aucun";
+					}
+				} 
+
+				echo '</ul>';?></td>
+				<td><?php echo $tab_projet['nbARProjet']; ?></td>
+				<td><?php echo $tab_projet['nbDesignerSouhaite']; ?></td>
+				<td><?php echo $tab_projet['titrePack']; ?></td>
+				<td><?php 
+
+				if ($tab_projet['isActiveProjet'] == "1")
+				{
+					echo  "Non débuté";
+				}
+				else if ($tab_projet['isActiveProjet'] == "2")
+				{
+					echo  "En cours";
+				}
+				else if ($tab_projet['isActiveProjet'] == "3")
+				{
+					echo "Terminé";
+				}
+				?></td>
+				<td class="actions">
+					<a href="index.php?module=projet&action=manage&type=modifier&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Editer" class="btn btn-default btn-sm btn-icon icon-left">
+						<i class="entypo-pencil"></i>
+						Modifier
+					</a>
+
+					<a href="index.php?module=projet&action=manage&type=supprimer&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Supprimer" class="btn btn-danger btn-sm btn-icon icon-left">
+						<i class="entypo-trash"></i>
+						Supprimer
+					</a>
+
+					<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+						<i class="entypo-info"></i>
+						Voir
+					</a>
+					<a href="index.php?module=projet&action=assigner_graphiste&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+						<i class="entypo-info"></i>
+						Proposer ce projet
+					</a>
+				</td>
+			</tr>
+		<?php
+		}
 	}
 
 
 	// Fonction CRUD
 	// Retourne $typeNotif & $msgNotif si erreur
 
-	static function set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $nomContact, $isActiveProjet, $emailContact, $telContact, $budgetMinProjet, $budgetMaxProjet)
+	static function set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		// Si on a pas d'ID, INSERT
 		if(empty($idProjet))
@@ -151,7 +283,7 @@ class Projet
 			else
 			{
 
-				$sql_insert = M_Projet::insert_projet($titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $nomContact, $isActiveProjet, $emailContact, $telContact, $budgetMinProjet, $budgetMaxProjet);
+				$sql_insert = M_Projet::insert_projet($titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 				return $sql_insert;
 			}
@@ -171,7 +303,7 @@ class Projet
 			}
 			else
 			{
-				$sql_update = M_Projet::update_projet($idProjet, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $nomContact, $isActiveProjet, $emailContact, $telContact, $budgetMinProjet, $budgetMaxProjet);
+				$sql_update = M_Projet::update_projet($idProjet, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 				$updateProjet = "ok";
 				return($updateProjet);
 			}
@@ -277,7 +409,7 @@ class Projet
 			break;
 
 
-			case "delete":
+			/*case "delete":
 
 				$verif_sql_delete = M_Projet::verif_delete_projet($idProjet);
 
@@ -288,6 +420,7 @@ class Projet
 				}
 
 			break;
+			*/
 		}
 	}
 

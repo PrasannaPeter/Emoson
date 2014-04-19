@@ -28,7 +28,7 @@ $oauth = new socialmedia_oauth_connect();
 $oauth->provider="SoundCloud";
 $oauth->client_id = "80baf2537bedfc558f35242c76cfc8b2";
 $oauth->client_secret = "eaea16083a2793cf43083c92918d9860";
-$oauth->redirect_uri  ="http://127.0.0.1/emoson/core/php-oauth2/soundcloud.php";
+$oauth->redirect_uri  ="http://127.0.0.1/emoson/admin/controllers/social/soundcloud.php";
 
 $oauth->scope="non-expiring";
 
@@ -40,8 +40,9 @@ if(empty($code)) {
 	$oauth->Authorize();
 }else{
 	$oauth->code = $code;
-#	$oauth->getAccessToken();
+	$oauth->getAccessToken();
 	$getData = json_decode($oauth->getUserProfile());
 	$oauth->debugJson($getData);
 }
+
 ?>

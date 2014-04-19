@@ -13,10 +13,11 @@ class M_Projet extends Projet
 		if(!empty($idProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
-				FROM projets P, utilisateurs U
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				FROM projets P, utilisateurs U, pack PA
 				WHERE idProjet ='.$idProjet.'
-				AND P.idUtilisateur = U.idUtilisateur;
+				AND PA.idPack = P.idPack
+				AND P.idUtilisateur = U.idUtilisateur
 				AND roleUtilisateur = "ENTREPRISE"
 			');
 			$read_projet = $read_projet->fetch();
@@ -24,18 +25,20 @@ class M_Projet extends Projet
 		else if(!empty($titreProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
-				FROM projets P, utilisateurs U
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				FROM projets P, utilisateurs U, pack PA
 				WHERE idProjet ='.$idProjet.'
-				AND P.idUtilisateur = U.idUtilisateur;
+				AND PA.idPack = P.idPack
+				AND P.idUtilisateur = U.idUtilisateur
 				AND roleUtilisateur = "ENTREPRISE"
 			');
 		}
 		else
 		{
 			$read_projet = '
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet
-				FROM projets
+				SELECT idProjet, titreProjet, descriptionProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, isActiveProjet, P.idPack, titrePack
+				FROM projets P, pack PA
+				WHERE PA.idPack = P.idPack
 			';
 
 			// Filtre
@@ -59,7 +62,7 @@ class M_Projet extends Projet
 				}
 			}
 
-//			$read_projet .= ' ORDER BY budgetMaxProjet';
+			$read_projet .= ' ORDER BY titreProjet';
 			$read_projet = $bdd->query($read_projet);
 		}
 
@@ -71,12 +74,24 @@ class M_Projet extends Projet
 		$bdd = PDO();
 
 		$read_contact = $bdd->query('
-			SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
-			FROM utilisateurs
+			SELECT *
+			FROM utilisateurs 
 			WHERE roleUtilisateur = "ENTREPRISE"
 		');
 
 		return($read_contact);
+	}
+
+	static function read_pack()
+	{
+		$bdd = PDO();
+
+		$read_pack = $bdd->query('
+			SELECT *
+			FROM pack 
+		');
+
+		return($read_pack);
 	}
 
 
@@ -106,55 +121,138 @@ class M_Projet extends Projet
 	}
 
 
-	static function insert_projet($titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet, $idUtilisateur)
+	static function insert_projet($titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		$bdd = PDO();
 
 		$sql_insert =$bdd->prepare('
-			INSERT INTO projets(titreProjet, descriptionProjet, isActiveProjet, budgetMinProjet, budgetMaxProjet, idUtilisateur)
-			VALUES (:titreProjet, :descriptionProjet, :dateDebutProjet, :dateFinProjet, :nbPistes, :isActiveProjet, :budgetMinProjet, :budgetMaxProjet, :idUtilisateur)
+			INSERT INTO projets(titreProjet, descriptionProjet, isActiveProjet, idUtilisateur, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, idPack)
+			VALUES (:titreProjet, :descriptionProjet, :isActiveProjet, :idUtilisateur, :tailleEntreprise, :caEntreprise, :ptsContactEntreprise, :optionProjet, :nbARProjet, :nbDesignerSouhaite, :idPack)
 					');
 
 		$sql_insert->execute(array(
 						'titreProjet' => $titreProjet,
 						'descriptionProjet' => $descriptionProjet,
-						'dateDebutProjet' => $dateDebutProjet,
-						'dateFinProjet' => $dateFinProjet,
-						'nbPistes' => $nbPistes,
-						'dateFinProjet' => $dateFinProjet,
 						'isActiveProjet' => $isActiveProjet,
-						'budgetMinProjet' => $budgetMinProjet,
-						'budgetMaxProjet' => $budgetMaxProjet,
 						'idUtilisateur' => $idUtilisateur,
+						'tailleEntreprise' => $tailleEntreprise,
+						'caEntreprise' => $caEntreprise,
+						'ptsContactEntreprise' => $ptsContactEntreprise,
+						'optionProjet' => $optionProjet,
+						'nbARProjet' => $nbARProjet,
+						'nbDesignerSouhaite' => $nbDesignerSouhaite,
+						'idPack' => $idPack,
 					));
 
 		return($sql_insert);
 	}
 
 
-	static function update_projet($idProjet, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet)
+	static function update_projet($idProjet, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		$bdd = PDO();
 		$sql_update = $bdd->prepare('
 			UPDATE projets
-			SET titreProjet=:titreProjet, descriptionProjet=:descriptionProjet, dateDebutProjet=:dateDebutProjet, dateFinProjet=:dateFinProjet, nbPistes=:nbPistes, isActiveProjet=:isActiveProjet, budgetMinProjet=:budgetMinProjet, budgetMaxProjet=:budgetMaxProjet
+			SET titreProjet=:titreProjet, descriptionProjet=:descriptionProjet, isActiveProjet=:isActiveProjet, idUtilisateur=:idUtilisateur, tailleEntreprise=:tailleEntreprise, caEntreprise=:caEntreprise, ptsContactEntreprise=:ptsContactEntreprise, optionProjet=:optionProjet, nbARProjet=:nbARProjet, nbDesignerSouhaite=:nbDesignerSouhaite, idPack=:idPack
 			WHERE idProjet = '.$idProjet.'
 		');
 
 		$sql_update->execute(array(
 						'titreProjet' => $titreProjet,
 						'descriptionProjet' => $descriptionProjet,
-						'dateDebutProjet' => $dateDebutProjet,
-						'dateFinProjet' => $dateFinProjet,
-						'nbPistes' => $nbPistes,
 						'isActiveProjet' => $isActiveProjet,
-						'budgetMinProjet' => $budgetMinProjet,
-						'budgetMaxProjet' => $budgetMaxProjet
+						'idUtilisateur' => $idUtilisateur,
+						'tailleEntreprise' => $tailleEntreprise,
+						'caEntreprise' => $caEntreprise,
+						'ptsContactEntreprise' => $ptsContactEntreprise,
+						'optionProjet' => $optionProjet,
+						'nbARProjet' => $nbARProjet,
+						'nbDesignerSouhaite' => $nbDesignerSouhaite,
+						'idPack' => $idPack
 					));
 
 		return($sql_update);
 	}
 
+
+
+	static function del_projet($idProjet)
+	{
+		$bdd = PDO();
+
+		$sql_delete = $bdd->query('
+			DELETE FROM projets
+			WHERE idProjet = '.$idProjet.'
+		');
+	}
+
+	// Verification intégritée BDD
+
+	static function verif_insert_projet($titreProjet)
+	{
+		$bdd = PDO();
+
+		if(!empty($titreProjet))
+		{
+			$verif_sql_insert = $bdd->query('
+				SELECT idProjet FROM projets WHERE titreProjet="'.$titreProjet.'"
+			');
+			$sql_insert = $verif_sql_insert->fetch();
+		}
+
+		return($sql_insert);
+	}
+
+	static function verif_delete_projet($idProjet)
+	{
+		$bdd = PDO();
+		$verif_sql_delete = $bdd->query('
+			SELECT idProjet
+			FROM projets
+			WHERE idProjet = '.$idProjet.'
+		');
+
+		$verif_sql_delete = $verif_sql_delete->fetch();
+
+		return($verif_sql_delete['idProjet']);
+	}
+
+	static function del_graphiste_assigner($idProjet, $idGraphiste)
+	{
+		$bdd = PDO();
+		$del_assigner_graphiste = $bdd->query('DELETE FROM propose_designer WHERE idProjet='.$idProjet.' AND idUtilisateur='.$idGraphiste.'');
+	}
+
+	static function assigner_graphiste($idProjet, $idGraphiste)
+	{
+		$bdd= PDO();
+		$assigner_graphiste = $bdd->query('INSERT INTO propose_designer(idProjet, idUtilisateur, acceptation) VALUE('.$idProjet.','.$idGraphiste.',"non")');
+	}
+
+	static function get_designer()
+	{
+
+		$bdd= PDO();
+		$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur 
+									FROM Utilisateurs 
+									WHERE roleUtilisateur ="GRAPHISTE"');
+		return($get_designer);
+
+	}
+
+	static function get_tab_projet_accepter($idProjet)
+	{
+
+		$bdd= PDO();
+		$get_designer = $bdd->query('SELECT P.idUtilisateur, nomUtilisateur, prenomUtilisateur, acceptation 
+										FROM Utilisateurs U, propose_designer P  
+										WHERE U.idUtilisateur = P.idUtilisateur
+										AND roleUtilisateur ="GRAPHISTE"');
+		return($get_designer);
+
+	}
+
+}
 
 	// static function set_Statut($idProjet, $emailContact)
 	// {
@@ -190,68 +288,3 @@ class M_Projet extends Projet
 
 		// return($sql_update);
 	// }
-
-
-	static function del_projet($idProjet)
-	{
-		$bdd = PDO();
-
-		$sql_delete = $bdd->query('
-			DELETE FROM projets
-			WHERE idProjet = '.$idProjet.'
-		');
-	}
-
-	// Verification intégritée BDD
-
-	static function verif_insert_projet($titreProjet)
-	{
-		$bdd = PDO();
-
-		if(!empty($titreProjet))
-		{
-			$verif_sql_insert = $bdd->query('
-				SELECT idProjet, titreProjet FROM projets WHERE titreProjet="'.$titreProjet.'"
-			');
-			$sql_insert = $verif_sql_insert->fetch();
-		}
-
-		return($sql_insert);
-	}
-
-	static function verif_delete_projet($idProjet)
-	{
-		$bdd = PDO();
-		$verif_sql_delete = $bdd->query('
-			SELECT idProjet
-			FROM faireprojet
-			WHERE idProjet = '.$idProjet.'
-		');
-
-		$verif_sql_delete = $verif_sql_delete->fetch();
-
-		return($verif_sql_delete['idProjet']);
-	}
-
-	static function del_graphiste_assigner($idProjet, $idGraphiste)
-	{
-		$bdd = PDO();
-		$del_assigner_graphiste = $bdd->query('DELETE FROM propose WHERE idProjet='.$idProjet.' AND idUtilisateur='.$idGraphiste.'');
-	}
-
-	static function assigner_graphiste($idProjet, $idGraphiste)
-	{
-		$bdd= PDO();
-		$assigner_graphiste = $bdd->query('INSERT INTO propose(idProjet, idUtilisateur, acceptation) VALUE('.$idProjet.','.$idGraphiste.',"non")');
-	}
-
-	static function get_designer()
-	{
-
-		$bdd= PDO();
-		$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur FROM Utilisateurs WHERE roleUtilisateur ="GRAPHISTE"');
-		return($get_designer);
-
-	}
-
-}

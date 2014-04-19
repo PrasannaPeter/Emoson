@@ -7,52 +7,47 @@ if(!empty($_GET['type'])){$type = $_GET['type'];}
 
 if(!empty($_POST['titreProjet'])){$titreProjet = $_POST['titreProjet'];}
 if(!empty($_POST['descriptionProjet'])){$descriptionProjet = $_POST['descriptionProjet'];}
-if(!empty($_POST['dateDebutProjet'])){$dateDebutProjet = DateFormat($_POST['dateDebutProjet'], "fr_to_mysql");}
-if(!empty($_POST['dateFinProjet'])){$dateFinProjet = DateFormat($_POST['dateFinProjet'],'fr_to_mysql');}
-if(!empty($_POST['budgetMinProjet'])){$budgetMinProjet = DateFormat($_POST['budgetMinProjet'], "fr_to_mysql");}
-if(!empty($_POST['budgetMaxProjet'])){$budgetMaxProjet = DateFormat($_POST['budgetMaxProjet'],'fr_to_mysql');}
+if(!empty($_POST['idUtilisateur'])){$idUtilisateur = $_POST['idUtilisateur'];}else{$idUtilisateur=NULL;}
+if(!empty($_POST['tailleEntreprise'])){ $tailleEntreprise = $_POST['tailleEntreprise'];}
+if(!empty($_POST['caEntreprise'])){$caEntreprise = $_POST['caEntreprise'];}
+if(!empty($_POST['ptsContactEntreprise'])){$ptsContactEntreprise = json_encode($_POST['ptsContactEntreprise']);}else{$ptsContactEntreprise=NULL;}
+if(!empty($_POST['optionProjet'])){$optionProjet = json_encode($_POST['optionProjet']);}else{$optionProjet=NULL;}
+if(!empty($_POST['nbARProjet'])){$nbARProjet = $_POST['nbARProjet'];}
+if(!empty($_POST['nbDesignerSouhaite'])){$nbDesignerSouhaite = $_POST['nbDesignerSouhaite'];}
+if(!empty($_POST['idPack'])){$idPack = $_POST['idPack'];}
 
 if(!empty($_POST['isActiveProjet'])){$isActiveProjet = $_POST['isActiveProjet'];}
-if(!empty($_POST['nbPistes'])){$nbPistes = $_POST['nbPistes'];}
 
 switch($type)
 {
 	case "ajouter" :
 
 		// INSERT
-		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($dateDebutProjet) && !empty($dateFinProjet) && !empty($nbPistes))
+		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($isActiveProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($nbARProjet) && !empty($nbDesignerSouhaite) && !empty($idPack) )
 		{
-			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet, $idContact);
+			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 			// Verifie l'action sinon erreur
 			if($set_projet=="ok")
 			{
 				$_SESSION['typeNotif'] = "success";
 				$_SESSION['titreNotif'] = "Le Projet a bien été ajouté à l'application";
-				$_SESSION['msgNotif'] = "";
-
-				// Récupération de idProjet pour assigner des graphistes aux projets
-				$get_projet = Projet::get_projet($idProjet=NULL, $titreProjet, $type=NULL);
-
-				$get_id_projet = $get_projet->fetch();
-
-				$idProjet = $get_id_projet['idProjet'];
-
-				header('Location:index.php?module=projet&action=assigner_graphiste&idProjet='.$idProjet.'');
+				$_SESSION['msgNotif'] = "Le Projet a bien été ajouté à l'application";
+				header('Location:index.php?module=projet&action=afficher_projet');
 			}
 			else if($set_projet=="error_info")
 			{
 				$_SESSION['typeNotif'] = "error";
 				$_SESSION['titreNotif'] = "Le Projet n'a pas été ajouté à l'application";
 				$_SESSION['msgNotif'] = "Le Projet entrée éxiste déjà dans la base";
-				header('Location:index.php?module=projet&action=manage&type=ajouter_projet');
+				header('Location:index.php?module=projet&action=manage&type=ajouter');
 			}
 			else if($set_projet=="error")
 			{
 				$_SESSION['typeNotif'] = "error";
 				$_SESSION['titreNotif'] = "Le Projet n'a pas été ajouté à l'application";
 				$_SESSION['msgNotif'] = "Le Projet éxiste déjà dans la base";
-				header('Location:index.php?module=projet&action=manage&type=ajouter_projet');
+				header('Location:index.php?module=projet&action=manage&type=ajouter');
 			}
 		}
 		// Formulaire incomplet => affichage du formulaire
@@ -65,7 +60,7 @@ switch($type)
 
 			$_SESSION['typeNotif'] = "error";
 			$_SESSION['titreNotif'] = "Vous devez remplir tout les champs du formulaire";
-			$_SESSION['msgNotif'] = "";
+			$_SESSION['msgNotif'] = "Vous devez remplir tout les champs du formulaire";
 			$_SESSION['lastForm'] = $_POST;
 
 			header('Location:index.php?module=projet&action=manage&type=ajouter');
@@ -76,10 +71,10 @@ switch($type)
 	case "modifier" :
 
 		// UPDATE
-		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($dateDebutProjet) && !empty($dateFinProjet) && !empty($nbPistes) && !empty($nomContact) && !empty($idProjet))
+		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($isActiveProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($nbARProjet) && !empty($nbDesignerSouhaite) && !empty($idPack))
 		{
 
-			$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $dateDebutProjet, $dateFinProjet, $nbPistes, $nomContact, $isActiveProjet, $budgetMinProjet, $budgetMaxProjet);
+			$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 			// Verifie l'action sinon erreur
 			if($set_projet=="error")
 			{
@@ -94,7 +89,7 @@ switch($type)
 				$_SESSION['titreNotif'] = "Le Projet a bien été modifié";
 				$_SESSION['msgNotif'] = "";
 
-				header('Location:index.php?module=projet&action=assigner_graphiste&idProjet='.$idProjet.'');
+				header('Location:index.php?module=projet&action=afficher_projet');
 			}
 		}
 		// Formulaire incomplet => affichage du formulaire
@@ -141,6 +136,17 @@ switch($type)
 			}
 		}
 
+
+	break;
+
+	case "voir_projet" :
+
+		// VOIR
+		if(!empty($idProjet))
+		{
+			header('Location:index.php?module=projet&action=voir_projet&idProjet='.$idProjet.'');
+		}
+		
 
 	break;
 
