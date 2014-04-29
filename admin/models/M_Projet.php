@@ -69,43 +69,6 @@ class M_Projet extends Projet
 		return($read_projet);
 	}
 
-	static function read_contact()
-	{
-		$bdd = PDO();
-
-		$read_contact = $bdd->query('
-			SELECT *
-			FROM utilisateurs 
-			WHERE roleUtilisateur = "ENTREPRISE"
-		');
-
-		return($read_contact);
-	}
-
-	static function read_pack()
-	{
-		$bdd = PDO();
-
-		$read_pack = $bdd->query('
-			SELECT *
-			FROM pack 
-		');
-
-		return($read_pack);
-	}
-
-
-	static function projet_accepter($idProjet)
-	{
-		$bdd = PDO();
-		$read_assignation_projet = $bdd->query('SELECT utilisateurs.idUtilisateur, nomUtilisateur, prenomUtilisateur, acceptation
-												FROM utilisateurs, propose
-												WHERE utilisateurs.idUtilisateur = propose.idUtilisateur
-												AND idProjet = '.$idProjet.'');
-
-		return($read_assignation_projet);
-	}
-
 
 	static function read_last_projet($budgetMinProjet)
 	{
@@ -118,6 +81,19 @@ class M_Projet extends Projet
 		');
 
 		return($read_last_projet);
+	}
+
+	static function read_contact()
+	{
+		$bdd = PDO();
+
+		$read_contact = $bdd->query('
+			SELECT *
+			FROM utilisateurs 
+			WHERE roleUtilisateur = "ENTREPRISE"
+		');
+
+		return($read_contact);
 	}
 
 
@@ -215,41 +191,6 @@ class M_Projet extends Projet
 		$verif_sql_delete = $verif_sql_delete->fetch();
 
 		return($verif_sql_delete['idProjet']);
-	}
-
-	static function del_graphiste_assigner($idProjet, $idGraphiste)
-	{
-		$bdd = PDO();
-		$del_assigner_graphiste = $bdd->query('DELETE FROM propose_designer WHERE idProjet='.$idProjet.' AND idUtilisateur='.$idGraphiste.'');
-	}
-
-	static function assigner_graphiste($idProjet, $idGraphiste)
-	{
-		$bdd= PDO();
-		$assigner_graphiste = $bdd->query('INSERT INTO propose_designer(idProjet, idUtilisateur, acceptation) VALUE('.$idProjet.','.$idGraphiste.',"non")');
-	}
-
-	static function get_designer()
-	{
-
-		$bdd= PDO();
-		$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur 
-									FROM Utilisateurs 
-									WHERE roleUtilisateur ="GRAPHISTE"');
-		return($get_designer);
-
-	}
-
-	static function get_tab_projet_accepter($idProjet)
-	{
-
-		$bdd= PDO();
-		$get_designer = $bdd->query('SELECT P.idUtilisateur, nomUtilisateur, prenomUtilisateur, acceptation 
-										FROM Utilisateurs U, propose_designer P  
-										WHERE U.idUtilisateur = P.idUtilisateur
-										AND roleUtilisateur ="GRAPHISTE"');
-		return($get_designer);
-
 	}
 
 }

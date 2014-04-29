@@ -2,7 +2,6 @@
 
 // On récupère les informations du formulaire (si saisie)
 if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
-if(!empty($_GET['idGraphiste'])){$idGraphiste = $_GET['idGraphiste'];}
 if(!empty($_GET['type'])){$type = $_GET['type'];}
 
 if(!empty($_POST['titreProjet'])){$titreProjet = $_POST['titreProjet'];}
@@ -150,50 +149,5 @@ switch($type)
 
 	break;
 
-	case "assigner_graphiste" :
-
-		//Projet::del_assigner_graphiste($idProjet);
-		$nbRow = count($_POST['graphiste_assigner']);
-
-		for($nb=0; $nb<$nbRow; $nb++)
-		{
-			Projet::assigner_graphiste($idProjet, $_POST['graphiste_assigner'][$nb]);
-			header('Location:index.php?module=projet&action=assigner_graphiste&idProjet='.$idProjet.'');
-		}
-
-	break;
-
-	case "del_assigner_graphiste" :
-
-		// DELETE
-		if(!empty($idProjet) || !empty($idGraphiste))
-		{
-			$del_projet = Projet::del_graphiste_assigner($idProjet, $idGraphiste);
-		}
-		else
-		{
-			echo 'les variables sont vides';
-		}
-
-		if(!empty($del_projet))
-		{
-			if($del_projet=="error")
-			{
-				$_SESSION['typeNotif'] = "error";
-				$_SESSION['titreNotif'] = "L'assignation n'a pas pu être supprimé";
-				$_SESSION['msgNotif'] = "";
-				header('Location:index.php?module=projet&action=assigner_graphiste&idProjet='.$idProjet.'');
-			}
-			else if($del_projet=="ok")
-			{
-				$_SESSION['typeNotif'] = "success";
-				$_SESSION['titreNotif'] = "L'assignation a bien été supprimé";
-				$_SESSION['msgNotif'] = "";
-				header('Location:index.php?module=projet&action=assigner_graphiste&idProjet='.$idProjet.'');
-			}
-		}
-
-		header('Location:index.php?module=projet&action=assigner_graphiste&idProjet='.$idProjet.'');
-
-	break;
+	
 }

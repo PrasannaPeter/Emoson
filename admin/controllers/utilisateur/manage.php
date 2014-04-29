@@ -12,7 +12,9 @@ if(!empty($_POST['passUtilisateur'])){$passUtilisateur = $_POST['passUtilisateur
 if(!empty($_POST['emailUtilisateur'])){$emailUtilisateur = $_POST['emailUtilisateur'];}
 if(!empty($_POST['bioUtilisateur'])){$bioUtilisateur = $_POST['bioUtilisateur'];}
 if(!empty($_POST['roleUtilisateur'])){$roleUtilisateur = $_POST['roleUtilisateur'];}
-if($_POST['certifUtilisateur'] == "on"){$certifUtilisateur = 1;}else{$certifUtilisateur = 0;}
+if(isset($_POST['certifUtilisateur'])){ if($_POST['certifUtilisateur'] == "on"){$certifUtilisateur = 1;}else{$certifUtilisateur = 0;}}
+
+if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
 
 // security because user can modify html and send bad value
 if(!site_admin() && $type="modifier"){
@@ -227,4 +229,5 @@ switch($type)
 
 
 	break;
+
 }

@@ -12,13 +12,13 @@
 						<th>ID</th>
 						<th>Titre</th>
 						<th>Description</th>
-						<th>Taille</th>
+						<!--<th>Taille</th>
 						<th>Chiffre d'Affaire</th>
 						<th>Points</th>
 						<th>Options</th>
 						<th>Aller-Retour</th>
 						<th>Nombre de designer souhaité(s)</th>
-						<th>Pack</th>
+						<th>Pack</th>-->
 						<th>Actif</th>
 						<th></th>
 					</tr>
@@ -33,13 +33,13 @@
 						<th>ID</th>
 						<th>Titre</th>
 						<th>Description</th>
-						<th>Taille</th>
+						<!--<th>Taille</th>
 						<th>Chiffre d'Affaire</th>
 						<th>Points</th>
 						<th>Options</th>
 						<th>Aller-Retour</th>
 						<th>Nombre de designer souhaité(s)</th>
-						<th>Pack</th>
+						<th>Pack</th>-->
 						<th>Actif</th>
 						<th></th>
 					</tr>

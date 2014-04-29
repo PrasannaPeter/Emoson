@@ -251,36 +251,14 @@ if (isset($_SESSION['lastForm']['submit']))
 			    		//Si c'est le formulaire d'ajout
 						if (!isset($get_projet['idPack']))
 						{
-							echo '<select name="idPack">';
-							echo '<option value="1" selected="selected">Bronze</option>';
-							echo '<option value="2">Silver</option>';
-							echo '<option value="3">Gold</option>';
-							echo '</select>';
+							require_once('controllers/pack/pack.php');
+							Pack::vignette_pack($type="admin");
+
 						}
 						else
 						{
-			    			echo '<select name="idPack">';
-
-							if ($get_projet['idPack'] == "2") 
-							{
-								echo '<option value="1">Bronze</option>';
-								echo '<option value="2" selected="selected">Silver</option>';
-								echo '<option value="3">Gold</option>';
-
-							}
-							else if ($get_projet['idPack'] == "3") {
-								echo '<option value="1">Bronze</option>';
-								echo '<option value="2">Silver</option>';
-								echo '<option value="3" selected="selected">Gold</option>';
-							}
-							else if ($get_projet['idPack'] == "1")
-							{
-								echo '<option value="1" selected="selected">Bronze</option>';
-								echo '<option value="2">Silver</option>';
-								echo '<option value="3">Gold</option>';
-							}
-
-							echo '</select>';
+			    			require_once('controllers/pack/pack.php');
+							Pack::vignette_pack($type="admin");
 						}
 						
 						

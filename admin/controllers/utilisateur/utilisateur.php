@@ -207,6 +207,16 @@ class Utilisateur
 								<i class="entypo-info"></i>
 								Profil
 							</a>
+
+						<?php 
+						if ($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE")
+						{?>
+							<a href="../admin/index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+								<i class="entypo-info"></i>
+								Proposer un projet
+							</a>
+						<?php 
+						}?>
 						</td>
 
 					</tr>
@@ -374,33 +384,7 @@ class Utilisateur
 		}
 	}
 
-	static function del_projet_assigner($idProjet, $idUtilisateur)
-	{
-		M_Utilisateur::del_projet_assigner($idProjet, $idUtilisateur);
-	}
-
-	static function assigner_projet($idProjet, $idUtilisateur)
-	{
-		M_Utilisateur::assigner_projet($idProjet, $idUtilisateur);
-	}
-
-	static function get_projet()
-	{
-		$get_projet = M_Utilisateur::get_projet();
-		return($get_projet);
-	}
-
-	static function get_tab_designer_accepter($idUtilisateur)
-	{
-		$get_assignation = M_Utilisateur::get_tab_designer_accepter($idUtilisateur);
-		return($get_assignation);
-
-	}
-	static function get_designer_accepter($idUtilisateur, $idProjet)
-	{
-		$get_assignation = M_Utilisateur::get_designer_accepter($idUtilisateur, $idProjet);
-		return($get_assignation);
-	}
+	
 }
 
 // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté

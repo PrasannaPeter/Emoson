@@ -279,49 +279,5 @@ class M_Utilisateur extends Utilisateur
 		return($verif_sql_delete['idUtilisateur']);
 	}
 
-	//Retourne toute les proposition faite à un designer
-	static function get_tab_designer_accepter($idUtilisateur)
-	{
-		$bdd = PDO();
-		$read_assignation_designer = $bdd->query('SELECT projets.idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, budgetMinProjet, budgetMaxProjet, etatProjet, acceptation
-												FROM propose_projet, projets
-												WHERE projets.idProjet = propose_projet.idProjet
-												AND idUtilisateur = '.$idUtilisateur.'');
-
-		return($read_assignation_designer);
-	}
-
-	//retourne si la propoposition a été acceptée ou non
-	static function get_designer_accepter($idUtilisateur, $idProjet)
-	{
-		$bdd = PDO();
-		$read_assignation_designer = $bdd->query('SELECT acceptation
-												FROM propose_projet
-												WHERE idUtilisateur = '.$idUtilisateur.'
-												AND idProjet = '.$idProjet.'');
-
-		return($read_assignation_designer);
-	}
-
-	static function del_projet_assigner($idProjet, $idUtilisateur)
-	{
-		$bdd = PDO();
-		$del_assigner_projet = $bdd->query('DELETE FROM propose_projet WHERE idUtilisateur='.$idUtilisateur.' AND idProjet='.$idProjet.'');
-	}
-
-	static function assigner_projet($idUtilisateur, $idProjet)
-	{
-		$bdd = PDO();
-		$assigner_projet = $bdd->query('INSERT INTO propose_projet(idUtilisateur, idProjet, acceptation) VALUE('.$idUtilisateur.','.$idProjet.',"non")');
-	}
-
-	static function get_projet()
-	{
-
-		$bdd= PDO();
-		$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, dateDebutProjet, dateFinProjet, budgetMinProjet, budgetMaxProjet, etatProjet FROM projets');
-		return($get_projet);
-
-	}
 
 }
