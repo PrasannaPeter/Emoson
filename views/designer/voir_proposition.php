@@ -30,6 +30,7 @@
                             <th>Titre</th>
                             <th>Description</th>
                             <th>Accepté</th>
+                            <th>Validé</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -41,12 +42,44 @@
                     <?php 
                     echo '<td>'.$tab_proposer['titreProjet'].'</td>';
                     echo '<td>'.$tab_proposer['descriptionProjet'].'</td>';
-                    if($tab_proposer['acceptation'] == 0) {echo '<td>Demandé</td>';}elseif($tab_proposer['acceptation'] == 1){echo "<td>Non</td>";}elseif($tab_proposer['acceptation'] == 2){echo "<td>Oui</td>";}
-                    echo '<td>
-                    	<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet='.$tab_proposer['idProjet'].'"> Voir</a>
-                    	<a href="index.php?module=proposition&action=manage&type=modif_proposition&acceptation=accepter&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'"> Accepter</a>
-                    	<a href="index.php?module=proposition&action=manage&type=modif_proposition&acceptation=decliner&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'"> Décliner</a>
-                    </td>'; ?>
+                        if($tab_proposer['acceptation'] == 0) 
+                        {
+                            echo '<td>Demandé</td>';
+                        }
+                        elseif($tab_proposer['acceptation'] == 1)
+                        {
+                            echo "<td>Oui</td>";
+                        }
+                        elseif($tab_proposer['acceptation'] == 2)
+                        {
+                                echo "<td>Non</td>";
+                        }
+                        if($tab_proposer['validation'] == 0) 
+                        {
+                            echo '<td>Non</td>';
+                        }
+                        elseif($tab_proposer['validation'] == 1)
+                        {
+                            echo "<td>Oui</td>";
+                        }
+                    echo '
+                        <td>
+                    	<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet='.$tab_proposer['idProjet'].'"> Voir</a>';
+                        if($tab_proposer['validation'] == 1) 
+                        {
+                            echo '<a href="#"> Travailler sur le projet</a>';
+                        }
+                    	if($tab_proposer['acceptation'] == 0) 
+                        {
+                            echo '<a href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=1&validation=non&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'"> Accepter</a>';
+                            echo '<a href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=2&validation=non&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'"> Décliner</a>';
+                        }
+                        elseif($tab_proposer['acceptation'] == 1 || $tab_proposer['acceptation'] == 2)
+                        {
+                            echo "";
+                        }
+                        
+                    echo '</td>'; ?>
                 </tr>   
             <?php
             }   

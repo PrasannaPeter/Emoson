@@ -9,14 +9,14 @@ class M_Proposition extends Proposition
 		if ($type_proposition=="utilisateur")
 		{
 			
-			$get_tab_proposition = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation
+			$get_tab_proposition = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation
 													FROM propose, projets
 													WHERE projets.idProjet = propose.idProjet
 													AND propose.idUtilisateur = '.$id.'');
 		}
 		else if($type_proposition=="projet")
 		{	
-			$get_tab_proposition = $bdd->query('SELECT DISTINCT utilisateurs.idUtilisateur, nomUtilisateur, prenomUtilisateur, acceptation
+			$get_tab_proposition = $bdd->query('SELECT DISTINCT utilisateurs.idUtilisateur, nomUtilisateur, prenomUtilisateur, acceptation, validation
 												FROM utilisateurs, propose
 												WHERE utilisateurs.idUtilisateur = propose.idUtilisateur
 												AND idProjet = '.$id.'');
@@ -28,13 +28,22 @@ class M_Proposition extends Proposition
 	static function add_proposition($idProjet, $idUtilisateur)
 	{
 		$bdd = PDO();
-		$assigner_projet = $bdd->query('INSERT INTO propose(idUtilisateur, idProjet, acceptation) VALUE('.$idUtilisateur.','.$idProjet.', 0)');
+		$add_proposition = $bdd->query('INSERT INTO propose(idUtilisateur, idProjet, acceptation, validation) VALUE('.$idUtilisateur.','.$idProjet.', 0, 0)');
+	}
+
+	static function set_proposition($idProjet, $idUtilisateur, $acceptation, $validation)
+	{
+		$bdd = PDO();
+		$set_propostition = $bdd->query('UPDATE propose
+										SET acceptation = '.$acceptation.', validation = '.$validation.'
+										WHERE idProjet = '.$idProjet.'
+										AND idUtilisateur = '.$idUtilisateur.'');
 	}
 
 	static function del_proposition($idProjet, $idUtilisateur)
 	{
 		$bdd = PDO();
-		$del_assigner_projet = $bdd->query('DELETE FROM propose WHERE idUtilisateur='.$idUtilisateur.' AND idProjet='.$idProjet.'');
+		$del_proposition = $bdd->query('DELETE FROM propose WHERE idUtilisateur='.$idUtilisateur.' AND idProjet='.$idProjet.'');
 	}
 	
 	// A supprimer

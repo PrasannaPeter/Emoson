@@ -28,6 +28,7 @@
     							<th>Nom</th>
     							<th>Pr&eacute;nom</th>
     							<th>Accept&eacute;</th>
+                                <th>Valid&eacute;</th>
     							<th></th>
     						</tr>
     					</thead>
@@ -38,8 +39,34 @@
     					<?php 
     					echo '<td>'.$tab_proposer['nomUtilisateur'].'</td>';
     					echo '<td>'.$tab_proposer['prenomUtilisateur'].'</td>';
-    					if($tab_proposer['acceptation'] == 0) {echo '<td>Non</td>';}else{echo "<td>Oui</td>";}
-    					echo '<td><a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer la proposition</a></td>'; 
+    					if($tab_proposer['acceptation'] == 0) 
+                        {
+                            echo '<td>Demandé</td>';
+                        }
+                        elseif($tab_proposer['acceptation'] == 1)
+                        {
+                            echo "<td>Oui</td>";
+                        }
+                        elseif($tab_proposer['acceptation'] == 2)
+                        {
+                                echo "<td>Non</td>";
+                        }
+                        if($tab_proposer['validation'] == 0) 
+                        {
+                            echo '<td>Non</td>';
+                        }
+                        elseif($tab_proposer['validation'] == 1)
+                        {
+                            echo "<td>Oui</td>";
+                        }
+
+    					echo '<td>';
+                                if($tab_proposer['acceptation'] == 1 && $tab_proposer['validation'] == 0)
+                                {
+                                    echo'<a href="index.php?module=proposition&action=manage&type=set_proposition&acceptation=1&validation=1&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-info btn-sm btn-icon icon-left"> Valider</a>';
+                                }
+                                echo '<a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer</a>';
+                            echo'</td>'; 
                         ?>
 
     				</tr>	
@@ -131,6 +158,7 @@
                                 <th>Titre</th>
                                 <th>Description</th>
                                 <th>Accept&eacute;</th>
+                                <th>Valid&eacute;</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -142,8 +170,33 @@
                         <?php 
                         echo '<td>'.$tab_proposer['titreProjet'].'</td>';
                         echo '<td>'.$tab_proposer['descriptionProjet'].'</td>';
-                        if($tab_proposer['acceptation'] == 0) {echo '<td>Non</td>';}else{echo "<td>Oui</td>";}
-                        echo '<td><a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer la proposition</a></td>'; ?>
+                        if($tab_proposer['acceptation'] == 0) 
+                        {
+                            echo '<td>Demandé</td>';
+                        }
+                        elseif($tab_proposer['acceptation'] == 1)
+                        {
+                            echo "<td>Oui</td>";
+                        }
+                        elseif($tab_proposer['acceptation'] == 2)
+                        {
+                                echo "<td>Non</td>";
+                        }
+                        if($tab_proposer['validation'] == 0) 
+                        {
+                            echo '<td>Non</td>';
+                        }
+                        elseif($tab_proposer['validation'] == 1)
+                        {
+                            echo "<td>Oui</td>";
+                        }
+                        echo '<td>';
+                                if($tab_proposer['acceptation'] == 1 && $tab_proposer['validation'] == 0)
+                                {
+                                    echo'<a href="index.php?module=proposition&action=manage&type=set_proposition&acceptation=1&validation=1&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-info btn-sm btn-icon icon-left"> Valider</a>';
+                                }
+                                echo '<a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer</a>';
+                           echo '</td>'; ?>
                     </tr>   
                 <?php
                 }   

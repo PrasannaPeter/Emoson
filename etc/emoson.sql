@@ -1,23 +1,17 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.4
+-- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Ven 25 Avril 2014 à 17:53
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.4.24
+-- Client: localhost
+-- Généré le: Mer 30 Avril 2014 à 17:14
+-- Version du serveur: 5.5.33
+-- Version de PHP: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
 --
--- Base de données :  `emoson`
+-- Base de données: `emoson`
 --
 
 -- --------------------------------------------------------
@@ -26,7 +20,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `commentaires`
 --
 
-CREATE TABLE IF NOT EXISTS `commentaires` (
+CREATE TABLE `commentaires` (
   `idUtilisateur` int(11) NOT NULL,
   `idProjet` int(11) NOT NULL,
   `dateCommentaire` varchar(45) NOT NULL,
@@ -42,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 -- Structure de la table `comptes_lies`
 --
 
-CREATE TABLE IF NOT EXISTS `comptes_lies` (
+CREATE TABLE `comptes_lies` (
   `idCompte` int(11) NOT NULL AUTO_INCREMENT,
   `authCompte` longtext NOT NULL,
   `typeCompte` varchar(45) NOT NULL,
@@ -55,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `comptes_lies` (
 -- Structure de la table `entreprises`
 --
 
-CREATE TABLE IF NOT EXISTS `entreprises` (
+CREATE TABLE `entreprises` (
   `idEntreprise` int(11) NOT NULL AUTO_INCREMENT,
   `raisonSocialeEntreprise` varchar(90) NOT NULL,
   `secteurEntreprise` varchar(70) DEFAULT NULL,
@@ -76,7 +70,7 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
 -- Structure de la table `fichiers_lies`
 --
 
-CREATE TABLE IF NOT EXISTS `fichiers_lies` (
+CREATE TABLE `fichiers_lies` (
   `idFichier` int(11) NOT NULL AUTO_INCREMENT,
   `libFichier` varchar(45) NOT NULL,
   `dateUploadFichier` varchar(45) NOT NULL,
@@ -93,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `fichiers_lies` (
 -- Structure de la table `pack`
 --
 
-CREATE TABLE IF NOT EXISTS `pack` (
+CREATE TABLE `pack` (
   `idPack` int(11) NOT NULL AUTO_INCREMENT,
   `titrePack` varchar(45) NOT NULL,
   `descPack` varchar(45) NOT NULL,
@@ -117,7 +111,7 @@ INSERT INTO `pack` (`idPack`, `titrePack`, `descPack`, `prixPack`, `positionPack
 -- Structure de la table `projets`
 --
 
-CREATE TABLE IF NOT EXISTS `projets` (
+CREATE TABLE `projets` (
   `idProjet` int(11) NOT NULL AUTO_INCREMENT,
   `titreProjet` varchar(90) NOT NULL,
   `descriptionProjet` longtext NOT NULL,
@@ -148,10 +142,11 @@ INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `isActive
 -- Structure de la table `propose`
 --
 
-CREATE TABLE IF NOT EXISTS `propose` (
+CREATE TABLE `propose` (
   `idUtilisateur` int(11) NOT NULL,
   `idProjet` int(11) NOT NULL,
-  `acceptation` varchar(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `acceptation` int(1) NOT NULL,
+  `validation` int(1) NOT NULL,
   PRIMARY KEY (`idUtilisateur`,`idProjet`),
   KEY `fk_entreprises_has_projets_projets1_idx` (`idProjet`),
   KEY `fk_entreprises_has_projets_entreprises1_idx` (`idUtilisateur`)
@@ -161,8 +156,9 @@ CREATE TABLE IF NOT EXISTS `propose` (
 -- Contenu de la table `propose`
 --
 
-INSERT INTO `propose` (`idUtilisateur`, `idProjet`, `acceptation`) VALUES
-(3, 2, '0');
+INSERT INTO `propose` (`idUtilisateur`, `idProjet`, `acceptation`, `validation`) VALUES
+(3, 1, 1, 1),
+(3, 2, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -170,7 +166,7 @@ INSERT INTO `propose` (`idUtilisateur`, `idProjet`, `acceptation`) VALUES
 -- Structure de la table `utilisateurs`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs` (
+CREATE TABLE `utilisateurs` (
   `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nomUtilisateur` varchar(90) NOT NULL,
   `prenomUtilisateur` varchar(90) NOT NULL,
@@ -194,7 +190,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `telUtilisateur`, `loginUtilisateur`, `passUtilisateur`, `emailUtilisateur`, `roleUtilisateur`, `bioUtilisateur`, `idCompte`, `certifUtilisateur`) VALUES
 (1, 'AdminTest', 'testeur', 5478987, 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'test@test.com', 'ADMIN', NULL, NULL, 0),
 (2, 'Dupré', 'dehde', 1456421212, 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'dejhe@hyegd.de', 'ENTREPRISE', 'derf r fer', NULL, 1),
-(3, 'Delarue', 'Jean', 1242545214, 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', 'Jderjhjfbrez fj zerfbzerjbh', NULL, 1);
+(3, 'Delarue', 'Jean', 1242545214, 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -202,7 +198,7 @@ INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateu
 -- Structure de la table `widgets_lies`
 --
 
-CREATE TABLE IF NOT EXISTS `widgets_lies` (
+CREATE TABLE `widgets_lies` (
   `idWidget` int(11) NOT NULL AUTO_INCREMENT,
   `libWidget` varchar(45) DEFAULT NULL,
   `codeWidget` longtext NOT NULL,
@@ -259,7 +255,3 @@ ALTER TABLE `utilisateurs`
 --
 ALTER TABLE `widgets_lies`
   ADD CONSTRAINT `fk_widgets_lies_utilisateurs1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

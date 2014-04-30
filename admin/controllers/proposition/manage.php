@@ -3,6 +3,29 @@
 // On récupère les informations du formulaire (si saisie)
 if(!empty($_GET['idUtilisateur'])){$idUtilisateur = $_GET['idUtilisateur'];}
 if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
+if(!empty($_GET['acceptation']))
+{
+	if($_GET['acceptation'] == 'non') 
+	{
+		$acceptation = 0;
+	}
+	else
+	{
+		$acceptation = $_GET['acceptation'];
+	}
+}
+
+if(!empty($_GET['validation']))
+{
+	if($_GET['validation'] == 'non') 
+	{
+		$validation = 0;
+	}
+	else
+	{
+		$validation = $_GET['validation'];
+	}
+}
 if(isset($_GET['type_proposition'])){if(!empty($_GET['type_proposition'])){$type_proposition = $_GET['type_proposition'];}}
 if(!empty($_GET['type'])){$type = $_GET['type'];}
 
@@ -38,15 +61,25 @@ switch($type)
 
 	break;
 
-	case "modif_proposition" :
+	case "set_proposition" :
 
 		// UPDATE
-		if(!empty($idUtilisateur) || !empty($idProjet) || !empty($acceptation))
-		{
-			$set_utilisateur = Proposition::set_proposition($idUtilisateur, $idProjet, $acceptation);
-		}
 
-		header('Location:index.php?module=proposition&action=afficher_proposition&idUtilisateur='.$idUtilisateur.'');
+		$set_utilisateur = Proposition::set_proposition($idProjet, $idUtilisateur, $acceptation, $validation);
+
+		if ($type_proposition == "projet")
+		{
+			header('Location:index.php?module=proposition&action=afficher_proposition&type_proposition=projet&idProjet='.$idProjet.'');
+		}
+		else if($type_proposition == "utilisateur")
+		{
+			header('Location:index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'');
+		}
+		else if ($type_proposition == "designer")
+		{
+			header('Location:index.php?module=designer&action=voir_proposition&idUtilisateur='.$idUtilisateur.'');
+		}
+		
 
 	break;
 

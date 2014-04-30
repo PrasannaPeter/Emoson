@@ -14,23 +14,28 @@ class Proposition
 
 	}
 
-	//A supprimer
-	static function get_pack()
-	{
-		$get_pack = M_Proposition::read_pack();
-		return($get_pack);
-	}
-
 	static function add_proposition($idProjet, $idUtilisateur)
 	{
 		M_Proposition::add_proposition($idProjet, $idUtilisateur);
 	}
+
+	static function set_proposition($idProjet, $idUtilisateur, $acceptation, $validation)
+	{
+		M_Proposition::set_proposition($idProjet, $idUtilisateur, $acceptation, $validation);
+	}
+
 
 	static function del_proposition($idProjet, $idUtilisateur)
 	{
 		M_Proposition::del_proposition($idProjet, $idUtilisateur);
 	}
 
+	//A supprimer
+		static function get_pack()
+		{
+			$get_pack = M_Proposition::read_pack();
+			return($get_pack);
+		}
 
 	static function get_projet()
 	{
