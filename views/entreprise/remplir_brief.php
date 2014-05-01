@@ -23,30 +23,30 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <legend class=""><h2>Faire une demande de projet</h2></legend><br />
     </div>
 <br>
-<strong><h3>Information générale</h3></strong>
-<br>
-<br>
+<strong><h3>Votre Projet</h3></strong>
     <div class="control-group">
-      <label class="control-label" for="titreProjet">Titre</label>
+      <label class="control-label" for="titreProjet" >Titre de votre Projet</label>
       <div class="controls">
-        <input required="required" type="text" name="titreProjet">
+        <input required="required" type="text" name="titreProjet" style="width:400px;">
       </div>
     </div>
 
     <div class="control-group">   
-      <label class="control-label">Description</label>
+      <label class="control-label">Description de votre projet</label>
       <div class="controls">
-        <textarea class="form-control autogrow" required="required" name="descriptionProjet"></textarea>
+        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
       </div>
     </div>
-
+<hr>
+<strong><h3>Informations sur votre Entreprise</h3></strong>
+<br>
     <div class="control-group">
       <!-- Taille de l'entreprise -->
       <label class="control-label" for="tailleProjet">Quelle est la taille de l'entreprise ?</label>
       <div class="controls">
           <div class="radio-field">
             <input name ="tailleEntreprise" checked="checked" id="tailleProjet_1" type="radio" value="1"/>
-            <label for="tailleProjet_1">1 à 10 personnes -TPE</label>
+            <label for="tailleProjet_1">1 à 10 personnes - TPE</label>
           </div>
           <div class="radio-field">
             <input name ="tailleEntreprise" id="tailleProjet_2" type="radio" value="2"/>
@@ -54,11 +54,11 @@ $idEntreprise = $_SESSION['idUtilisateur'];
           </div>
           <div class="radio-field">
             <input name ="tailleEntreprise" id="tailleProjet_3" type="radio" value="3"/>
-            <label for="tailleProjet_3">251 et 5000 : Entreprise à taille intermédiaire</label>
+            <label for="tailleProjet_3">251 et 5000 - Entreprise à taille intermédiaire</label>
           </div>
           <div class="radio-field">
             <input name ="tailleEntreprise" id="tailleProjet_4" type="radio" value="4"/>
-            <label for="tailleProjet_4">+ de 5000 salariés : Grandes entreprises</label>
+            <label for="tailleProjet_4">+ de 5000 salariés - Grandes entreprises</label>
           </div>
       </div>
     </div>
@@ -77,7 +77,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
           </div>
           <div class="radio-field">
             <input name="caEntreprise" id="DernierCAProjet_3" type="radio" value="3"/>
-            <label for="DernierCAProjet_3">plus d’1 millions d’euros </label>
+            <label for="DernierCAProjet_3">plus d’1 millions d’euros</label>
           </div>
       </div>
     </div>
@@ -96,15 +96,15 @@ $idEntreprise = $_SESSION['idUtilisateur'];
           </div>
           <div class="checkbox-field">
             <input name="ptsContactEntreprise[]" id="PTContactEntreprise_3" type="checkbox" value="3"/>
-            <label for="PTContactEntreprise_3">Lieu accueillant du public </label>
+            <label for="PTContactEntreprise_3">Etablissements recevant du public</label>
           </div>
           <div class="checkbox-field">
             <input name="ptsContactEntreprise[]" id="PTContactEntreprise_4" type="checkbox" value="4"/>
-            <label for="PTContactEntreprise_4">Vidéo </label>
+            <label for="PTContactEntreprise_4">Vidéo</label>
           </div>
           <div class="checkbox-field">
             <input name="ptsContactEntreprise[]" id="PTContactEntreprise_5" type="checkbox" value="5"/>
-            <label for="PTContactEntreprise_5">Siteweb</label>
+            <label for="PTContactEntreprise_5">Site Internet</label>
           </div>
           <div class="checkbox-field">
             <input name="ptsContactEntreprise[]" id="PTContactEntreprise_6" type="checkbox" value="6"/>
@@ -120,16 +120,15 @@ $idEntreprise = $_SESSION['idUtilisateur'];
           </div>
           <div class="checkbox-field">
             <input name="ptsContactEntreprise[]" id="PTContactEntreprise_9" type="checkbox" value="9"/>
-            <label for="PTContactEntreprise_9">Social media : Facebook, Twitter, instagram, youtube..Etc…</label>
+            <label for="PTContactEntreprise_9">Médias Sociaux (Facebook, Twitter, Instagram, Youtube, etc...)</label>
           </div>
           <div class="checkbox-field">
             <input name="ptsContactEntreprise[]" id="PTContactEntreprise_10" type="checkbox" value="10"/>
-            <label for="PTContactEntreprise_10">webradio</label>
+            <label for="PTContactEntreprise_10">Webradio</label>
           </div>
       </div>
     </div>
-
-<br>
+<hr>
 <strong><h3>Proposititon de pack</h3></strong>
 <br>
 <div class="clear"></div>
@@ -144,10 +143,9 @@ $idEntreprise = $_SESSION['idUtilisateur'];
 </div>
         <!--Prix Table Block-->
 
-<br>
+        <hr>
 <strong><h3>Proposition d'options</h3></strong>
-<br>
-<br>
+
 
     <div class="control-group">
       <!-- Voix off -->
@@ -159,31 +157,31 @@ $idEntreprise = $_SESSION['idUtilisateur'];
           </div>
           <div class="checkbox-field">
             <input name="optionProjet[]" id="voixOffProjet_2" type="checkbox" value="2"/>
-            <label for="voixOffProjet_2">Entre 5 à 10 messages par mois </label>
+            <label for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
           </div>
           <div class="checkbox-field">
             <input name="optionProjet[]" id="voixOffProjet_3" type="checkbox" value="3"/>
-            <label for="voixOffProjet_3">plus de 10 </label>
+            <label for="voixOffProjet_3">plus de 10</label>
           </div>
-          <p class="help-block">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix Off  : porte parole vocale de votre marque
+          <p class="help-block" style="margin-top:-15px;">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix off  : porte parole vocale de votre marque<br>
 Si oui, définissez le nombre de messages par mois </p>
       </div>
     </div>
-
+<br>
     <div class="control-group">
       <!-- Aller / Retour supplémentaire -->
       <label class="control-label" for="ARProjet">Aller / Retour supplémentaire</label>
       <div class="controls">
-        <input type="number" required="required" min="1" id="ARProjet" name="nbARProjet" placeholder="" class="input-xlarge">
+        <input type="number" required="required" min="0" value="0" id="ARProjet" name="nbARProjet" placeholder="" class="input-xlarge">
         <p class="help-block">Mettez le nombre d'aller - retour supplémentaire souhaité</p>
       </div>
     </div>
-
+<br>
     <div class="control-group">
       <!-- Proposition logo d'un designer supplémentaire -->
       <label class="control-label" for="logoProjet">Proposition logo d'un designer supplémentaire</label>
       <div class="controls">
-        <input type="number" required="required" min="1" id="logoProjet" name="nbDesignerSouhaite" placeholder="" class="input-xlarge">
+        <input type="number" required="required" min="0" value="0" id="logoProjet" name="nbDesignerSouhaite" placeholder="" class="input-xlarge">
         <p class="help-block">Mettez le nombre de designer supplémentaire souhaité</p>
       </div>
     </div>

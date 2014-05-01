@@ -95,13 +95,13 @@ var_dump($compter_pack); exit;
 			// Boucle remplissage du tableau
 			while($tab_pack = $read_pack->fetch())
 			{
-				?><ul class="price-list span3 box-1">
+                            ?><ul class="price-list span3 box-1" style="margin-left:75px;">
 	              <li class="pgk-title title-1"><?php echo $tab_pack['titrePack']; ?></li>
 	              <li class="pgk-price title-2"><?php echo $tab_pack['prixPack']; ?> €</li>
 	              <li style="min-height:150px;"><?php echo str_replace('- ', '<br />', $tab_pack['descPack']); ?></li>
 	              <div class="radio-field">
 	                <center>
-	                  <input checked="checked" name="idPack" id="idPack_<?php echo $tab_pack['idPack']; ?>" type="radio" value="<?php echo $tab_pack['idPack']; ?>">
+	                  <input name="idPack" id="idPack_<?php echo $tab_pack['idPack']; ?>" type="radio" value="<?php echo $tab_pack['idPack']; ?>">
 	                  <label for="idPack_<?php echo $tab_pack['idPack']; ?>" style="color:#2aadde;"><strong>Choisir</strong></label>
 	                </center>
 	              </div>
