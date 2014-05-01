@@ -77,16 +77,20 @@ var_dump($compter_pack); exit;
 	}
 
 
-	static function vignette_pack($type="actif")
+	static function vignette_pack($type)
 	{
-			if(!empty($type))
-			{
-				$read_pack = Pack::get_pack($idPack=NULL, $type);
-			}
-			else
-			{
-				$read_pack = Pack::get_pack($idPack=NULL, $type=NULL);
-			}
+		
+		if(!empty($type))
+		{
+			$read_pack = Pack::get_pack($idPack=NULL, $type);
+		}
+		else
+		{
+			$read_pack = Pack::get_pack($idPack=NULL, $type=NULL);
+		}
+		
+		if($type=="actif")
+		{
 
 			// Boucle remplissage du tableau
 			while($tab_pack = $read_pack->fetch())
@@ -97,12 +101,24 @@ var_dump($compter_pack); exit;
 	              <li style="min-height:150px;"><?php echo str_replace('- ', '<br />', $tab_pack['descPack']); ?></li>
 	              <div class="radio-field">
 	                <center>
-	                  <input id="TarifProjet_<?php echo $tab_pack['idPack']; ?>" type="radio" value="<?php echo $tab_pack['idPack']; ?>">
-	                  <label for="TarifProjet_<?php echo $tab_pack['idPack']; ?>" style="color:#2aadde;"><strong>Choisir</strong></label>
+	                  <input checked="checked" name="idPack" id="idPack_<?php echo $tab_pack['idPack']; ?>" type="radio" value="<?php echo $tab_pack['idPack']; ?>">
+	                  <label for="idPack_<?php echo $tab_pack['idPack']; ?>" style="color:#2aadde;"><strong>Choisir</strong></label>
 	                </center>
 	              </div>
 	            </ul><?php
 			}
+		}
+		else if ($type =="admin") 
+		{
+			echo '<select name ="idPack">';
+			// Boucle remplissage du tableau
+			while($tab_pack = $read_pack->fetch())
+			{
+	              echo '<option value="'.$tab_pack['idPack'].'">'.$tab_pack['titrePack'].'</option>';
+			}
+				
+			echo '</select>';
+		}
 	}
 
 	// Fonction CRUD

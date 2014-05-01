@@ -78,17 +78,17 @@ class Projet
 				
 				<td><?php 
 
-				if ($tab_projet['isActiveProjet'] == "1")
+				if ($tab_projet['isActiveProjet'] == "0")
 				{
-					echo  "Non débuté";
+					echo  "En attente de validation";
 				}
-				else if ($tab_projet['isActiveProjet'] == "2")
+				else if ($tab_projet['isActiveProjet'] == "1")
 				{
 					echo  "En cours";
 				}
-				else if ($tab_projet['isActiveProjet'] == "3")
+				else if ($tab_projet['isActiveProjet'] == "2")
 				{
-					echo "Terminé";
+					echo "Termin&eacute;";
 				}
 				?></td>
 				<td class="actions">
@@ -106,10 +106,29 @@ class Projet
 						<i class="entypo-info"></i>
 						Voir
 					</a>
-					<a href="index.php?module=proposition&action=afficher_proposition&type_proposition=projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+
+					<?php
+					if($tab_projet['isActiveProjet'] == "0")
+					{
+					?>
+						<a href="index.php?module=projet&action=manage&type=valider_projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-gold">
+							<i class="entypo-info"></i>
+							Valider
+						</a>
+					<?php
+					}
+					if ($tab_projet['isActiveProjet'] == "1") 
+					{
+					?>
+					<a href="index.php?module=proposition&action=afficher_proposition&type_proposition=projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-success">
 						<i class="entypo-info"></i>
 						Proposer ce projet
 					</a>
+					<?php
+					}
+					?>
+
+					
 				</td>
 			</tr>
 		<?php
@@ -248,6 +267,28 @@ class Projet
 
 			return($delProjet);
 		}
+	}
+
+	static function valider_projet($idProjet)
+	{
+
+		/*$type = "valider";
+
+		$verif_sql = Projet::verif_sql($type, $titreProjet=NULL, $idProjet);
+
+		if(!empty($verif_sql))
+		{
+			$delProjet = "error";
+			return($delProjet);
+		}
+		else
+		{*/
+			M_Projet::valider_projet($idProjet);
+
+			/*$delProjet = "ok";
+
+			return($delProjet);
+		}*/
 	}
 
 

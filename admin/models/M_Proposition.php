@@ -9,7 +9,7 @@ class M_Proposition extends Proposition
 		if ($type_proposition=="utilisateur")
 		{
 			
-			$get_tab_proposition = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation
+			$get_tab_proposition = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet
 													FROM propose, projets
 													WHERE projets.idProjet = propose.idProjet
 													AND propose.idUtilisateur = '.$id.'');
@@ -50,7 +50,18 @@ class M_Proposition extends Proposition
 	static function get_projet()
 	{
 		$bdd= PDO();
-		$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet FROM projets');
+		
+		/*$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet 
+									FROM projets  
+									WHERE projets.idProjet NOT IN (
+									    SELECT idProjet
+									    FROM propose)
+									OR 1 < (SELECT COUNT(*) 
+									       	FROM propose)
+									');*/
+		$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet 
+									FROM projets 
+									WHERE isActiveProjet = 1 ');
 		return($get_projet);
 	}
 
@@ -86,9 +97,19 @@ class M_Proposition extends Proposition
 	{
 
 		$bdd= PDO();
+		/*$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur 
+									FROM Utilisateurs 
+									WHERE roleUtilisateur ="GRAPHISTE"
+									AND Utilisateurs.idUtilisateur NOT IN (
+									    SELECT idUtilisateur
+									    FROM propose)
+									OR 1 < (SELECT COUNT(*) 
+									       	FROM propose) ');*/
 		$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur 
 									FROM Utilisateurs 
-									WHERE roleUtilisateur ="GRAPHISTE"');
+									WHERE roleUtilisateur ="GRAPHISTE"
+									AND certifUtilisateur = 1');
+
 		return($get_designer);
 
 	}

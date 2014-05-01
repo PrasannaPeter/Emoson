@@ -162,6 +162,16 @@ class M_Projet extends Projet
 		');
 	}
 
+	static function valider_projet($idProjet)
+	{
+		$bdd = PDO();
+
+		$sql_valider = $bdd->query('UPDATE projets
+									SET isActiveProjet = 1
+									WHERE idProjet = '.$idProjet.'
+		');
+	}
+
 	// Verification intégritée BDD
 
 	static function verif_insert_projet($titreProjet)

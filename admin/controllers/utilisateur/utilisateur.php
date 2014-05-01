@@ -209,9 +209,9 @@ class Utilisateur
 							</a>
 
 						<?php 
-						if ($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE")
+						if ($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE" && $tab_utilisateur['certifUtilisateur'] == "1")
 						{?>
-							<a href="../admin/index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+							<a href="../admin/index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-success">
 								<i class="entypo-info"></i>
 								Proposer un projet
 							</a>

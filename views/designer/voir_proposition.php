@@ -29,8 +29,9 @@
                         <tr>
                             <th>Titre</th>
                             <th>Description</th>
-                            <th>Accepté</th>
-                            <th>Validé</th>
+                            <th>Etat</th>
+                            <th>Offre</th>
+                            <th>Validé par l\'administrateur</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -42,17 +43,29 @@
                     <?php 
                     echo '<td>'.$tab_proposer['titreProjet'].'</td>';
                     echo '<td>'.$tab_proposer['descriptionProjet'].'</td>';
+                    if($tab_proposer['isActiveProjet'] == 0) 
+                        {
+                            echo '<td>En cours de validation</td>';
+                        }
+                        elseif($tab_proposer['isActiveProjet'] == 1)
+                        {
+                            echo "<td>En cours</td>";
+                        }
+                        elseif($tab_proposer['isActiveProjet'] == 2)
+                        {
+                            echo "<td>Terminé</td>";
+                        }
                         if($tab_proposer['acceptation'] == 0) 
                         {
                             echo '<td>Demandé</td>';
                         }
                         elseif($tab_proposer['acceptation'] == 1)
                         {
-                            echo "<td>Oui</td>";
+                            echo "<td>Accepté</td>";
                         }
                         elseif($tab_proposer['acceptation'] == 2)
                         {
-                                echo "<td>Non</td>";
+                                echo "<td>Decliné</td>";
                         }
                         if($tab_proposer['validation'] == 0) 
                         {
@@ -62,10 +75,12 @@
                         {
                             echo "<td>Oui</td>";
                         }
+                        
+
                     echo '
                         <td>
                     	<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet='.$tab_proposer['idProjet'].'"> Voir</a>';
-                        if($tab_proposer['validation'] == 1) 
+                        if($tab_proposer['validation'] == 1 && $tab_proposer['isActiveProjet'] == 1) 
                         {
                             echo '<a href="#"> Travailler sur le projet</a>';
                         }

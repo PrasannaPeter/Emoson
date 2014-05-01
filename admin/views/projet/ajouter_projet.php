@@ -322,7 +322,7 @@ if (isset($_SESSION['lastForm']['submit']))
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Aller / Retour supplémentaire</label>
 						<div class="col-sm-5">
-							<input type="number" min="0" id="ARProjet" required="required" name="nbARProjet" placeholder="" class="input-xlarge" value="<?php if(!empty($get_projet['nbARProjet'])){ echo $get_projet['nbARProjet']; }Else{echo "";}?>">
+							<input type="number" min="1" id="ARProjet" required="required" name="nbARProjet" placeholder="" class="input-xlarge" value="<?php if(!empty($get_projet['nbARProjet'])){ echo $get_projet['nbARProjet']; }Else{echo "";}?>">
 				        <p class="help-block">Mettez le nombre d'aller - retour supplémentaire souhaité</p>
 						</div>
 					</div>
@@ -330,7 +330,7 @@ if (isset($_SESSION['lastForm']['submit']))
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Proposition logo d'un designer supplémentaire</label>
 						<div class="col-sm-5">
-							<input type="number" min="0" id="logoProjet" required="required" name="nbDesignerSouhaite" placeholder="" class="input-xlarge" value="<?php if(!empty($get_projet['nbDesignerSouhaite'])){ echo $get_projet['nbDesignerSouhaite']; }Else{echo "";}?>">
+							<input type="number" min="1" id="logoProjet" required="required" name="nbDesignerSouhaite" placeholder="" class="input-xlarge" value="<?php if(!empty($get_projet['nbDesignerSouhaite'])){ echo $get_projet['nbDesignerSouhaite']; }Else{echo "";}?>">
 				        <p class="help-block">Mettez le nombre de designer supplémentaire souhaité</p>
 						</div>
 					</div>
@@ -343,33 +343,34 @@ if (isset($_SESSION['lastForm']['submit']))
 							if (!isset($get_projet['isActiveProjet']))
 							{
 								echo '<select name="isActiveProjet">';
-								echo '<option value="1" selected="selected">Non commencé</option>';
-								echo '<option value="2" >En cours</option>';
-								echo '<option value="3">Terminé</option>';
+								echo '<option value="non" selected="selected">En attente de validation</option>';
+								echo '<option value="1" >En cours</option>';
+								echo '<option value="2">Terminé</option>';
 								echo '</select>';
 							
 							}
 							else
 							{
 								echo '<select name="isActiveProjet">';
-								if ($get_projet['isActiveProjet'] == "2") 
+								if ($get_projet['isActiveProjet'] == "0")
 								{
-									echo '<option value="1">Non commencé</option>';
-									echo '<option value="2" selected="selected">En cours</option>';
-									echo '<option value="3">Terminé</option>';
+									echo '<option value="non" selected="selected">En attente de validation</option>';
+									echo '<option value="1">En cours</option>';
+									echo '<option value="2">Terminé</option>';
+								}
+								else if ($get_projet['isActiveProjet'] == "1") 
+								{
+									echo '<option value="non">En attente de validation</option>';
+									echo '<option value="1" selected="selected">En cours</option>';
+									echo '<option value="2">Terminé</option>';
 
 								}
-								else if ($get_projet['isActiveProjet'] == "3") {
-									echo '<option value="1">Non commencé</option>';
-									echo '<option value="2">En cours</option>';
-									echo '<option value="3" selected="selected">Terminé</option>';
+								else if ($get_projet['isActiveProjet'] == "2") {
+									echo '<option value="non">En attente de validation</option>';
+									echo '<option value="1">En cours</option>';
+									echo '<option value="2" selected="selected">Terminé</option>';
 								}
-								else if ($get_projet['isActiveProjet'] == "1")
-								{
-									echo '<option value="1" selected="selected">Non commencé</option>';
-									echo '<option value="2">En cours</option>';
-									echo '<option value="3">Terminé</option>';
-								}
+								 
 								echo '</select>';
 							}
 							?>

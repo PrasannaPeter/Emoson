@@ -121,15 +121,15 @@
 	echo '<p><strong>Nombre de designer : </strong>'.$get_projet['nbDesignerSouhaite'].'</p>';
 	echo '<p><strong>Pack : </strong>'.$get_projet['titrePack'].'</p>';
 	echo '<p><strong>Etat : </strong>';
-		if ($get_projet['isActiveProjet'] == "1")
+		if ($get_projet['isActiveProjet'] == "0")
 		{
-			echo  "Non débuté";
+			echo  "En attente de validation";
 		}
-		else if ($get_projet['isActiveProjet'] == "2")
+		else if ($get_projet['isActiveProjet'] == "1")
 		{
 			echo  "En cours";
 		}
-		else if ($get_projet['isActiveProjet'] == "3")
+		else if ($get_projet['isActiveProjet'] == "2")
 		{
 			echo "Terminé";
 		}
