@@ -3,10 +3,10 @@
 // Initialisation
 require_once 'core/init.php';
 
-	// Début de la tamporisation de sortie
+	// Dï¿½but de la tamporisation de sortie
 	ob_start();
 
-	// Si un module (controlleur) est specifié, on regarde s'il existe
+	// Si un module (controlleur) est specifiï¿½, on regarde s'il existe
 	if (!empty($_GET['module']))
 	{
 		$controller = $_GET['module'];
@@ -16,7 +16,7 @@ require_once 'core/init.php';
 		// Si la classe du controlleur existe, on le charge
 		if($controller!=NULL && file_exists(CONTROLLERS.'/'.$controller.'/'.$controller.'.php'))
 		{
-			// Affichage de la notification si présente
+			// Affichage de la notification si prï¿½sente
 			if((!empty($_SESSION['typeNotif']) && !empty($_SESSION['titreNotif'])) OR (!empty($typeNotif) && !empty($titreNotif)))
 			{
 
@@ -32,12 +32,12 @@ require_once 'core/init.php';
 			}
 			require_once(CONTROLLERS.'/'.$controller.'/'.$controller.'.php');
 
-			// Si le controleur de l'action éxiste, on le charge
+			// Si le controleur de l'action ï¿½xiste, on le charge
 			if($action!=NULL && file_exists(CONTROLLERS.'/'.$controller.'/'.$action.'.php'))
 			{
 				require_once(CONTROLLERS.'/'.$controller.'/'.$action.'.php');
 			}
-			// Sinon on charge la vue si elle éxiste
+			// Sinon on charge la vue si elle ï¿½xiste
 			else if($action!=NULL && file_exists(VIEWS.'/'.$controller.'/'.$action.'.php'))
 			{
 				require_once(VIEWS.'/'.$controller.'/'.$action.'.php');
@@ -54,7 +54,7 @@ require_once 'core/init.php';
 			require_once VIEWS.'/global/home.php';
 		}
 	}
-	// Module non specifié ou invalide ? On affiche une page d'erreur
+	// Module non specifiï¿½ ou invalide ? On affiche une page d'erreur
 	else
 	{
 		require_once VIEWS.'/global/home.php';
@@ -63,10 +63,10 @@ require_once 'core/init.php';
 	// Fin de la tamporisation de sortie
 	$content = ob_get_clean();
 
-	// Début du code HTML
+	// Dï¿½but du code HTML
 	require_once VIEWS.'/global/header.php';
 
-	if($_SESSION['loginError'])
+	if(!empty($_SESSION['loginError']))
 	{
 		?>
 		<script type="text/javascript">

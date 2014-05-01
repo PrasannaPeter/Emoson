@@ -63,7 +63,7 @@
       <!-- N° Telephone -->
       <label class="control-label" for="telUtilisateur">N° Telephone</label>
       <div class="controls">
-        <input type="text" id="telUtilisateur" name="telUtilisateur" placeholder="" class="input-xlarge">
+        <input type="text" id="telUtilisateur" name="telUtilisateur" placeholder="" required="required" class="input-xlarge">
       </div>
     </div>
   </fieldset>
@@ -100,7 +100,7 @@
       <!-- Site web -->
       <label class="control-label" for="siteWebEntreprise">Site web</label>
       <div class="controls">
-        <input type="url" id="siteWebEntreprise" name="siteWebEntreprise" placeholder="" class="input-xlarge">
+        <input type="url" id="siteWebEntreprise" name="siteWebEntreprise" required="required" placeholder="" class="input-xlarge">
 
       </div>
     </div>
@@ -109,7 +109,7 @@
       <!-- N° Siret -->
       <label class="control-label" for="numSiretEntreprise">N° Siret</label>
       <div class="controls">
-        <input type="text" id="numSiretEntreprise" name="numSiretEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="numSiretEntreprise" name="numSiretEntreprise" required="required" placeholder="" class="input-xlarge">
 
       </div>
     </div>
@@ -118,7 +118,7 @@
       <!-- Adresse -->
       <label class="control-label" for="adresseEntreprise">Adresse</label>
       <div class="controls">
-        <input type="text" id="adresseEntreprise" name="adresseEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="adresseEntreprise" name="adresseEntreprise" required="required" placeholder="" class="input-xlarge">
 
       </div>
     </div>
@@ -127,7 +127,7 @@
       <!-- Ville -->
       <label class="control-label" for="villeEntreprise">Ville</label>
       <div class="controls">
-        <input type="text" id="villeEntreprise" name="villeEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="villeEntreprise" name="villeEntreprise" required="required" placeholder="" class="input-xlarge">
 
       </div>
     </div>
@@ -136,7 +136,7 @@
       <!-- Code postal -->
       <label class="control-label" for="CPEntreprise">Code postal</label>
       <div class="controls">
-        <input type="text" id="CPEntreprise" name="CPEntreprise" placeholder="" class="input-xlarge">
+        <input type="text" id="CPEntreprise" name="CPEntreprise" placeholder="" required="required" class="input-xlarge">
 
       </div>
     </div>

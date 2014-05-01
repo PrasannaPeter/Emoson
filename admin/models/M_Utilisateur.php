@@ -155,10 +155,11 @@ class M_Utilisateur extends Utilisateur
 						'roleUtilisateur' => $roleUtilisateur,
 						'certifUtilisateur' => $certifUtilisateur,
 					));
-
-		if(!empty($sql_insert))
-			$_SESSION['lastInsertId'] = $bdd->lastInsertId();
-
+                
+               if(!empty($sql_insert)){
+                   $lastUserId = $bdd->lastInsertId();
+                   $_SESSION['lastInsertId'] = $lastUserId;
+               }
 		return($sql_insert);
 	}
 
