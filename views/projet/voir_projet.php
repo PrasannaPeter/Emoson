@@ -1,15 +1,51 @@
+
+<!-- Content -->
+<div id="content">
+  <div id="title">
+    <h1 class="inner title-2">Visualisation<span>d'un brief</span>
+      <ul class="breadcrumb-inner">
+        <li> <a href="index.html">Accueil</a></li>
+      </ul>
+    </h1>
+  </div>
+  <div class="inner">
+
+    <!-- Content Inner -->
+    <div class="content-inner candidate-list">
+
+    <center>
+    <a class="btn btn-large btn-success" href="index.php?module=designer&action=modifier_profil" role="button"><i class="fa fa-user"></i> <span>Voir designers</span></a>
+    <a class="btn btn-large btn-info" href="index.php?module=designer&action=modifier_portfolio" role="button"><i class="fa fa-comments"></i> <span>Discussion</span></a>
+
+    <hr>
+
+    </center>
+
+     <?php
+
+        if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
+
+        $get_projet = Projet::get_projet($idProjet);
+
+    ?>
+
+
+    <h2><?php echo $get_projet['titreProjet']; ?></h2>
+    <br />
+
+
 <?php
-	
-	if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
 
-	$get_projet = Projet::get_projet($idProjet);
+    if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
 
-	echo '<h4>Détail du projet</h4>';
-	echo '<p><strong>Titre projet : </strong>'.$get_projet['titreProjet'].'</p>';
-	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
+    $get_projet = Projet::get_projet($idProjet);
 
-	echo '<p><strong>Etat : </strong>';
-		if($get_projet['isActiveProjet'] == 0) 
+    echo '<h4>Détail du projet</h4>';
+    echo '<p><strong>Titre projet : </strong>'.$get_projet['titreProjet'].'</p>';
+    echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
+
+    echo '<p><strong>Etat : </strong>';
+        if($get_projet['isActiveProjet'] == 0)
         {
             echo '<p>En cours de validation</p>';
         }
@@ -21,12 +57,17 @@
         {
             echo "<p>Terminé</p>";
         }
-	echo "</p>";
-	echo '<h4>Info du contact</h4>';
-	echo '<p><strong>Nom contact : </strong>'.$get_projet['nomUtilisateur'].'</p>';
-	echo '<p><strong>Prénom contact : </strong>'.$get_projet['prenomUtilisateur'].'</p>';
-	echo '<p><strong>Email contact : </strong><a href="mailto:'.$get_projet['emailUtilisateur'].'">'.$get_projet['emailUtilisateur'].'</a></p>';
-	echo '<p><strong>N° de telephone contact : </strong>'.$get_projet['telUtilisateur'].'</p>';
+    echo "</p>";
+    echo '<h4>Info du contact</h4>';
+    echo '<p><strong>Nom contact : </strong>'.$get_projet['nomUtilisateur'].'</p>';
+    echo '<p><strong>Prénom contact : </strong>'.$get_projet['prenomUtilisateur'].'</p>';
+    echo '<p><strong>Email contact : </strong><a href="mailto:'.$get_projet['emailUtilisateur'].'">'.$get_projet['emailUtilisateur'].'</a></p>';
+    echo '<p><strong>N° de telephone contact : </strong>'.$get_projet['telUtilisateur'].'</p>';
 
 
 ?>
+
+
+</div>
+</div>
+</div>
