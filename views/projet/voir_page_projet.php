@@ -40,6 +40,33 @@
 
 ?>
 
+<h2>Choix du designer</h2>
+
+<form>
+    <div id="about-us-our-team" class="block">
+      <div class="block-content">
+        <div class="team-worker">
+          <div class="photo"><img src="style/content/our-team/worker-1.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
+          <div class="name">Jeffrey Richards</div>
+          <div class="post"> <center><input type="radio" name="choixDesigner" value="1"></center></div>
+        </div>
+        <div class="team-worker">
+          <div class="photo"><img src="style/content/our-team/worker-2.jpg" height="154" width="154" alt="John Doe - Partner"></div>
+          <div class="name">John Doe</div>
+          <div class="post"> <center><input type="radio" name="choixDesigner" value="2"></center></div>
+        </div>
+        <div class="team-worker">
+          <div class="photo"><img src="style/content/our-team/worker-3.jpg" height="154" width="154" alt="Jane Doe - Partner"></div>
+          <div class="name">Jane Doe</div>
+          <div class="post"> <center><input type="radio" name="choixDesigner" value="3"></center></div>
+        </div>
+      </div>
+    </div>
+</form>
+      <div class="clear"></div>
+
+    <hr>
+
 <h2>Designer selectionné</h2>
 <br />
 
