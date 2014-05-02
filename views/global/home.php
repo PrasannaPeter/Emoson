@@ -34,7 +34,6 @@
           </div>
           <div class="right">
             <div class="first">
-              <div class="badge"></div>
               <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-file-text"></i> <span>J'ai un projet</span></a></div>
             </div>
             <div class="second">
