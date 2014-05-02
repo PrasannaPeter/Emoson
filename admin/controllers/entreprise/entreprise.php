@@ -249,4 +249,5 @@ class Entreprise
 	}
 }
 
-require_once('views/'.$controller.'/'.$controller.'.php');
+if(site_admin())
+	require_once('views/'.$controller.'/'.$controller.'.php');

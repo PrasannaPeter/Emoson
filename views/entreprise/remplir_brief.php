@@ -151,16 +151,16 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <!-- Voix off -->
       <label class="control-label" for="voixOffProjet">Voix off</label>
       <div class="controls">
-          <div class="checkbox-field">
-            <input name="optionProjet[]" id="voixOffProjet_1" type="checkbox" value="1"/>
+          <div class="radio-field">
+            <input name="optionProjet[]" id="voixOffProjet_1" type="radio" value="1"/>
             <label for="voixOffProjet_1">Entre 1 à 5 messages par mois</label>
           </div>
-          <div class="checkbox-field">
-            <input name="optionProjet[]" id="voixOffProjet_2" type="checkbox" value="2"/>
+          <div class="radio-field">
+            <input name="optionProjet[]" id="voixOffProjet_2" type="radio" value="2"/>
             <label for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
           </div>
-          <div class="checkbox-field">
-            <input name="optionProjet[]" id="voixOffProjet_3" type="checkbox" value="3"/>
+          <div class="radio-field">
+            <input name="optionProjet[]" id="voixOffProjet_3" type="radio" value="3"/>
             <label for="voixOffProjet_3">plus de 10</label>
           </div>
           <p class="help-block" style="margin-top:-15px;">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix off  : porte parole vocale de votre marque<br>

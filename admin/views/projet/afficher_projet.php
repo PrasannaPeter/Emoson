@@ -20,12 +20,17 @@
 						<th>Nombre de designer souhaité(s)</th>
 						<th>Pack</th>-->
 						<th>Actif</th>
-						<th></th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
 				<?php
-					$tab_projet = Projet::tab_projet();
+
+					if(!empty($_GET['type']))
+						$tab_projet = Projet::tab_projet($_GET['type']);
+					else
+						$tab_projet = Projet::tab_projet();
+
 				?>
 				</tbody>
 				<tfoot>
@@ -41,7 +46,7 @@
 						<th>Nombre de designer souhaité(s)</th>
 						<th>Pack</th>-->
 						<th>Actif</th>
-						<th></th>
+						<th>Actions</th>
 					</tr>
 				</tfoot>
 			</table>

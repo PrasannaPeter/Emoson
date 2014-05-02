@@ -38,7 +38,31 @@
     <br />
 
     <div class="alert alert-info">
-        <p>Aucun projet.</p>
+        <?php
+            require_once(CONTROLLERS."projet/projet.php");
+            // @TODO : uniquement en cours / terminés
+            $projets = Projet::get_projet();
+
+            if(count($projets)){
+                ?>
+                <table>
+                    <thead>
+                        <th>Titre</th>
+                        <th>Description</th>
+                    </thead>
+                <?php
+                foreach ($projets as $projet) {
+                    echo "<tr>";
+                    echo "<td>".$projet['titreProjet']."</td>";
+                    echo "<td>".$projet['descriptionProjet']."</td>";
+                    echo "</tr>";
+                }
+                    ?></table><?php
+            }else{
+                ?>
+                <p>Aucun projet.</p>
+                <?php
+            } ?>
     </div>
 
     <?php } ?>

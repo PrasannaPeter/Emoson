@@ -1,5 +1,5 @@
    <!-- Tableau contenant les designer qui ont accepté le projet -->
-	<?php 
+	<?php
 
     if (!isset($_GET['idUtilisateur']))
     {
@@ -8,23 +8,23 @@
     else if(empty($_GET['idUtilisateur']))
     {
         header('index.php?module=utilisateur&action=afficher_projet');
-    }  
+    }
     else
     {
         $idUtilisateur = $_GET['idUtilisateur'];
 
         require_once 'admin/controllers/proposition/proposition.php';
         $designer_proposer = Proposition::get_tab_proposition($idUtilisateur, $type_proposition="utilisateur");
-        
+
         if(empty($designer_proposer))
-        { 
+        {
             echo "<p>Pas de resultat</p>";
         }
         else
         {
             echo '<br><br>
         			<caption>Les propositions </caption>
-                    <table border="1">
+                    <table table-borderer datatable>
                     <thead>
                         <tr>
                             <th>Titre</th>
@@ -40,10 +40,10 @@
             {
             ?>
                 <tr>
-                    <?php 
+                    <?php
                     echo '<td>'.$tab_proposer['titreProjet'].'</td>';
                     echo '<td>'.$tab_proposer['descriptionProjet'].'</td>';
-                    if($tab_proposer['isActiveProjet'] == 0) 
+                    if($tab_proposer['isActiveProjet'] == 0)
                         {
                             echo '<td>En cours de validation</td>';
                         }
@@ -55,7 +55,7 @@
                         {
                             echo "<td>Terminé</td>";
                         }
-                        if($tab_proposer['acceptation'] == 0) 
+                        if($tab_proposer['acceptation'] == 0)
                         {
                             echo '<td>Demandé</td>';
                         }
@@ -67,7 +67,7 @@
                         {
                                 echo "<td>Decliné</td>";
                         }
-                        if($tab_proposer['validation'] == 0) 
+                        if($tab_proposer['validation'] == 0)
                         {
                             echo '<td>Non</td>';
                         }
@@ -75,16 +75,16 @@
                         {
                             echo "<td>Oui</td>";
                         }
-                        
+
 
                     echo '
                         <td>
                     	<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet='.$tab_proposer['idProjet'].'"> Voir</a>';
-                        if($tab_proposer['validation'] == 1 && $tab_proposer['isActiveProjet'] == 1) 
+                        if($tab_proposer['validation'] == 1 && $tab_proposer['isActiveProjet'] == 1)
                         {
                             echo '<a href="#"> Travailler sur le projet</a>';
                         }
-                    	if($tab_proposer['acceptation'] == 0) 
+                    	if($tab_proposer['acceptation'] == 0)
                         {
                             echo '<a href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=1&validation=non&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'"> Accepter</a>';
                             echo '<a href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=2&validation=non&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'"> Décliner</a>';
@@ -93,18 +93,17 @@
                         {
                             echo "";
                         }
-                        
+
                     echo '</td>'; ?>
-                </tr>   
+                </tr>
             <?php
-            }   
+            }
             echo '</tbody>
             </table>
         	<br>
         	<br>';
-        }          
+        }
     }
     ?>
 
-    
-    
+

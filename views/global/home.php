@@ -320,8 +320,9 @@
 
 <?php
 
-require_once(ROOT_APP.'/admin/controllers/projet/projet.php');
+require_once(CONTROLLERS.'/projet/projet.php');
 
+// @TODO mettre uniquement les projets terminé
 $projets = Projet::get_projet();
 
 $typeNotif = $_SESSION['typeNotif'];
@@ -332,14 +333,8 @@ $_SESSION['titreNotif'] = "";
 $_SESSION['msgNotif'] = "";
 
 $notification = notifications($typeNotif, $titreNotif, $msgNotif);
+
 echo $notification;
-
-echo "a integrer dans le bloc du dessous";
-
-foreach ($projets as $projet)
-{
-    dump($projet);
-}
 
 ?>
 
@@ -352,172 +347,46 @@ foreach ($projets as $projet)
           <div class="latest-job-wrapper">
             <div class="block-content dott-flexslider box-1">
               <ul class="slides">
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
-                <li>
-                  <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                    <div class="nav-buttons">
-                      <ul>
-                        <li class="search"><a><i class="fa fa-search"></i></a></li>
-                        <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="company-text">
-                    <div class="title"><a href="#">Front-End Developer at Envato</a>
-                      <div class="location">Sydney, Australia</div>
-                    </div>
-                    <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. <a>Read More</a></div>
-                  </div>
-                </li>
+              <?php
+
+              foreach ($projets as $projet)
+              {
+                  ?>
+                    <li>
+                      <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
+                        <div class="nav-buttons">
+                          <ul>
+                            <li class="search"><a><i class="fa fa-search"></i></a></li>
+                            <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="company-text">
+                        <div class="title"><a href="#"><?php echo $projet['titreProjet']; ?></a>
+                          <div class="location">Mettre nom entreprise</div>
+                        </div>
+                        <div class="description"><?php echo $projet['descriptionProjet']; ?> <a>Voir +</a></div>
+                      </div>
+                    </li>
+                  <?php
+              }
+
+              ?>
               </ul>
             </div>
           </div>
         </div>
         <!--/Derniers Projets Block-->
         <div class="clear"></div>
+
+        <?php
+        require_once(CONTROLLERS.'/entreprise/entreprise.php');
+
+        // @TODO mettre uniquement les projets terminé
+        $entreprises = Entreprise::get_entreprise();
+        if($entreprises > 1){
+        ?>
+
         <!--Partenaires Block-->
         <div id="partners">
           <div class="heading-l">
@@ -526,26 +395,19 @@ foreach ($projets as $projet)
           <div class="block-content box-1">
             <section class="row-fluid">
               <ul class="partner-list span4">
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-              </ul>
-              <ul class="partner-list span4">
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-              </ul>
-              <ul class="partner-list span4">
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
-                <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
+              <?php
+                foreach ($entreprises as $entreprise) {
+                  ?>
+                    <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
+                  <?php
+                }
+              ?>
               </ul>
             </section>
           </div>
         </div>
+
+        <?php } ?>
 
       <div class="clear"></div>
       <!-- Clear Line -->

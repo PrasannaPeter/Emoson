@@ -60,11 +60,11 @@ class Projet
 	{
 		if(!empty($type))
 		{
-			$read_projet = Projet::get_projet($idProjet=NULL, $type);
+			$read_projet = Projet::get_projet($idProjet=NULL,$libProjet, $type);
 		}
 		else
 		{
-			$read_projet = Projet::get_projet($idProjet=NULL, $type=NULL);
+			$read_projet = Projet::get_projet($idProjet=NULL,$libProjet, $type=NULL);
 		}
 
 		// Boucle remplissage du tableau

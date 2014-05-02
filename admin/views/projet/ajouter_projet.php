@@ -6,7 +6,7 @@ if (isset($_SESSION['lastForm']['submit']))
 		$get_projet = $_SESSION['lastForm'];
 	}
 }
-		
+
 ?>
 <div class="row">
 	<div class="col-md-12">
@@ -54,7 +54,7 @@ if (isset($_SESSION['lastForm']['submit']))
 									<input name = "tailleEntreprise" id="tailleProjet_4" type="radio" value="4"/>
 									<label for="tailleProjet_4">+ de 5000 salariés : Grandes entreprises</label>
 								</div>
-								
+
 							<?php
 							}
 							else
@@ -102,7 +102,7 @@ if (isset($_SESSION['lastForm']['submit']))
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_4" type="checkbox"  value="4"/>
 						            <label for="PTContactProjet_4">Vidéo </label>
 						        </div>
-								
+
 								<div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_5" type="checkbox"  value="5"/>
 						            <label for="PTContactProjet_5">Siteweb</label>
@@ -127,7 +127,7 @@ if (isset($_SESSION['lastForm']['submit']))
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_10" type="checkbox" value="10"/>
 						            <label for="PTContactProjet_10">webradio</label>
 						        </div>
-							<?php 
+							<?php
 							}
 							//Si c'est le formulaire de modif
 							else
@@ -184,7 +184,7 @@ if (isset($_SESSION['lastForm']['submit']))
 						<label class="col-sm-3 control-label">Chiffre d'affaire</label>
 						<div class="col-sm-5">
 							<div class="controls">
-								<?php 
+								<?php
 								//Si c'est le formulaire d'ajout
 								if (!isset($get_projet['caEntreprise']))
 								{?>
@@ -225,12 +225,12 @@ if (isset($_SESSION['lastForm']['submit']))
 
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Proposition de Pack</label>
-						<?php 
+						<?php
 						/*
 						$pack = Projet::get_pack();
-						
+
 						if(empty($pack))
-			    		{ 
+			    		{
 			    			echo "<p>Pas de resultat</p>";
 			    		}
 			    		else
@@ -239,12 +239,12 @@ if (isset($_SESSION['lastForm']['submit']))
 	    					while($tab_pack = $pack->fetch())
 	    					{
 	    						if ($tab_pack['idPack']){
-	    							echo '<option value ="'.$tab_pack['idPack'].' selected="selected"">'.$tab_pack['titrePack'].'</option>'; 
+	    							echo '<option value ="'.$tab_pack['idPack'].' selected="selected"">'.$tab_pack['titrePack'].'</option>';
 	    						}
 	    						else{
-	    							echo '<option value ="'.$tab_pack['idPack'].'">'.$tab_pack['titrePack'].'</option>'; 
+	    							echo '<option value ="'.$tab_pack['idPack'].'">'.$tab_pack['titrePack'].'</option>';
 	    						}
-	    						
+
 	    					};
 	    					echo '</select>';
 			    		}*/
@@ -260,8 +260,8 @@ if (isset($_SESSION['lastForm']['submit']))
 			    			require_once('controllers/pack/pack.php');
 							Pack::vignette_pack($type="admin");
 						}
-						
-						
+
+
 						?>
 					</div>
 
@@ -276,16 +276,16 @@ if (isset($_SESSION['lastForm']['submit']))
 							if (!isset($get_projet['optionProjet']))
 							{?>
 								<div class="controls">
-									<div class="checkbox-field">
-										<input name ="optionProjet[]" id="voixOffProjet_1" type="checkbox" value="1"/>
+									<div class="radio-field">
+										<input name ="optionProjet[]" id="voixOffProjet_1" type="radio" value="1"/>
 										<label for="voixOffProjet_1">Entre 1 à 5 messages par mois</label>
 									</div>
-									<div class="checkbox-field">
-										<input name ="optionProjet[]" id="voixOffProjet_2" type="checkbox" value="2"/>
+									<div class="radio-field">
+										<input name ="optionProjet[]" id="voixOffProjet_2" type="radio" value="2"/>
 										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois </label>
 									</div>
-									<div class="checkbox-field">
-										<input name ="optionProjet[]" id="voixOffProjet_3" type="checkbox" value="3"/>
+									<div class="radio-field">
+										<input name ="optionProjet[]" id="voixOffProjet_3" type="radio" value="3"/>
 										<label for="voixOffProjet_3">plus de 10 </label>
 									</div>
 										<p class="help-block">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix Off  : porte parole vocale de votre marque
@@ -338,7 +338,7 @@ if (isset($_SESSION['lastForm']['submit']))
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Statut</label>
 						<div class="col-sm-5">
-							<?php 
+							<?php
 							//Si c'est le formulaire d'ajout
 							if (!isset($get_projet['isActiveProjet']))
 							{
@@ -347,7 +347,7 @@ if (isset($_SESSION['lastForm']['submit']))
 								echo '<option value="1" >En cours</option>';
 								echo '<option value="2">Terminé</option>';
 								echo '</select>';
-							
+
 							}
 							else
 							{
@@ -358,7 +358,7 @@ if (isset($_SESSION['lastForm']['submit']))
 									echo '<option value="1">En cours</option>';
 									echo '<option value="2">Terminé</option>';
 								}
-								else if ($get_projet['isActiveProjet'] == "1") 
+								else if ($get_projet['isActiveProjet'] == "1")
 								{
 									echo '<option value="non">En attente de validation</option>';
 									echo '<option value="1" selected="selected">En cours</option>';
@@ -370,7 +370,7 @@ if (isset($_SESSION['lastForm']['submit']))
 									echo '<option value="1">En cours</option>';
 									echo '<option value="2" selected="selected">Terminé</option>';
 								}
-								 
+
 								echo '</select>';
 							}
 							?>
@@ -381,10 +381,10 @@ if (isset($_SESSION['lastForm']['submit']))
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Information du contact</label>
 						<div class="col-sm-5">
-						<?php 
+						<?php
 						$contact = Projet::get_contact();
 						if(empty($contact))
-			    		{ 
+			    		{
 			    			echo "<p>Pas de resultat</p>";
 			    		}
 			    		else
@@ -394,13 +394,13 @@ if (isset($_SESSION['lastForm']['submit']))
 	    					{
 	    						if ($tab_contact['idUtilisateur'])
 	    						{
-	    							echo '<option value ="'.$tab_contact['idUtilisateur'].'" selected="selected" ">'; 
+	    							echo '<option value ="'.$tab_contact['idUtilisateur'].'" selected="selected" ">';
 	    						}
 	    						else
 	    						{
-	    							echo '<option value ="'.$tab_contact['idUtilisateur'].'">'; 
+	    							echo '<option value ="'.$tab_contact['idUtilisateur'].'">';
 	    						}
-	    						
+
 	    						echo $tab_contact['nomUtilisateur'].' / '.$tab_contact['prenomUtilisateur'].' / '.$tab_contact['emailUtilisateur'].'</option>';
 	    					};
 	    					echo '</select>';
@@ -415,7 +415,7 @@ if (isset($_SESSION['lastForm']['submit']))
 							<button class="btn btn-default" type="submit" name="submit" value="ok">Confirmer</button>
 						</div>
 					</div>
-					
+
 				</form>
 			</div>
 		</div>

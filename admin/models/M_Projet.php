@@ -9,11 +9,10 @@ class M_Projet extends Projet
 	{
 		$bdd = PDO();
 
-
 		if(!empty($idProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U, pack PA
 				WHERE idProjet ='.$idProjet.'
 				AND PA.idPack = P.idPack
@@ -25,7 +24,7 @@ class M_Projet extends Projet
 		else if(!empty($titreProjet))
 		{
 			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur  
+				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U, pack PA
 				WHERE idProjet ='.$idProjet.'
 				AND PA.idPack = P.idPack
@@ -46,18 +45,21 @@ class M_Projet extends Projet
 			{
 				switch ($type)
 				{
-					case "classe":
+					case "enattente":
 
-						$lire_graphiste .= ', Classes WHERE idClasse = '.$idClasse.'';
+						$read_projet .= " AND isActiveProjet = 0";
 					break;
 
+					case "encours":
 
-					default :
+						$read_projet .= " AND isActiveProjet = 1";
+					break;
 
-						$lire_graphiste .= ', appartenir, classes
-										WHERE Graphistes.idGraphiste = appartenir.idGraphiste
-										AND appartenir.idClasse = classes.idClasse
-										AND classes.anneeClasse = '.$type.'';
+					case "termine":
+
+						$read_projet .= " AND isActiveProjet = 2";
+					break;
+
 
 				}
 			}
@@ -89,7 +91,7 @@ class M_Projet extends Projet
 
 		$read_contact = $bdd->query('
 			SELECT *
-			FROM utilisateurs 
+			FROM utilisateurs
 			WHERE roleUtilisateur = "ENTREPRISE"
 		');
 
