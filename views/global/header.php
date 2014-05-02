@@ -75,9 +75,9 @@
           <?php if($_SESSION['roleUtilisateur'] == "ADMIN"){ ?>
             <a class="btn btn-success" href="admin/index.php">Administration</a>
           <?php }else{ ?>
-            <a class="btn btn-success" href="index.php?module=dashboard&action=afficher">Mon espace</a>
+            <a class="btn btn-success" href="index.php?module=dashboard&action=afficher"><i class="fa fa-cloud"></i> <span>Mon espace</span></a>
           <?php } ?>
-          <a class="btn btn-info" href="index.php?module=utilisateur&action=deconnexion">Déconnexion</a>
+          <a class="btn btn-info" href="index.php?module=utilisateur&action=deconnexion"><i class="fa fa-lock"></i> <span>Déconnexion</span></a>
         <?php } ?>
     </ul>
     <!-- /User Menu -->
