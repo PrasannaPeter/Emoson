@@ -24,13 +24,13 @@
             <a href="?module=projet&action=afficher_projet"><button type="button" class="btn btn-success">
                 <i class="entypo-docs"></i>Tous</button></a>
 
-            <a href="?module=projet&action=afficher_projet&type="><button type="button" class="btn btn-blue">
+            <a href="?module=projet&action=afficher_projet&type=encours"><button type="button" class="btn btn-blue">
                 <i class="entypo-eye"></i>En cours</button></a>
 
-            <a href="?module=projet&action=afficher_projet&type="><button type="button" class="btn btn-red">
+            <a href="?module=projet&action=afficher_projet&type=enattente"><button type="button" class="btn btn-red">
                 <i class="entypo-clock"></i>En attente</button></a>
 
-            <a href="?module=projet&action=afficher_projet&type="><button type="button" class="btn btn-gold">
+            <a href="?module=projet&action=afficher_projet&type=termine"><button type="button" class="btn btn-gold">
                 <i class="entypo-archive"></i>Terminés</button></a>
 
         </div>
