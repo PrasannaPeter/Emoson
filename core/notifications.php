@@ -10,7 +10,6 @@ function notifications($typeNotif, $titreNotif, $msgNotif=NULL)
 				<strong>Succès : <?php echo $titreNotif; ?>.</strong>
 				<p><?php echo $msgNotif;?></p>
 			</div>
-			<br />
 
 		<?php
 		break;
@@ -21,7 +20,6 @@ function notifications($typeNotif, $titreNotif, $msgNotif=NULL)
 				<strong>Erreur : <?php echo $titreNotif; ?>!</strong>
 				<p><?php echo $msgNotif;?></p>
 			</div>
-			<br />
 
 		<?php
 		break;
@@ -41,7 +39,6 @@ function notifications($typeNotif, $titreNotif, $msgNotif=NULL)
 				<strong>Attention : <?php echo $titreNotif; ?>!</strong>
 				<p><?php echo $msgNotif;?></p>
 			</div>
-			<br />
 
 		<?php
 		break;
@@ -51,7 +48,6 @@ function notifications($typeNotif, $titreNotif, $msgNotif=NULL)
 				<strong>Note :</strong>
 				<p><?php echo $msgNotif;?></p>
 			</div>
-			<br />
 
 		<?php
 	}

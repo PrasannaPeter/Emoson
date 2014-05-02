@@ -34,7 +34,6 @@
           </div>
           <div class="right">
             <div class="first">
-              <div class="badge"></div>
               <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal">J'ai un projet</a></div>
             </div>
             <div class="second">
