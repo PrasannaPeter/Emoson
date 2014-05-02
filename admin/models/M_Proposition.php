@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class M_Proposition extends Proposition
 {
@@ -8,19 +8,19 @@ class M_Proposition extends Proposition
 		$bdd = PDO();
 		if ($type_proposition=="utilisateur")
 		{
-			
+
 			$get_tab_proposition = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet
 													FROM propose, projets
 													WHERE projets.idProjet = propose.idProjet
 													AND propose.idUtilisateur = '.$id.'');
 		}
 		else if($type_proposition=="projet")
-		{	
+		{
 			$get_tab_proposition = $bdd->query('SELECT DISTINCT utilisateurs.idUtilisateur, nomUtilisateur, prenomUtilisateur, acceptation, validation
 												FROM utilisateurs, propose
 												WHERE utilisateurs.idUtilisateur = propose.idUtilisateur
 												AND idProjet = '.$id.'');
-			
+
 		}
 		return($get_tab_proposition);
 	}
@@ -45,22 +45,22 @@ class M_Proposition extends Proposition
 		$bdd = PDO();
 		$del_proposition = $bdd->query('DELETE FROM propose WHERE idUtilisateur='.$idUtilisateur.' AND idProjet='.$idProjet.'');
 	}
-	
+
 	// A supprimer
 	static function get_projet()
 	{
 		$bdd= PDO();
-		
-		/*$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet 
-									FROM projets  
+
+		/*$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet
+									FROM projets
 									WHERE projets.idProjet NOT IN (
 									    SELECT idProjet
 									    FROM propose)
-									OR 1 < (SELECT COUNT(*) 
+									OR 1 < (SELECT COUNT(*)
 									       	FROM propose)
 									');*/
-		$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet 
-									FROM projets 
+		$get_projet = $bdd->query('SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet
+									FROM projets
 									WHERE isActiveProjet = 1 ');
 		return($get_projet);
 	}
@@ -72,7 +72,7 @@ class M_Proposition extends Proposition
 
 		$read_contact = $bdd->query('
 			SELECT *
-			FROM utilisateurs 
+			FROM utilisateurs
 			WHERE roleUtilisateur = "ENTREPRISE"
 		');
 
@@ -86,7 +86,7 @@ class M_Proposition extends Proposition
 
 		$read_pack = $bdd->query('
 			SELECT *
-			FROM pack 
+			FROM pack
 		');
 
 		return($read_pack);
@@ -97,16 +97,16 @@ class M_Proposition extends Proposition
 	{
 
 		$bdd= PDO();
-		/*$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur 
-									FROM Utilisateurs 
+		/*$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur
+									FROM utilisateurs
 									WHERE roleUtilisateur ="GRAPHISTE"
-									AND Utilisateurs.idUtilisateur NOT IN (
+									AND utilisateurs.idUtilisateur NOT IN (
 									    SELECT idUtilisateur
 									    FROM propose)
-									OR 1 < (SELECT COUNT(*) 
+									OR 1 < (SELECT COUNT(*)
 									       	FROM propose) ');*/
-		$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur 
-									FROM Utilisateurs 
+		$get_designer = $bdd->query('SELECT idUtilisateur, nomUtilisateur, prenomUtilisateur
+									FROM utilisateurs
 									WHERE roleUtilisateur ="GRAPHISTE"
 									AND certifUtilisateur = 1');
 
