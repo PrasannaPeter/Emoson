@@ -2,7 +2,7 @@
 
 $type_proposition = $_GET['type_proposition'];
 
-//Formulaire &agrave; partir de la page projet
+//Formulaire à partir de la page projet
 if($type_proposition == "projet")
 {
     if (!isset($_GET['idProjet']))
@@ -19,14 +19,14 @@ if($type_proposition == "projet")
 
 		$projet_proposer = Proposition::get_tab_proposition($idProjet, $type_proposition);
 
-			echo '<h4>Ce projet &agrave; d&eacute;ja &eacute;t&eacute; propos&eacute; &agrave; </h4>';
-			echo '<table class="datatable" >
+			echo '<h4>Ce projet à déja été proposé à </h4>';
+			echo '<table class="table table-bordered datatable" >
 					<thead>
 						<tr>
 							<th>Nom</th>
-							<th>Pr&eacute;nom</th>
+							<th>Prénom</th>
 							<th>Offre</th>
-                            <th>Valid&eacute;</th>
+                            <th>Validé</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -38,13 +38,13 @@ if($type_proposition == "projet")
 				echo '<td>'.$tab_proposer['nomUtilisateur'].'</td>';
 				echo '<td>'.$tab_proposer['prenomUtilisateur'].'</td>';
 				        if($tab_proposer['acceptation'] == 0) {
-                            echo '<td>Demand&eacute;</td>';
+                            echo '<td>Demandé</td>';
                         }
                         elseif($tab_proposer['acceptation'] == 1){
-                            echo "<td>Accept&eacute;</td>";
+                            echo "<td>Accepté</td>";
                         }
                         elseif($tab_proposer['acceptation'] == 2) {
-                            echo "<td>D�clin&eacute;</td>";
+                            echo "<td>Décliné</td>";
                         }
 
                         if($tab_proposer['validation'] == 0){
@@ -74,15 +74,15 @@ if($type_proposition == "projet")
     
         <h4>Assigner des designers au projet</h4>
     			
-    	<p>Cocher les cases correspondantes aux designers &agrave; assigner &agrave; ce projet</p>
+    	<p>Cocher les cases correspondantes aux designers à assigner à ce projet</p>
     	<p>Vous pouvez utiliser la fonction recherche</p>
         <!-- Formulaire d'ajout -->
     	<form method="POST" action="index.php?module=proposition&action=manage&type=add_proposition&type_proposition=projet<?php if(!empty($_GET['idProjet'])){ echo '&idProjet='.$_GET['idProjet'];}?>" class="vertical-form">
-            <table class="datatable">
+            <table class="table table-bordered datatable">
                 <thead>
                     <tr>
                         <th>Nom</th>
-                        <th>Pr�nom</th>
+                        <th>Prénom</th>
                         <th>Assigner</th>
                     </tr>
                 </thead>
@@ -110,7 +110,7 @@ if($type_proposition == "projet")
         </form>  
     <?}
 }
-//Formulaire &agrave; partir de la page utilisateur
+//Formulaire à partir de la page utilisateur
 else if ($type_proposition == "utilisateur") 
 {
     if (!isset($_GET['idUtilisateur']))
@@ -133,14 +133,14 @@ else if ($type_proposition == "utilisateur")
         }
         else
         {
-            echo '<h4>Ce designer &agrave; d&eacute;ja &eacute;t&eacute; propos&eacute; &agrave; </h4>
-                    <table class="datatable" >
+            echo '<h4>Ce designer à déja été proposé à </h4>
+                    <table class="table table-bordered datatable" >
                     <thead>
                         <tr>
                             <th>Titre</th>
                             <th>Description</th>
                             <th>Offre</th>
-                            <th>Valid&eacute;</th>
+                            <th>Validé</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -153,13 +153,13 @@ else if ($type_proposition == "utilisateur")
                     echo '<td>'.$tab_proposer['titreProjet'].'</td>';
                     echo '<td>'.$tab_proposer['descriptionProjet'].'</td>';
                     if($tab_proposer['acceptation'] == 0) {
-                        echo '<td>Demand&eacute;</td>';
+                        echo '<td>Demandé</td>';
                     }
                     elseif($tab_proposer['acceptation'] == 1){
-                        echo "<td>Accept&eacute;</td>";
+                        echo "<td>Accepté</td>";
                     }
                     elseif($tab_proposer['acceptation'] == 2){
-                        echo "<td>Declin&eacute;</td>";
+                        echo "<td>Decliné</td>";
                     }
                     
                     if($tab_proposer['validation'] == 0) {
@@ -184,13 +184,13 @@ else if ($type_proposition == "utilisateur")
 
             <br>
             <br>
-        <h4>Proposer des projet &agrave; ce designer</h4>
+        <h4>Proposer des projet à ce designer</h4>
                 
-        <p>Cocher les cases correspondantes aux projets &agrave; assigner &agrave; ce designer</p>
+        <p>Cocher les cases correspondantes aux projets à assigner à ce designer</p>
         <p>Vous pouvez utiliser la fonction recherche</p>
         <!-- Formulaire d'ajout -->
         <form method="POST" action="index.php?module=proposition&action=manage&type=add_proposition&type_proposition=utilisateur<?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur'];}?>" class="vertical-form">
-            <table class="datatable">
+            <table class="table table-bordered datatable">
                 <thead>
                     <tr>
                         <th>Titre</th>
@@ -218,7 +218,7 @@ else if ($type_proposition == "utilisateur")
                             }
                             else if ($tab_projet['isActiveProjet'] == "2")
                             {
-                                echo "Termin&eacute;";
+                                echo "Terminé";
                             } ?>
                         <td><input type="checkbox" name="projet_assigner[]" title="Assigner le projet au designer" value="<?php echo $tab_projet['idProjet']; ?>" <?php //if($get_assignation == "oui"){ echo "checked=\"checked\""; } ?> /></td>
                     </tr> 

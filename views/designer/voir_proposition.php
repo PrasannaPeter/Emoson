@@ -24,7 +24,7 @@
         {
             echo '<br><br>
         			<caption>Les propositions </caption>
-                    <table border="1">
+                    <table class="table table-bordered datatable">
                     <thead>
                         <tr>
                             <th>Titre</th>
