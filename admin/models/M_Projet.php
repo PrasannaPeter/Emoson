@@ -11,22 +11,22 @@ class M_Projet extends Projet
 
 		if(!empty($idProjet))
 		{
-			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
+            $read_projet = $bdd->query("
+                SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
+                FROM projets P, utilisateurs U, pack PA
+                WHERE idProjet ='.$idProjet.'
+                AND PA.idPack = P.idPack
+                AND roleUtilisateur = 'ENTREPRISE'
+                AND P.idUtilisateur = U.idUtilisateur
+            ");
+            $read_projet = $read_projet->fetch();
+        }
+        else if(!empty($titreProjet))
+        {
+            $read_projet = $bdd->query('
+                SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
 				FROM projets P, utilisateurs U, pack PA
-				WHERE idProjet ='.$idProjet.'
-				AND PA.idPack = P.idPack
-				AND P.idUtilisateur = U.idUtilisateur
-				AND roleUtilisateur = "ENTREPRISE"
-			');
-			$read_projet = $read_projet->fetch();
-		}
-		else if(!empty($titreProjet))
-		{
-			$read_projet = $bdd->query('
-				SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
-				FROM projets P, utilisateurs U, pack PA
-				WHERE idProjet ='.$idProjet.'
+				WHERE titreProjet ='.$titreProjet.'
 				AND PA.idPack = P.idPack
 				AND P.idUtilisateur = U.idUtilisateur
 				AND roleUtilisateur = "ENTREPRISE"
