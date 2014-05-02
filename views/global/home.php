@@ -19,7 +19,7 @@
                 </ul>
                 <div class="counter-label">Projets</div>
               </div>
-              <div id="find-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal">Je suis designer</a></div>
+              <div id="find-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-music"></i> <span>Je suis designer</span></a></div>
             </div>
             <div class="second">
               <div class="form">
@@ -35,7 +35,7 @@
           <div class="right">
             <div class="first">
               <div class="badge"></div>
-              <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal">J'ai un projet</a></div>
+              <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-file-text"></i> <span>J'ai un projet</span></a></div>
             </div>
             <div class="second">
               <div class="form">

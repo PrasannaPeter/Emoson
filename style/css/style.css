@@ -1,4 +1,4 @@
-/* 
+/*
    Templete Name: Careers
    Version: 1.1
    Author: Nasir
@@ -11,7 +11,7 @@
 
 /* All css files contains in css folder */
 
-/** CSS Table of Content 
+/** CSS Table of Content
 	-  	Common Elements		 											    Line 	40 to 94
     -  	Language Menu	 										            Line 	96 to 106
     -  	Header Section 									  					Line 	108 to 146
@@ -35,7 +35,7 @@
     -   Css for Tablets														Line    669 to 769
     -   Css for Mobile  													Line    909 to 1102
     -   Generic Css    													    Line    1008 to 1145
-	
+
 
 **/
 /*--------------------------------
@@ -773,7 +773,7 @@ div#footer-menu div.footer-menu div.right { float: left; }
 div#footer-menu div.footer-menu div.left, div#footer-menu div.footer-menu div.right { width: 150px; }
 }
 /*--------------------------------
-   Css for Mini Tablets & Mobile 
+   Css for Mini Tablets & Mobile
 ----------------------------------
 */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
