@@ -140,6 +140,19 @@
     </div>
   </div>
 
+<hr>
+<br />
+
+<h2>Propositions</h2>
+<br />
+<div class="well"></div>
+
+<hr>
+
+<h2>Discussion</h2>
+<br />
+<div class="well"></div>
+
 </div>
 </div>
 </div>
