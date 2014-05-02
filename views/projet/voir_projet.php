@@ -10,35 +10,29 @@
   </div>
   <div class="inner">
 
+     <?php
+
+    if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
+
+    $get_projet = Projet::get_projet($idProjet);
+
+    ?>
+
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
     <center>
-    <a class="btn btn-large btn-success" href="index.php?module=designer&action=modifier_profil" role="button"><i class="fa fa-user"></i> <span>Voir designers</span></a>
-    <a class="btn btn-large btn-info" href="index.php?module=designer&action=modifier_portfolio" role="button"><i class="fa fa-comments"></i> <span>Discussion</span></a>
+    <a class="btn btn-large btn-success" href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $get_projet['idProjet']; ?>" role="button"><i class="fa fa-user"></i> <span>Page du projet</span></a>
 
     <hr>
 
     </center>
-
-     <?php
-
-        if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
-
-        $get_projet = Projet::get_projet($idProjet);
-
-    ?>
-
 
     <h2><?php echo $get_projet['titreProjet']; ?></h2>
     <br />
 
 
 <?php
-
-    if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
-
-    $get_projet = Projet::get_projet($idProjet);
 
     echo '<h4>Détail du projet</h4>';
     echo '<p><strong>Titre projet : </strong>'.$get_projet['titreProjet'].'</p>';
