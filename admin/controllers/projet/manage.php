@@ -226,16 +226,5 @@ switch($type)
 
 	break;
 
-	case "voir_projet" :
-
-		// VOIR
-		if(!empty($idProjet))
-		{
-			header('Location:index.php?module=projet&action=voir_projet&idProjet='.$idProjet.'');
-		}
-
-
-	break;
-
 
 }

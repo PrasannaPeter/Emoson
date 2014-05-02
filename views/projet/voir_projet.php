@@ -22,7 +22,7 @@
     <div class="content-inner candidate-list">
 
     <center>
-    <a class="btn btn-large btn-success" href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $get_projet['idProjet']; ?>" role="button"><i class="fa fa-user"></i> <span>Page du projet</span></a>
+    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $get_projet['idProjet']; ?>" role="button"><i class="fa fa-user"></i> <span>Page du projet</span></a>
 
     <hr>
 

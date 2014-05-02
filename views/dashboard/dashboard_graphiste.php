@@ -106,7 +106,7 @@
                     {
                         echo "";
                     }
-                    echo "<a class='btn btn btn-info' href='index.php?module=projet&action=manage&type=voir_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a>";
+                    echo "<a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a>";
 
                     echo '</td>';
 
