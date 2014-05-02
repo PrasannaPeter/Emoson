@@ -14,7 +14,7 @@
     <div class="content-inner candidate-list">
 
     <center>
-    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_projet&idProjet=1&<?php echo $get_projet['idProjet']; ?>" role="button"><i class="fa fa-user"></i> <span>Voir brief</span></a>
+    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_projet&idProjet=1&<?php echo $get_projet['idProjet']; ?>" role="button"><i class="fa fa-file"></i> <span>Voir brief</span></a>
 
     <hr>
 
