@@ -32,34 +32,86 @@
      <?php
     require_once('admin/controllers/utilisateur/utilisateur.php');
     $info_designer = Utilisateur::get_utilisateur($idUtilisateur=$_SESSION['idUtilisateur'], $type=NULL);
-    if($info_designer['certifUtilisateur'] == true){ ?>
+    if($info_designer['certifUtilisateur'] == true){
+
+    require_once CONTROLLERS.'proposition/proposition.php';
+    ?>
+
 
     <h2>Mes Projet</h2>
     <br />
 
-    <div class="alert alert-info">
+    <div class="well">
         <?php
             require_once(CONTROLLERS."projet/projet.php");
             // @TODO : uniquement en cours / terminés
-            $projets = Projet::get_projet();
+            $get_projet_proposition = Proposition::get_tab_proposition($idUtilisateur=$_SESSION['idUtilisateur'], $type_proposition="utilisateur");
 
-            if(count($projets)){
+            if(count($get_projet_proposition)){
                 ?>
                 <table class="table">
                     <thead>
-                        <th>Titre</th>
-                        <th>Entreprise</th>
-                        <th>Statut</th>
-                        <th>Action</th>
+                            <th>Titre</th>
+                            <th>Entreprise</th>
+                            <th>Etat</th>
+                            <th>Offre</th>
+                            <th>Validé par l'administrateur</th>
+                            <th>Actions</th>
                     </thead>
                 <?php
-                foreach ($projets as $projet) {
+                foreach ($get_projet_proposition as $projet) {
                     echo "<tr>";
                     echo "<td>".$projet['titreProjet']."</td>";
                     echo "<td>Nom entreprise</td>";
-                    echo "<td><span class='badge badge-success'>Mettre statut</span></td>";
-                    echo "<td><a class='btn btn btn-success' href='index.php?module=projet&action=liste' role='button'><i class='fa fa-check'></i> <span>Accepter</span></a> ";
-                    echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=liste' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
+                    if($projet['isActiveProjet'] == 0)
+                    {
+                        echo '<td><span class=\'badge badge-info\'>En cours de validation</span></td>';
+                    }
+                    elseif($projet['isActiveProjet'] == 1)
+                    {
+                        echo "<td><span class='badge badge-info'>En cours</span></td>";
+                    }
+                    elseif($projet['isActiveProjet'] == 2)
+                    {
+                        echo "<td><span class='badge badge-success'>Terminé</span></td>";
+                    }
+                    if($projet['acceptation'] == 0)
+                    {
+                        echo '<td><span class=\'badge badge-info\'>Demandé</span></td>';
+                    }
+                    elseif($projet['acceptation'] == 1)
+                    {
+                        echo "<td><span class='badge badge-success'>Accepté</span></td>";
+                    }
+                    elseif($projet['acceptation'] == 2)
+                    {
+                        echo "<td><span class='badge badge-warning'>Decliné</span></td>";
+                    }
+                    if($projet['validation'] == 0)
+                    {
+                        echo "<td><span class='badge badge-warning'>Non</span></td>";
+                    }
+                    elseif($projet['validation'] == 1)
+                    {
+                        echo "<td><span class='badge badge-success'>Oui</span></td>";
+                    }
+
+                    echo '<td>';
+                    if($projet['acceptation'] == 0)
+                    {
+                        echo '<a class=\'btn btn btn-success\' href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=1&validation=non&idUtilisateur='.$_SESSION['idUtilisateur'].'&idProjet='.$projet['idProjet'].'" role=\'button\'><i class=\'fa fa-check\'></i> <span>Accepter</span></a>';
+                        echo '<a class=\'btn btn btn-error\' href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=2&validation=non&idUtilisateur='.$_SESSION['idUtilisateur'].'&idProjet='.$projet['idProjet'].'" role=\'button\'><i class=\'fa fa-times\'></i> <span>Décliner</span></a>';
+                    }
+                    elseif($projet['acceptation'] == 1 || $projet['acceptation'] == 2)
+                    {
+                        echo "";
+                    }
+                    echo "<a class='btn btn btn-info' href='index.php?module=projet&action=manage&type=voir_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a>";
+
+                    echo '</td>';
+
+                   // echo "<td><span class='badge badge-success'>Mettre statut</span></td>";
+
                     echo "</tr>";
                 }
                     ?></table><?php
