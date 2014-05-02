@@ -19,18 +19,19 @@ if(!empty($_POST['tailleEntreprise'])){ $tailleEntreprise = $_POST['tailleEntrep
 if(!empty($_POST['caEntreprise'])){$caEntreprise = $_POST['caEntreprise'];}
 if(!empty($_POST['ptsContactEntreprise'])){$ptsContactEntreprise = json_encode($_POST['ptsContactEntreprise']);}else{$ptsContactEntreprise=NULL;}
 if(!empty($_POST['optionProjet'])){$optionProjet = json_encode($_POST['optionProjet']);}else{$optionProjet=NULL;}
-if(!empty($_POST['nbARProjet'])){$nbARProjet = $_POST['nbARProjet'];}
-if(!empty($_POST['nbDesignerSouhaite'])){$nbDesignerSouhaite = $_POST['nbDesignerSouhaite'];}
+if(!empty($_POST['nbARProjet'])){$nbARProjet = $_POST['nbARProjet'];}else{$nbARProjet = "0";}
+if(!empty($_POST['nbDesignerSouhaite'])){$nbDesignerSouhaite = $_POST['nbDesignerSouhaite'];}else{$nbDesignerSouhaite = "0";}
 if(!empty($_POST['idPack'])){$idPack = $_POST['idPack'];}
-if(!empty($_POST['isActiveProjet'])){if($_POST['isActiveProjet'] == 'non'){$isActiveProjet = 0;}else{$isActiveProjet = $_POST['isActiveProjet'];}}
+if(!empty($_POST['isActiveProjet'])){ $isActiveProjet = $_POST['isActiveProjet'];}else{ $isActiveProjet = "0";}
 
 switch($type)
 {
 	case "ajouter" :
 
 		// INSERT
-		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($isActiveProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($nbARProjet) && !empty($nbDesignerSouhaite) && !empty($idPack) )
+		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($idPack) )
 		{
+			echo "cest bon ?"; exit;
 			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 			// Verifie l'action sinon erreur
@@ -78,7 +79,7 @@ switch($type)
 	case "modifier" :
 
 		// UPDATE
-		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($nbARProjet) && !empty($nbDesignerSouhaite) && !empty($idPack))
+		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($idPack))
 		{
 
 			$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
@@ -178,7 +179,7 @@ switch($type)
 	case "remplir_brief" :
 
 		// INSERT
-		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($nbARProjet) && !empty($nbDesignerSouhaite) && !empty($idPack))
+		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($idPack))
 		{
 			$remplir_brief = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
@@ -189,7 +190,7 @@ switch($type)
 				$_SESSION['titreNotif'] = "Le Brief a bien été ajouté à l'application";
 				$_SESSION['msgNotif'] = "Le Brief a bien été ajouté à l'application";
 
-				//Redirection vers page de payement
+				//Redirection vers page de payement a faire
 				header('Location:index.php?module=dashboard&action=afficher');
 			}
 			else if($remplir_brief=="error_info")
@@ -232,9 +233,9 @@ switch($type)
 		{
 			header('Location:index.php?module=projet&action=voir_projet&idProjet='.$idProjet.'');
 		}
-		
+
 
 	break;
 
-	
+
 }

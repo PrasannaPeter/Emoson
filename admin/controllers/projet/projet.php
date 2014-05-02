@@ -75,8 +75,8 @@ class Projet
 				<td><?php echo $tab_projet['idProjet']; ?></td>
 				<td><?php echo $tab_projet['titreProjet']; ?></td>
 				<td><?php echo substr($tab_projet['descriptionProjet'], 0, 50).'...'; ?></td>
-				
-				<td><?php 
+
+				<td><?php
 
 				if ($tab_projet['isActiveProjet'] == "0")
 				{
@@ -117,7 +117,7 @@ class Projet
 						</a>
 					<?php
 					}
-					if ($tab_projet['isActiveProjet'] == "1") 
+					if ($tab_projet['isActiveProjet'] == "1")
 					{
 					?>
 					<a href="index.php?module=proposition&action=afficher_proposition&type_proposition=projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-success">
@@ -128,7 +128,7 @@ class Projet
 					}
 					?>
 
-					
+
 				</td>
 			</tr>
 		<?php
@@ -165,7 +165,10 @@ class Projet
 
 				$sql_insert = M_Projet::insert_projet($titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
-				return $sql_insert;
+				if($sql_insert)
+					return $sql_insert = "ok";
+				else
+					return $sql_insert = "error";
 			}
 
 		}

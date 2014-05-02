@@ -31,7 +31,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       </div>
     </div>
 
-    <div class="control-group">   
+    <div class="control-group">
       <label class="control-label">Description de votre projet</label>
       <div class="controls">
         <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
@@ -185,13 +185,6 @@ Si oui, définissez le nombre de messages par mois </p>
         <p class="help-block">Mettez le nombre de designer supplémentaire souhaité</p>
       </div>
     </div>
-
-     <div class="control-group">
-        <div class="controls">
-          <input type="hidden" name="isActiveProjet" value="non" /> 
-        </div>
-    </div>
-
 
     <div class="control-group">
       <!-- Button -->
