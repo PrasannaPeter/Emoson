@@ -25,12 +25,9 @@
     <a class="btn btn-large btn-success" href="index.php?module=entreprise&action=modifier_profil" role="button"><i class="fa fa-briefcase"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button"><i class="fa fa-user"></i> <span>Modifier info. entreprise</span></a>
 
-    <hr>
-
-    <a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button"><i class="fa fa-folder"></i> <span>Voir les projets</span></a>
-    <a class="btn btn-large btn-error" href="index.php?module=entreprise&action=remplir_brief" role="button"><i class="fa fa-plus"></i> <span>Nouveau brief</span></a>
     </center>
-    <br />
+
+    <hr>
 
     <h2>Mes Projet</h2>
     <br />
@@ -59,13 +56,19 @@
                     echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
                     echo "</tr>";
                 }
-                    ?></table><?php
+                ?></table><?php
             }else{
                 ?>
                 <p>Aucun projet.</p>
                 <?php
             } ?>
     </div>
+
+    <center>
+        <a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button"><i class="fa fa-folder"></i> <span>Voir les projets</span></a>
+        <a class="btn btn-large btn-error" href="index.php?module=entreprise&action=remplir_brief" role="button"><i class="fa fa-plus"></i> <span>Nouveau brief</span></a>
+
+    </center>
 
     <hr>
 
