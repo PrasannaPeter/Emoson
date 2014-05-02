@@ -364,6 +364,9 @@ $projets = Projet::get_projet();
 
         <?php } ?>
 
+      <br>
+      <br>
+
       <div class="clear"></div>
       <!-- Clear Line -->
 

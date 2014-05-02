@@ -26,7 +26,7 @@
     <hr>
 
     <a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button"><i class="fa fa-book"></i> <span>Voir les projets</span></a>
-    <a class="btn btn-large btn-error" href="index.php?module=designer&action=voir_proposition&idUtilisateur=<?php echo $_SESSION['idUtilisateur'] ?>" role="button">Voir les propositions de projet</a>
+
     </center>
 
      <?php
