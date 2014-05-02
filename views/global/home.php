@@ -1,4 +1,3 @@
-<!-- Content -->
 <div id="content">
 
   <!-- Banner Area -->
@@ -8,42 +7,12 @@
         <div id="login-panel">
           <div class="left">
             <div class="first">
-              <div class="counter">
-                <ul id="counter">
-                  <li class="unvis">0</li>
-                  <li>1</li>
-                  <li class="border"></li>
-                  <li>1</li>
-                  <li>4</li>
-                  <li>5</li>
-                </ul>
-                <div class="counter-label">Projets</div>
-              </div>
-              <div id="find-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-music"></i> <span>Je suis designer</span></a></div>
-            </div>
-            <div class="second">
-              <div class="form">
-                <form id="login-1" method="POST" action="index.php?module=utilisateur&action=connexion_designer">
-                  <input type="text" placeholder="Email" class="textfield"/>
-                  <input type="password" placeholder="Mot de passe" class="textfield"/>
-                  <input type="submit" value="Connexion" id="login-submit-1"/>
-                </form>
-                 </div>
-
+              <div id="find-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal">Je suis designer</a></div>
             </div>
           </div>
           <div class="right">
             <div class="first">
               <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-file-text"></i> <span>J'ai un projet</span></a></div>
-            </div>
-            <div class="second">
-              <div class="form">
-                <form id="login-2" method="POST" action="index.php?module=utilisateur&action=connexion_entreprise">
-                  <input type="text" placeholder="Email" class="textfield"/>
-                  <input type="password" placeholder="Mot de passe" class="textfield"/>
-                  <input type="submit" value="Connexion" id="login-submit-2"/>
-                </form>
-                 </div>
             </div>
           </div>
         </div>
@@ -324,21 +293,9 @@ require_once(CONTROLLERS.'/projet/projet.php');
 // @TODO mettre uniquement les projets terminé
 $projets = Projet::get_projet();
 
-$typeNotif = $_SESSION['typeNotif'];
-$titreNotif = $_SESSION['titreNotif'];
-$msgNotif = $_SESSION['msgNotif'];
-$_SESSION['typeNotif'] = "";
-$_SESSION['titreNotif'] = "";
-$_SESSION['msgNotif'] = "";
-
-$notification = notifications($typeNotif, $titreNotif, $msgNotif);
-
-echo $notification;
-
 ?>
 
         <div class="clear"></div>
-        <!--Derniers Projets Block-->
         <div id="latest-job">
           <div class="heading-l">
             <h2> Derniers Projets </h2>
@@ -375,7 +332,6 @@ echo $notification;
             </div>
           </div>
         </div>
-        <!--/Derniers Projets Block-->
         <div class="clear"></div>
 
         <?php
@@ -416,4 +372,4 @@ echo $notification;
 
   </div>
 </div>
-<!-- /Content -->
+<!-- /Content

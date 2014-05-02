@@ -21,7 +21,7 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <a href="index.php?module=social&action=soundcloud" title="Soundcloud"><img src="style/images/soundcloud.png"></a>
+          <a href="libs/social/soundcloud.php" title="Soundcloud"><img src="style/images/soundcloud.png"></a>
         </div>
       </div>
   </fieldset>

@@ -1,20 +1,20 @@
 <!-- Content -->
 <div id="content">
 <div id="title">
-  <h1 class="inner title-2">Partners
+  <h1 class="inner title-2">Partenaires
     <ul class="breadcrumb-inner">
-      <li> <a href="index.html">Home</a></li>
-      <li> <a href="partners.html">Partners</a></li>
+      <li> <a href="index.html">Accueil</a></li>
+      <li> <a href="partners.html">Partenaires</a></li>
     </ul>
   </h1>
 </div>
 <div class="inner">
   <div class="content-inner">
-
+<!--
     <div id="search-and-sort" class="box-1 search-bar-partner">
       <div id="search-partner">
         <form id="search-partner-form" action="http://uouapps.com/careers/post">
-          <input type="text" placeholder="Search for Partners" class="textfield-with-callback"/>
+          <input type="text" placeholder="Search for Partenaires" class="textfield-with-callback"/>
           <div id="sort-partner" class="sort-Industry">
             <select class="select">
               <option selected="selected" value="nothing">- Select Industry-</option>
@@ -51,20 +51,31 @@
       </div>
 
     </div>
-
+ -->
     <!-- Content Inner -->
+
+<?php
+require_once(CONTROLLERS."projet/projet.php");
+// @TODO : uniquement en cours / terminés
+$projets = Projet::get_projet();
+
+if(count($projets)){
+    ?>
+
     <div class="content-inner">
       <div id="our-partners">
+
+        <?php
+        foreach ($projets as $projet) {
+        ?>
         <div class="partner">
           <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-1.jpg"  alt="Partner"/></a>
             <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
+              <h4>NomEntreprise</h4>
+              <p>Texte a mettre.</p>
             </div>
           </div>
           <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
             <div class="nav-buttons">
               <ul>
                 <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
@@ -73,200 +84,18 @@
             </div>
           </div>
         </div>
-      <div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-2.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-3.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-4.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-5.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-6.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-7.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-1.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-2.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-3.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-4.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div><div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-5.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Audiojungle</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a.</p>
-              <p><strong>Industry:</strong> Audio, Sound, Music</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="partner-jobs"> Jobs: 200 </div>
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>      </div>
+        <?php
+        }
+        ?>
+      </div>
       <div class="clear"></div>
     </div>
-    <!-- /Content Inner -->
-
+<?php
+}else{
+    ?>
+    <p>Aucun projet.</p>
+    <?php
+} ?>
   </div>
 </div>
 </div>

@@ -96,12 +96,12 @@
     <!-- Menu -->
     <ul id="navigation">
       <li class="current"> <a href="index.php">Accueil</a></li>
-      <li class="first expanded"><a href="index.php?module=projet&action=projet">Projet</a>
+<!--       <li class="first expanded"><a href="index.php?module=projet&action=projet">Projet</a>
         <ul class="submenu">
           <li><a href="index.php?module=projet&action=liste">Liste des Projets</a></li>
           <li><a href="index.php?module=projet&action=detail">Projet details</a></li>
         </ul>
-      </li>
+      </li> -->
       <li class="first expanded"><a href="index.php?module=designer&action=designer">Designers</a>
         <ul class="submenu">
           <li><a href="index.php?module=designer&action=liste">Designers Listing</a></li>

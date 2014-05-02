@@ -120,6 +120,7 @@
 </div>
 </div>
 </div>
+
 <?php
 //require_once('views/designer/modifier_profil.php');
 //require_once('views/entreprise/remplir_brief.php');
