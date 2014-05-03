@@ -96,7 +96,7 @@ a.scrollTop { bottom: 0px; display: block; right: 0px; position: fixed; z-index:
 a.scrollTop div#up_container { padding: 20px; }
 a.scrollTop div#up_container span { display: block; height: 30px; width: 30px; background: url("../images/arrow-top.png") no-repeat scroll center center rgb(102, 102, 102); border: 2px solid rgb(229, 229, 229); border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; box-shadow: 0px 0px 15px rgb(204, 204, 204); -moz-box-shadow: 0px 0px 15px rgb(204, 204, 204); -webkit-box-shadow: 0px 0px 15px rgb(204, 204, 204); }
 a.scrollTop:hover div#up_container span { background: url("../images/arrow-top.png") no-repeat scroll center center rgb(52, 52, 52); border: 2px solid rgb(102, 102, 102); }
-div#bar { height: 30px; background: none repeat scroll 0% 0% rgb(77, 77, 77); }
+div#bar { height: 30px; background: none repeat scroll 0% 0% #2D5966; }
 /*--------------------------------
    Language Menu
 ----------------------------------
@@ -134,7 +134,7 @@ ul#navigation li.home a span { display: none; }
 ul#navigation li.expanded { position: relative; }
 ul#navigation li.expanded > ul.submenu { position: absolute; top: 60px; left: -7px; z-index: 99; }
 ul#navigation li.expanded > ul.submenu li { line-height: 40px; }
-ul#navigation li.expanded > ul.submenu li a { background: none repeat scroll 0% 0% rgb(77, 77, 77); height: 40px; display: block; border-bottom: 1px solid rgb(56, 56, 56); color: rgb(255, 255, 255); width: 225px; padding: 0px 15px; line-height: 40px; margin: 0px; }
+ul#navigation li.expanded > ul.submenu li a { background: none repeat scroll 0% 0% 2D5966; height: 40px; display: block; border-bottom: 1px solid rgb(56, 56, 56); color: rgb(255, 255, 255); width: 225px; padding: 0px 15px; line-height: 40px; margin: 0px; }
 ul#navigation li.expanded > ul.submenu li.active a { background: none repeat scroll 0% 0% #2AADD; }
 ul#navigation li.expanded > ul.submenu li a:hover { background: none repeat scroll 0% 0% rgb(0, 198, 255); }
 .active-trail, ul#navigation li a:hover, ul#navigation li.current a { border-bottom: 3px solid rgb(42, 173, 222); }
@@ -152,7 +152,7 @@ form#search-form input[type="submit"]:hover { background: none repeat scroll 0% 
 ----------------------------------
 */
 div.panel { margin: 20px 0px 0px; }
-div#title { height: 80px; -moz-box-shadow: 0px 0px 17px -3px #111111 inset; -webkit-box-shadow: 0px 0px 17px -3px #111111 inset; box-shadow: 0px 0px 17px -3px #111111 inset; background: none repeat scroll 0% 0% rgb(77, 77, 77); }
+div#title { height: 80px; -moz-box-shadow: 0px 0px 17px -3px #111111 inset; -webkit-box-shadow: 0px 0px 17px -3px #111111 inset; box-shadow: 0px 0px 17px -3px #111111 inset; background: none repeat scroll 0% 0% #2D5966; }
 div.content-inner { margin: 40px 0px 40px; }
 div.content-center { float: left; width: 620px; }
 div.content-center.border { border: 2px solid rgb(229, 229, 229); width: 536px; padding: 40px; }
@@ -194,7 +194,7 @@ div#search-job.panel div.panel-block > div { display: none; color: rgb(255, 255,
 div#search-job.panel div.panel-block:hover > div { display: block; }
 div#search-job.panel div.panel-block > div a.read-more { width: 100px; height: 40px; display: inline-block; line-height: 40px; text-align: center; background: none repeat scroll 0% 0% rgb(0, 198, 255); border-radius: 3px 3px 3px 3px; -moz-border-radius: 3px 3px 3px 3px; -webkit-border-radius: 3px 3px 3px 3px; margin-top: 15px; font-weight: bold; }
 div#search-job.panel div.panel-block > div a.read-more:hover { color: rgb(0, 198, 255); background: none repeat scroll 0% 0% rgb(255, 255, 255); }
-.header-banner {; background: none repeat scroll 0% 0% rgb(78, 78, 78); position: relative; padding: 20px 0px 0px; float: left; width: 100%; -moz-box-shadow: 0px 0px 17px -3px #111111 inset; -webkit-box-shadow: 0px 0px 17px -3px #111111 inset; box-shadow: 0px 0px 17px -3px #111111 inset; }
+.header-banner {; background: none repeat scroll 0% 0% #2D5966; position: relative; padding: 20px 0px 0px; float: left; width: 100%; -moz-box-shadow: 0px 0px 17px -3px #111111 inset; -webkit-box-shadow: 0px 0px 17px -3px #111111 inset; box-shadow: 0px 0px 17px -3px #111111 inset; }
 div#find-job .first_man { background: url("../images/panel-3-bg.jpg") no-repeat scroll left center transparent; }
 div#find-job div.inner.first { background: url("../content/man-2.png") no-repeat scroll left center transparent; text-align: right; position: relative; }
 div#find-job .first_man div.text { width: 100%; }
@@ -229,7 +229,7 @@ div#post-job-buttom { background: none repeat scroll 0% 0% rgb(194, 47, 47); lef
 div#find-job-buttom { background: none repeat scroll 0% 0% rgb(0, 160, 204); right: 40px; }
 div#post-job-buttom a, div#find-job-buttom a { font-family: 'Roboto Condensed', sans-serif; display: block; width: 170px; height: 50px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; line-height: 50px; text-align: center; color: rgb(255, 255, 255); font-size: 20px; font-weight: bold; }
 div#post-job-buttom a, div#find-job-buttom a:hover { text-decoration: none; }
-div#post-job-buttom a { background: none repeat scroll 0% 0% rgb(244, 58, 59); }
+div#post-job-buttom a { background: none repeat scroll 0% 0% #8c40d4; }
 div#find-job-buttom a { background: #2aadde; }
 div#login-panel div.form { height: 90px; width: 380px; padding: 40px; position: relative; }
 div#login-panel div.form form input { display: block; }
@@ -247,8 +247,8 @@ div#login-panel div.social-login a.login-with-motibu span { background: url("../
 div#login-panel span.combosex_main.textfield { margin: 0px 0px 10px; width: 268px; }
 form#login-1 input[type="submit"], form#login-2 input[type="submit"] { float: left; display: block; height: 40px; background: none repeat scroll 0% 0% rgb(0, 198, 255); margin: 0px 0px 0px 10px; width: 98px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; font-size: 15px; font-weight: bold; color: rgb(255, 255, 255); cursor: pointer; }
 form#login-1 input[type="submit"]:hover, form#login-2 input[type="submit"]:hover { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(0, 198, 255); }
-div#login-panel div.right form#login-2 input[type="submit"] { background: none repeat scroll 0% 0% rgb(244, 58, 59); }
-div#login-panel div.right form#login-2 input[type="submit"]:hover { color: rgb(244, 58, 59); background: none repeat scroll 0% 0% rgb(255, 255, 255); }
+div#login-panel div.right form#login-2 input[type="submit"] { background: none repeat scroll 0% 0% 8c40d4; }
+div#login-panel div.right form#login-2 input[type="submit"]:hover { color: 8c40d4; background: none repeat scroll 0% 0% rgb(255, 255, 255); }
 /*--------------------------------
    Latest Jobs Block
 ----------------------------------
@@ -652,7 +652,7 @@ div#footer-menu div.footer-menu ul { padding: 10px 0px 0px; }
 div#footer-menu div.footer-menu ul li { height: 30px; }
 div#footer-menu div.footer-menu ul li a { display: block; height: 24px; padding: 3px 0px 5px 15px; background: url("../images/arrow-menu.png") no-repeat scroll left center transparent; }
 div#footer-menu div.footer-menu ul li a:hover { padding: 3px 0px 5px 20px; color: rgb(0, 198, 255); }
-div#copyright { height: 50px; background: none repeat scroll 0% 0% rgb(77, 77, 77); }
+div#copyright { height: 50px; background: none repeat scroll 0% 0% #2D5966; }
 div#copyright-text { line-height: 50px; color: #808080; float: left; font-family: "Lato"; font-size: 14px; }
 div#copyright-text a { color: #cccccc; }
 div#copyright-link { float: right; padding: 13px 0px; }
