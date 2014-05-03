@@ -169,7 +169,7 @@
           </div>
 
         <p>
-          <button type="submit" class="btn btn-primary">Connexion</button>
+          <button type="submit" class="btn btn-success">Connexion</button>
           <!-- <a href="index.php?module=utilisateur&action=recup_mdp" class="btn btn-warning">Mot de passe oublié ?</a> -->
         </p>
       </form>
@@ -179,7 +179,7 @@
     Nouveau sur Emoson ?
 
           <a class="btn btn-info" href="index.php?module=designer&action=inscription_designer">Inscription designer sonore</a>
-          <a class="btn btn-success" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>
+          <a class="btn btn-warning" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>
         </p>
   </div>
 </div>

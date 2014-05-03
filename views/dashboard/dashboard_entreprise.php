@@ -22,14 +22,15 @@
     <br />
 
     <center>
-    <a class="btn btn-large btn-success" href="index.php?module=entreprise&action=modifier_profil" role="button"><i class="fa fa-briefcase"></i> <span>Modifier profil</span></a>
+    <a class="btn btn-large btn-warning" href="index.php?module=entreprise&action=modifier_profil" role="button"><i class="fa fa-briefcase"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button"><i class="fa fa-user"></i> <span>Modifier info. entreprise</span></a>
 
     </center>
 
     <hr>
-
+    <div class="heading-l">
     <h2>Mes Projet</h2>
+    </div>
     <br />
 
     <div class="well">
@@ -72,7 +73,10 @@
 
     <hr>
 
+    <div class="heading-l">
     <h2>Mes paiements</h2>
+    </div>
+
     <br />
 
     <div class="alert alert-info">

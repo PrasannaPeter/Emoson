@@ -10,15 +10,6 @@
   </div>
   <div class="inner">
 
-    <!-- Content Inner -->
-    <div class="content-inner candidate-list">
-
-    <center>
-    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_projet&idProjet=1&<?php echo $get_projet['idProjet']; ?>" role="button"><i class="fa fa-file"></i> <span>Voir brief</span></a>
-
-    <hr>
-
-    </center>
 
      <?php
 
@@ -28,6 +19,15 @@
 
     ?>
 
+    <!-- Content Inner -->
+    <div class="content-inner candidate-list">
+
+    <center>
+    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_projet&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file"></i> <span>Voir brief</span></a>
+
+    <hr>
+
+    </center>
 
     <h2><?php echo $get_projet['titreProjet']; ?></h2>
     <br />

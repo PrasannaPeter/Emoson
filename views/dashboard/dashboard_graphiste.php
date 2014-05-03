@@ -19,8 +19,10 @@
         <p>C'est aussi ici que vous recevrez les notifications de vos projets en cours.</p>
     </div>
 
+    <br>
+
     <center>
-    <a class="btn btn-large btn-success" href="index.php?module=designer&action=modifier_profil" role="button"><i class="fa fa-user"></i> <span>Modifier profil</span></a>
+    <a class="btn btn-large btn-warning" href="index.php?module=designer&action=modifier_profil" role="button"><i class="fa fa-user"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=designer&action=modifier_portfolio" role="button"><i class="fa fa-music"></i> <span>Modifier portfolio</span></a>
 
     <hr>
@@ -37,9 +39,10 @@
     require_once CONTROLLERS.'proposition/proposition.php';
     ?>
 
-
+    <br>
+    <div class="heading-l">
     <h2>Mes Projet</h2>
-    <br />
+    </div>
 
     <div class="well">
         <?php
