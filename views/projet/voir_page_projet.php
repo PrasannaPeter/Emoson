@@ -2,7 +2,8 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Page<span>du projet</span>
+    <h1 class="inner title-2">Page<span>du projet <?php echo $get_projet['titreProjet']; ?></span>
+
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
       </ul>
@@ -32,11 +33,6 @@
     <hr>
 
     </center>
-
-    <h2><?php echo $get_projet['titreProjet']; ?></h2>
-    <br />
-
-
 <?php
 
 
