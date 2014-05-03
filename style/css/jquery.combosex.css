@@ -18,10 +18,10 @@
 
 
 .combosex_main a, .combosex_options a {
-  text-decoration:none; 
+  text-decoration:none;
 }
 .combosex_noinput {
-  cursor:default; 
+  cursor:default;
 }
 
 .combosex_arrow {
@@ -55,7 +55,7 @@
 
 
 .combosex_main:hover .combosex_arrow {
-  background: #2aadde;
+  background: #316ec4;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
 }
@@ -104,7 +104,7 @@
   max-height: 300px;
   overflow:auto;
     background:#fff;
-    border: solid 2px #2AADDE;
+    border: solid 2px #316ec4;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
@@ -113,7 +113,7 @@
 }
 
 .combosex_clear {
-  clear:both; 
+  clear:both;
   display:block;
 }
 .combosex_poplist {
@@ -148,7 +148,7 @@
 }
 
 .combosex_select .combosex_input_span {
-  cursor:default; 
+  cursor:default;
 }
 
 .combosex_poplist li, .combosex_poplist ul, .combosex_list_multi li, .combosex_list_multi ul {
@@ -164,7 +164,7 @@
 }
 
 .combosex_options a, .combosex_optgroup_label span, .combosex_list_multi .combosex_options a {
-  display:block; 
+  display:block;
   padding:4px 10px;
   user-select:none;
   -webkit-user-select: none;
@@ -196,7 +196,7 @@
 }
 .combosex_list_multi .combosex_options a, {
   color:#000;
-} 
+}
 .combosex_list_multi .combosex_options .combosex_options_active {
   background:#999;
   color:#fff;
@@ -213,11 +213,11 @@
 }
 
 .combosex_options .combosex_options_hover, .combosex_active .combosex_list_multi .combosex_options_active, .combosex_active .combosex_list_multi .combosex_options_active:hover  {
-  color: #2aadde;
+  color: #316ec4;
 }
 
 .combosex_list_multi .combosex_options_active small {
-  color:#eee; 
+  color:#eee;
 }
 
 .combosex_poplist .combosex_options_hover small, .combosex_active .combosex_list_multi .combosex_options_active small {
@@ -226,7 +226,7 @@
 
 
 .combosex_optgroup_label {
-  color:#999; 
+  color:#999;
   font-weight:bold;
 }
 
@@ -236,11 +236,11 @@
 }
 
 .combosex_options .combosex_options_disabled, .combosex_options .combosex_options_disabled:hover {
-  color:#999; 
+  color:#999;
   background:#fff;
 }
 .combosex_options .combosex_options_disabled:hover, .combosex_options_disabled.combosex_options_hover {
-  background:#eee; 
+  background:#eee;
 }
 
 
@@ -271,7 +271,7 @@
   background-image: -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
   background-image: -ms-linear-gradient(top, #ffffff 85%,#eeeeee 99%);
 /*  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 );*/
-  background-image: linear-gradient(top, #ffffff 85%,#eeeeee 99%); 
+  background-image: linear-gradient(top, #ffffff 85%,#eeeeee 99%);
   font-family: sans-serif;
 }
 
@@ -283,11 +283,11 @@
 }
 
 .combosex_display {
-  overflow:hidden; 
+  overflow:hidden;
 }
 .combosex_input_span input, .combosex_display {
   border: none;
-  background: none; 
+  background: none;
   font: inherit;
   filter: none;
   outline: none;
@@ -312,7 +312,7 @@
   white-space: nowrap;
 }
 .combosex_display:hover {
-  color: #000; 
+  color: #000;
 }
 
 .combosex_select .combosex_input_span {
@@ -328,7 +328,7 @@
 .combosex_search .combosex_ph {
   position:absolute;
   left:4px;
-  top: 2px; 
+  top: 2px;
   font-family: sans-serif ;
   font-size:13px;
   line-height:15px;
@@ -336,14 +336,14 @@
 }
 .combosex_ph {
   color:#999;
-  font-style:italic; 
+  font-style:italic;
   cursor: text;
 }
 .combosex_input_span .combosex_ph {
   position:absolute;
   left: 4px;
   top: 2px;
-  
+
 }
 
 .combosex_select {
@@ -363,8 +363,8 @@
   -webkit-border-radius: 2px;
   -ms-border-radius: 2px;
   border-radius: 2px;
-  
-  
+
+
   background-color: #fff;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.85, white), color-stop(0.99, #eeeeee));
   background-image: -webkit-linear-gradient(center bottom, white 85%, #eeeeee 99%);
@@ -372,8 +372,8 @@
   background-image: -o-linear-gradient(bottom, white 85%, #eeeeee 99%);
   background-image: -ms-linear-gradient(top, #ffffff 85%,#eeeeee 99%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#ffffff',GradientType=0 );
-  background-image: linear-gradient(top, #ffffff 85%,#eeeeee 99%); 
-  
+  background-image: linear-gradient(top, #ffffff 85%,#eeeeee 99%);
+
 }
 
 .combosex_tags ul, .combosex_tags li {
@@ -403,8 +403,8 @@
   margin:0px 2px 2px 0px;
   float:left;
   position:relative;
-  
-  
+
+
   background-color: #E4E4E4;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #e4e4e4), color-stop(0.7, #eeeeee));
   background-image: -webkit-linear-gradient(center bottom, #e4e4e4 0%, #eeeeee 70%);
@@ -415,13 +415,13 @@
   background-image: linear-gradient(top, #e4e4e4 0%,#eeeeee 70%);
   color: #333;
   border: 1px solid #B4B4B4;
-  
-  
+
+
 }
 
 
 .combosex_tags .combosex_tag_active {
-  border:solid 1px #2aadde;
+  border:solid 1px #316ec4;
   background-color: #E4E4E4;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #dddddd), color-stop(0.7, #cccccc));
   background-image: -webkit-linear-gradient(center bottom, #dddddd 0%, #cccccc 70%);
@@ -430,7 +430,7 @@
   background-image: -ms-linear-gradient(top, #dddddd 0%,#cccccc 70%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 );
   background-image: linear-gradient(top, #dddddd 0%, #cccccc 70%);
-} 
+}
 
 
 
@@ -467,7 +467,7 @@
   opacity: 0.5;
 }
 .combosex_append_on {
-  background:#2aadde;
+  background:#316ec4;
   cursor:pointer;
 }
 .combosex_append_on:hover {
@@ -483,7 +483,7 @@
   display: inline-block;
   zoom: 1;
   *display: inline;
-  padding:2px 14px 2px 3px; 
+  padding:2px 14px 2px 3px;
   white-space: nowrap;
 }
 
@@ -503,14 +503,14 @@
 }
 
 .combosex_tags {
-  float:left; 
+  float:left;
 }
 
 .combosex_tags .combosex_tag_del:hover {
   color:#c00;
 }
 .combosex_tagged {
-  cursor: text; 
+  cursor: text;
 }
 
 .combosex_tagged li.combosex_input_span {
@@ -531,7 +531,7 @@
   cursor:text;
 }
 .combosex_tagged .combosex_input_span input {
-  width:100%; 
+  width:100%;
 }
 
 .combosex_tags .combosex_input_hidden {
@@ -547,7 +547,7 @@
   -moz-box-shadow   : 0 0 5px rgba(0,0,0,.3);
   -o-box-shadow     : 0 0 5px rgba(0,0,0,.3);
   box-shadow        : 0 0 5px rgba(0,0,0,.3);
-  border: 2px solid #2aadde !important;
+  border: 2px solid #316ec4 !important;
 }
 
 .combosex_main {
@@ -577,11 +577,11 @@
   width: 16px;
   height: 16px;
   overflow: hidden;
-  margin-top: -8px; 
+  margin-top: -8px;
 }
 
 .combosex_multi_select  .combosex_spinner {
-  top:16px; 
+  top:16px;
 }
 
 
@@ -589,9 +589,9 @@
   font-style: normal;
   font-size:10px;
   color:#777;
-  margin-left:3px; 
+  margin-left:3px;
   font-weight:bold;
   line-height: 10px;
-  
+
   display:none;
 }

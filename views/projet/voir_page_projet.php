@@ -49,17 +49,34 @@
           <div class="photo"><img src="style/content/our-team/worker-1.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
           <div class="name">Jeffrey Richards</div>
           <div class="post"> <center><input type="radio" name="choixDesigner" value="1"></center></div>
-
+          <div class="radio-field">
+            <center>
+              <input name="idPack" id="idPack_1" type="radio" value="1">
+              <label for="idPack_1" style="color:#316ec4;"><strong>Choisir</strong></label>
+            </center>
+          </div>
         </div>
         <div class="team-worker">
           <div class="photo"><img src="style/content/our-team/worker-2.jpg" height="154" width="154" alt="John Doe - Partner"></div>
           <div class="name">John Doe</div>
           <div class="post"> <center><input type="radio" name="choixDesigner" value="2"></center></div>
+          <div class="radio-field">
+            <center>
+              <input name="idPack" id="idPack_2" type="radio" value="2">
+              <label for="idPack_2" style="color:#316ec4;"><strong>Choisir</strong></label>
+            </center>
+          </div>
         </div>
         <div class="team-worker">
           <div class="photo"><img src="style/content/our-team/worker-3.jpg" height="154" width="154" alt="Jane Doe - Partner"></div>
           <div class="name">Jane Doe</div>
           <div class="post"> <center><input type="radio" name="choixDesigner" value="3"></center></div>
+          <div class="radio-field">
+            <center>
+              <input name="idPack" id="idPack_3" type="radio" value="3">
+              <label for="idPack_3" style="color:#316ec4;"><strong>Choisir</strong></label>
+            </center>
+          </div>
         </div>
       </div>
     </div>

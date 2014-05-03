@@ -79,7 +79,7 @@ var_dump($compter_pack); exit;
 
 	static function vignette_pack($type)
 	{
-		
+
 		if(!empty($type))
 		{
 			$read_pack = Pack::get_pack($idPack=NULL, $type);
@@ -88,7 +88,7 @@ var_dump($compter_pack); exit;
 		{
 			$read_pack = Pack::get_pack($idPack=NULL, $type=NULL);
 		}
-		
+
 		if($type=="actif")
 		{
 
@@ -102,13 +102,13 @@ var_dump($compter_pack); exit;
 	              <div class="radio-field">
 	                <center>
 	                  <input name="idPack" id="idPack_<?php echo $tab_pack['idPack']; ?>" type="radio" value="<?php echo $tab_pack['idPack']; ?>">
-	                  <label for="idPack_<?php echo $tab_pack['idPack']; ?>" style="color:#2aadde;"><strong>Choisir</strong></label>
+	                  <label for="idPack_<?php echo $tab_pack['idPack']; ?>" style="color:#316ec4;"><strong>Choisir</strong></label>
 	                </center>
 	              </div>
 	            </ul><?php
 			}
 		}
-		else if ($type =="admin") 
+		else if ($type =="admin")
 		{
 			echo '<select name ="idPack">';
 			// Boucle remplissage du tableau
@@ -116,7 +116,7 @@ var_dump($compter_pack); exit;
 			{
 	              echo '<option value="'.$tab_pack['idPack'].'">'.$tab_pack['titrePack'].'</option>';
 			}
-				
+
 			echo '</select>';
 		}
 	}
