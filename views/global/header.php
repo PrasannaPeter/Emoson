@@ -56,12 +56,13 @@
 
     <!-- Language Menu -->
     <ul id="lang-menu">
-      <li>Bonjour </li>
+      <li style="color:white;">Bonjour
       <?php if(!empty($_SESSION['loginUtilisateur'])){ ?>
-        <li><?php echo $_SESSION['loginUtilisateur']; ?></li>
+        <?php echo $_SESSION['loginUtilisateur']; ?>
       <?php }else{ ?>
-        <li>visiteur</li>
+        visiteur
       <?php } ?>
+      </li>
     </ul>
     <!-- /Language Menu -->
 
@@ -95,7 +96,7 @@
 
     <!-- Menu -->
     <ul id="navigation">
-      <li class="current"> <a href="index.php">Accueil</a></li>
+      <li> <a href="index.php">Accueil</a></li>
 <!--       <li class="first expanded"><a href="index.php?module=projet&action=projet">Projet</a>
         <ul class="submenu">
           <li><a href="index.php?module=projet&action=liste">Liste des Projets</a></li>

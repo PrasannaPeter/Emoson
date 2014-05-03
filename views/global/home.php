@@ -154,7 +154,7 @@
                     <li><a href="#">Accounting/Banking/Finance Projets<span>(581)</span></a></li>
                     <li><a href="#">Administration Projets<span>(406)</span></a></li>
                     <li><a href="#">Art/Design/Creative Projets<span>(176)</span></a></li>
-                    <li><a href="#">Customer Service Projets<span>(334)</span></a></li>
+                    <li><a href="#">Customer Service Projets<span>(454)</span></a></li>
                     <li><a href="#">Education/Training Projets<span>(180)</span></a></li>
                     <li><a href="#">Engineering Projets<span>(978)</span></a></li>
                     <li><a href="#">Healthcare/Medical Projets<span>(131)</span></a></li>
@@ -173,7 +173,7 @@
                     <li><a href="#">Other Projets<span>(326)</span></a></li>
                     <li><a href="#">Purchasing/Procurement Projets<span>(130)</span></a></li>
                     <li><a href="#">Quality Control Projets<span>(93)</span></a></li>
-                    <li><a href="#">Research Projets<span>(33)</span></a></li>
+                    <li><a href="#">Research Projets<span>(45)</span></a></li>
                     <li><a href="#">Safety Projets<span>(72)</span></a></li>
                     <li><a href="#">Sales Projets<span>(1061)</span></a></li>
                     <li><a href="#">Secretarial Projets<span>(155)</span></a></li>
@@ -285,6 +285,39 @@
             </div>
           </div>
         </div> -->
+        <div class="clear"></div>
+
+<div class="container" >
+    <div class="row">
+        <ul class="thumbnails" style="margin-left:23px;">
+            <li class="span3">
+              <div class="thumbnail">
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
+                <div class="caption">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus elit. Nullam commodo ante eu est lacinia, ut malesuada nibh sodales. Praesent neque nunc, semper ut elit non, elementum </p>
+                </div>
+              </div>
+            </li>
+              <li class="span3">
+              <div class="thumbnail">
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
+                <div class="caption">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus elit. Nullam commodo ante eu est lacinia, ut malesuada nibh sodales. Praesent neque nunc, semper ut elit non, elementum </p>
+                </div>
+              </div>
+            </li>
+              <li class="span3">
+              <div class="thumbnail">
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
+                <div class="caption">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus elit. Nullam commodo ante eu est lacinia, ut malesuada nibh sodales. Praesent neque nunc, semper ut elit non, elementum </p>
+                </div>
+              </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
 
 <?php
 
