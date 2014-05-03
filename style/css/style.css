@@ -78,7 +78,7 @@ a.read-more:hover { color: rgb(0, 198, 255); background: none repeat scroll 0% 0
 span.select { width: 176px; height: 28px; border: 1px solid #e6e6e6; float: left; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; background: none repeat scroll 0% 0% rgb(255, 255, 255); cursor: pointer; margin: 13px 10px; }
 span.select span.combosex_input_span { padding-right: 36px; height: 22px; cursor: pointer; }
 span.select span.combosex_input_span a { font-family:Lato; height: 22px; line-height: 20px; font-size: 15px; color: rgb(102, 102, 102); cursor: pointer; }
-span.select span.combosex_arrow { background: none repeat scroll 0 0 #2AADDE; border-bottom: 3px solid #1797C7; border-radius: 3px; box-shadow: 0 0 0; height: 21px; margin: 2px; width: 23px !important; }
+span.select span.combosex_arrow { background: none repeat scroll 0 0 #316ec4; border-bottom: 3px solid #1797C7; border-radius: 3px; box-shadow: 0 0 0; height: 21px; margin: 2px; width: 23px !important; }
 span.select:hover span.combosex_arrow, span.select.combosex_active span.combosex_arrow { background: none repeat scroll 0px 0px rgb(51, 51, 51); border-bottom: 3px solid #333; }
 ul#lang-menu li:hover, ul#lang-menu .current { background: none repeat scroll 0px 0px rgb(95, 95, 95); }
 span.select span.combosex_arrow em { right: 6px; width: 10px; height: 6px; top: 9px; }
@@ -230,7 +230,7 @@ div#find-job-buttom { background: none repeat scroll 0% 0% rgb(0, 160, 204); rig
 div#post-job-buttom a, div#find-job-buttom a { font-family: 'Roboto Condensed', sans-serif; display: block; width: 170px; height: 50px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; line-height: 50px; text-align: center; color: rgb(255, 255, 255); font-size: 20px; font-weight: bold; }
 div#post-job-buttom a, div#find-job-buttom a:hover { text-decoration: none; }
 div#post-job-buttom a { background: none repeat scroll 0% 0% #8c40d4; }
-div#find-job-buttom a { background: #2aadde; }
+div#find-job-buttom a { background: #316ec4; }
 div#login-panel div.form { height: 90px; width: 380px; padding: 40px; position: relative; }
 div#login-panel div.form form input { display: block; }
 div#login-panel div.form > a { position: absolute; padding: 0px 0px 0px 15px; background: url("../images/arrow-menu.png") no-repeat scroll left center transparent; font-size: 13px; font-weight: bold; color: #2AADD; bottom: 10px; right: 150px; }
@@ -406,7 +406,7 @@ div#contact-map { height: 320px; }
 div#contacts div.left, div#contacts div.right { width: 268px; float: left; }
 div#contacts h3 { font-size: 15px; width: 90%; color: #4d4d4d; font-family: 'Roboto Condensed', sans-serif; }
 div#contacts div.contact-field span { display: block; float: left; line-height: 21px; color: #666666; font-size: 14px; }
-div#contacts div.contact-field span a { font-size: 14px; color: #2AADDE; }
+div#contacts div.contact-field span a { font-size: 14px; color: #316ec4; }
 div#contacts span.label { color: #2AADD; width: 90px; }
 .box-1.contact-address { margin-bottom: 0; }
 div#contacts span.count { color: rgb(102, 102, 102); width: 140px; }
@@ -425,11 +425,11 @@ div.filter-category ul li a:hover, div.filter-category ul li.expanded > a.active
 div.filter-category ul li.expanded > a.active { background: url("../images/arrow-menu-down.png") no-repeat scroll left center transparent; }
 div.filter-category ul li a span { padding: 0px 0px 0px 4px; color: rgb(204, 204, 204); }
 div.filter-category ul li.expanded ul li { padding: 0px 0px 0px 10px; }
-div.filter-category div.minor-label { font-size: 14px; color: #2AADDE; padding: 0px 0px 0px 15px; cursor: pointer; }
+div.filter-category div.minor-label { font-size: 14px; color: #316ec4; padding: 0px 0px 0px 15px; cursor: pointer; }
 div.filter-category div.minor.show div.minor-label { background: url("../images/minus.png") no-repeat scroll left center transparent; }
 div.filter-category div.minor.hide div.minor-label { background: url("../images/plus.png") no-repeat scroll left center transparent; }
 div.filter-category div.minor-label:hover { color: #2AADD; }
-div.filter-category div.show-hide-button { height: 15px; border-top: 1px solid #2AADDE; margin: 5px 0px 0px; cursor: pointer; }
+div.filter-category div.show-hide-button { height: 15px; border-top: 1px solid #316ec4; margin: 5px 0px 0px; cursor: pointer; }
 div.filter-category div.show-hide-button span { display: block; margin-top: -1px; height: 15px; }
 div.filter-category div.filter-content.hide div.show-hide-button span { background: url("../images/search-hide-more-options.png") no-repeat scroll center top transparent; transform: rotate(180deg); -ms-transform: rotate(180deg); /* IE 9 */ -webkit-transform: rotate(180deg); /* Safari and Chrome */ }
 div.filter-category div.filter-content.show div.show-hide-button span { background: url("../images/search-hide-more-options.png") no-repeat scroll center top transparent; }
@@ -443,7 +443,7 @@ form#filter-job-page input[type="submit"] { height: 40px; line-height: 40px; pad
 div.dayprogressbar-mover, div.rangeprogressbar-mover { padding: 15px 7px 30px; }
 div.dayprogressbar-mover div.bar, div.rangeprogressbar-mover div.bar { height: 7px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; background: none repeat scroll 0% 0% rgb(229, 229, 229); position: relative; }
 div.dayprogressbar-mover div.bar div.ui-slider-range, div.rangeprogressbar-mover div.bar div.ui-slider-range { height: 7px; border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; background: none repeat scroll 0% 0% #47cff9; position: relative; }
-div.dayprogressbar-mover div.bar > a, div.rangeprogressbar-mover div.bar > a { background: none repeat scroll 0 0 #2AADDE; border-radius: 7px; display: block; height: 12px; margin-left: -7px; position: absolute; top: -2.5px; transition: all 0s ease 0s; width: 12px; }
+div.dayprogressbar-mover div.bar > a, div.rangeprogressbar-mover div.bar > a { background: none repeat scroll 0 0 #316ec4; border-radius: 7px; display: block; height: 12px; margin-left: -7px; position: absolute; top: -2.5px; transition: all 0s ease 0s; width: 12px; }
 div.dayprogressbar-mover div.begin { float: left; width: 50%; text-align: left; margin-left: -7px; }
 div.dayprogressbar-mover div.end { float: right; width: 50%; text-align: right; margin-right: -7px; }
 div.dayprogressbar-mover div.begin span, div.dayprogressbar-mover div.end span { font-size: 14px; color: #2AADD; }
@@ -486,7 +486,7 @@ div.pager ul li.prev a:hover { background-color: rgb(0, 198, 255); }
 div.pager ul li.next a:hover { background-color: rgb(0, 198, 255); }
 div.pager ul li.noactive a:hover { background-color: rgb(230, 230, 230); color: #2AADD; }
 div#job-content-fields div.field-container, div#job-content-field div.field-container { border: 2px solid rgb(229, 229, 229); position: relative; clear: both; margin-top: -2px; margin-bottom: 20px; }
-div#job-content-fields div.field-container.even { background: none repeat scroll 0 0 #2AADDE; border-bottom: 3px solid #1797C7; }
+div#job-content-fields div.field-container.even { background: none repeat scroll 0 0 #316ec4; border-bottom: 3px solid #1797C7; }
 div#job-content-fields div.field-container:hover { border: medium none; box-shadow: 0px 0px 15px rgb(204, 204, 204); -moz-box-shadow: 0px 0px 15px rgb(204, 204, 204); -webkit-box-shadow: 0px 0px 15px rgb(204, 204, 204); padding: 2px; }
 div#job-content-fields div.field-container.show { z-index: 5; }
 div.nav-buttons { top: 17px; right: 17px; position: absolute; }
@@ -501,17 +501,17 @@ div.nav-buttons ul li { float: left; height: 27px; margin-left: 10px; width: 30p
 .latest-job-wrapper div.nav-buttons ul li a { height: 22px; width: 25px; }
 .latest-job-wrapper div.nav-buttons ul li { margin-left: 0; }
 .latest-job-wrapper div.nav-buttons i { left: 7px !important; top: -3px !important; }
-.latest-job-wrapper div.nav-buttons ul li.link a { background-image: none; background-color: #2AADDE; }
-div.nav-buttons ul li a { background: none repeat scroll 0 0 #2AADDE; border-bottom: 3px solid #1797C7; border-radius: 3px; cursor: pointer; display: block; height: 27px; margin-right: 10px; width: 30px; }
+.latest-job-wrapper div.nav-buttons ul li.link a { background-image: none; background-color: #316ec4; }
+div.nav-buttons ul li a { background: none repeat scroll 0 0 #316ec4; border-bottom: 3px solid #1797C7; border-radius: 3px; cursor: pointer; display: block; height: 27px; margin-right: 10px; width: 30px; }
 .partner div.nav-buttons ul li a { height: 20px; width: 22px; }
 .partner div.nav-buttons ul li { margin-left: 7px !important; width: 20px; }
 div#job-content-fields div.nav-buttons ul li a { background-color: none repeat scroll 0 0 #e6e6e6 !important; border-bottom: 3px solid #cccccc !important; }
-div#job-content-fields div.nav-buttons ul li a:hover { background-color: none repeat scroll 0 0 #2aadde !important; border-bottom: 3px solid #1797C7 !important; }
+div#job-content-fields div.nav-buttons ul li a:hover { background-color: none repeat scroll 0 0 #316ec4 !important; border-bottom: 3px solid #1797C7 !important; }
 div.nav-buttons ul li i { color: rgb(255, 255, 255); font-size: 12px; left: 6px; position: relative; top: -2px; }
 div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.hide a, .company-text div.nav-buttons ul li a { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -1px -1px #E6E6E6 }
-div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.show a { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -32px 0px #2aadde; border-bottom: 3px solid #1797C7 !important; }
-div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.hide a:hover { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -1px -1px #2aadde; }
-div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.show a:hover { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -32px 0px #2aadde; }
+div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.show a { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -32px 0px #316ec4; border-bottom: 3px solid #1797C7 !important; }
+div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.hide a:hover { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -1px -1px #316ec4; }
+div#job-content-fields div.field-container div.nav-buttons ul li.show-hide.show a:hover { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -32px 0px #316ec4; }
 div.nav-buttons ul li.favorite a { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -62px center rgb(230, 230, 230); }
 div.nav-buttons ul li.link a { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -90px 0 #E6E6E6; }
 div.nav-buttons ul li:hover a, .company-text div.nav-buttons ul li a:hover { background-color: rgb(0, 198, 255); }
@@ -525,7 +525,7 @@ div#job-content-fields div.field-container div.header-fields div.title-company d
 div#job-content-fields div.field-container div.body-field, div#job-content-field div.field-container div.body-field { padding: 10px 20px; }
 div#job-content-fields div.field-container div.body-field div.teaser, div#job-content-field div.field-container div.body-field div.teaser { }
 div#job-content-fields div.field-container div.body-field p, div#job-content-field div.field-container div.body-field p { padding: 0px 0px 10px; color: rgb(102, 102, 102); }
-div#job-content-fields div.field-container div.body-field p span.read-more a, div#job-content-field div.field-container div.body-field p span.read-more a { color: #2AADDE; cursor: pointer; padding: 0px 0px 0px 5px; }
+div#job-content-fields div.field-container div.body-field p span.read-more a, div#job-content-field div.field-container div.body-field p span.read-more a { color: #316ec4; cursor: pointer; padding: 0px 0px 0px 5px; }
 div#job-content-fields div.field-container div.body-field p span.read-more a:hover, div#job-content-field div.field-container div.body-field p span.read-more a:hover { color: rgb(102, 102, 102); }
 div#job-content-fields div.field-container div.meta-fields, div#job-content-field div.field-container div.meta-fields { padding: 0px 20px 15px; clear: both; height: 20px; z-index: 15; }
 div#job-content-fields div.field-container div.meta-fields > div, div#job-content-field div.field-container div.meta-fields > div { float: left; width: 33%; height: 20px; line-height: 20px; }
@@ -564,7 +564,7 @@ div#job-content-fields div.field-container div.block-fields div.block div.block-
 div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description.hide div.roll-button span, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description.hide div.roll-button span { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -1px 0px rgb(230, 230, 230); border-bottom: 3px solid #cccccc; }
 .field.roll-with-description.show .roll-button span { background: url("../images/nav-buttons-sprite.png") no-repeat scroll -1px 0px rgb(230, 230, 230); }
 div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description.hide div.roll-button span:hover, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description.hide div.roll-button span:hover { background-color: rgb(0, 198, 255); }
-div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description.show div.roll-button span, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description.show div.roll-button span { border-bottom: 3px solid #1797C7; background: url("../images/nav-buttons-sprite.png") no-repeat scroll -32px 0 #2AADDE; }
+div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description.show div.roll-button span, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description.show div.roll-button span { border-bottom: 3px solid #1797C7; background: url("../images/nav-buttons-sprite.png") no-repeat scroll -32px 0 #316ec4; }
 div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description.show div.roll-button span:hover, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description.show div.roll-button span:hover { background-color: rgb(230, 230, 230); }
 div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description div.description, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description div.description { color: #808080; font-family: lato; font-size: 14px; line-height: 18px; padding-top: 5px; }
 div#job-content-fields div.field-container div.block-fields div.block div.block-content div.roll-with-description div.roll-field, div#job-content-field div.field-container div.block-fields div.block div.block-content div.roll-with-description div.roll-field { float: right; }
@@ -577,7 +577,7 @@ div#job-content-fields div.field-container div.buttons-field, div#job-content-fi
 div#job-content-fields div.field-container div.buttons-field > div, div#job-content-field div.field-container div.buttons-field > div { float: left; }
 div#job-content-fields div.field-container div.buttons-field div.apply, div#job-content-field div.field-container div.buttons-field div.apply { border-right: 1px solid rgb(229, 229, 229); width: 50%; }
 div#job-content-field div.field-container div.buttons-field div.apply { width: 50%; }
-div#job-content-fields div.field-container div.buttons-field div.apply a, div#job-content-field div.field-container div.buttons-field div.apply a, div#job-content-field div.field-container div.buttons-field div.full a { font-family: 'Roboto Condensed', sans-serif; background: none repeat scroll 0 0 #2AADDE; border-radius: 5px; color: #FFFFFF; display: block; font-weight: bold; line-height: 50px; margin: 0 auto; text-align: center; width: 190px; }
+div#job-content-fields div.field-container div.buttons-field div.apply a, div#job-content-field div.field-container div.buttons-field div.apply a, div#job-content-field div.field-container div.buttons-field div.full a { font-family: 'Roboto Condensed', sans-serif; background: none repeat scroll 0 0 #316ec4; border-radius: 5px; color: #FFFFFF; display: block; font-weight: bold; line-height: 50px; margin: 0 auto; text-align: center; width: 190px; }
 div#job-content-field div.field-container div.buttons-field div.full a { border-bottom: 3px solid #C22F2F; background-color: rgb(215, 30, 39); }
 div#job-content-fields div.field-container div.buttons-field div.apply a:hover, div#job-content-field div.field-container div.buttons-field div.apply a:hover, div#job-content-field div.field-container div.buttons-field div.full a:hover { border: none; background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(0, 198, 255); }
 div#job-content-field div.field-container div.buttons-field div.full a:hover { border: none; color: rgb(215, 30, 39); }
@@ -1109,7 +1109,7 @@ div#footer-menu div.footer-menu div.left, div#footer-menu div.footer-menu div.ri
 ----------------------------------
 */
 .mode-panel { display: block; float: left; padding: 5px 0; }
-.mode.active { background-color: #2aadde; cursor: pointer; box-shadow: 0 3px 0 0 #1797c7; }
+.mode.active { background-color: #316ec4; cursor: pointer; box-shadow: 0 3px 0 0 #1797c7; }
 .mode { background: #e6e6e6; box-shadow: 0 3px 0 0 #CCCCCC; border-radius: 3px; cursor: pointer; display: block; float: left; height: 28px; margin-right: 10px; width: 30px; }
 .theme_color { color: #FFFFFF; text-align: center; text-shadow: 0 -1px 0 rgba(2, 3, 3, 0.15); transition: opacity 1s ease 0s; }
 .mode span.cells { background-position: -35px 0; }
@@ -1132,7 +1132,7 @@ div.field-container div.body-field p { padding-bottom: 0 !important; }
 .seach-head > span { position: relative; top: -10px; }
 .jab-ad-banner { margin-bottom: 15px; }
 .page-top-nav-bar.jobpage-nav span.select { margin-top: 5px; }
-.menu-hider.closed { background-color: #2AADDE; }
+.menu-hider.closed { background-color: #316ec4; }
 .menu-hider { background: url("../images/sort-sprite.png") no-repeat scroll -76px center #E6E6E6; border-radius: 3px; cursor: pointer; display: none; height: 30px; position: absolute; right: 0; top: 16px; width: 30px; }
 .job-video iframe { padding: 20px 20px 10px; width: 535px !important; }
 .btn-show-older { background: none repeat scroll 0 0 #00C6FF; border-radius: 3px; color: #FFFFFF; cursor: pointer; display: inline-block; font-weight: 700; height: 40px; line-height: 10px; padding: 10px 20px; }
