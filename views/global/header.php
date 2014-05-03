@@ -69,7 +69,7 @@
     <!-- User Menu -->
     <ul id="user-menu">
         <?php if(!is_connected()){ ?>
-          <a class="btn btn-warning" href="#loginModal" role="button" data-toggle="modal">Connexion</a>
+          <a class="btn btn-warning" href="#loginModal" role="button" data-toggle="modal"><i class="fa fa-sign-in"></i> <span>Se connecter </span></a>
           <a class="btn btn-info" href="index.php?module=designer&action=inscription_designer">Inscription designer sonore</a>
           <a class="btn btn-success" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>
         <?php }else{ ?>
@@ -78,7 +78,7 @@
           <?php }else{ ?>
             <a class="btn btn-success" href="index.php?module=dashboard&action=afficher"><i class="fa fa-cloud"></i> <span>Mon espace</span></a>
           <?php } ?>
-          <a class="btn btn-info" href="index.php?module=utilisateur&action=deconnexion"><i class="fa fa-lock"></i> <span>Déconnexion</span></a>
+          <a class="btn btn-info" href="index.php?module=utilisateur&action=deconnexion"><i class="fa fa-sign-out"></i> <span>Déconnexion</span></a>
         <?php } ?>
     </ul>
     <!-- /User Menu -->
@@ -170,7 +170,7 @@
           </div>
 
         <p>
-          <button type="submit" class="btn btn-success">Connexion</button>
+          <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> <span>Connexion</span></button>
           <!-- <a href="index.php?module=utilisateur&action=recup_mdp" class="btn btn-warning">Mot de passe oublié ?</a> -->
         </p>
       </form>

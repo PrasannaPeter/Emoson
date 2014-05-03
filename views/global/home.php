@@ -2,22 +2,37 @@
 
   <!-- Banner Area -->
   <section class="header-banner">
+
+    <center><h2 style="color:white;">CREER ET PILOTER EN LIGNE VOTRE DESIGN SONORE<br>
+            IDENTITE SONORE, LOGO SONORE,
+
+            MUSIQUE ORIGINALE, VOIX OFF, TELEPHONIE
+    </h2></center>
+    <br>
+
     <div class="inner">
         <!-- Panel 3 -->
         <div id="login-panel">
           <div class="left">
             <div class="first">
-              <div id="find-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal">Je suis designer</a></div>
+              <div id="find-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-music"></i> <span>Je suis designer</span></a></div>
             </div>
           </div>
           <div class="right">
             <div class="first">
-              <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-file-text"></i> <span>J'ai un projet</span></a></div>
+              <div id="post-job-buttom"><a href="#loginModal" role="button" class="btn" data-toggle="modal"><i class="fa fa-file-text"></i> <span>Déposer un brief</span></a></div>
             </div>
           </div>
         </div>
         <!-- /Panel 3 -->
     </div>
+
+    <br>
+    <center><a href="#loginModal" role="button" class="btn btn-success" data-toggle="modal"><i class="fa fa-info"></i> <span>Comment ça marche ?</span></a>
+    </center>
+    <br>
+
+
     </section>
   <!-- /Banner Area -->
   <div class="clear"></div>
@@ -294,23 +309,26 @@
               <div class="thumbnail">
                 <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
                 <div class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus elit. Nullam commodo ante eu est lacinia, ut malesuada nibh sodales. Praesent neque nunc, semper ut elit non, elementum </p>
+                  <center><strong>ETUDE DE VOTRE BRIEF</strong></center>
+                  <p>Inscrivez-vous et déposer en ligne votre brief, nous vous proposerons la formule, la plus adaptée</p>
                 </div>
               </div>
             </li>
               <li class="span3">
               <div class="thumbnail">
-                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-check-square-o"></i>
                 <div class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus elit. Nullam commodo ante eu est lacinia, ut malesuada nibh sodales. Praesent neque nunc, semper ut elit non, elementum </p>
+                  <center><strong>SELECTION DES DESIGNERS</strong></center>
+                  <p>Après avoir validé et étudié votre brief en détail, nous vous proposons les meilleurs designers pour votre demande</p>
                 </div>
               </div>
             </li>
               <li class="span3">
               <div class="thumbnail">
-                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-play"></i>
                 <div class="caption">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus elit. Nullam commodo ante eu est lacinia, ut malesuada nibh sodales. Praesent neque nunc, semper ut elit non, elementum </p>
+                  <center><strong>DEMARRAGE DU PROJET</strong></center>
+                  <p>Après validation du ou des designers sélectionnés et à la réception de votre 1er acompte, vous pouvez démarrer la collaboration</p>
                 </div>
               </div>
             </li>

@@ -51,10 +51,10 @@ require_once 'core/init.php';
 		// Sinon, on affiche la page d'erreur !
 		else
 		{
-			require_once VIEWS.'/global/home.php';
+			require_once VIEWS.'/global/404.php';
 		}
 	}
-	// Module non specifi� ou invalide ? On affiche une page d'erreur
+	// Page d'accueil
 	else
 	{
 		require_once VIEWS.'/global/home.php';
