@@ -1,3 +1,48 @@
+<!-- Modal -->
+<div id="infoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true" style="width:60%; margin-left:-30%">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="infoModalLabel">Comment ça marche ?</h3>
+  </div>
+  <div class="modal-body">
+<div class="container" >
+    <div class="row">
+        <ul class="thumbnails" style="margin-left:23px;">
+            <li class="span3">
+              <div class="thumbnail">
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
+                <div class="caption">
+                  <center><strong>ETUDE DE VOTRE BRIEF</strong></center>
+                  <p>Inscrivez-vous et déposer en ligne votre brief, nous vous proposerons la formule, la plus adaptée</p>
+                </div>
+              </div>
+            </li>
+              <li class="span3">
+              <div class="thumbnail">
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-check-square-o"></i>
+                <div class="caption">
+                  <center><strong>SELECTION DES DESIGNERS</strong></center>
+                  <p>Après avoir validé et étudié votre brief en détail, nous vous proposons les meilleurs designers pour votre demande</p>
+                </div>
+              </div>
+            </li>
+              <li class="span3">
+              <div class="thumbnail">
+                <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-play"></i>
+                <div class="caption">
+                  <center><strong>DEMARRAGE DU PROJET</strong></center>
+                  <p>Après validation du ou des designers sélectionnés et à la réception de votre 1er acompte, vous pouvez démarrer la collaboration</p>
+                </div>
+              </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+  </div>
+</div>
+
 <div id="content">
 
   <!-- Banner Area -->
@@ -28,7 +73,7 @@
     </div>
 
     <br>
-    <center><a href="#loginModal" role="button" class="btn btn-success" data-toggle="modal"><i class="fa fa-info"></i> <span>Comment ça marche ?</span></a>
+    <center><a href="#infoModal" role="button" class="btn btn-success" data-toggle="modal"><i class="fa fa-info"></i> <span>Comment ça marche ?</span></a>
     </center>
     <br>
 
