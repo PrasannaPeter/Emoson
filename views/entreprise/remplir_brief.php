@@ -23,9 +23,9 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <legend class=""><h2>Faire une demande de projet</h2></legend><br />
     </div>
 <br>
-<strong><h3>Votre Projet</h3></strong>
+<strong><h3>Votre projet</h3></strong>
     <div class="control-group">
-      <label class="control-label" for="titreProjet" >Titre de votre Projet</label>
+      <label class="control-label" for="titreProjet" >Titre de votre projet</label>
       <div class="controls">
         <input required="required" type="text" name="titreProjet" style="width:400px;">
       </div>
@@ -33,6 +33,67 @@ $idEntreprise = $_SESSION['idUtilisateur'];
 
     <div class="control-group">
       <label class="control-label">Description de votre projet</label>
+      <div class="controls">
+        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Avez-vous une stratégie de branding ?</label>
+      <div class="controls">
+        <br>
+        <div style="position:relative;">
+        <a class='btn btn-primary' href='javascript:;'>
+            Choose File...
+            <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+        </a>
+        </div>
+        <br>
+        <p class="help-block" style="margin-top:-15px;">Si oui, pouvez-vous nous envoyer votre charte de marque : document résumant qui vous êtes ?</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Votre positionnement en 140 caractères</label>
+      <div class="controls">
+        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <p class="help-block" style="margin-top:-15px;">Prévoir</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Votre identite visuelle</label>
+      <div class="controls">
+        <br>
+        <div style="position:relative;">
+        <a class='btn btn-primary' href='javascript:;'>
+            Choose File...
+            <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+        </a>
+        </div>
+        <br>
+        <p class="help-block" style="margin-top:-15px;">Pouvez-vous nous envoyer votre charte graphique ?</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Des références musicales ?</label>
+      <div class="controls">
+        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <p class="help-block" style="margin-top:-15px;">Envoyez-nous vos liens URLS Youtube</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Ce que vous ne souhaitez surtout pas...</label>
+      <div class="controls">
+        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <p class="help-block" style="margin-top:-15px;">Envoyez-nous vos liens URLS Youtube</p>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Commentaires</label>
       <div class="controls">
         <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
       </div>

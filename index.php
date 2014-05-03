@@ -42,6 +42,10 @@ require_once 'core/init.php';
 			{
 				require_once(VIEWS.'/'.$controller.'/'.$action.'.php');
 			}
+			else
+			{
+				require_once VIEWS.'/global/404.php';
+			}
 		}
 		// Sinon on charge la vue du dossier global si existe
 		elseif($controller!=NULL && file_exists(VIEWS.'/global/'.$controller.'.php'))

@@ -187,8 +187,9 @@ switch($type)
 			if($remplir_brief=="ok")
 			{
 				$_SESSION['typeNotif'] = "success";
-				$_SESSION['titreNotif'] = "Le Brief a bien été ajouté à l'application";
-				$_SESSION['msgNotif'] = "Le Brief a bien été ajouté à l'application";
+				$_SESSION['titreNotif'] = "MERCI pour votre confance !";
+				$_SESSION['msgNotif'] = "Nous vous contactons dans les meilleurs délais
+pour vous sélectionner les meilleurs designers..";
 
 				//Redirection vers page de payement a faire
 				header('Location:index.php?module=dashboard&action=afficher');

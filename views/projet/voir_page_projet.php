@@ -23,7 +23,11 @@
     <div class="content-inner candidate-list">
 
     <center>
-    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_projet&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file"></i> <span>Voir brief</span></a>
+    <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file-text"></i> <span>Page du projet</span></a>
+
+    <a class="btn btn-large btn-warning" href="index.php?module=projet&action=voir_projet&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file"></i> <span>Voir brief</span></a>
+
+    <a class="btn btn-large btn-primary" href="index.php?module=projet&action=voir_contrat&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file"></i> <span>Contrat</span></a>
 
     <hr>
 
@@ -40,7 +44,7 @@
 
 ?>
 
-<h2>Choix du designer</h2>
+<h2>Voici les meilleurs designers pour votre projet</h2>
 
 <form>
     <div id="about-us-our-team" class="block">
@@ -49,6 +53,7 @@
           <div class="photo"><img src="style/content/our-team/worker-1.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
           <div class="name">Jeffrey Richards</div>
           <div class="post"> <center><input type="radio" name="choixDesigner" value="1"></center></div>
+
         </div>
         <div class="team-worker">
           <div class="photo"><img src="style/content/our-team/worker-2.jpg" height="154" width="154" alt="John Doe - Partner"></div>
@@ -172,13 +177,13 @@
 
 <h2>Propositions</h2>
 <br />
-<div class="well"></div>
+<div class="well">Soundcloud player</div>
 
 <hr>
 
 <h2>Discussion</h2>
 <br />
-<div class="well"></div>
+<div class="well">Fil de commentaires datés par utilisateurs</div>
 
 </div>
 </div>
