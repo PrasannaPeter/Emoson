@@ -164,7 +164,7 @@ class M_Entreprise extends Entreprise
 
 
 
-	// Verification intégritée BDD
+	// Verification intï¿½gritï¿½e BDD
 
 	static function verif_insert_entreprise($raisonSocialeEntreprise)
 	{
@@ -201,7 +201,7 @@ class M_Entreprise extends Entreprise
 
 		$verif_sql_delete = $verif_sql_delete->fetch();
 
-		return($verif_sql_delete['idEntreprise']);
+		return($verif_sql_delete['idEntreprise']);                
 	}
 
 }
