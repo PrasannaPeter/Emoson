@@ -35,7 +35,7 @@
     </center>
 <?php
 
-
+// si emoson a choisi les designers :
 
 
 ?>
@@ -45,14 +45,14 @@
 <form>
     <div id="about-us-our-team" class="block">
       <div class="block-content">
-        <div class="team-worker">
+        <div class="team-worker" style="margin-left:200px;">
           <div class="photo"><img src="style/content/our-team/worker-1.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
           <div class="name">Jeffrey Richards</div>
           <div class="post"> <center><input type="radio" name="choixDesigner" value="1"></center></div>
           <div class="radio-field">
             <center>
-              <input name="idPack" id="idPack_1" type="radio" value="1">
-              <label for="idPack_1" style="color:#316ec4;"><strong>Choisir</strong></label>
+                  <a onclick="return(confirm('Êtes-vous sur ?'));" class="btn btn-mini btn-info" href="index.php?module=projet&action=choix_designer&idProjet=<?php echo $idProjet; ?>&choixDesigner=1" role="button"><i class="fa fa-file-check"></i> <span>Choisir</span></a>
+                  <br><br>
             </center>
           </div>
         </div>
@@ -62,28 +62,32 @@
           <div class="post"> <center><input type="radio" name="choixDesigner" value="2"></center></div>
           <div class="radio-field">
             <center>
-              <input name="idPack" id="idPack_2" type="radio" value="2">
-              <label for="idPack_2" style="color:#316ec4;"><strong>Choisir</strong></label>
+                  <a onclick="return(confirm('Êtes-vous sur ?'));" class="btn btn-mini btn-info" href="index.php?module=projet&action=choix_designer&idProjet=<?php echo $idProjet; ?>&choixDesigner=2" role="button"><i class="fa fa-file-check"></i> <span>Choisir</span></a>
+                  <br><br>
             </center>
           </div>
         </div>
         <div class="team-worker">
           <div class="photo"><img src="style/content/our-team/worker-3.jpg" height="154" width="154" alt="Jane Doe - Partner"></div>
           <div class="name">Jane Doe</div>
-          <div class="post"> <center><input type="radio" name="choixDesigner" value="3"></center></div>
+          <div class="post"> <center><input type="radio" naem="choixDesigner" value="3"></center></div>
           <div class="radio-field">
             <center>
-              <input name="idPack" id="idPack_3" type="radio" value="3">
-              <label for="idPack_3" style="color:#316ec4;"><strong>Choisir</strong></label>
+                  <a onclick="return(confirm('Êtes-vous sur ?'));" class="btn btn-mini btn-info" href="index.php?module=projet&action=choix_designer&idProjet=<?php echo $idProjet; ?>&choixDesigner=3" role="button"><i class="fa fa-file-check"></i> <span>Choisir</span></a>
+                  <br><br>
             </center>
           </div>
         </div>
       </div>
     </div>
+    <br>
+
 </form>
       <div class="clear"></div>
 
     <hr>
+
+<?php // sinon si designer selectionné par l'entreprise ?>
 
 <h2>Designer selectionné</h2>
 <br />
@@ -184,6 +188,7 @@
       </div>
     </div>
   </div>
+<?php // sinon afficher message comme quoi Emoson va choisir les designers et tenir au courant l'entreprise ?>
 
 <hr>
 <br />
@@ -196,7 +201,44 @@
 
 <h2>Discussion</h2>
 <br />
-<div class="well">Fil de commentaires datés par utilisateurs</div>
+  <div class="wrap">
+  <?php
+    $idProjet = $_GET['idProjet'];
+
+    $bdd = PDO();
+
+    require_once(CONTROLLERS.'commentaire/commentaire.php');
+
+    // retrive comments with post id
+    $comment_query = Commentaire::get_commentaire($idProjet);
+  ?>
+    <div class="comment-block well">
+    <?php foreach($comment_query as $comment) :
+        require_once(CONTROLLERS.'utilisateur/utilisateur.php');
+        $comment['user'] = Utilisateur::get_utilisateur($comment['idUtilisateur']);
+    ?>
+      <div class="comment-item">
+        <div class="comment-post">
+          <?php echo $comment['dateCommentaire'] ?> par <strong><?php echo $comment['user']['loginUtilisateur'] ?></strong> <span> : </span>
+          <?php echo $comment['texteCommentaire']?><br>
+        </div>
+      </div>
+    <?php endforeach?>
+    </div>
+
+    <h2>Ajouter un message</h2>
+    <br>
+    <!--comment form -->
+    <form id="form" action="index.php?module=projet&action=ajouter_commentaire" method="post">
+      <!-- need to supply post id with hidden fild -->
+      <input type="hidden" name="idProjet" value="<?php echo $idProjet; ?>">
+      <input type="hidden" name="idUtilisateur" value="<?php echo $_SESSION['idUtilisateur']; ?>">
+      <label>
+        <textarea name="commentaire" id="commentaire" style="width:100%;" cols="30" rows="10" placeholder="Tappez votre commentaire ici...." required></textarea>
+      </label>
+      <button type="submit" class="btn btn-large btn-success" id="submitComment">Envoyer</button>
+    </form>
+  </div>
 
 </div>
 </div>
