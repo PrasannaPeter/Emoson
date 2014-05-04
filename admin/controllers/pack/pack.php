@@ -95,7 +95,7 @@ var_dump($compter_pack); exit;
 			// Boucle remplissage du tableau
 			while($tab_pack = $read_pack->fetch())
 			{
-                            ?><ul class="price-list span3 box-1" style="margin-left:75px;">
+                            ?><ul class="price-list span3 box-1">
 	              <li class="pgk-title title-1"><?php echo $tab_pack['titrePack']; ?></li>
 	              <li class="pgk-price title-2"><?php echo $tab_pack['prixPack']; ?> €</li>
 	              <li style="min-height:150px;"><?php echo str_replace('- ', '<br />', $tab_pack['descPack']); ?></li>
