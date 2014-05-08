@@ -2,7 +2,7 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Page<span>du projet <?php echo $get_projet['titreProjet']; ?></span>
+    <h1 class="inner title-2">Page<span> du projet <?php echo $get_projet['titreProjet']; ?></span>
 
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
@@ -12,11 +12,11 @@
   <div class="inner">
 
 
-     <?php
+    <?php
+    //print_r(error_reporting(E_ALL));
+    if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
 
-        if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
-
-        $get_projet = Projet::get_projet($idProjet);
+    $get_projet = Projet::get_projet($idProjet);
 
     ?>
 
@@ -36,8 +36,11 @@
 <?php
 
 // si emoson a choisi les designers :
+require_once('admin/controllers/utilisateur/utilisateur.php');
+$info_designer = Utilisateur::get_utilisateur_in_projet($idProjet);
 
-
+if (!empty($info_designer)) 
+{
 ?>
 
 <h2>Voici les meilleurs designers pour votre projet</h2>
@@ -45,38 +48,25 @@
 <form>
     <div id="about-us-our-team" class="block">
       <div class="block-content">
+        <?php
+        while($tab_designer = $info_designer->fetch())
+        {?>
         <div class="team-worker" style="margin-left:200px;">
           <div class="photo"><img src="style/content/our-team/worker-1.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
-          <div class="name">Jeffrey Richards</div>
-          <div class="post"> <center><input type="radio" name="choixDesigner" value="1"></center></div>
+          <div class="name"><?php echo $tab_designer['nomUtilisateur'].' '.$tab_designer['prenomUtilisateur'];?></div>
+          <center><a href="index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_designer['idUtilisateur'];?>">Voir profil</a></center>
+          <!--<div class="post"> <center><input type="radio" name="choixDesigner" value="1"></center></div>
           <div class="radio-field">
             <center>
                   <a onclick="return(confirm('Êtes-vous sur ?'));" class="btn btn-mini btn-info" href="index.php?module=projet&action=choix_designer&idProjet=<?php echo $idProjet; ?>&choixDesigner=1" role="button"><i class="fa fa-file-check"></i> <span>Choisir</span></a>
                   <br><br>
             </center>
-          </div>
+          </div>-->
+
         </div>
-        <div class="team-worker">
-          <div class="photo"><img src="style/content/our-team/worker-2.jpg" height="154" width="154" alt="John Doe - Partner"></div>
-          <div class="name">John Doe</div>
-          <div class="post"> <center><input type="radio" name="choixDesigner" value="2"></center></div>
-          <div class="radio-field">
-            <center>
-                  <a onclick="return(confirm('Êtes-vous sur ?'));" class="btn btn-mini btn-info" href="index.php?module=projet&action=choix_designer&idProjet=<?php echo $idProjet; ?>&choixDesigner=2" role="button"><i class="fa fa-file-check"></i> <span>Choisir</span></a>
-                  <br><br>
-            </center>
-          </div>
-        </div>
-        <div class="team-worker">
-          <div class="photo"><img src="style/content/our-team/worker-3.jpg" height="154" width="154" alt="Jane Doe - Partner"></div>
-          <div class="name">Jane Doe</div>
-          <div class="post"> <center><input type="radio" naem="choixDesigner" value="3"></center></div>
-          <div class="radio-field">
-            <center>
-                  <a onclick="return(confirm('Êtes-vous sur ?'));" class="btn btn-mini btn-info" href="index.php?module=projet&action=choix_designer&idProjet=<?php echo $idProjet; ?>&choixDesigner=3" role="button"><i class="fa fa-file-check"></i> <span>Choisir</span></a>
-                  <br><br>
-            </center>
-          </div>
+        <?php
+        }
+        ?>
         </div>
       </div>
     </div>
@@ -84,11 +74,11 @@
 
 </form>
       <div class="clear"></div>
+<?php 
+// sinon si designer selectionné par l'entreprise ?>
 
-    <hr>
-
-<?php // sinon si designer selectionné par l'entreprise ?>
-
+<!--
+<hr>
 <h2>Designer selectionné</h2>
 <br />
 
@@ -158,11 +148,11 @@
                       <div class="progressbar"><span class="progress-count" data-level="65" style="width: 65%;"></span></div>
                       <div class="description" style="display: block;">Preferred languages are Arabic, French &amp; Italian. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</div>
                     </div>
-                  </div>
+                  </div>-->
                   <!-- Cleaner -->
-                  <div class="clear"></div>
+                  <!--<div class="clear"></div>
                   <!-- /Cleaner -->
-                </div>
+                <!--</div>
               </div>
               <div class="block">
                 <h4>Additional Requirements</h4>
@@ -174,9 +164,9 @@
                   <div class="tag-field">Perfect Written &amp; Spoken English</div>
                 </div>
                 <!-- Cleaner -->
-                <div class="clear"></div>
+                <!--<div class="clear"></div>
                 <!-- /Cleaner -->
-              </div>
+             <!-- </div>
             </div>
             <div class="buttons-field applybtns" style="display: none;">
               <div class="apply"><a href="#">Contact Me</a></div>
@@ -187,9 +177,17 @@
 
       </div>
     </div>
-  </div>
-<?php // sinon afficher message comme quoi Emoson va choisir les designers et tenir au courant l'entreprise ?>
+  </div>-->
 
+<?php 
+}
+// sinon afficher message comme quoi Emoson va choisir les designers et tenir au courant l'entreprise 
+else
+{
+  echo "<p>Pour le moment nous n'avons pas encore selectionner de designer.</p>
+        <p>Nous vous tiendrons au courant lorsqu'un designer interessant vous sera proposé.</p>";
+}
+?>
 <hr>
 <br />
 

@@ -121,6 +121,22 @@ class M_Utilisateur extends Utilisateur
 		return($read_utilisateur);
 	}
 
+	static function get_utilisateur_in_projet($idProjet)
+	{
+		$bdd = PDO();
+
+		$read_projet_utilisateur = $bdd->query('
+				SELECT *
+				FROM propose P, utilisateurs U 
+				WHERE P.idUtilisateur = U.idUtilisateur
+				AND acceptation = 1
+				AND validation = 1
+				AND idProjet = '.$idProjet.'
+			');
+
+		return($read_projet_utilisateur);
+	}
+
 	static function get_projet_utilisateur($idUtilisateur)
 	{
 		$bdd = PDO();

@@ -171,6 +171,15 @@ class Utilisateur
 		return($get_utilisateur);
 	}
 
+	static function get_utilisateur_in_projet($idProjet)
+	{
+		if(!empty($idProjet))
+		{
+			$get_utilisateur = M_Utilisateur::get_utilisateur_in_projet($idProjet);
+		}
+		return($get_utilisateur);
+	}
+
 	static function tab_utilisateur($type=NULL)
 	{
 			if(!empty($type))
