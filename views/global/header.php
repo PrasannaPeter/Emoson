@@ -15,6 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin,latin-ext"/>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="style/images/favicon.ico" />
 
     <!-- CSS -->
     <link href="style/css/font-awesome.css" rel="stylesheet" type="text/css" />
