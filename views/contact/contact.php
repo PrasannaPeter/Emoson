@@ -24,14 +24,14 @@
             <div class="left">
               <h3 class="title-3">Bureau</h3>
               <div class="contact-field"><span class="label">Addresse :</span><span id="first-address" class="count">New York City, United States</span></div>
-              <div class="contact-field"><span class="label">Telephone :</span><span class="count">+1 123-456-7890</span></div>
+              <div class="contact-field"><span class="label">Téléphone :</span><span class="count">+1 123-456-7890</span></div>
               <div class="contact-field"><span class="label">E-mail :</span><span class="count"><a>email@example.com</a></span></div>
               <div class="contact-field"><span class="label">Site Web :</span><span class="count"><a>www.example.com</a></span></div>
             </div>
             <div class="right">
-              <h3 class="title-3">Bureau secondaires</h3>
+              <h3 class="title-3">Bureau secondaire</h3>
               <div class="contact-field"><span class="label">Addresse :</span><span id="second-address" class="count">Brooklyn, United States</span></div>
-              <div class="contact-field"><span class="label">Telephone :</span><span class="count">+1 123-456-7890</span></div>
+              <div class="contact-field"><span class="label">Téléphone :</span><span class="count">+1 123-456-7890</span></div>
               <div class="contact-field"><span class="label">E-mail :</span><span class="count"><a>email@example.com</a></span></div>
               <div class="contact-field"><span class="label">Site Web :</span><span class="count"><a>www.example.com</a></span></div>
             </div>

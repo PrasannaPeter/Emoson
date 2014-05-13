@@ -108,12 +108,12 @@
       </li> -->
       <li class="first expanded"><a href="index.php?module=designer&action=designer">Designers</a>
         <ul class="submenu">
-          <li><a href="index.php?module=designer&action=liste">Designers Listing</a></li>
-          <li><a href="index.php?module=designer&action=profil">Designers profil</a></li>
+          <li><a href="index.php?module=designer&action=liste">Liste des Designers</a></li>
+          <li><a href="index.php?module=designer&action=profil">Profil des Designers</a></li>
         </ul>
       </li>
       <li><a href="index.php?module=partenaire&action=liste">Partenaires</a></li>
-      <li><a href="index.php?module=apropos">Qui sommes nous</a></li>
+      <li><a href="index.php?module=apropos">Qui sommes-nous</a></li>
       <li><a href="index.php?module=contact">Contact</a></li>
     </ul>
     <!-- /Menu -->

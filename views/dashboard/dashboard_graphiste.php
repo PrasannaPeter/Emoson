@@ -2,7 +2,7 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Mon<span>Espace designer sonore</span>
+    <h1 class="inner title-2">Mon<span>Espace Designer Sonore</span>
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
       </ul>
@@ -14,9 +14,9 @@
     <div class="content-inner candidate-list">
 
     <div class="alert alert">
-        <h6>Voici vos espace personalisé</h6>
-        <p>Vous pourrez à partir de cet espace, modifier votre profil ou ajouter des informations à votre portfolio.</p>
-        <p>C'est aussi ici que vous recevrez les notifications de vos projets en cours.</p>
+        <h6>Vous vous trouvez dans votre espace personalisé</h6>
+        <p>Vous pourrez à partir de cet espace modifier votre profil ou ajouter des informations à votre portfolio.</p>
+        <p>Vous recevrez ici également les notifications de vos projets en cours.</p>
     </div>
 
     <br>
@@ -41,7 +41,7 @@
 
     <br>
     <div class="heading-l">
-    <h2>Mes Projet</h2>
+    <h2>Mes Projets</h2>
     </div>
 
     <div class="well">
@@ -120,7 +120,7 @@
                     ?></table><?php
             }else{
                 ?>
-                <p>Aucun projet.</p>
+                <p>Aucun projet</p>
                 <?php
             } ?>
     </div>

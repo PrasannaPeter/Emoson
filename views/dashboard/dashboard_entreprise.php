@@ -14,8 +14,9 @@
     <div class="content-inner candidate-list">
 
     <div class="alert alert">
-        <h6>Voici vos espace personalisé</h6>
-        <p>Vous pourrez à partir de cet espace, suivre l'avancé de vos projets ou bien en créer un nouveau, mais aussi vos informations concernant votre abonnement.</p>
+        <h6>Vous vous trouvez dans votre espace personalisé</h6>
+        <p>Vous pourrez à partir de cet espace suivre l'avancé de vos projets ou bien en créer un nouveau</p>
+        <p>Vous pourrez également consulter aussi vos informations concernant votre abonnement.</p>
         <p>C'est aussi ici que vous recevrez les notifications de vos projets en cours.</p>
     </div>
 
@@ -29,7 +30,7 @@
 
     <hr>
     <div class="heading-l">
-    <h2>Mes Projet</h2>
+    <h2>Mes Projets</h2>
     </div>
     <br />
 
@@ -60,7 +61,7 @@
                 ?></table><?php
             }else{
                 ?>
-                <p>Aucun projet.</p>
+                <p>Aucun projet</p>
                 <?php
             } ?>
     </div>
@@ -80,7 +81,7 @@
     <br />
 
     <div class="alert alert-info">
-        <p>Aucun paiement enregistrés.</p>
+        <p>Aucun paiement enregistré.</p>
     </div>
 
 </div>

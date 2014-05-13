@@ -2,7 +2,7 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Modifier<span> mon portfolio</span>
+    <h1 class="inner title-2">Modifier<span> mon Portfolio</span>
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
       </ul>
@@ -43,7 +43,7 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <button class="btn" style="background-color:orange;"><i class="icon-music"></i> | Soundclound</button>
+          <button class="btn" style="background-color:orange;"><i class="icon-music"></i> | Soundcloud</button>
         </div>
       </div>
       <br/>
