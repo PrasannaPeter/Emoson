@@ -36,7 +36,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Position</label>
 							<div class="col-sm-5">
-								<input class="form-control" required="required" data-validate"number" type="number" name="positionPack" value="<?php if(!empty($get_pack['positionPack'])){ echo $get_pack['positionPack']; }Else{echo "";}?>">
+								<input class="form-control" required="required" data-validate="number" type="number" name="positionPack" value="<?php if(!empty($get_pack['positionPack'])){ echo $get_pack['positionPack']; }Else{echo "";}?>">
 							</div>
 						</div>
 

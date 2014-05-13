@@ -12,7 +12,7 @@
 						<th>Identifiant</th>
 						<th>Nom</th>
 						<th>Email</th>
-						<th>Numéro tel</th>
+						<th>Numéro de téléphone</th>
 						<th>Ville</th>
 						<th>Options</th>
 					</tr>
@@ -27,7 +27,7 @@
 						<th>Identifiant</th>
 						<th>Nom</th>
 						<th>Email</th>
-						<th>Numéro tel</th>
+						<th>Numéro de téléphone</th>
 						<th>Ville</th>
 						<th>Options</th>
 					</tr>
