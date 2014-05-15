@@ -54,7 +54,7 @@
                     echo "<tr>";
                     echo "<td>".$projet['titreProjet']."</td>";
                     echo "<td>Nom entreprise</td>";
-                    echo "<td><span class='badge badge-success'>Mettre statut</span></td>";
+                    echo "<td>".get_statut_projet($value)."</td>";
                     echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
                     echo "</tr>";
                 }

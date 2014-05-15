@@ -113,6 +113,22 @@
             </ul>
         </li>
 
+    <li>
+            <a href=""><i class="entypo-docs"></i><span>Annonces</span></a>
+            <ul>
+                <li>
+                    <a href="index.php?module=annonce&action=manage&type=ajouter"><i class="entypo-plus"></i>
+                    <span>Ajouter</span></a>
+                </li>
+
+                <li>
+                    <a href="index.php?module=annonce&action=afficher_annonce"><i class="entypo-docs"></i>
+                    <span>Tous</span></a>
+                </li>
+            </ul>
+        </li>
+
+
        <li>
             <a href=""><i class="entypo-doc"></i><span>Entreprises</span></a>
             <ul>

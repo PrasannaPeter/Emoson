@@ -12,14 +12,16 @@ class M_Projet extends Projet
 		if(!empty($idProjet))
 		{
             $read_projet = $bdd->query("
-                SELECT idProjet, titreProjet, descriptionProjet, isActiveProjet, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, P.idPack, titrePack, nomUtilisateur, prenomUtilisateur, telUtilisateur, emailUtilisateur
+                SELECT *
                 FROM projets P, utilisateurs U, pack PA
-                WHERE idProjet ='.$idProjet.'
+                WHERE idProjet = ".$idProjet."
                 AND PA.idPack = P.idPack
                 AND roleUtilisateur = 'ENTREPRISE'
                 AND P.idUtilisateur = U.idUtilisateur
             ");
+
             $read_projet = $read_projet->fetch();
+
         }
         else if(!empty($titreProjet))
         {

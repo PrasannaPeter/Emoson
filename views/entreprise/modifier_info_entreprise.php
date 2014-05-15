@@ -11,6 +11,7 @@
   <div class="inner">
 <?php
   $info_entreprise = Entreprise::get_entreprise($idEntreprise=NULL, $type=array('byUserId' => $_SESSION['idUtilisateur']));
+
   $info_entreprise = $info_entreprise->fetch();
 ?>
     <!-- Content Inner -->

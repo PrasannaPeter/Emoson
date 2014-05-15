@@ -67,4 +67,27 @@ function site_admin()
 	return strstr($_SERVER['REQUEST_URI'], 'admin/');
 }
 
+
+function get_statut_projet($value)
+{
+    if($get_projet['isActiveProjet'] == 0)
+    {
+        $text = '<span class=\'label label-warning\'>En cours de validation</span>';
+    }
+    elseif($get_projet['isActiveProjet'] == 1)
+    {
+        $text = "<span class=\'label label-info\'>En cours</span>";
+    }
+    elseif($get_projet['isActiveProjet'] == 2)
+    {
+        $text = "<span class=\'label label-success\'>Terminé</span>";
+    }
+    else
+    {
+        $text = "<span class=\'label label-default\'>Statut inconnu</span>";
+    }
+
+    return $text;
+}
+
 // Ajouté include security
