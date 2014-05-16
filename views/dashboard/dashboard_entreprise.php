@@ -23,6 +23,7 @@
     <br />
 
     <center>
+    <a class="btn btn-large btn-info" href="index.php?module=utilisateur&action=change_password" role="button"><i class="fa fa-cog"></i> <span>Modifier mdp.</span></a>
     <a class="btn btn-large btn-warning" href="index.php?module=entreprise&action=modifier_profil" role="button"><i class="fa fa-briefcase"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button"><i class="fa fa-user"></i> <span>Modifier info. entreprise</span></a>
 
@@ -37,6 +38,7 @@
     <div class="well">
         <?php
             require_once(CONTROLLERS."projet/projet.php");
+            require_once(CONTROLLERS."entreprise/entreprise.php");
             // @TODO : uniquement en cours / terminés
             $projets = Projet::get_projet();
 
@@ -51,9 +53,11 @@
                     </thead>
                 <?php
                 foreach ($projets as $projet) {
+                    $get_entreprise = Entreprise::get_entreprise($id=NULL, $type['byUserId'] = $projet['idUtilisateur']);
+                    dump($get_entreprise->fetch());
                     echo "<tr>";
                     echo "<td>".$projet['titreProjet']."</td>";
-                    echo "<td>Nom entreprise</td>";
+                    echo "<td>".$projet['nomEntreprise']."</td>";
                     echo "<td>".get_statut_projet($value)."</td>";
                     echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
                     echo "</tr>";

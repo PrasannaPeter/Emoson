@@ -18,7 +18,7 @@
     <div class="header-fields">
       <div class="title-company">
         <div class="title"><?php echo $annonce['titre']; ?></a></div>
-        <div class="title"><?php echo $annonce['date']; ?></a></div>
+        <span class="meta"><?php echo "Le ". date('d/m/Y', strtotime($annonce['date'])); ?></span>
       </div>
     </div>
     <div class="body-field">

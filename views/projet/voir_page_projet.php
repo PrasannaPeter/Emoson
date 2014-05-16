@@ -38,6 +38,7 @@
 // si emoson a choisi les designers :
 require_once('admin/controllers/utilisateur/utilisateur.php');
 $info_designer = Utilisateur::get_utilisateur_in_projet($idProjet);
+//$info_designer = $info_designer->fetch();
 
 if (!empty($info_designer))
 {
@@ -184,8 +185,8 @@ if (!empty($info_designer))
 // sinon afficher message comme quoi Emoson va choisir les designers et tenir au courant l'entreprise
 else
 {
-  echo "<p>Pour le moment nous n'avons pas encore selectionner de designer.</p>
-        <p>Nous vous tiendrons au courant lorsqu'un designer interessant vous sera proposé.</p>";
+  echo "<p>Pour le moment nous n'avons pas encore selectionné de designer.</p>
+        <p>Nous vous tiendrons au courant lorsqu'un designer intéressant vous sera proposé.</p>";
 }
 ?>
 <hr>
