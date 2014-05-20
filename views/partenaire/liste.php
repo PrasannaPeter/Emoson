@@ -71,7 +71,7 @@ if(count($projets)){
         <div class="partner">
           <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-1.jpg"  alt="Partner"/></a>
             <div class="partner-hover">
-              <h4>NomEntreprise</h4>
+              <h4>Nom de l'Entreprise</h4>
               <p>Texte a mettre.</p>
             </div>
           </div>

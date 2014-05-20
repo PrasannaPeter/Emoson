@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato:300,400,700&amp;subset=latin,latin-ext"/>
     <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet' type='text/css'>
-    
+
     <!-- Favicon -->
     <link rel="icon" href="style/images/favicon.ico" />
 
@@ -108,12 +108,13 @@
       </li> -->
       <li class="first expanded"><a href="index.php?module=designer&action=designer">Designers</a>
         <ul class="submenu">
-          <li><a href="index.php?module=designer&action=liste">Designers Listing</a></li>
-          <li><a href="index.php?module=designer&action=profil">Designers profil</a></li>
+          <li><a href="index.php?module=designer&action=liste">Liste des Designers</a></li>
+          <li><a href="index.php?module=designer&action=profil">Profil des Designers</a></li>
         </ul>
       </li>
       <li><a href="index.php?module=partenaire&action=liste">Partenaires</a></li>
-      <li><a href="index.php?module=apropos">Qui sommes nous</a></li>
+      <li><a href="index.php?module=apropos">Qui sommes-nous</a></li>
+      <li><a href="index.php?module=annonce&action=voir_annonce">Annonces</a></li>
       <li><a href="index.php?module=contact">Contact</a></li>
     </ul>
     <!-- /Menu -->

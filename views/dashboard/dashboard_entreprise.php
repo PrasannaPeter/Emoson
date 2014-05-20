@@ -14,14 +14,16 @@
     <div class="content-inner candidate-list">
 
     <div class="alert alert">
-        <h6>Voici vos espace personalisé</h6>
-        <p>Vous pourrez à partir de cet espace, suivre l'avancé de vos projets ou bien en créer un nouveau, mais aussi vos informations concernant votre abonnement.</p>
+        <h6>Vous vous trouvez dans votre espace personalisé</h6>
+        <p>Vous pourrez à partir de cet espace suivre l'avancé de vos projets ou bien en créer un nouveau</p>
+        <p>Vous pourrez également consulter aussi vos informations concernant votre abonnement.</p>
         <p>C'est aussi ici que vous recevrez les notifications de vos projets en cours.</p>
     </div>
 
     <br />
 
     <center>
+    <a class="btn btn-large btn-info" href="index.php?module=utilisateur&action=change_password" role="button"><i class="fa fa-cog"></i> <span>Modifier mdp.</span></a>
     <a class="btn btn-large btn-warning" href="index.php?module=entreprise&action=modifier_profil" role="button"><i class="fa fa-briefcase"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=entreprise&action=modifier_info_entreprise" role="button"><i class="fa fa-user"></i> <span>Modifier info. entreprise</span></a>
 
@@ -29,13 +31,14 @@
 
     <hr>
     <div class="heading-l">
-    <h2>Mes Projet</h2>
+    <h2>Mes Projets</h2>
     </div>
     <br />
 
     <div class="well">
         <?php
             require_once(CONTROLLERS."projet/projet.php");
+            require_once(CONTROLLERS."entreprise/entreprise.php");
             // @TODO : uniquement en cours / terminés
             $projets = Projet::get_projet();
 
@@ -50,17 +53,19 @@
                     </thead>
                 <?php
                 foreach ($projets as $projet) {
+                    $get_entreprise = Entreprise::get_entreprise($id=NULL, $type['byUserId'] = $projet['idUtilisateur']);
+                    dump($get_entreprise->fetch());
                     echo "<tr>";
                     echo "<td>".$projet['titreProjet']."</td>";
-                    echo "<td>Nom entreprise</td>";
-                    echo "<td><span class='badge badge-success'>Mettre statut</span></td>";
+                    echo "<td>".$projet['nomEntreprise']."</td>";
+                    echo "<td>".get_statut_projet($value)."</td>";
                     echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
                     echo "</tr>";
                 }
                 ?></table><?php
             }else{
                 ?>
-                <p>Aucun projet.</p>
+                <p>Aucun projet</p>
                 <?php
             } ?>
     </div>
@@ -80,7 +85,7 @@
     <br />
 
     <div class="alert alert-info">
-        <p>Aucun paiement enregistrés.</p>
+        <p>Aucun paiement enregistré.</p>
     </div>
 
 </div>

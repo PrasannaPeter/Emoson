@@ -18,10 +18,16 @@ if(!empty($_POST))
 		$_SESSION['titreNotif'] = "Echec du changement de mot de passe";
 		$_SESSION['msgNotif'] = "Vous devez remplir tout les champs du formulaire";
 
-		require_once('views/utilisateur/change_password.php');
+		if(site_admin())
+			require_once(VIEWS.'utilisateur/change_password.php');
+		else
+			require_once(VIEWS.'change_password.php');
 	}
 }
 else
 {
-	require_once('views/utilisateur/change_password.php');
+	if(site_admin())
+		require_once(VIEWS.'utilisateur/change_password.php');
+	else
+		require_once(VIEWS.'change_password.php');
 }

@@ -2,7 +2,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 		<div class="panel-heading">
-			<div class="panel-title">Liste des entreprises</div>
+			<div class="panel-title">Liste des Entreprises</div>
 		</div>
 
 		<div class="panel-body">
@@ -11,7 +11,7 @@
 					<tr>
 						<th>Raison sociale</th>
 						<th>Secteur d'activité</th>
-						<th>Site WEB</th>
+						<th>Site Internet</th>
 						<th>Adresse</th>
 						<th>Ville</th>
 						<th>Code Postal</th>
@@ -28,7 +28,7 @@
 					<tr>
 						<th>Raison sociale</th>
 						<th>Secteur d'activité</th>
-						<th>Site WEB</th>
+						<th>Site Internet</th>
 						<th>Adresse</th>
 						<th>Ville</th>
 						<th>Code Postal</th>

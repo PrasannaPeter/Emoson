@@ -1,4 +1,4 @@
-   <!-- Tableau contenant les designer qui ont accepté le projet -->
+   <!-- Tableau contenant les designer qui ont acceptï¿½ le projet -->
     
    <?php 
         
@@ -22,13 +22,13 @@
             }
             else
             {
-                echo '<p>Ce designer à déja été proposé à </p>';
+                echo '<p>Ce designer ï¿½ dï¿½ja ï¿½tï¿½ proposï¿½ ï¿½ </p>';
                 echo '<table border="1" >
                         <thead>
                             <tr>
                                 <th>Titre</th>
                                 <th>Description</th>
-                                <th>Date de début</th>
+                                <th>Date de dï¿½but</th>
                                 <th>Date de fin</th>
                                 <th>Budget mix</th>
                                 <th>Budget max</th>
@@ -61,9 +61,9 @@
             <br>
             <br>
         
-        <h4>Proposer des projet à ce designer</h4>
+        <h4>Proposer des projet Ã  ce designer</h4>
                 
-        <p>Cocher les cases correspondantes aux projets à assigner à ce designer</p>
+        <p>Cocher les cases correspondantes aux projets Ã  assigner Ã  ce designer</p>
         <p>Vous pouvez utiliser la fonction recherche</p>
         <!-- Formulaire d'ajout -->
         <form method="POST" action="index.php?module=utilisateur&action=manage<?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur'];}?>&type=assigner_projet" class="vertical-form">
@@ -72,7 +72,7 @@
                     <tr>
                         <th>Titre</th>
                         <th>Description</th>
-                        <th>Date de début</th>
+                        <th>Date de dï¿½but</th>
                         <th>Date de fin</th>
                         <th>Budget min</th>
                         <th>Budget max</th>

@@ -6,7 +6,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<div class="panel-title">Ajouter une entreprise</div>
+				<div class="panel-title">Ajouter une Entreprise</div>
 			</div>
 
 			<div class="panel-body">
@@ -34,14 +34,14 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label">Site Web</label>
+							<label class="col-sm-3 control-label">Site Internet</label>
 							<div class="col-sm-5">
 								<input class="form-control" required="required" data-validate="url" type="text" name="siteWebEntreprise" value="<?php if(!empty($get_entreprise['siteWebEntreprise'])){ echo $get_entreprise['siteWebEntreprise']; }Else{echo "";}?>">
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="col-sm-3 control-label">Num Siret</label>
+							<label class="col-sm-3 control-label">Numéro de Siret</label>
 							<div class="col-sm-5">
 								<input class="form-control" required="required" type="text" data-validate="number,maxlength[20]" name="numSiretEntreprise" value="<?php if(!empty($get_entreprise['numSiretEntreprise'])){ echo $get_entreprise['numSiretEntreprise']; }Else{echo "";}?>">
 							</div>

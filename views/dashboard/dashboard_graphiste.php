@@ -2,7 +2,7 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Mon<span>Espace designer sonore</span>
+    <h1 class="inner title-2">Mon<span>Espace Designer Sonore</span>
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
       </ul>
@@ -14,14 +14,15 @@
     <div class="content-inner candidate-list">
 
     <div class="alert alert">
-        <h6>Voici vos espace personalisé</h6>
-        <p>Vous pourrez à partir de cet espace, modifier votre profil ou ajouter des informations à votre portfolio.</p>
-        <p>C'est aussi ici que vous recevrez les notifications de vos projets en cours.</p>
+        <h6>Vous vous trouvez dans votre espace personalisé</h6>
+        <p>Vous pourrez à partir de cet espace modifier votre profil ou ajouter des informations à votre portfolio.</p>
+        <p>Vous recevrez ici également les notifications de vos projets en cours.</p>
     </div>
 
     <br>
 
     <center>
+    <a class="btn btn-large btn-info" href="index.php?module=utilisateur&action=change_password" role="button"><i class="fa fa-cog"></i> <span>Modifier mdp.</span></a>
     <a class="btn btn-large btn-warning" href="index.php?module=designer&action=modifier_profil" role="button"><i class="fa fa-user"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=designer&action=modifier_portfolio" role="button"><i class="fa fa-music"></i> <span>Modifier portfolio</span></a>
 
@@ -41,7 +42,7 @@
 
     <br>
     <div class="heading-l">
-    <h2>Mes Projet</h2>
+    <h2>Mes Projets</h2>
     </div>
 
     <div class="well">
@@ -69,35 +70,35 @@
                     echo "<td>".$projet['raisonSocialeEntreprise']."</td>";
                     if($projet['isActiveProjet'] == 0)
                     {
-                        echo '<td><span class=\'badge badge-info\'>En cours de validation</span></td>';
+                        echo '<td><span class=\'label label-info\'>En cours de validation</span></td>';
                     }
                     elseif($projet['isActiveProjet'] == 1)
                     {
-                        echo "<td><span class='badge badge-info'>En cours</span></td>";
+                        echo "<td><span class='label label-info'>En cours</span></td>";
                     }
                     elseif($projet['isActiveProjet'] == 2)
                     {
-                        echo "<td><span class='badge badge-success'>Terminé</span></td>";
+                        echo "<td><span class='label label-success'>Terminé</span></td>";
                     }
                     if($projet['acceptation'] == 0)
                     {
-                        echo '<td><span class=\'badge badge-info\'>Demandé</span></td>';
+                        echo '<td><span class=\'label label-info\'>Demandé</span></td>';
                     }
                     elseif($projet['acceptation'] == 1)
                     {
-                        echo "<td><span class='badge badge-success'>Accepté</span></td>";
+                        echo "<td><span class='label label-success'>Accepté</span></td>";
                     }
                     elseif($projet['acceptation'] == 2)
                     {
-                        echo "<td><span class='badge badge-warning'>Decliné</span></td>";
+                        echo "<td><span class='label label-warning'>Decliné</span></td>";
                     }
                     if($projet['validation'] == 0)
                     {
-                        echo "<td><span class='badge badge-warning'>Non</span></td>";
+                        echo "<td><span class='label label-warning'>Non</span></td>";
                     }
                     elseif($projet['validation'] == 1)
                     {
-                        echo "<td><span class='badge badge-success'>Oui</span></td>";
+                        echo "<td><span class='label label-success'>Oui</span></td>";
                     }
 
                     echo '<td>';
@@ -124,7 +125,7 @@
                     ?></table><?php
             }else{
                 ?>
-                <p>Aucun projet.</p>
+                <p>Aucun projet</p>
                 <?php
             } ?>
     </div>

@@ -80,7 +80,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 								{ echo '<input type="text" class="form-control" disabled 	name="passUtilisateur" value="">';} else
 								{ echo '<input type="text" class="form-control" required="required" name="passUtilisateur" value="">';}
 								?>
-								<p>Seul le utilisateur peux modifier son mot de passe.</p>
+								<p>Seul l'utilisateur peux modifier son mot de passe.</p>
 							</div>
 						</div>
 

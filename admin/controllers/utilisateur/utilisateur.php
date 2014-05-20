@@ -106,23 +106,33 @@ class Utilisateur
 				// Requete SQL
 				$set_mdp = M_Utilisateur::update_mdp($loginUtilisateur, $hash_new_password);
 
-				$typeNotif = "sucess";
-				$titreNotif = "Votre mot de passe a bien été modifié.";
+				$_SESSION['typeNotif'] = "sucess";
+				$_SESSION['titreNotif'] = "Votre mot de passe a bien été modifié.";
 			}
 			// Sinon si ils sont différents
 			else
 			{
-				$typeNotif = "error";
-				$titreNotif = "Echec de la modification du mot de passe";
-				$msgNotif = "Vous devez confirmer votre nouveau mot de passe.";
+				$_SESSION['typeNotif'] = "error";
+				$_SESSION['titreNotif'] = "Echec de la modification du mot de passe";
+				$_SESSION['msgNotif'] = "Vous devez confirmer votre nouveau mot de passe.";
+
+				if(site_admin())
+					require_once(VIEWS.'utilisateur/change_password.php');
+				else
+					require_once(VIEWS.'change_password.php');
 			}
 		}
 		// Sinon si mauvais mot de passe
 		else
 		{
-			$typeNotif = "error";
-			$titreNotif = "Echec de la modification du mot de passe";
-			$msgNotif = "Votre ancien mot de passe n'est pas correct.";
+			$_SESSION['typeNotif'] = "error";
+			$_SESSION['titreNotif'] = "Echec de la modification du mot de passe";
+			$_SESSION['msgNotif'] = "Votre ancien mot de passe n'est pas correct.";
+
+			if(site_admin())
+				require_once(VIEWS.'utilisateur/change_password.php');
+			else
+				require_once(VIEWS.'change_password.php');
 		}
 
 		return($message);
@@ -217,14 +227,14 @@ class Utilisateur
 								Profil
 							</a>
 
-						<?php 
+						<?php
 						if ($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE" && $tab_utilisateur['certifUtilisateur'] == "1")
 						{?>
 							<a href="../admin/index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-success">
 								<i class="entypo-info"></i>
 								Proposer un projet
 							</a>
-						<?php 
+						<?php
 						}?>
 						</td>
 
@@ -393,17 +403,13 @@ class Utilisateur
 		}
 	}
 
-	
+
 }
 
 // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté
 if(site_admin() && !empty($controller))
 {
-	if($_GET['action'] == "change_password")
-	{
-		require_once('views/parametre/parametre.php');
-	}
-	else
+	if($_GET['action'] != "change_password")
 	{
 		require_once('views/'.$controller.'/'.$controller.'.php');
 	}

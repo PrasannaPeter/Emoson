@@ -40,7 +40,7 @@ if (isset($_SESSION['lastForm']['submit']))
 							{?>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_1" type="radio" checked="checked" value="1"/>
-									<label for="tailleProjet_1">1 à 10 personnes -TPE</label>
+									<label for="tailleProjet_1">1 à 10 personnes - TPE</label>
 								</div>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_2" type="radio" value="2"/>
@@ -48,11 +48,11 @@ if (isset($_SESSION['lastForm']['submit']))
 								</div>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_3" type="radio" value="3"/>
-									<label for="tailleProjet_3">251 et 5000 : Entreprise à taille intermédiaire</label>
+									<label for="tailleProjet_3">251 et 5000 - Entreprise à taille intermédiaire</label>
 								</div>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_4" type="radio" value="4"/>
-									<label for="tailleProjet_4">+ de 5000 salariés : Grandes entreprises</label>
+									<label for="tailleProjet_4">+ de 5000 salariés - Grandes entreprises</label>
 								</div>
 
 							<?php
@@ -61,7 +61,7 @@ if (isset($_SESSION['lastForm']['submit']))
 							{?>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_1" type="radio" value="1" <?php if ($get_projet['tailleEntreprise'] == "1"){ echo 'checked="checked"';}?> />
-									<label for="tailleProjet_1">1 à 10 personnes -TPE</label>
+									<label for="tailleProjet_1">1 à 10 personnes - TPE</label>
 								</div>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_2" type="radio" <?php if ($get_projet['tailleEntreprise'] == "2"){ echo 'checked="checked"';}?> value="2"/>
@@ -69,11 +69,11 @@ if (isset($_SESSION['lastForm']['submit']))
 								</div>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_3" type="radio" <?php if ($get_projet['tailleEntreprise'] == "3"){ echo 'checked="checked"';}?> value="3"/>
-									<label for="tailleProjet_3">251 et 5000 : Entreprise à taille intermédiaire</label>
+									<label for="tailleProjet_3">251 et 5000 - Entreprise à taille intermédiaire</label>
 								</div>
 								<div class="radio-field">
 									<input name = "tailleEntreprise" id="tailleProjet_4" type="radio" <?php if ($get_projet['tailleEntreprise'] == "4"){ echo 'checked="checked"';}?> value="4"/>
-									<label for="tailleProjet_4">+ de 5000 salariés : Grandes entreprises</label>
+									<label for="tailleProjet_4">+ de 5000 salariés - Grandes entreprises</label>
 								</div>
 							<?php
 							}?>
@@ -105,7 +105,7 @@ if (isset($_SESSION['lastForm']['submit']))
 
 								<div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_5" type="checkbox"  value="5"/>
-						            <label for="PTContactProjet_5">Siteweb</label>
+						            <label for="PTContactProjet_5">Site Internet</label>
 						        </div>
 						        <div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_6" type="checkbox" value="6"/>
@@ -121,11 +121,11 @@ if (isset($_SESSION['lastForm']['submit']))
 						        </div>
 						        <div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_9" type="checkbox"  value="9"/>
-						            <label for="PTContactProjet_9">Social media : Facebook, Twitter, instagram, youtube..Etc…</label>
+						            <label for="PTContactProjet_9">Médias Sociaux : Facebook, Twitter, Instagram, Youtube, Etc...</label>
 						        </div>
 						        <div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_10" type="checkbox" value="10"/>
-						            <label for="PTContactProjet_10">webradio</label>
+						            <label for="PTContactProjet_10">Web Radio</label>
 						        </div>
 							<?php
 							}
@@ -168,11 +168,11 @@ if (isset($_SESSION['lastForm']['submit']))
 						        </div>
 						        <div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_9" type="checkbox" <?php if (in_array("9", $pts)){ echo 'checked="checked"';}?> value="9"/>
-						            <label for="PTContactProjet_9">Social media : Facebook, Twitter, instagram, youtube..Etc…</label>
+						            <label for="PTContactProjet_9">Médias Sociaux : Facebook, Twitter, Instagram, Youtube, Etc...</label>
 						        </div>
 						        <div class="checkbox-field">
 						            <input name ="ptsContactEntreprise[]" id="PTContactProjet_10" type="checkbox" <?php if (in_array("10", $pts)){ echo 'checked="checked"';}?> value="10"/>
-						            <label for="PTContactProjet_10">webradio</label>
+						            <label for="PTContactProjet_10">Web Radio</label>
 						        </div>
 							<?php
 							}
@@ -194,11 +194,11 @@ if (isset($_SESSION['lastForm']['submit']))
 									</div>
 									<div class="radio-field">
 										<input name = "caEntreprise" id="DernierCAProjet_2" type="radio" value="2" />
-										<label for="DernierCAProjet_2">entre 500 000 € et 1 millions d’Euros</label>
+										<label for="DernierCAProjet_2">entre 500 000 € et 1 million d’Euros</label>
 									</div>
 									<div class="radio-field">
 										<input name = "caEntreprise" id="DernierCAProjet_3" type="radio" value="3" />
-										<label for="DernierCAProjet_3">plus d’1 millions d’euros </label>
+										<label for="DernierCAProjet_3">plus d’1 million d’euros </label>
 									</div>
 								<?php
 								}
@@ -210,11 +210,11 @@ if (isset($_SESSION['lastForm']['submit']))
 									</div>
 									<div class="radio-field">
 										<input name = "caEntreprise" id="DernierCAProjet_2" type="radio" value="2" <?php if ($get_projet['caEntreprise'] == "2"){ echo 'checked="checked"';}?> />
-										<label for="DernierCAProjet_2">entre 500 000 € et 1 millions d’Euros</label>
+										<label for="DernierCAProjet_2">entre 500 000 € et 1 million d’Euros</label>
 									</div>
 									<div class="radio-field">
 										<input name = "caEntreprise" id="DernierCAProjet_3" type="radio" value="3" <?php if ($get_projet['caEntreprise'] == "3"){ echo 'checked="checked"';}?> />
-										<label for="DernierCAProjet_3">plus d’1 millions d’euros </label>
+										<label for="DernierCAProjet_3">plus d’1 million d’euros </label>
 									</div>
 
 								<?php
@@ -282,11 +282,11 @@ if (isset($_SESSION['lastForm']['submit']))
 									</div>
 									<div class="radio-field">
 										<input name ="optionProjet[]" id="voixOffProjet_2" type="radio" value="2"/>
-										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois </label>
+										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
 									</div>
 									<div class="radio-field">
 										<input name ="optionProjet[]" id="voixOffProjet_3" type="radio" value="3"/>
-										<label for="voixOffProjet_3">plus de 10 </label>
+										<label for="voixOffProjet_3">plus de 10</label>
 									</div>
 										<p class="help-block">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix Off  : porte parole vocale de votre marque
 									Si oui, définissez le nombre de messages par mois </p>
@@ -304,11 +304,11 @@ if (isset($_SESSION['lastForm']['submit']))
 									</div>
 									<div class="checkbox-field">
 										<input name ="optionProjet[]" id="voixOffProjet_2" type="checkbox" <?php if (in_array("2", $options)){ echo 'checked="checked"';}?> value="2"/>
-										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois </label>
+										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
 									</div>
 									<div class="checkbox-field">
 										<input name ="optionProjet[]" id="voixOffProjet_3" type="checkbox" <?php if (in_array("3", $options)){ echo 'checked="checked"';}?> value="3"/>
-										<label for="voixOffProjet_3">plus de 10 </label>
+										<label for="voixOffProjet_3">plus de 10</label>
 									</div>
 										<p class="help-block">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix Off  : porte parole vocale de votre marque
 									Si oui, définissez le nombre de messages par mois </p>
