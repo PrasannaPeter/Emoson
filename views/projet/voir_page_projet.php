@@ -1,3 +1,11 @@
+<?php
+    //print_r(error_reporting(E_ALL));
+    if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
+
+    require_once('admin/controllers/projet/projet.php');
+    $get_projet = Projet::get_projet($idProjet);
+
+?>
 
 <!-- Content -->
 <div id="content">
@@ -12,13 +20,7 @@
   <div class="inner">
 
 
-    <?php
-    //print_r(error_reporting(E_ALL));
-    if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
 
-    $get_projet = Projet::get_projet($idProjet);
-
-    ?>
 
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
@@ -205,10 +207,10 @@ else
 
     $bdd = PDO();
 
-    require_once(CONTROLLERS.'commentaire/commentaire.php');
+    //require_once(CONTROLLERS.'commentaire/commentaire.php');
 
     // retrive comments with post id
-    $comment_query = Commentaire::get_commentaire($idProjet);
+    //$comment_query = Commentaire::get_commentaire($idProjet);
   ?>
     <div class="comment-block well">
     <?php foreach($comment_query as $comment) :
