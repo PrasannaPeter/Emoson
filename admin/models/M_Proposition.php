@@ -25,6 +25,21 @@ class M_Proposition extends Proposition
 		return($get_tab_proposition);
 	}
 
+	//Récup des infos des projets en cours ou terminé pour un designer
+	static function mes_projets($idUtilisateur)
+	{
+
+		$bdd = PDO();
+		$mes_projets = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet, raisonSocialeEntreprise
+													FROM propose, projets, entreprises, utilisateurs
+													WHERE projets.idProjet = propose.idProjet
+													AND projets.idUtilisateur = utilisateurs.idUtilisateur
+													AND utilisateurs.idUtilisateur = entreprises.idUtilisateur
+													AND propose.idUtilisateur = '.$idUtilisateur.'');
+		return($mes_projets);
+
+	}
+
 	static function add_proposition($idProjet, $idUtilisateur)
 	{
 		$bdd = PDO();

@@ -14,6 +14,14 @@ class Proposition
 
 	}
 
+	static function mes_projets($idUtilisateur)
+	{
+		$mes_projets = M_Proposition::mes_projets($idUtilisateur);
+
+		return($mes_projets);
+
+	}
+
 	static function add_proposition($idProjet, $idUtilisateur)
 	{
 		M_Proposition::add_proposition($idProjet, $idUtilisateur);
