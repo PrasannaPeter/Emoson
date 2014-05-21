@@ -13,7 +13,9 @@
     <h1 class="inner title-2">Page<span> du projet <?php echo $get_projet['titreProjet']; ?></span>
 
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
+        <li> <a href="index.php?module=dashboard&action=afficher">Mon espace</a></li>
+        <li> <a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $get_projet['idProjet']; ?>">Projet : <?php echo $get_projet['titreProjet']; ?></a></li>
       </ul>
     </h1>
   </div>
@@ -57,7 +59,7 @@ if($_SESSION['roleUtilisateur'] == "ENTREPRISE")
             <div class="team-worker" style="margin-left:200px;">
               <div class="photo"><img src="style/images/pas-de-photo.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
               <div class="name"><?php echo $tab_designer['nomUtilisateur'].' '.$tab_designer['prenomUtilisateur'];?></div>
-              <center><a href="index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_designer['idUtilisateur'];?>">Voir profil</a></center>
+              <center><a href="index.php?module=designer&action=profil&idProjet=<?php echo $_GET['idProjet'];?>&idUtilisateur=<?php echo $tab_designer['idUtilisateur'];?>">Voir profil</a></center>
             </div>
             <?php
             }
@@ -88,6 +90,7 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
 
   foreach ($get_accepter as $accepter) {
     $acceptation = $accepter['acceptation'];
+    $validation = $accepter['validation'];
   }
 }
 ?>
@@ -101,7 +104,7 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
 
     <?php
     //Si l'utilisateur est une entreprise ou un designer qui a accepter le projet alors on affiche sinon il n'a accès qu'a la description
-    if($_SESSION['roleUtilisateur'] == "ENTREPRISE" || $acceptation == 1)
+    if($_SESSION['roleUtilisateur'] == "ENTREPRISE" || ($acceptation == 1 && $validation == 1))
     {?>
 
     <!-- Afficher les fichiers affecter sur le projet -->
@@ -113,13 +116,11 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
             <th>Proposé par</th>
             <th>Durée</th>
             <th>Son</th>
-            <th>J'aime</th>
             <th>Action</th>
         </thead>
         <td>Nom designer</td>
         <td>Durée</td>
-        <td>Player</td>
-        <td>OUI/NON</td>
+        <td>Inserer le player</td>
         <td>Modifier/Supprimer</td>
       </table>
       <p><a href="#">Ajouter un fichier</a></p>

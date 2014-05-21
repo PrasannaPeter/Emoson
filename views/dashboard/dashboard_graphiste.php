@@ -4,7 +4,8 @@
   <div id="title">
     <h1 class="inner title-2">Mon<span>Espace Designer Sonore</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
+        <li> <a href="index.php?module=dashboard&action=afficher">Mon espace</a></li>
       </ul>
     </h1>
   </div>
@@ -28,7 +29,7 @@
 
     <hr>
 
-    <a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button"><i class="fa fa-book"></i> <span>Voir les projets</span></a>
+    <!--a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button"><i class="fa fa-book"></i> <span>Voir les projets</span></a-->
 
     </center>
 

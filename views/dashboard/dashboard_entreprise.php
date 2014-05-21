@@ -4,7 +4,8 @@
   <div id="title">
     <h1 class="inner title-2">Mon<span>Espace Entreprise</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
+        <li> <a href="index.php?module=dashboard&action=afficher.html">Mon espace</a></li>
       </ul>
     </h1>
   </div>

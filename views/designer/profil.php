@@ -1,4 +1,15 @@
 <?php
+
+require_once('admin/controllers/projet/projet.php');
+$info_projet = Projet::get_projet($_GET['idProjet']);
+
+foreach ($info_projet as $info) 
+{
+  
+  $titreProjet = $info_projet['titreProjet'];
+
+}
+
 require_once('admin/controllers/utilisateur/utilisateur.php');
 $info_designer = Utilisateur::get_utilisateur($_GET['idUtilisateur']);
 
@@ -22,7 +33,9 @@ foreach ($info_designer as $info) {
     <h1 class="inner job_page title-2"><?php echo $nom.' '.$prenom; ?><span id="jobs-counter">- Designer </span>
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
-        <li><a href="candidate.html">Profil</a></li>
+        <li> <a href="index.php?module=dashboard&action=afficher">Mon espace</a></li>
+        <li> <a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $_GET['idProjet']; ?>">Projet : <?php echo $titreProjet; ?></a></li>
+        <li><a href="index.php?module=designer&action=profil&idProjet=<?php echo $_GET['idProjet'];?>&idUtilisateur=<?php echo $_GET['idUtilisateur']; ?>">Profil : <?php echo $nom.' '.$prenom; ?></a></li>
       </ul>
     </h1>
   </div>
@@ -35,7 +48,7 @@ foreach ($info_designer as $info) {
       <div class="content-left">
         <div class="block background job_block">
           <div id="map-container" class="candidate-pic"> <img src="style/images/pas-de-photo.jpg" alt="Candidate picture"/> </div>
-          <h2 class="title-3">Contact Details</h2>
+          <h2 class="title-3">Détails du designer</h2>
           <div class="block-content">
             <table  border="1" class="list_info">
               <tr>
@@ -105,9 +118,10 @@ foreach ($info_designer as $info) {
               </tr>
             </table>
           </div-->
-          <div class="block-content overall">
+          <!--div class="block-content overall">
             <h3>Notes</h3>
-            <img src="style/images/4-stars.png"  alt=""/> </div>
+            <img src="style/images/4-stars.png"  alt=""/> 
+          </div-->
         </div>
       </div>
       <!-- /Content Left -->
@@ -134,9 +148,9 @@ foreach ($info_designer as $info) {
           <div id="job-content-field">
             <div class="field-container single no_border">
               <div class="header-fields">
-                <ul class="social_media_icons pull-right">
+                <!--ul class="social_media_icons pull-right">
                   <li> <a href="#"><i class="fa fa-star"></i></a> </li>
-                </ul>
+                </ul-->
                 <div class="title-company">
                   <div class="title"><a href="#"><?php echo $nom.' '.$prenom; ?></a></div>
                   <!--div class="company">24 Years Old - Sydney, AU</div-->
@@ -145,12 +159,14 @@ foreach ($info_designer as $info) {
               <div class="body-field">
                 <div class="row-fluid">
                   <ul class="social_media_icons">
-                    <li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
+                    <!--li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-google-plus"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-twitter"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-linkedin-square"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-pinterest"></i> </a> </li>
-                    <li> <a href="#"> <i class="fa fa-dribbble"></i> </a> </li>
+                    <li> <a href="#"> <i class="fa fa-dribbble"></i> </a> </li-->
+                    <li><a href="#"><img src="style/images/picto_soundcloud.png" width="50px"></a></li>
+                    <li><a href="#"><img src="style/images/logo-facebook.png" width="50px"></a></li>
                   </ul>
                 </div>
                 <div class="teaser">
@@ -209,7 +225,7 @@ foreach ($info_designer as $info) {
                 <!--/div-->
               </div>
               <div class="buttons-field applybtns">
-                <div class="apply"><a href="#">Me contacter</a></div>
+                <div class="apply"><a href="#">Contacter</a></div>
                 <!--div class="full"><a href="#">Contact On MotibU</a></div-->
               </div>
             </div>
