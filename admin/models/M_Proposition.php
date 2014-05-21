@@ -30,14 +30,41 @@ class M_Proposition extends Proposition
 	{
 
 		$bdd = PDO();
-		$mes_projets = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet, raisonSocialeEntreprise
-													FROM propose, projets, entreprises, utilisateurs
-													WHERE projets.idProjet = propose.idProjet
-													AND projets.idUtilisateur = utilisateurs.idUtilisateur
-													AND utilisateurs.idUtilisateur = entreprises.idUtilisateur
-													AND propose.idUtilisateur = '.$idUtilisateur.'');
+
+		if($_SESSION['roleUtilisateur'] == 'GRAPHISTE' )
+		{
+			$mes_projets = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet, raisonSocialeEntreprise
+														FROM propose, projets, entreprises, utilisateurs
+														WHERE projets.idProjet = propose.idProjet
+														AND projets.idUtilisateur = utilisateurs.idUtilisateur
+														AND utilisateurs.idUtilisateur = entreprises.idUtilisateur
+														AND propose.idUtilisateur = '.$idUtilisateur.'');
+		}
+		elseif ($_SESSION['roleUtilisateur'] == "ENTREPRISE")
+		{
+			$mes_projets = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet, raisonSocialeEntreprise
+														FROM propose, projets, entreprises, utilisateurs
+														WHERE projets.idProjet = propose.idProjet
+														AND projets.idUtilisateur = utilisateurs.idUtilisateur
+														AND utilisateurs.idUtilisateur = entreprises.idUtilisateur
+														AND utilisateurs.idUtilisateur = '.$idUtilisateur.'');
+		}
 		return($mes_projets);
 
+	}
+
+	static function accepter($idUtilisateur, $idProjet)
+	{
+
+		$bdd = PDO();
+
+		$accepter = $bdd->query('SELECT acceptation, validation
+								FROM propose
+								WHERE idProjet = '.$idProjet.'
+								AND idUtilisateur = '.$idUtilisateur.'');
+		
+		
+		return $accepter;
 	}
 
 	static function add_proposition($idProjet, $idUtilisateur)

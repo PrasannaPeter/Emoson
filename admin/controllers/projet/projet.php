@@ -40,6 +40,12 @@ class Projet
 		return($get_contact);
 	}
 
+	static function nb_designer_actuel($idProjet)
+	{
+		$nb_designer_actuel = M_Projet::nb_designer_actuel($idProjet);
+		return($nb_designer_actuel);
+	}
+
 
 	static function get_last_projet_entreprise($idEntreprise)
 	{
@@ -74,8 +80,6 @@ class Projet
 			<tr>
 				<td><?php echo $tab_projet['idProjet']; ?></td>
 				<td><?php echo $tab_projet['titreProjet']; ?></td>
-				<td><?php echo substr($tab_projet['descriptionProjet'], 0, 50).'...'; ?></td>
-
 				<td><?php
 
 				if ($tab_projet['isActiveProjet'] == "0")
@@ -88,7 +92,11 @@ class Projet
 				}
 				else if ($tab_projet['isActiveProjet'] == "2")
 				{
-					echo "Termin&eacute;";
+					echo "Terminé";
+				}
+				else if ($tab_projet['isActiveProjet'] == "3")
+				{
+					echo "Non validé";
 				}
 				?></td>
 				<td class="actions">

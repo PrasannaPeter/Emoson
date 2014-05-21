@@ -32,6 +32,56 @@ if (isset($_SESSION['lastForm']['submit']))
 					</div>
 
 					<div class="form-group">
+				      <label class="col-sm-3 control-label">Avez-vous une stratégie de branding ?</label>
+				      <div class="col-sm-5">
+				        <br>
+				        <p>Mettre URL du fichier</p>
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="col-sm-3 control-label">Votre positionnement en 140 caractères</label>
+				      <div class="col-sm-5">
+				        <textarea class="form-control autogrow" required="required" name="positionnement" style="width:408px; height:120px;"></textarea>
+				      	 <p class="help-block">Prévoir</p>
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="col-sm-3 control-label">Votre identite visuelle</label>
+				      	<div class="col-sm-5">
+				        	<br>
+				        	<p>Mettre URL du fichier</p>
+				        	<p class="help-block">Pouvez-vous nous envoyer votre charte graphique ?</p>
+				      	</div>
+				      	
+				    </div>
+				        
+
+				    <div class="form-group">
+				      <label class="col-sm-3 control-label">Des références musicales ?</label>
+				      <div class="col-sm-5">
+				        <textarea class="form-control autogrow" required="required" name="references" style="width:408px; height:120px;"></textarea>
+				        <p class="help-block">Envoyez-nous vos liens URLS Youtube</p>
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="col-sm-3 control-label">Ce que vous ne souhaitez surtout pas...</label>
+				      <div class="col-sm-5">
+				        <textarea class="form-control autogrow" required="required" name="dontlike" style="width:408px; height:120px;"></textarea>
+				        <p class="help-block">Envoyez-nous vos liens URLS Youtube</p>
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <label class="col-sm-3 control-label">Commentaires</label>
+				      <div class="col-sm-5">
+				        <textarea class="form-control autogrow" required="required" name="commentaires" style="width:408px; height:120px;"></textarea>
+				      </div>
+				    </div>
+
+					<div class="form-group">
 						<label class="col-sm-3 control-label">Taille de l'entreprise</label>
 						<div class="col-sm-5">
 						<?php
@@ -346,6 +396,7 @@ if (isset($_SESSION['lastForm']['submit']))
 								echo '<option value="non" selected="selected">En attente de validation</option>';
 								echo '<option value="1" >En cours</option>';
 								echo '<option value="2">Terminé</option>';
+								echo '<option value="3">Non validé</option>';
 								echo '</select>';
 
 							}
@@ -357,18 +408,27 @@ if (isset($_SESSION['lastForm']['submit']))
 									echo '<option value="non" selected="selected">En attente de validation</option>';
 									echo '<option value="1">En cours</option>';
 									echo '<option value="2">Terminé</option>';
+									echo '<option value="3">Non validé</option>';
 								}
 								else if ($get_projet['isActiveProjet'] == "1")
 								{
 									echo '<option value="non">En attente de validation</option>';
 									echo '<option value="1" selected="selected">En cours</option>';
 									echo '<option value="2">Terminé</option>';
+									echo '<option value="3">Non validé</option>';
 
 								}
 								else if ($get_projet['isActiveProjet'] == "2") {
 									echo '<option value="non">En attente de validation</option>';
 									echo '<option value="1">En cours</option>';
 									echo '<option value="2" selected="selected">Terminé</option>';
+									echo '<option value="3">Non validé</option>';
+								}
+								else if ($get_projet['isActiveProjet'] == "3") {
+									echo '<option value="non">En attente de validation</option>';
+									echo '<option value="1">En cours</option>';
+									echo '<option value="2">Terminé</option>';
+									echo '<option value="3" selected="selected">Non validé</option>';
 								}
 
 								echo '</select>';

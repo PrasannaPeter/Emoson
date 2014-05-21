@@ -16,6 +16,11 @@
 
     $get_projet = Projet::get_projet($idProjet);
 
+    $nb_designer_actuel = Projet::nb_designer_actuel($idProjet);
+   
+    foreach ($nb_designer_actuel as $tab_nb_designer) {
+        $nb_designer = $tab_nb_designer['nb_designer_actuel'];
+    }
     ?>
 
     <!-- Content Inner -->
@@ -29,27 +34,54 @@
 
     </center>
 
-
-<?php
-
-    echo '<h2>Détail du projet</h2>';
-    echo '<p><strong>Titre projet : </strong>'.$get_projet['titreProjet'].'</p>';
-    echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
-
-    echo '<p><strong>Etat : </strong>';
-    echo get_statut_projet($value);
-    echo "</p>";
-    echo "<br>";
-    echo '<h2>Info du contact</h2>';
-    echo '<p><strong>Nom contact : </strong>'.$get_projet['nomUtilisateur'].'</p>';
-    echo '<p><strong>Prénom contact : </strong>'.$get_projet['prenomUtilisateur'].'</p>';
-    echo '<p><strong>Email contact : </strong><a href="mailto:'.$get_projet['emailUtilisateur'].'">'.$get_projet['emailUtilisateur'].'</a></p>';
-    echo '<p><strong>N° de telephone contact : </strong>'.$get_projet['telUtilisateur'].'</p>';
-
-
-?>
-
-
+    <h2>Détail du projet</h2>
+    <p><strong>Titre projet : </strong><?php echo $get_projet['titreProjet']; ?></p>
+    <p><strong>Description projet : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Strategie de branding : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Positionnement : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Identité visuelle : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Références musicales : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Ce que vous ne souhaitez pas : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Commentaires : </strong><?php echo $get_projet['descriptionProjet'];?></p>
+    <p><strong>Pack : </strong><?php echo $get_projet['idPack'];?></p>
+    <p><strong>Voix off : </strong><?php 
+            if ($get_projet['optionProjet'] == "1"){
+                echo "Entre 1 à 5 messages par mois"; 
+            }
+            else if ($get_projet['optionProjet'] == "2"){
+                echo  "Entre 5 à 10 messages par mois";
+            }
+            else if ($get_projet['optionProjet'] == "3"){
+                echo  "Plus de 10</li>";
+            }
+            else if ($get_projet['optionProjet'] == "NULL"){
+                echo  "Aucun";
+            }?>
+    <p><strong>Nombre d'aller-retour : </strong><?php echo $get_projet['nbARProjet'];?></p>
+    <p><strong>Nombre de designer souhaité : </strong><?php echo $get_projet['nbDesignerSouhaite'];?></p>
+    <p><strong>Nombre de designer actuel : </strong><?php echo $nb_designer; ?></p>
+    <p><strong>Etat : <?php
+                if ($get_projet['isActiveProjet'] == "0")
+                {
+                    echo  "<span class='label label-info'>En attente de validation </span>";
+                }
+                else if ($get_projet['isActiveProjet'] == "1")
+                {
+                    echo  "<span class='label label-info'> En cours </span>";
+                }
+                else if ($get_projet['isActiveProjet'] == "2")
+                {
+                    echo "<span class='label label-info'> Terminé </span>";
+                }?></strong></p>
+    <hr>
+    <h2>Information de l'entreprise</h2>
+    <br>
+    <div class="well">
+        <p><strong>Nom : </strong><?php echo $get_projet['nomUtilisateur']; ?></p>
+        <p><strong>Prénom : </strong><?php echo $get_projet['prenomUtilisateur']; ?></p>
+        <p><strong>Email  : </strong><a href="mailto:<?php echo $get_projet['emailUtilisateur']; ?>"><?php echo $get_projet['emailUtilisateur'];?></a></p>
+        <p><strong>N° de telephone : </strong><?php echo $get_projet['telUtilisateur']; ?></p>
+    </div>
 </div>
 </div>
 </div>

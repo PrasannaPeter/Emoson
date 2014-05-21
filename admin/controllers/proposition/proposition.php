@@ -22,6 +22,14 @@ class Proposition
 
 	}
 
+	static function accepter($idUtilisateur, $idProjet)
+	{
+		$accepter = M_Proposition::accepter($idUtilisateur, $idProjet);
+
+		return($accepter);
+
+	}
+
 	static function add_proposition($idProjet, $idUtilisateur)
 	{
 		M_Proposition::add_proposition($idProjet, $idUtilisateur);

@@ -108,7 +108,7 @@ if($type_proposition == "projet")
                 </div>
             </div>
         </form>
-    <?}
+    <?php }
 }
 //Formulaire à partir de la page utilisateur
 else if ($type_proposition == "utilisateur")

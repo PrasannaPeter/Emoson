@@ -125,15 +125,13 @@ class M_Utilisateur extends Utilisateur
 	{
 		$bdd = PDO();
 
-		$read_projet_utilisateur = $bdd->query('
-				SELECT *
-				FROM propose P, utilisateurs U 
-				WHERE P.idUtilisateur = U.idUtilisateur
-				AND acceptation = 1
-				AND validation = 1
-				AND idProjet = '.$idProjet.'
+		$read_projet_utilisateur = $bdd->query('SELECT *
+												FROM propose P, utilisateurs U 
+												WHERE P.idUtilisateur = U.idUtilisateur
+												AND acceptation = 1
+												AND validation = 1
+												AND idProjet = '.$idProjet.'
 			');
-
 		return($read_projet_utilisateur);
 	}
 

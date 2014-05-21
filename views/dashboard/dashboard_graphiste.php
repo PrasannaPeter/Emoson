@@ -108,12 +108,6 @@
                         echo '<a class=\'btn btn btn-error\' href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=2&validation=non&idUtilisateur='.$_SESSION['idUtilisateur'].'&idProjet='.$projet['idProjet'].'" role=\'button\'><i class=\'fa fa-times\'></i> <span>Décliner</span></a>';
                     }
    
-
-                    if ($projet['acceptation'] == 1 || $projet['validation'] == 1)
-                    {
-                        echo "<a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&type=travailler&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Travailler sur le projet</span></a>";
-                    }
-
                     echo "<a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a>";
 
                     echo '</td>';

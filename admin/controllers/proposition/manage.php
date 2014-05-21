@@ -77,7 +77,7 @@ switch($type)
 		}
 		else if ($type_proposition == "designer")
 		{
-			header('Location:index.php?module=designer&action=voir_proposition&idUtilisateur='.$idUtilisateur.'');
+			header('Location:index.php?module=dashboard&action=afficher');
 		}
 		
 
