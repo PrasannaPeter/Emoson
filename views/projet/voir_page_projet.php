@@ -25,20 +25,20 @@
 
     <center>
     <a class="btn btn-large btn-info" href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file-text"></i> <span>Page du projet</span></a>
-    <?php 
+    <?php
     if($_SESSION['roleUtilisateur'] == "ENTREPRISE")
     {?>
     <a class="btn btn-large btn-warning" href="index.php?module=projet&action=voir_projet&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file"></i> <span>Voir brief</span></a>
     <a class="btn btn-large btn-primary" href="index.php?module=projet&action=voir_contrat&idProjet=<?php echo $idProjet; ?>" role="button"><i class="fa fa-file"></i> <span>Contrat</span></a>
-    <?php 
+    <?php
     }?>
     <hr>
 
     </center>
 
-<?php 
+<?php
 
-//Si user est une entreprise alors on lui affiche les designer 
+//Si user est une entreprise alors on lui affiche les designer
 if($_SESSION['roleUtilisateur'] == "ENTREPRISE")
 {
   // si emoson a choisi les designers :
@@ -71,7 +71,7 @@ if($_SESSION['roleUtilisateur'] == "ENTREPRISE")
     </form>
     <div class="clear"></div>
   <?php
-  } 
+  }
   else
   {
     // sinon afficher message comme quoi Emoson va choisir les designers et tenir au courant l'entreprise
@@ -95,9 +95,9 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
 }
 ?>
     <h2>Description</h2>
-    
+
     <br />
-    
+
     <div class="well">
       <?php echo $get_projet['descriptionProjet']; ?>
     </div>
@@ -106,6 +106,8 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
     //Si l'utilisateur est une entreprise ou un designer qui a accepter le projet alors on affiche sinon il n'a accès qu'a la description
     if($_SESSION['roleUtilisateur'] == "ENTREPRISE" || ($acceptation == 1 && $validation == 1))
     {?>
+
+    <hr>
 
     <!-- Afficher les fichiers affecter sur le projet -->
     <h2>Propositions</h2>
@@ -125,7 +127,7 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
       </table>
       <p><a href="#">Ajouter un fichier</a></p>
     </div>
-    
+
     <hr>
 
     <h2>Discussion</h2>
@@ -136,13 +138,15 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
 
         $bdd = PDO();
 
-        //require_once(CONTROLLERS.'commentaire/commentaire.php');
+        require_once(CONTROLLERS.'commentaire/commentaire.php');
 
         // retrive comments with post id
-        //$comment_query = Commentaire::get_commentaire($idProjet);
+        $comment_query = Commentaire::get_commentaire($idProjet);
+
       ?>
         <div class="comment-block well">
-        <?php foreach($comment_query as $comment) :
+        <?php if(count($comment_query)) :
+        foreach($comment_query as $comment) :
             require_once(CONTROLLERS.'utilisateur/utilisateur.php');
             $comment['user'] = Utilisateur::get_utilisateur($comment['idUtilisateur']);
         ?>
@@ -152,7 +156,7 @@ if($_SESSION['roleUtilisateur'] == "GRAPHISTE")
               <?php echo $comment['texteCommentaire']?><br>
             </div>
           </div>
-        <?php endforeach?>
+        <?php endforeach; else : echo "Aucun commentaire pour le moment."; endif; ?>
         </div>
 
         <h2>Ajouter un message</h2>
