@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.4
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Mer 21 Mai 2014 à 16:52
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.4.24
+-- Host: localhost
+-- Generation Time: May 21, 2014 at 08:41 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,36 +17,55 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `emoson`
+-- Database: `emoson`
 --
+CREATE DATABASE IF NOT EXISTS `emoson` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `emoson`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaires`
+-- Table structure for table `commentaires`
 --
 
 CREATE TABLE IF NOT EXISTS `commentaires` (
+  `idCommentaire` int(11) NOT NULL AUTO_INCREMENT,
   `idUtilisateur` int(11) NOT NULL,
   `idProjet` int(11) NOT NULL,
-  `dateCommentaire` varchar(45) NOT NULL,
-  `texteCommentaire` varchar(45) NOT NULL,
-  PRIMARY KEY (`idUtilisateur`,`idProjet`),
+  `dateCommentaire` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `texteCommentaire` longtext NOT NULL,
+  PRIMARY KEY (`idCommentaire`),
   KEY `fk_utilisateurs_has_projets_projets1_idx` (`idProjet`),
   KEY `fk_utilisateurs_has_projets_utilisateurs1_idx` (`idUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
--- Contenu de la table `commentaires`
+-- Dumping data for table `commentaires`
 --
 
-INSERT INTO `commentaires` (`idUtilisateur`, `idProjet`, `dateCommentaire`, `texteCommentaire`) VALUES
-(2, 1, '01/01/01', 'TEST');
+INSERT INTO `commentaires` (`idCommentaire`, `idUtilisateur`, `idProjet`, `dateCommentaire`, `texteCommentaire`) VALUES
+(1, 2, 1, '2014-05-04 17:36:20', 'test'),
+(3, 2, 1, '2014-05-04 21:24:01', 'azeazeaze'),
+(4, 2, 1, '2014-05-04 21:24:28', 'teazeazrfdfgdfg'),
+(5, 2, 1, '2014-05-04 21:24:52', 'teazeazrfdfgdfg'),
+(6, 2, 1, '2014-05-04 21:26:07', 'teazeazrfdfgdfg'),
+(7, 2, 1, '2014-05-04 21:26:18', 'teazeazrfdfgdfg'),
+(8, 2, 1, '2014-05-04 21:28:51', 'testazeazehh !!! !'''),
+(9, 2, 1, '2014-05-04 21:32:26', 'teazeazrfdfgdfgteazeazrfdfgdfgteazeazrfdfgdfg'),
+(10, 2, 1, '2014-05-04 21:32:52', 'teazeaz rfdfgdfgte             azeazrfdfgdfgt'),
+(11, 2, 1, '2014-05-04 21:33:16', 'eazeazrfdfgdf                                '),
+(12, 2, 1, '2014-05-04 21:33:31', 'eazeazrfdfgdf                                '),
+(13, 2, 1, '2014-05-04 21:33:37', '4848'),
+(14, 2, 1, '2014-05-04 21:34:37', 'eazeazrfdfgdf                                '),
+(15, 2, 1, '2014-05-04 21:36:06', '&lt;a href=&quot;#&quot; class=&quot;delete&q'),
+(16, 2, 1, '2014-05-04 21:38:25', '&lt;a href=&quot;#&quot; class=&quot;delete&q'),
+(17, 2, 1, '2014-05-04 21:39:48', '&lt;a href=&quot;#&quot; class=&quot;delete&quot; data-confirm=&quot;Are you sure to delete this item?&quot;&gt;Delete&lt;/a&gt;\r\n'),
+(18, 2, 1, '2014-05-05 20:37:35', 'rzerzer');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `comptes_lies`
+-- Table structure for table `comptes_lies`
 --
 
 CREATE TABLE IF NOT EXISTS `comptes_lies` (
@@ -59,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `comptes_lies` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `entreprises`
+-- Table structure for table `entreprises`
 --
 
 CREATE TABLE IF NOT EXISTS `entreprises` (
@@ -75,19 +94,12 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `numSiretEntreprise` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEntreprise`),
   KEY `fk_entreprises_utilisateurs1_idx` (`idUtilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Contenu de la table `entreprises`
---
-
-INSERT INTO `entreprises` (`idEntreprise`, `raisonSocialeEntreprise`, `secteurEntreprise`, `siteWebEntreprise`, `adresseEntreprise`, `villeEntreprise`, `CPEntreprise`, `typeEntreprise`, `idUtilisateur`, `numSiretEntreprise`) VALUES
-(1, 'Emoson', 'Informatique', 'www.emoson.fr', 'Cité paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `fichiers_lies`
+-- Table structure for table `fichiers_lies`
 --
 
 CREATE TABLE IF NOT EXISTS `fichiers_lies` (
@@ -104,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `fichiers_lies` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `pack`
+-- Table structure for table `pack`
 --
 
 CREATE TABLE IF NOT EXISTS `pack` (
@@ -117,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `pack` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Contenu de la table `pack`
+-- Dumping data for table `pack`
 --
 
 INSERT INTO `pack` (`idPack`, `titrePack`, `descPack`, `prixPack`, `positionPack`) VALUES
@@ -128,7 +140,7 @@ INSERT INTO `pack` (`idPack`, `titrePack`, `descPack`, `prixPack`, `positionPack
 -- --------------------------------------------------------
 
 --
--- Structure de la table `projets`
+-- Table structure for table `projets`
 --
 
 CREATE TABLE IF NOT EXISTS `projets` (
@@ -155,17 +167,18 @@ CREATE TABLE IF NOT EXISTS `projets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
--- Contenu de la table `projets`
+-- Dumping data for table `projets`
 --
 
 INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `brandingProjet`, `positionnementProjet`, `identiteProjet`, `referencesProjet`, `dontlikeProjet`, `commentaireProjet`, `isActiveProjet`, `idUtilisateur`, `tailleEntreprise`, `caEntreprise`, `ptsContactEntreprise`, `optionProjet`, `nbARProjet`, `nbDesignerSouhaite`, `idPack`) VALUES
 (1, 'Emoson', 'Lorem ipsum', NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 3, 2, '["1","2","7","8"]', '3', 3, 5, 1),
 (2, 'Emosonvrvtcde', 'dioe efde', NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 2, 3, '["3","4","5"]', '2', 3, 3, 1);
 
+
 -- --------------------------------------------------------
 
 --
--- Structure de la table `propose`
+-- Table structure for table `propose`
 --
 
 CREATE TABLE IF NOT EXISTS `propose` (
@@ -179,17 +192,17 @@ CREATE TABLE IF NOT EXISTS `propose` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `propose`
+-- Dumping data for table `propose`
 --
 
 INSERT INTO `propose` (`idUtilisateur`, `idProjet`, `acceptation`, `validation`) VALUES
-(3, 1, 1, 0),
+(3, 1, 1, 1),
 (3, 2, 2, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `utilisateurs`
+-- Table structure for table `utilisateurs`
 --
 
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
@@ -210,18 +223,18 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
--- Contenu de la table `utilisateurs`
+-- Dumping data for table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `telUtilisateur`, `loginUtilisateur`, `passUtilisateur`, `emailUtilisateur`, `roleUtilisateur`, `bioUtilisateur`, `idCompte`, `certifUtilisateur`) VALUES
 (1, 'AdminTest', 'testeur', 5478987, 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'test@test.com', 'ADMIN', NULL, NULL, 0),
-(2, 'Dupré', 'dehde', 1456421212, 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'dejhe@hyegd.de', 'ENTREPRISE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1),
-(3, 'Delarue', 'Jean', 1242545214, 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1);
+(2, 'Dupré', 'dehde', 1456421212, 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'dejhe@hyegd.de', 'ENTREPRISE', 'derf r fer', NULL, 1),
+(3, 'Delarue', 'Jean', 1242545214, 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `widgets_lies`
+-- Table structure for table `widgets_lies`
 --
 
 CREATE TABLE IF NOT EXISTS `widgets_lies` (
@@ -234,50 +247,50 @@ CREATE TABLE IF NOT EXISTS `widgets_lies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Contraintes pour les tables exportées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `commentaires`
+-- Constraints for table `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD CONSTRAINT `fk_utilisateurs_has_projets_projets1` FOREIGN KEY (`idProjet`) REFERENCES `projets` (`idProjet`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_utilisateurs_has_projets_utilisateurs1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `entreprises`
+-- Constraints for table `entreprises`
 --
 ALTER TABLE `entreprises`
   ADD CONSTRAINT `fk_entreprises_utilisateurs1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `fichiers_lies`
+-- Constraints for table `fichiers_lies`
 --
 ALTER TABLE `fichiers_lies`
   ADD CONSTRAINT `fk_fichiers_lies_commentaires1` FOREIGN KEY (`idUtilisateur`) REFERENCES `commentaires` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_fichiers_lies_projets1` FOREIGN KEY (`idProjet`) REFERENCES `projets` (`idProjet`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `projets`
+-- Constraints for table `projets`
 --
 ALTER TABLE `projets`
   ADD CONSTRAINT `fk_projets_pack1` FOREIGN KEY (`idPack`) REFERENCES `pack` (`idPack`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `propose`
+-- Constraints for table `propose`
 --
 ALTER TABLE `propose`
   ADD CONSTRAINT `propose_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `propose_ibfk_2` FOREIGN KEY (`idProjet`) REFERENCES `projets` (`idProjet`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Contraintes pour la table `utilisateurs`
+-- Constraints for table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
   ADD CONSTRAINT `fk_utilisateurs_comptes_lies1` FOREIGN KEY (`idCompte`) REFERENCES `comptes_lies` (`idCompte`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Contraintes pour la table `widgets_lies`
+-- Constraints for table `widgets_lies`
 --
 ALTER TABLE `widgets_lies`
   ADD CONSTRAINT `fk_widgets_lies_utilisateurs1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
@@ -285,3 +298,6 @@ ALTER TABLE `widgets_lies`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+INSERT INTO `entreprises` (`idEntreprise`, `raisonSocialeEntreprise`, `secteurEntreprise`, `siteWebEntreprise`, `adresseEntreprise`, `villeEntreprise`, `CPEntreprise`, `typeEntreprise`, `idUtilisateur`, `numSiretEntreprise`) VALUES
+(1, 'Emoson', 'Informatique', 'www.emoson.fr', 'CitÃ© paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
