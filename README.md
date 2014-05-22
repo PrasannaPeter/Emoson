@@ -1,5 +1,8 @@
 # EmoSon
 
+Suivi de projet : https://docs.google.com/spreadsheets/d/1Mxm2A_iz4HtQYoLjS0pbDeKJ5rAfN5cVXhMP0RAFiEU/edit#gid=1973046620
+
+
 =======
 ## Mise en place du projet
 
