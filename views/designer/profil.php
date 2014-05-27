@@ -159,14 +159,14 @@ foreach ($info_designer as $info) {
               <div class="body-field">
                 <div class="row-fluid">
                   <ul class="social_media_icons">
-                    <!--li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
+                    <!li> <a href="#"> <i class="fa fa-facebook"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-google-plus"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-twitter"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-linkedin-square"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-pinterest"></i> </a> </li>
-                    <li> <a href="#"> <i class="fa fa-dribbble"></i> </a> </li-->
+                    <li> <a href="#"> <i class="fa fa-dribbble"></i> </a> </li>
                     <li><a href="#"><img src="style/images/picto_soundcloud.png" width="50px"></a></li>
-                    <li><a href="#"><img src="style/images/logo-facebook.png" width="50px"></a></li>
+                    
                   </ul>
                 </div>
                 <div class="teaser">
