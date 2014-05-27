@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 21, 2014 at 08:41 PM
+-- Generation Time: May 27, 2014 at 05:59 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -94,7 +94,14 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `numSiretEntreprise` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEntreprise`),
   KEY `fk_entreprises_utilisateurs1_idx` (`idUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `entreprises`
+--
+
+INSERT INTO `entreprises` (`idEntreprise`, `raisonSocialeEntreprise`, `secteurEntreprise`, `siteWebEntreprise`, `adresseEntreprise`, `villeEntreprise`, `CPEntreprise`, `typeEntreprise`, `idUtilisateur`, `numSiretEntreprise`) VALUES
+(1, 'Emoson', 'Informatique', 'www.emoson.fr', 'CitÃ© paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
 
 -- --------------------------------------------------------
 
@@ -173,7 +180,6 @@ CREATE TABLE IF NOT EXISTS `projets` (
 INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `brandingProjet`, `positionnementProjet`, `identiteProjet`, `referencesProjet`, `dontlikeProjet`, `commentaireProjet`, `isActiveProjet`, `idUtilisateur`, `tailleEntreprise`, `caEntreprise`, `ptsContactEntreprise`, `optionProjet`, `nbARProjet`, `nbDesignerSouhaite`, `idPack`) VALUES
 (1, 'Emoson', 'Lorem ipsum', NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 3, 2, '["1","2","7","8"]', '3', 3, 5, 1),
 (2, 'Emosonvrvtcde', 'dioe efde', NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, 2, 3, '["3","4","5"]', '2', 3, 3, 1);
-
 
 -- --------------------------------------------------------
 
@@ -298,6 +304,3 @@ ALTER TABLE `widgets_lies`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-INSERT INTO `entreprises` (`idEntreprise`, `raisonSocialeEntreprise`, `secteurEntreprise`, `siteWebEntreprise`, `adresseEntreprise`, `villeEntreprise`, `CPEntreprise`, `typeEntreprise`, `idUtilisateur`, `numSiretEntreprise`) VALUES
-(1, 'Emoson', 'Informatique', 'www.emoson.fr', 'CitÃ© paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
