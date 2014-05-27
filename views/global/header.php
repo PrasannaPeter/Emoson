@@ -114,7 +114,7 @@
       </li>
       <li><a href="index.php?module=partenaire&action=liste">Partenaires</a></li>
       <li><a href="index.php?module=apropos">Qui sommes-nous</a></li>
-      <li><a href="index.php?module=annonce&action=voir_annonce">Annonces</a></li>
+      <!-- <li><a href="index.php?module=annonce&action=voir_annonce">Annonces</a></li> -->
       <li><a href="index.php?module=contact">Contact</a></li>
     </ul>
     <!-- /Menu -->
