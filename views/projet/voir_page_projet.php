@@ -59,7 +59,7 @@ if($_SESSION['roleUtilisateur'] == "ENTREPRISE")
             <div class="team-worker" style="margin-left:200px;">
               <div class="photo"><img src="style/images/pas-de-photo.jpg" height="154" width="154" alt="Jeffrey Richards - CEO"></div>
               <div class="name"><?php echo $tab_designer['nomUtilisateur'].' '.$tab_designer['prenomUtilisateur'];?></div>
-              <center><a href="index.php?module=designer&action=profil&idProjet=<?php echo $_GET['idProjet'];?>&idUtilisateur=<?php echo $tab_designer['idUtilisateur'];?>">Voir profil</a></center>
+              <center><a target="blank" href="index.php?module=designer&action=profil&idProjet=<?php echo $_GET['idProjet'];?>&idUtilisateur=<?php echo $tab_designer['idUtilisateur'];?>">Voir profil</a></center>
             </div>
             <?php
             }
