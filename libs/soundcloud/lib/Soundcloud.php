@@ -22,6 +22,8 @@ class Services_Soundcloud
      *
      * @access public
      */
+   
+
     const CURLOPT_OAUTH_TOKEN = 173;
 
     /**
@@ -86,6 +88,7 @@ class Services_Soundcloud
      * @access private
      * @static
      */
+     
      private static $_curlDefaultOptions = array(
          CURLOPT_HEADER => true,
          CURLOPT_RETURNTRANSFER => true,
@@ -223,7 +226,6 @@ class Services_Soundcloud
         if (empty($clientId)) {
             throw new Services_Soundcloud_Missing_Client_Id_Exception();
         }
-
         $this->_clientId = $clientId;
         $this->_clientSecret = $clientSecret;
         $this->_redirectUri = $redirectUri;
@@ -231,6 +233,10 @@ class Services_Soundcloud
         $this->_responseFormat = self::$_responseFormats['json'];
         $this->_curlOptions = self::$_curlDefaultOptions;
         $this->_curlOptions[CURLOPT_USERAGENT] .= $this->_getUserAgent();
+
+        //adding ca
+      $this->_curlOptions[CURLOPT_CAINFO] .= getcwd().DIRECTORY_SEPARATOR.'lib'.DIRECTORY_SEPARATOR.'cacert.pem';
+
     }
 
     /**
@@ -714,14 +720,15 @@ class Services_Soundcloud
      * @access public
      * @see Soundcloud::_request()
      */
+    public function techUmberSC ($track){
+    return 'playlist[tracks][][id]=' . $track;
+    }
+
     public function updatePlaylist($playlistId, $trackIds, $optionalPostData = null)
     {
         $url = $this->_buildUrl('playlists/' . $playlistId);
-        $postData = array();
 
-        foreach ($trackIds as $trackId) {
-            array_push($postData, 'playlist[tracks][][id]=' . $trackId);
-        }
+        $postData = array_map("techUmberSC", $trackIds);
 
         if (is_array($optionalPostData)) {
             foreach ($optionalPostData as $key => $val) {
@@ -894,9 +901,14 @@ class Services_Soundcloud
      */
     protected function _request($url, $curlOptions = array())
     {
+        
+        
+
         $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CAINFO, 'C:/curl/cacert.pem');
         $options = $this->_curlOptions;
         $options += $curlOptions;
+        
 
         if (array_key_exists(self::CURLOPT_OAUTH_TOKEN, $options)) {
             $includeAccessToken = $options[self::CURLOPT_OAUTH_TOKEN];
@@ -923,16 +935,10 @@ class Services_Soundcloud
 
         curl_close($ch);
 
-        if (array_key_exists(CURLOPT_HEADER, $options) && $options[CURLOPT_HEADER]) {
-            $this->_lastHttpResponseHeaders = $this->_parseHttpHeaders(
-                substr($data, 0, $info['header_size'])
-            );
-            $this->_lastHttpResponseBody = substr($data, $info['header_size']);
-        } else {
-            $this->_lastHttpResponseHeaders = array();
-            $this->_lastHttpResponseBody = $data;
-        }
-
+        $this->_lastHttpResponseHeaders = $this->_parseHttpHeaders(
+            substr($data, 0, $info['header_size'])
+        );
+        $this->_lastHttpResponseBody = substr($data, $info['header_size']);
         $this->_lastHttpResponseCode = $info['http_code'];
 
         if ($this->_validResponseCode($this->_lastHttpResponseCode)) {

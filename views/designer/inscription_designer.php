@@ -21,7 +21,7 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <a href="libs/social/soundcloud.php" title="Soundcloud"><img src="style/images/soundcloud.png"></a>
+           <a href="index.php?module=soundcloud&action=soundcloud" title="Connecter avec un compte Soundcloud"><img src="style/images/btn-connect-sc-l.png"></a>
         </div>
       </div>
   </fieldset>

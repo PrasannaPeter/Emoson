@@ -293,6 +293,52 @@ class M_Utilisateur extends Utilisateur
 
 		return($verif_sql_delete['idUtilisateur']);
 	}
+        
+        static function add_compte_soundcloud($idUtilisateur,$soundcloudID)
+	{
+		$bdd = PDO();
 
+		$sql =$bdd->prepare('
+			INSERT INTO compte_soundcloud(compte_soundcloud_designer_id,compte_soundcloud_soundcloud_id)
+			VALUES (:idUtilisateur, :soundcloudID)
+		');
+
+                $sql_insert = $sql->execute(array(
+                                'idUtilisateur' => $idUtilisateur,
+                                'soundcloudID' => $soundcloudID
+                        ));
+
+		return($sql_insert);
+	}
+        
+        static function verif_compte_soundcloud($idUtilisateur)
+	{
+		$bdd = PDO();
+
+		$verif_sql = $bdd->query('
+			SELECT compte_soundcloud_designer_id
+			FROM compte_soundcloud
+			WHERE compte_soundcloud_designer_id ='.$idUtilisateur.'
+		');
+
+		$verif_sql_compte_soundcloud = $verif_sql->fetch();
+
+		return($verif_sql_compte_soundcloud['compte_soundcloud_designer_id']);
+	}
+        
+        static function get_compte_soundcloud($idUtilisateur)
+	{
+		$bdd = PDO();
+
+		$verif_sql = $bdd->query('
+			SELECT compte_soundcloud_soundcloud_id
+			FROM compte_soundcloud
+			WHERE compte_soundcloud_designer_id ='.$idUtilisateur.'
+		');
+
+		$verif_sql_compte_soundcloud = $verif_sql->fetch();
+
+		return($verif_sql_compte_soundcloud['compte_soundcloud_soundcloud_id']);
+	}
 
 }

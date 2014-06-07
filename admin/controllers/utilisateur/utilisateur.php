@@ -402,6 +402,41 @@ class Utilisateur
 			break;
 		}
 	}
+        
+        
+        static function get_compte_soundcloud($idUtilisateur)
+	{
+            	$get_compte_soundcloud = M_Utilisateur::get_compte_soundcloud($idUtilisateur);
+		return($get_compte_soundcloud);
+	}
+        
+        static function add_portfolio($idUtilisateur)
+	{
+		
+	}
+        
+        static function souncloud_utilisateur($idUtilisateur,$soundcloudID)
+	{
+            $verif_sql = M_Utilisateur::verif_compte_soundcloud($idUtilisateur);
+            if(!empty($verif_sql))
+            {
+                    $error = "errorUserExist";
+                    return $error;
+            }
+            else
+            {
+                $verif_sql_insert = M_Utilisateur::add_compte_soundcloud($idUtilisateur,$soundcloudID);
+                if(!empty($verif_sql_insert['idUtilisateur']))
+                {
+                        $error="error";
+                        return $error;
+                }else{
+                        $error="ok";
+                        return $error;
+                }
+            }
+                
+	}
 
 
 }
