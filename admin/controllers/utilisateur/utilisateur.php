@@ -410,11 +410,6 @@ class Utilisateur
 		return($get_compte_soundcloud);
 	}
         
-        static function add_portfolio($idUtilisateur)
-	{
-		
-	}
-        
         static function souncloud_utilisateur($idUtilisateur,$soundcloudID)
 	{
             $verif_sql = M_Utilisateur::verif_compte_soundcloud($idUtilisateur);
@@ -437,7 +432,26 @@ class Utilisateur
             }
                 
 	}
-
+        
+        static function modifier_designer_img($idUtilisateur,$img)
+	{
+            $verif_sql = M_Utilisateur::verif_designer_img($idUtilisateur);
+            if(!empty($verif_sql))
+            {
+                $get_compte_soundcloud = M_Utilisateur::update_designer_img($idUtilisateur,$img);
+		return($get_compte_soundcloud);
+            }  else {
+                $get_compte_soundcloud = M_Utilisateur::add_designer_img($idUtilisateur,$img);
+		return($get_compte_soundcloud);
+            }
+            	
+	}
+        
+        static function get_designer_img($idUtilisateur)
+	{
+            	$get_designer_img = M_Utilisateur::get_designer_img($idUtilisateur);   
+		return($get_designer_img);
+	}
 
 }
 

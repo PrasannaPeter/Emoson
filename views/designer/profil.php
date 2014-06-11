@@ -1,19 +1,21 @@
 <?php
 
-require_once('admin/controllers/projet/projet.php');
-$info_projet = Projet::get_projet($_GET['idProjet']);
+//require_once('admin/controllers/projet/projet.php');
+//$info_projet = Projet::get_projet($_GET['idProjet']);
+//
+//    foreach ($info_projet as $info) 
+//    {
+//
+//      $titreProjet = $info_projet['titreProjet'];
+//
+//    }
 
-foreach ($info_projet as $info) 
-{
-  
-  $titreProjet = $info_projet['titreProjet'];
-
-}
 
 require_once('admin/controllers/utilisateur/utilisateur.php');
 $info_designer = Utilisateur::get_utilisateur($_GET['idUtilisateur']);
-
-
+$designer_img = Utilisateur::get_designer_img($_GET['idUtilisateur']);
+$compte_soundcloud = Utilisateur::get_compte_soundcloud($_GET['idUtilisateur']);
+$_SESSION['idUtilisateur'] = $_GET['idUtilisateur'];
 foreach ($info_designer as $info) {
   
   $nom = $info_designer['nomUtilisateur'];
@@ -43,11 +45,10 @@ foreach ($info_designer as $info) {
 
     <!-- Content Inner -->
     <div class="content-inner candidate-single">
-
       <!-- Content Left -->
       <div class="content-left">
         <div class="block background job_block">
-          <div id="map-container" class="candidate-pic"> <img src="style/images/pas-de-photo.jpg" alt="Candidate picture"/> </div>
+          <div id="map-container"> <img src="style/designer_img/<?php echo $designer_img;?>" alt="Candidate picture"/> </div>
           <h2 class="title-3">Détails du designer</h2>
           <div class="block-content">
             <table  border="1" class="list_info">
@@ -165,8 +166,9 @@ foreach ($info_designer as $info) {
                     <li> <a href="#"> <i class="fa fa-linkedin-square"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-pinterest"></i> </a> </li>
                     <li> <a href="#"> <i class="fa fa-dribbble"></i> </a> </li>
-                    <li><a href="#"><img src="style/images/picto_soundcloud.png" width="50px"></a></li>
-                    
+                    <?php if ($compte_soundcloud > 0): ?> 
+                        <li><a href="index.php?module=DesignerPlaylist&action=DesignerPlaylist"><img src="style/images/picto_soundcloud.png" width="50px"></a></li>
+                    <?php endif; ?>
                   </ul>
                 </div>
                 <div class="teaser">

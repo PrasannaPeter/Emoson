@@ -337,8 +337,70 @@ class M_Utilisateur extends Utilisateur
 		');
 
 		$verif_sql_compte_soundcloud = $verif_sql->fetch();
-
 		return($verif_sql_compte_soundcloud['compte_soundcloud_soundcloud_id']);
+	}
+        
+        
+         static function add_designer_img($idUtilisateur,$img)
+	{
+		$bdd = PDO();
+
+		$sql =$bdd->prepare('
+			INSERT INTO designer_img(designer_img_designer_id,designer_img_url)
+			VALUES (:idUtilisateur, :img)
+		');
+
+                $sql_insert = $sql->execute(array(
+                                'idUtilisateur' => $idUtilisateur,
+                                'img' => $img
+                        ));
+
+		return($sql_insert);
+	}  
+        
+         static function get_designer_img($idUtilisateur)
+	{
+		$bdd = PDO();
+
+		$verif_sql = $bdd->query('
+			SELECT designer_img_url
+			FROM designer_img
+			WHERE designer_img_designer_id ='.$idUtilisateur.'
+		');
+
+		$verif_sql_compte_soundcloud = $verif_sql->fetch();
+
+		return($verif_sql_compte_soundcloud['designer_img_url']);
+	}
+        
+        static function update_designer_img($idUtilisateur,$img)
+	{
+		$bdd = PDO();
+
+		$sql = $bdd->prepare('
+			UPDATE designer_img
+			SET designer_img_url=:designer_img_url
+			WHERE designer_img_designer_id = '.$idUtilisateur.'
+		');
+		$sql_update = $sql->execute(array(
+                                                'designer_img_url' => $img
+					));
+
+		return($sql_update);
+	}
+         static function verif_designer_img($idUtilisateur)
+	{
+		$bdd = PDO();
+
+		$verif_sql = $bdd->query('
+			SELECT designer_img_designer_id
+			FROM designer_img
+			WHERE designer_img_designer_id ='.$idUtilisateur.'
+		');
+
+		$verif_sql_compte_soundcloud = $verif_sql->fetch();
+
+		return($verif_sql_compte_soundcloud['designer_img_designer_id']);
 	}
 
 }

@@ -228,68 +228,6 @@ switch($type)
 
 	break;
         
-        case "modifier_portfolio" :
-        
-            if(!empty($idUtilisateur))
-            {
-		echo 'modifier_portfolio'.$idUtilisateur;
-                        
-                $extensionsAutorisees = array("jpeg", "jpg", "gif");
-                // si un fichier maphoto a bien été transféré
-                if (is_uploaded_file($_FILES["maphoto"]["tmp_name"])) {
-                    // recupération de l'extension du fichier
-                    // autrement dit tout ce qu'il y a après le dernier point (inclus)
-                    $nomPhoto = $_FILES["maphoto"]["name"];
-                    // $extension = substr($nomPhoto, strrpos($nomPhoto, "."));
-                    $extraireExtension = explode(".", $nomPhoto);
-                    $extension = $extraireExtension[1];
-                    // Contrôle de l'extension du fichier
-                    if (!(in_array($extension, $extensionsAutorisees))) {
-                        $_SESSION['typeNotif'] = "error";
-                        $_SESSION['titreNotif'] = "Votre photo n'a pas l'extension attendue(".$extensionsAutorisees.")";
-                        header('Location:index.php?module=designer&action=modifier_portfolio');
-                    }
-                    if ($_FILES["maphoto"]["size"] <= 1000000) {
-                        $_SESSION['typeNotif'] = "error";
-                        $_SESSION['titreNotif'] = "Votre photo est trop volimineux".$_FILES["maphoto"]["size"]."  1000000";
-                        header('Location:index.php?module=designer&action=modifier_portfolio');
-                    }
-                    $renameNomPhoto = "photo_" . $idUtilisateur;
-                }
-            }
-	
-
-
-
-  
-    
-		// DELETE
-//		if(!empty($idUtilisateur))
-//		{
-//			$del_utilisateur = Utilisateur::del_utilisateur($idUtilisateur);
-//		}
-//
-//		if(!empty($del_utilisateur))
-//		{
-//			if($del_utilisateur=="error")
-//			{
-//				$_SESSION['typeNotif'] = "error";
-//				$_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être supprimé";
-//				header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
-//			}
-//			else if($del_utilisateur=="ok")
-//			{
-//				$_SESSION['typeNotif'] = "success";
-//				$_SESSION['titreNotif'] = "L'utilisateur a bien été supprimé";
-//				header('Location:index.php?module=utilisateur&action=afficher_utilisateur');
-//			}
-//		}
-
-
-	break;
-        
-        	
-        
         case "ajouter_compte_soundcloud" :
         if(!empty($_POST['soundcloudID'])){$soundcloudID = $_POST['soundcloudID'];}    
             if(!empty($idUtilisateur))
@@ -324,4 +262,44 @@ switch($type)
             require_once VIEWS.'/designer/voirCompteSoundcloud.php';
              echo '2';
         break;    
+    
+        case "modifier_designer_img" :
+             if(!empty($idUtilisateur))
+            {
+		echo 'modifier_portfolio'.$idUtilisateur;
+                        
+                $extensionsAutorisees = array("jpeg", "jpg", "gif", "png");
+                // si un fichier maphoto a bien été transféré
+                if (is_uploaded_file($_FILES["maphoto"]["tmp_name"])) {
+                    // recupération de l'extension du fichier
+                    // autrement dit tout ce qu'il y a après le dernier point (inclus)
+                    $nomPhoto = $_FILES["maphoto"]["name"];
+                    // $extension = substr($nomPhoto, strrpos($nomPhoto, "."));
+                    $extraireExtension = explode(".", $nomPhoto);
+                    $extension = $extraireExtension[1];
+                    // Contrôle de l'extension du fichier
+                    if (!(in_array($extension, $extensionsAutorisees))) {
+                        $_SESSION['typeNotif'] = "error";
+                        $_SESSION['titreNotif'] = "Votre photo n'a pas l'extension attendue(".$extensionsAutorisees.")";
+                        header('Location:index.php?module=designer&action=modifier_portfolio');
+                    }
+                    if ($_FILES["maphoto"]["size"] > 8000000) {
+                        $_SESSION['typeNotif'] = "error";
+                        $_SESSION['titreNotif'] = "Votre photo est trop volimineux".$_FILES["maphoto"]["size"]."  1000000";
+                        header('Location:index.php?module=designer&action=modifier_portfolio');
+                    }
+                    $destination = 'style/designer_img/'.$_FILES['maphoto']['name']; 
+                    if(move_uploaded_file($_FILES['maphoto']['tmp_name'], $destination ) ) { 
+                        $img = $_FILES['maphoto']['name'];
+                        $modifier_designer_img = Utilisateur::modifier_designer_img($idUtilisateur,$img);
+                        if(!empty($modifier_designer_img))
+                         {
+                            $_SESSION['typeNotif'] = "success";
+                            $_SESSION['titreNotif'] = "Votre photo soundcloud a été bien ajouté";
+                            header('Location:index.php?module=designer&action=modifier_portfolio');
+                        }
+                    }  
+                }
+            }
+        break;  
 }

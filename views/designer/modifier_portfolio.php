@@ -16,24 +16,35 @@
   require_once('admin/controllers/utilisateur/utilisateur.php');
   $info_designer = Utilisateur::get_utilisateur($idUtilisateur=$_SESSION['idUtilisateur'], $type=NULL);
   $compte_soundcloud = Utilisateur::get_compte_soundcloud($idUtilisateur=$_SESSION['idUtilisateur']);
-  echo $compte_soundcloud;
+  $designer_img = Utilisateur::get_designer_img($idUtilisateur=$_SESSION['idUtilisateur']);
 ?>
-<form class="form-horizontal" enctype="multipart/form-data" method="POST" action="index.php?module=utilisateur&action=manage&type=modifier_portfolio<?php if(!empty($info_designer['idUtilisateur'])){ echo '&idUtilisateur='.$info_designer['idUtilisateur']; }else{} ?>">
+<?php if ($designer_img <> ''): ?>       
+   <img height="150" width="150" src="style/designer_img/<?php echo $designer_img;?>">
+<?php endif; ?>  
     
-    <div id="legend">
-        <legend class=""><h2>Ajouter votre photo</h2></legend><br />
-    </div>
-    <p>Telechargez une photo pour l'ajouter à votre portfolio.</p>
-    <p>Extension possible: "jpeg", "jpg", "gif"</p>
-    <p>Taille max: 1000000</p>
-    <br />
-    <div class="control-group">
-        <label class="control-label" for="maphoto">Ma photo</label>
-        <div class="controls">
-            <input type="file" id="urlLinkAdd" name="maphoto" placeholder="" class="input-xlarge">
-        </div>
-    </div>
-    
+    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="index.php?module=utilisateur&action=manage&type=modifier_designer_img<?php if(!empty($info_designer['idUtilisateur'])){ echo '&idUtilisateur='.$info_designer['idUtilisateur']; }else{} ?>">
+
+       <div id="legend">
+           <legend class=""><h2>Ajouter votre photo</h2></legend><br />
+       </div>
+       <p>Telechargez une photo pour l'ajouter à votre portfolio.</p>
+       <p>Extension possible: "jpeg", "jpg", "gif"</p>
+       <p>Taille max: 1000000</p>
+       <br />
+       <div class="control-group">
+           <label class="control-label" for="maphoto">Ma photo</label>
+           <div class="controls">
+               <input type="file" id="urlLinkAdd" name="maphoto" placeholder="" class="input-xlarge">
+           </div>
+       </div>
+          <div class="control-group">
+         <!-- Button -->
+         <div class="controls">
+           <button class="btn btn-success">Confirmer</button>
+         </div>
+       </div>
+   </form> 
+      
 <!--    <fieldset>
     <div id="legend">
       <legend class=""><h2>Ajouter un lien</h2></legend><br />
@@ -64,7 +75,7 @@
       <div class="control-group">
         <!-- Button -->
         <div class="controls">
-          <a href="index.php?module=soundcloud&action=voirCompteSoundcloud" title="Voir votre compte externe"><img src="style/images/picto_soundcloud.png"></a>
+          <a href="index.php?module=DesignerPlaylist&action=DesignerPlaylist" title="Voir votre compte externe"><img src="style/images/picto_soundcloud.png"></a>
         </div>
       </div>
       <br/>
@@ -82,13 +93,7 @@
       </div>
       <br/>
   </fieldset>
-    <div class="control-group">
-      <!-- Button -->
-      <div class="controls">
-        <button class="btn btn-success">Confirmer</button>
-      </div>
-    </div>
-</form>
+
         
 <?php endif; ?>
     </div>
