@@ -190,6 +190,28 @@ class Utilisateur
 		return($get_utilisateur);
 	}
 
+	static function nb_utilisateur()
+	{
+		$nb_utilisateur = M_Utilisateur::nb_utilisateur();
+
+		return($nb_utilisateur);
+	}
+
+	static function nb_designer()
+	{
+		$nb_designer = M_Utilisateur::nb_designer();
+
+		return($nb_designer);
+	}
+
+	static function nb_entreprise()
+	{
+		$nb_entreprise = M_Utilisateur::nb_entreprise();
+
+		return($nb_entreprise);
+	}
+
+
 	static function tab_utilisateur($type=NULL)
 	{
 			if(!empty($type))

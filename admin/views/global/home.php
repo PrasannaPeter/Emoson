@@ -1,5 +1,5 @@
 <script type="text/javascript">
-jQuery(document).ready(function($)
+/*jQuery(document).ready(function($)
 {
     // Sample Toastr Notification
     setTimeout(function()
@@ -183,21 +183,50 @@ jQuery(document).ready(function($)
 function getRandomInt(min, max)
 {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+}*/
 </script>
 
+<?php
+    require_once('controllers/utilisateur/utilisateur.php');
+    require_once('controllers/projet/projet.php');
 
-<h1>404, home a faire</h1>
+    $nb_utilisateur = Utilisateur::nb_utilisateur();
+    while($tab_nb_utilisateur = $nb_utilisateur->fetch())
+    {
+        $nb_user = $tab_nb_utilisateur['nbUtilisateur'];
+    }
+
+    $nb_designer = Utilisateur::nb_designer();
+    while($tab_nb_designer = $nb_designer->fetch())
+    {
+        $nb_des = $tab_nb_designer['nbDesigner'];
+    }
+
+    $nb_entreprise = Utilisateur::nb_entreprise();
+    while($tab_nb_entreprise = $nb_entreprise->fetch())
+    {
+        $nb_ent = $tab_nb_entreprise['nbEntreprise'];
+    }
+
+    $nb_projet = Projet::nb_projet();
+    while($tab_nb_projet = $nb_projet->fetch())
+    {
+        $nb_proj = $tab_nb_projet['nbProjet'];
+    }
+
+
+
+?>
 
 <div class="row">
     <div class="col-sm-3">
 
         <div class="tile-stats tile-red">
             <div class="icon"><i class="entypo-users"></i></div>
-            <div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0">0</div>
+            <div class="num" data-start="0" data-end="<?php echo $nb_user; ?>" data-postfix="" data-duration="1500" data-delay="0">0</div>
 
-            <h3>Registered users</h3>
-            <p>so far in our blog, and our website.</p>
+            <h3>Utilisateurs</h3>
+            <!--p>so far in our blog, and our website.</p-->
         </div>
 
     </div>
@@ -206,10 +235,10 @@ function getRandomInt(min, max)
 
         <div class="tile-stats tile-green">
             <div class="icon"><i class="entypo-chart-bar"></i></div>
-            <div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
+            <div class="num" data-start="0" data-end="<?php echo $nb_des; ?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
 
-            <h3>Daily Visitors</h3>
-            <p>this is the average value.</p>
+            <h3>Designers</h3>
+            <!--p>this is the average value.</p-->
         </div>
 
     </div>
@@ -218,10 +247,10 @@ function getRandomInt(min, max)
 
         <div class="tile-stats tile-aqua">
             <div class="icon"><i class="entypo-mail"></i></div>
-            <div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
+            <div class="num" data-start="0" data-end="<?php echo $nb_ent; ?>" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 
-            <h3>New Messages</h3>
-            <p>messages per day.</p>
+            <h3>Entreprises</h3>
+            <!--p>messages per day.</p-->
         </div>
 
     </div>
@@ -230,10 +259,10 @@ function getRandomInt(min, max)
 
         <div class="tile-stats tile-blue">
             <div class="icon"><i class="entypo-rss"></i></div>
-            <div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
+            <div class="num" data-start="0" data-end="<?php echo $nb_proj; ?>" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 
-            <h3>Subscribers</h3>
-            <p>on our site right now.</p>
+            <h3>Projets</h3>
+            <!--p>on our site right now.</p-->
         </div>
 
     </div>
@@ -241,7 +270,8 @@ function getRandomInt(min, max)
 
 <br />
 
-<div class="row">
+
+<!--div class="row">
     <div class="col-sm-8">
 
         <div class="panel panel-primary" id="charts_env">
@@ -339,7 +369,7 @@ function getRandomInt(min, max)
 
 <br />
 
-<div class="row">
+<!--div class="row">
 
     <div class="col-sm-4">
 
@@ -366,7 +396,7 @@ function getRandomInt(min, max)
 
     </div>
 
-    <div class="col-sm-8">
+    <!--div class="col-sm-8">
 
         <div class="panel panel-primary">
             <div class="panel-heading">
@@ -416,14 +446,14 @@ function getRandomInt(min, max)
             </table>
         </div>
 
-    </div>
-
-</div>
+    </div-->
+<!--
+</div>-->
 
 <br />
 
 
-<script type="text/javascript">
+<!--script type="text/javascript">
     // Code used to add Todo Tasks
     jQuery(document).ready(function($)
     {
@@ -447,9 +477,9 @@ function getRandomInt(min, max)
             }
         });
     });
-</script>
+</script-->
 
-<div class="row">
+<!--div class="row">
 
     <div class="col-sm-3">
         <div class="tile-block" id="todo_tasks">
@@ -570,7 +600,7 @@ function getRandomInt(min, max)
 
     </div>
 
-</div>
+</div-->
 
 
 <script src="assets/js/jvectormap/jquery-jvectormap-1.2.2.min.js" id="script-resource-7"></script>

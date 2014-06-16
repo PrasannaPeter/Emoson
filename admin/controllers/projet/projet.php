@@ -46,6 +46,13 @@ class Projet
 		return($nb_designer_actuel);
 	}
 
+	static function nb_projet()
+	{
+		$nb_projet = M_Projet::nb_projet();
+
+		return($nb_projet);
+	}
+
 
 	static function get_last_projet_entreprise($idEntreprise)
 	{
@@ -338,5 +345,5 @@ class Projet
 	}
 }
 
-if(site_admin())
-		require_once('views/'.$controller.'/'.$controller.'.php');
+//if(site_admin())
+		//require_once('views/'.$controller.'/'.$controller.'.php');

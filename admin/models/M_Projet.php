@@ -113,6 +113,16 @@ class M_Projet extends Projet
 		return($nb_designer_actuel);
 	}
 
+	static function nb_projet() 
+	{
+		$bdd = PDO();
+
+		$nb_projet = $bdd->query('SELECT COUNT(*) as nbProjet
+									FROM projets 
+			');
+		return($nb_projet);
+	}
+
 
 	static function insert_projet($titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
