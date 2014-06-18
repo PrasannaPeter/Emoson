@@ -382,58 +382,66 @@
     </div>
 </div>
 
-
+<br>
+<center><h2>Dernières annonces</h2></center>
 <?php
 
-require_once(CONTROLLERS.'/projet/projet.php');
-require_once(CONTROLLERS."entreprise/entreprise.php");
+require_once(CONTROLLERS.'/annonce/annonce.php');
 
-// @TODO mettre uniquement les projets terminé
-$projets = Projet::get_projet();
+  $get_annonces = Annonce::get_annonce();
+?>
+
+<div class="inner">
+
+    <!-- Content Inner -->
+    <div class="content-inner candidate-list">
+      <div class="candidates-box-wrapper full">
+        <div id="job-content-fields">
+          <div id="cells" class="view_mode">
+<?php
+  while ($annonce =  $get_annonces->fetch()) {
 
 ?>
 
-        <div class="clear"></div>
-        <div id="latest-job">
-          <div class="heading-l">
-            <h2> Derniers Projets </h2>
-          </div>
-          <div class="latest-job-wrapper">
-            <div class="block-content dott-flexslider box-1">
-              <ul class="slides">
-              <?php
+  <div class="field-container odd box-1 hide">
+    <div class="header-fields">
+      <div class="title-company">
+        <div class="title"><?php echo $annonce['titre']; ?> - (<?php echo "Le ". date('d/m/Y', strtotime($annonce['date'])); ?>)</div>
+      </div>
+    </div>
+    <div class="body-field">
+      <div class="teaser">
+        <p><?php echo $annonce['content']; ?><!-- <span class="read-more"><a>Read More</a></span></p> -->
+      </div>
+      <!-- <div class="full-body" style="display: none;">
+        <p>Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div> -->
+    </div>
+  </div>
 
-              foreach ($projets as $projet)
-              {
-                  ?>
-                    <li>
-                      <!--div class="company-logo"><!--a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                        <div class="nav-buttons">
-                          <ul>
-                            <li class="search"><a><i class="fa fa-search"></i></a></li>
-                            <li class="link"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><i class="fa fa-link"></i></a></li>
-                          </ul>
-                        </div-->
-                      </div-->
-                      <div class="company-text">
-                        <div class="title"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><?php echo $projet['titreProjet']; ?></a>
-                          <div class="location"><?php echo $projet['raisonSocialeEntreprise']; ?></div>
-                        </div>
-                        <div class="description"><?php echo $projet['descriptionProjet']; ?> <!--a>Voir +</a--></div>
-                      </div>
-                    </li>
-                  <?php
-              }
+<?php
 
-              ?>
-              </ul>
-            </div>
+  }
+
+?>
+
           </div>
         </div>
-        <div class="clear"></div>
+      </div>
+      <div class="clearfix"></div>
 
-        <?php
-        require_once(CONTROLLERS.'/entreprise/entreprise.php');
+      <!-- /Content Center -->
+
+    <br>
+
+      <!-- Clear Line -->
+
+    </div>
+    <!-- /Content Inner -->
+
+  </div>
+  </div>
+  <?php
 
         // @TODO mettre uniquement les projets terminé
 
