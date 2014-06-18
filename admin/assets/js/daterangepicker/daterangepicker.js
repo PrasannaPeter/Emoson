@@ -28,7 +28,7 @@
         this.ranges = {};
         this.opens = 'right';
 
-        this.buttonClasses = ['btn', 'btn-xsall'];
+        this.buttonClasses = ['btn', 'btn-small'];
         this.applyClass = 'btn-primary';
         this.cancelClass = 'btn-default';
 
