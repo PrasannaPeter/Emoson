@@ -270,5 +270,9 @@ pour vous sélectionner les meilleurs designers..";
 		}
 
 
-	break;    
+	break;
+        
+          case "voir_projet" :
+            require_once VIEWS.$controller.'/voir_projet.php';
+	break; 
 }

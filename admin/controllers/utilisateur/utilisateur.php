@@ -453,6 +453,20 @@ class Utilisateur
 		return($get_designer_img);
 	}
         
+        static function deleteCompteSoundcloud($idUtilisateur)
+	{
+            $verif_sql_delete = M_Utilisateur::deleteCompteSoundcloud($idUtilisateur);
+
+            if(!empty($verif_sql_delete))
+            {
+                     $typeNotif = "ok";
+                    return $typeNotif;
+                   
+            }  else {
+                     $typeNotif = "error";
+                    return $typeNotif;
+            }
+        }
       
 }       
 // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté

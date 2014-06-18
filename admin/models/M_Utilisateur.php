@@ -403,4 +403,18 @@ class M_Utilisateur extends Utilisateur
 		return($verif_sql_compte_soundcloud['designer_img_designer_id']);
 	}
         
+        static function deleteCompteSoundcloud($idUtilisateur)
+	{
+		$bdd = PDO();
+
+		$sql_delete = $bdd->query('
+			DELETE FROM compte_soundcloud
+			WHERE compte_soundcloud_designer_id = '.$idUtilisateur.'
+		');
+
+		return $sql_delete;
+
+	}
+        
+        
 }

@@ -14,12 +14,6 @@ SC.connect(function(){
             }
 
   });
-  
-    SC.get('/me/tracks', { limit: 1 }, function(tracks) {
-    var track = tracks[0];
-    alert(track.id);
-  });
-  
 });
 </script>
 

@@ -302,4 +302,27 @@ switch($type)
                 }
             }
         break;  
+        
+        case "deleteCompteSoundcloud" :
+            // DELETE Compte Soundcloud
+            
+		if(!empty($idUtilisateur))
+		{
+			$deleteCompteSoundcloud = Utilisateur::deleteCompteSoundcloud($idUtilisateur);
+		}
+
+		if(!empty($deleteCompteSoundcloud))
+		{
+			if($deleteCompteSoundcloud=="error")
+			{
+				$_SESSION['typeNotif'] = "error";
+				$_SESSION['titreNotif'] = "Le compte n'a pas pu être supprimé";
+				header('Location:index.php?module=designer&action=modifier_portfolio');}
+			else if($deleteCompteSoundcloud=="ok")
+			{
+				$_SESSION['typeNotif'] = "success";
+				$_SESSION['titreNotif'] = "Le compte a bien été supprimé";
+			header('Location:index.php?module=designer&action=modifier_portfolio');}
+		}
+        break;    
 }

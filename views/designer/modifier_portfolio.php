@@ -45,27 +45,6 @@
        </div>
    </form> 
       
-<!--    <fieldset>
-    <div id="legend">
-      <legend class=""><h2>Ajouter un lien</h2></legend><br />
-    </div>
-    <p>Saisissez un lien et un type de lien pour l'ajouter à votre portfolio.</p>
-    <p>Exemple pour une vidéo youtube : "https://www.youtube.com/watch?v=Jrm5"</p>
-    <br />
-    <div class="control-group">
-      <label class="control-label" for="urlLinkAdd">URL</label>
-      <div class="controls">
-        <input type="text" id="urlLinkAdd" name="urlLinkAdd" placeholder="" class="input-xlarge">
-      </div>
-    </div>
-    <div class="control-group">
-       Creer une liste déroulante 
-      <label class="control-label" for="typeLinkAdd">Type</label>
-      <div class="controls">
-        <input type="text" id="typeLinkAdd" name="typeLinkAdd" placeholder="" class="input-xlarge">
-      </div>
-    </div>
-  </fieldset>-->
   <br />
 <?php if ($compte_soundcloud <> ''): ?>
      <fieldset>
@@ -73,10 +52,10 @@
       <legend class=""><h2>Votre compte :</h2></legend><br />
     </div>
       <div class="control-group">
-        <!-- Button -->
-<!--        <div class="controls">
-          <a href="index.php?module=DesignerPlaylist&action=DesignerPlaylist" title="Voir votre compte externe"><img src="style/images/picto_soundcloud.png"></a>
-        </div>-->
+        <div class="controls">
+            <a href="index.php?module=utilisateur&action=manage&type=deleteCompteSoundcloud<?php if(!empty($info_designer['idUtilisateur'])){ echo '&idUtilisateur='.$info_designer['idUtilisateur']; }else{} ?>"<button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer votre compte soundcloud</button></a>
+         
+        </div>
       </div>
        <?php 
             $tracks_json = file_get_contents('http://api.soundcloud.com/users/'.$compte_soundcloud.'/tracks.json?client_id=e81b2e10ea9abad8f48cbef75335b0ef');
