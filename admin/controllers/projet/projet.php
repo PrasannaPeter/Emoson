@@ -153,7 +153,7 @@ class Projet
 	// Fonction CRUD
 	// Retourne $typeNotif & $msgNotif si erreur
 
-	static function set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
+	static function set_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		// Si on a pas d'ID, INSERT
 		if(empty($idProjet))
@@ -176,7 +176,6 @@ class Projet
 			}
 			else
 			{
-
 				$sql_insert = M_Projet::insert_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 				if($sql_insert)
@@ -208,7 +207,149 @@ class Projet
 	}
 
 
-	// static function set_Statut($idProjet, $emailContact)
+	static function del_projet($idProjet)
+	{
+		$type = "delete";
+
+		$verif_sql = Projet::verif_sql($type, $titreProjet=NULL, $idProjet);
+
+		if(!empty($verif_sql))
+		{
+			$delProjet = "error";
+			return($delProjet);
+		}
+		else
+		{
+			M_Projet::del_projet($idProjet);
+
+			$delProjet = "ok";
+
+			return($delProjet);
+		}
+	}
+
+	static function valider_projet($idProjet)
+	{
+
+		M_Projet::valider_projet($idProjet);
+
+	}
+
+
+	static function verif_sql($type, $titreProjet=NULL, $idProjet=NULL)
+	{
+
+		switch ($type)
+		{
+
+			case "insert":
+
+				$verif_sql_insert = M_Projet::verif_insert_projet($titreProjet);
+
+				if(!empty($verif_sql_insert['idProjet']))
+				{
+					$error="error";
+					return $error;
+				}
+
+			break;
+
+
+			/*case "delete":
+
+				$verif_sql_delete = M_Projet::verif_delete_projet($idProjet);
+
+				if(!empty($verif_sql_delete))
+				{
+					$typeNotif = "error";
+					return $typeNotif;
+				}
+
+			break;
+			*/
+		}
+	}
+
+	static function verifFichier($name, $tmp_name, $size)
+    {
+		$extensionsAutorisees = array("doc", "docx", "pdf");
+
+		// si un fichier a bien été transféré
+        if (is_uploaded_file($tmp_name))
+        {
+            $extraireExtension = explode(".", $name);
+            $extension = $extraireExtension[1];
+            // Contrôle de l'extension du fichier
+            if (!(in_array($extension, $extensionsAutorisees)))
+            {
+            	$_SESSION['typeNotif'] = "error";
+                $_SESSION['titreNotif'] = 'Votre fichier '.$name.' n\a pas l\'extension attendue('.$extensionsAutorisees.')';
+
+                if($_SESSION['role'] == "ENTREPRISE")
+                {
+                	header('Location:index.php?module=entreprise&action=remplir_brief');
+                }
+                else if ($_SESSION['role'] == "ADMIN") {
+                	header('Location:index.php?module=projet&action=manage&type=ajouter');
+                }
+            }
+
+            if ($size > 8000000)
+            {
+                $_SESSION['typeNotif'] = "error";
+                $_SESSION['titreNotif'] = 'Votre fichier '.$name.'est trop volumineux';
+
+                if($_SESSION['role'] == "ENTREPRISE")
+                {
+                	header('Location:index.php?module=entreprise&action=remplir_brief');
+                }
+                else if ($_SESSION['role'] == "ADMIN") {
+                	header('Location:index.php?module=projet&action=manage&type=ajouter');
+                }
+            }
+            return 'ok';
+	    }
+    }
+
+
+        
+    //Recuperation des données get_fichiers_lies
+	static function get_fichiers_lies($idProjet)
+	{
+		$get_fichiers_lies = M_Projet::get_fichiers_lies($idProjet);
+		return($get_fichiers_lies);
+	}
+
+        
+    //insertion de song get_fichiers_lies
+	static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)
+	{
+		$insert_fichiers_lies = M_Projet::insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur);
+		if(!empty($insert_fichiers_lies))
+		{
+                          $res = "ok";
+                    return($res);
+		}
+		else
+		{
+                     $res = "error";
+                    return($res);
+		}
+	}
+        
+	static function get_nb_AR_Projet($idProjet)
+	{
+		$get_nb_AR_Projet = M_Projet::get_nb_AR_Projet($idProjet);  
+		return($get_nb_AR_Projet);
+	}
+
+	static function count_get_nb_AR_Projet($idProjet)
+	{
+		$get_nb_AR_Projet = M_Projet::count_get_nb_AR_Projet($idProjet);  
+		return($get_nb_AR_Projet);
+	}
+
+		// static function set_Statut($idProjet, $emailContact)
 	// {
 		// $update_statut = M_Projet::set_Statut($idProjet, $emailContact);
 
@@ -263,151 +404,6 @@ class Projet
 			// $_SESSION['msgNotif'] = "";
 		// }
 	// }
-
-
-	static function del_projet($idProjet)
-	{
-		$type = "delete";
-
-		$verif_sql = Projet::verif_sql($type, $titreProjet=NULL, $idProjet);
-
-		if(!empty($verif_sql))
-		{
-			$delProjet = "error";
-			return($delProjet);
-		}
-		else
-		{
-			M_Projet::del_projet($idProjet);
-
-			$delProjet = "ok";
-
-			return($delProjet);
-		}
-	}
-
-	static function valider_projet($idProjet)
-	{
-
-		/*$type = "valider";
-
-		$verif_sql = Projet::verif_sql($type, $titreProjet=NULL, $idProjet);
-
-		if(!empty($verif_sql))
-		{
-			$delProjet = "error";
-			return($delProjet);
-		}
-		else
-		{*/
-			M_Projet::valider_projet($idProjet);
-
-			/*$delProjet = "ok";
-
-			return($delProjet);
-		}*/
-	}
-
-
-	static function verif_sql($type, $titreProjet=NULL, $idProjet=NULL)
-	{
-
-		switch ($type)
-		{
-
-			case "insert":
-
-				$verif_sql_insert = M_Projet::verif_insert_projet($titreProjet);
-
-				if(!empty($verif_sql_insert['idProjet']))
-				{
-					$error="error";
-					return $error;
-				}
-
-			break;
-
-
-			/*case "delete":
-
-				$verif_sql_delete = M_Projet::verif_delete_projet($idProjet);
-
-				if(!empty($verif_sql_delete))
-				{
-					$typeNotif = "error";
-					return $typeNotif;
-				}
-
-			break;
-			*/
-		}
-	}
-
-	static function verifFichier($name, $tmp_name, $size)
-    {
-		$extensionsAutorisees = array("doc", "docx", "pdf");
-
-		// si un fichier a bien été transféré
-        if (is_uploaded_file($tmp_name))
-        {
-
-            $extraireExtension = explode(".", $name);
-            $extension = $extraireExtension[1];
-            // Contrôle de l'extension du fichier
-            if (!(in_array($extension, $extensionsAutorisees)))
-            {
-            	echo "extention nok";
-            	$_SESSION['typeNotif'] = "error";
-                $_SESSION['titreNotif'] = 'Votre fichier '.$name.' na pas lextension attendue('.$extensionsAutorisees.')';
-                header('Location:index.php?module=entreprise&action=remplir_brief');
-            }
-
-            if ($size > 8000000)
-            {
-            	echo "size nok";
-                $_SESSION['typeNotif'] = "error";
-                $_SESSION['titreNotif'] = 'Votre fichier '.$name.'est trop volumineux';
-                header('Location:index.php?module=entreprise&action=remplir_brief');
-            }
-            return 'ok';
-	    }
-    }
-
-
-         //Recuperation des données get_fichiers_lies
-         static function get_fichiers_lies($idProjet)
-	{
-		$get_fichiers_lies = M_Projet::get_fichiers_lies($idProjet);
-		return($get_fichiers_lies);
-	}
-
-         //insertion de song get_fichiers_lies
-         static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)
-	{
-		$insert_fichiers_lies = M_Projet::insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur);
-		if(!empty($insert_fichiers_lies))
-		{
-                          $res = "ok";
-                    return($res);
-		}
-		else
-		{
-                     $res = "error";
-                    return($res);
-		}
-	}
-
-        static function get_nb_AR_Projet($idProjet)
-	{
-            	$get_nb_AR_Projet = M_Projet::get_nb_AR_Projet($idProjet);
-		return($get_nb_AR_Projet);
-	}
-
-        static function count_nb_AR_Projet($idProjet)
-	{
-            	$get_nb_AR_Projet = M_Projet::count_nb_AR_Projet($idProjet);
-		return($get_nb_AR_Projet);
-	}
 }
 
 //if(site_admin())

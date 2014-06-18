@@ -12,15 +12,26 @@ if (isset($_SESSION['lastForm']['submit']))
 	<div class="col-md-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<div class="panel-title">Ajouter un projet</div>
+				<?php
+				if($_GET['type'] == "modifier")
+				{
+					echo '<div class="panel-title">Modifier un projet</div>';
+				}
+				else
+				{
+					echo '<div class="panel-title">Ajouter un projet</div>';
+				}
+				?>
+				
 			</div>
 
 			<div class="panel-body">
-				<form method="POST" action="index.php?module=projet&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idProjet'])){ echo '&idProjet='.$_GET['idProjet']; }else{} ?>" class="form-horizontal form-groups-bordered">
+				<form method="POST" enctype="multipart/form-data" action="index.php?module=projet&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idProjet'])){ echo '&idProjet='.$_GET['idProjet']; }else{} ?>" class="form-horizontal form-groups-bordered">
+					
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Titre</label>
 						<div class="col-sm-5">
-							<input class="form-control" required="required" type="text" name="titreProjet" value="<?php if(!empty($get_projet['titreProjet'])){ echo $get_projet['titreProjet']; }Else{echo "";}?>">
+							<input class="form-control" required="required" type="text" name="titreProjet" value="<?php if(!empty($get_projet['titreProjet'])){ echo $get_projet['titreProjet']; }else{echo "";}?>">
 						</div>
 					</div>
 
@@ -35,15 +46,24 @@ if (isset($_SESSION['lastForm']['submit']))
 				      <label class="col-sm-3 control-label">Avez-vous une stratégie de branding ?</label>
 				      <div class="col-sm-5">
 				        <br>
-				        <p>Mettre URL du fichier</p>
+				        <?php 
+				        if(!empty($get_projet['brandingProjet']))
+				        { 
+				        	echo 'public/brief_formulaire/branding/'.$get_projet['brandingProjet']; 
+				        }
+				    	else
+				    	{
+				    		echo '<div style="position:relative;">
+						          <input type="file" id="brandingProjet" name="fichier[]" placeholder="" class="input-xlarge">
+						        </div>';
+				    	}?>
 				      </div>
 				    </div>
 
 				    <div class="form-group">
 				      <label class="col-sm-3 control-label">Votre positionnement en 140 caractères</label>
 				      <div class="col-sm-5">
-				        <textarea class="form-control autogrow" required="required" name="positionnement" style="width:408px; height:120px;"></textarea>
-				      	 <p class="help-block">Prévoir</p>
+				        <textarea class="form-control autogrow" required="required" name="positionnementProjet" style="width:408px; height:120px;"><?php if(!empty($get_projet['positionnementProjet'])){ echo $get_projet['positionnementProjet']; }Else{echo "";}?></textarea>
 				      </div>
 				    </div>
 
@@ -51,17 +71,25 @@ if (isset($_SESSION['lastForm']['submit']))
 				      <label class="col-sm-3 control-label">Votre identite visuelle</label>
 				      	<div class="col-sm-5">
 				        	<br>
-				        	<p>Mettre URL du fichier</p>
+				        	<?php 
+					        if(!empty($get_projet['identiteProjet']))
+					        { 
+					        	echo 'public/brief_formulaire/identite/'.$get_projet['identiteProjet']; 
+					        }
+					    	else
+					    	{
+					    		echo '<div style="position:relative;">
+							          <input type="file" id="identiteProjet" name="fichier[]" placeholder="" class="input-xlarge">
+							        </div>';
+					    	}?>
 				        	<p class="help-block">Pouvez-vous nous envoyer votre charte graphique ?</p>
 				      	</div>
-				      	
 				    </div>
-				        
 
 				    <div class="form-group">
 				      <label class="col-sm-3 control-label">Des références musicales ?</label>
 				      <div class="col-sm-5">
-				        <textarea class="form-control autogrow" required="required" name="references" style="width:408px; height:120px;"></textarea>
+				        <textarea class="form-control autogrow" required="required" name="referencesProjet" style="width:408px; height:120px;"><?php if(!empty($get_projet['referencesProjet'])){ echo $get_projet['referencesProjet']; }Else{echo "";}?></textarea>
 				        <p class="help-block">Envoyez-nous vos liens URLS Youtube</p>
 				      </div>
 				    </div>
@@ -69,7 +97,7 @@ if (isset($_SESSION['lastForm']['submit']))
 				    <div class="form-group">
 				      <label class="col-sm-3 control-label">Ce que vous ne souhaitez surtout pas...</label>
 				      <div class="col-sm-5">
-				        <textarea class="form-control autogrow" required="required" name="dontlike" style="width:408px; height:120px;"></textarea>
+				        <textarea class="form-control autogrow" required="required" name="dontlikeProjet" style="width:408px; height:120px;"><?php if(!empty($get_projet['dontlikeProjet'])){ echo $get_projet['dontlikeProjet']; }Else{echo "";}?></textarea>
 				        <p class="help-block">Envoyez-nous vos liens URLS Youtube</p>
 				      </div>
 				    </div>
@@ -77,7 +105,7 @@ if (isset($_SESSION['lastForm']['submit']))
 				    <div class="form-group">
 				      <label class="col-sm-3 control-label">Commentaires</label>
 				      <div class="col-sm-5">
-				        <textarea class="form-control autogrow" required="required" name="commentaires" style="width:408px; height:120px;"></textarea>
+				        <textarea class="form-control autogrow" required="required" name="commentaireProjet" style="width:408px; height:120px;"><?php if(!empty($get_projet['commentaireProjet'])){ echo $get_projet['commentaireProjet']; }Else{echo "";}?></textarea>
 				      </div>
 				    </div>
 
@@ -110,7 +138,7 @@ if (isset($_SESSION['lastForm']['submit']))
 							else
 							{?>
 								<div class="radio-field">
-									<input name = "tailleEntreprise" id="tailleProjet_1" type="radio" value="1" <?php if ($get_projet['tailleEntreprise'] == "1"){ echo 'checked="checked"';}?> />
+									<input name = "tailleEntreprise" id="tailleProjet_1" type="radio"  <?php if ($get_projet['tailleEntreprise'] == "1"){ echo 'checked="checked"';}?> value="1"/>
 									<label for="tailleProjet_1">1 à 10 personnes - TPE</label>
 								</div>
 								<div class="radio-field">
@@ -274,45 +302,25 @@ if (isset($_SESSION['lastForm']['submit']))
 					</div>
 
 					<div class="form-group">
-						<label class="col-sm-3 control-label">Proposition de Pack</label>
-						<?php
-						/*
-						$pack = Projet::get_pack();
+						<label class="col-sm-3 control-label">Proposition de pack</label>
+						<div class="col-sm-5">
+							<div class="controls">
+								<?php
+					    		//Si c'est le formulaire d'ajout
+								if (!isset($get_projet['idPack']))
+								{
+									require_once('controllers/pack/pack.php');
+									Pack::vignette_pack($type="admin");
 
-						if(empty($pack))
-			    		{
-			    			echo "<p>Pas de resultat</p>";
-			    		}
-			    		else
-			    		{
-			    			echo '<select name="idPack">';
-	    					while($tab_pack = $pack->fetch())
-	    					{
-	    						if ($tab_pack['idPack']){
-	    							echo '<option value ="'.$tab_pack['idPack'].' selected="selected"">'.$tab_pack['titrePack'].'</option>';
-	    						}
-	    						else{
-	    							echo '<option value ="'.$tab_pack['idPack'].'">'.$tab_pack['titrePack'].'</option>';
-	    						}
-
-	    					};
-	    					echo '</select>';
-			    		}*/
-			    		//Si c'est le formulaire d'ajout
-						if (!isset($get_projet['idPack']))
-						{
-							require_once('controllers/pack/pack.php');
-							Pack::vignette_pack($type="admin");
-
-						}
-						else
-						{
-			    			require_once('controllers/pack/pack.php');
-							Pack::vignette_pack($type="admin");
-						}
-
-
-						?>
+								}
+								else
+								{
+					    			require_once('controllers/pack/pack.php');
+									Pack::vignette_pack($type="admin");
+								}
+								?>
+							</div>
+						</div>
 					</div>
 
 
@@ -327,15 +335,15 @@ if (isset($_SESSION['lastForm']['submit']))
 							{?>
 								<div class="controls">
 									<div class="radio-field">
-										<input name ="optionProjet[]" id="voixOffProjet_1" type="radio" value="1"/>
+										<input name ="optionProjet" checked="checked" id="voixOffProjet_1" type="radio" value="1"/>
 										<label for="voixOffProjet_1">Entre 1 à 5 messages par mois</label>
 									</div>
 									<div class="radio-field">
-										<input name ="optionProjet[]" id="voixOffProjet_2" type="radio" value="2"/>
+										<input name ="optionProjet" id="voixOffProjet_2" type="radio" value="2"/>
 										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
 									</div>
 									<div class="radio-field">
-										<input name ="optionProjet[]" id="voixOffProjet_3" type="radio" value="3"/>
+										<input name ="optionProjet" id="voixOffProjet_3" type="radio" value="3"/>
 										<label for="voixOffProjet_3">plus de 10</label>
 									</div>
 										<p class="help-block">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix Off  : porte parole vocale de votre marque
@@ -348,16 +356,16 @@ if (isset($_SESSION['lastForm']['submit']))
 								$options = json_decode($get_projet['optionProjet']);
 								?>
 								<div class="controls">
-									<div class="checkbox-field">
-										<input name ="optionProjet[]" id="voixOffProjet_1" type="checkbox" <?php if (in_array("1", $options)){ echo 'checked="checked"';}?> value="1"/>
+									<div class="radio-field">
+										<input name ="optionProjet" id="voixOffProjet_1" type="radio" <?php if ($get_projet['optionProjet'] == "1"){ echo 'checked="checked"';}?> value="1"/>
 										<label for="voixOffProjet_1">Entre 1 à 5 messages par mois</label>
 									</div>
-									<div class="checkbox-field">
-										<input name ="optionProjet[]" id="voixOffProjet_2" type="checkbox" <?php if (in_array("2", $options)){ echo 'checked="checked"';}?> value="2"/>
+									<div class="radio-field">
+										<input name ="optionProjet" id="voixOffProjet_2" type="radio" <?php if ($get_projet['optionProjet'] == "2"){ echo 'checked="checked"';}?> value="2"/>
 										<label name ="optionProjet" for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
 									</div>
-									<div class="checkbox-field">
-										<input name ="optionProjet[]" id="voixOffProjet_3" type="checkbox" <?php if (in_array("3", $options)){ echo 'checked="checked"';}?> value="3"/>
+									<div class="radio-field">
+										<input name ="optionProjet" id="voixOffProjet_3" type="radio" <?php if ($get_projet['optionProjet'] == "3"){ echo 'checked="checked"';}?> value="3"/>
 										<label for="voixOffProjet_3">plus de 10</label>
 									</div>
 										<p class="help-block">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix Off  : porte parole vocale de votre marque
@@ -398,43 +406,18 @@ if (isset($_SESSION['lastForm']['submit']))
 								echo '<option value="2">Terminé</option>';
 								echo '<option value="3">Non validé</option>';
 								echo '</select>';
-
 							}
 							else
-							{
-								echo '<select name="isActiveProjet">';
-								if ($get_projet['isActiveProjet'] == "0")
-								{
-									echo '<option value="non" selected="selected">En attente de validation</option>';
-									echo '<option value="1">En cours</option>';
-									echo '<option value="2">Terminé</option>';
-									echo '<option value="3">Non validé</option>';
-								}
-								else if ($get_projet['isActiveProjet'] == "1")
-								{
-									echo '<option value="non">En attente de validation</option>';
-									echo '<option value="1" selected="selected">En cours</option>';
-									echo '<option value="2">Terminé</option>';
-									echo '<option value="3">Non validé</option>';
-
-								}
-								else if ($get_projet['isActiveProjet'] == "2") {
-									echo '<option value="non">En attente de validation</option>';
-									echo '<option value="1">En cours</option>';
-									echo '<option value="2" selected="selected">Terminé</option>';
-									echo '<option value="3">Non validé</option>';
-								}
-								else if ($get_projet['isActiveProjet'] == "3") {
-									echo '<option value="non">En attente de validation</option>';
-									echo '<option value="1">En cours</option>';
-									echo '<option value="2">Terminé</option>';
-									echo '<option value="3" selected="selected">Non validé</option>';
-								}
-
-								echo '</select>';
+							{?>
+								<select name="isActiveProjet">
+									<option <?php if ($get_projet['isActiveProjet'] == "0"){echo 'selected="selected"';} ?> value="non"> En attente de validation</option>
+									<option <?php if ($get_projet['isActiveProjet'] == "1"){echo 'selected="selected"';} ?> value="1"> En cours</option>
+									<option <?php if ($get_projet['isActiveProjet'] == "2"){echo 'selected="selected"';} ?> value="2"> Terminé</option>
+									<option <?php if ($get_projet['isActiveProjet'] == "3"){echo 'selected="selected"';} ?> value="3"> Non validé</option>
+								</select>
+							<?php 
 							}
 							?>
-							</div>
 						</div>
 					</div>
 

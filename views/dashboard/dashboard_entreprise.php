@@ -84,6 +84,7 @@
 
                     echo "</tr>";
                 }
+
                 /*
                 Yacine : Valentin j'ai retirer ta fonction
                 foreach ($projets as $projet) {
@@ -96,9 +97,6 @@
                     echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
                     echo "</tr>";
                 }*/
-
-
-
                 ?></table><?php
             }else{
                 ?>
