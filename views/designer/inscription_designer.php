@@ -4,8 +4,8 @@
   <div id="title">
     <h1 class="inner title-2">Inscription<span>Designer Sonore</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
-        <li> <a href="candidates.html">Designers sonores</a></li>
+        <li> <a href="index.php">Accueil</a></li>
+        <li> <a href="index.php?module=designer&action=inscription_designer">Designers sonores</a></li>
       </ul>
     </h1>
   </div>

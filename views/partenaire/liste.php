@@ -3,7 +3,7 @@
 <div id="title">
   <h1 class="inner title-2">Partenaires
     <ul class="breadcrumb-inner">
-      <li> <a href="index.html">Accueil</a></li>
+      <li> <a href="index.php">Accueil</a></li>
       <li> <a href="partners.html">Partenaires</a></li>
     </ul>
   </h1>

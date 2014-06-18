@@ -8,7 +8,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
   <div id="title">
     <h1 class="inner title-2">Brief<span>Formulaire</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
       </ul>
     </h1>
   </div>
