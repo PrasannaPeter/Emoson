@@ -37,13 +37,13 @@
     <h2>Détail du projet</h2>
     <p><strong>Titre projet : </strong><?php echo $get_projet['titreProjet']; ?></p>
     <p><strong>Description projet : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Strategie de branding : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Positionnement : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Identité visuelle : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Références musicales : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Ce que vous ne souhaitez pas : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Commentaires : </strong><?php echo $get_projet['descriptionProjet'];?></p>
-    <p><strong>Pack : </strong><?php echo $get_projet['idPack'];?></p>
+    <p><strong>Strategie de branding : </strong><?php echo 'public/brief_formulaire/branding/'.$get_projet['brandingProjet'];?></p>
+    <p><strong>Positionnement : </strong><?php echo $get_projet['positionnementProjet'];?></p>
+    <p><strong>Identité visuelle : </strong><?php echo 'public/brief_formulaire/identite/'.$get_projet['identiteProjet'];?></p>
+    <p><strong>Références musicales : </strong><?php echo $get_projet['referencesProjet'];?></p>
+    <p><strong>Ce que vous ne souhaitez pas : </strong><?php echo $get_projet['dontlikeProjet'];?></p>
+    <p><strong>Commentaires : </strong><?php echo $get_projet['commentaireProjet'];?></p>
+    <p><strong>Pack : </strong><?php echo $get_projet['titrePack'];?></p>
     <p><strong>Voix off : </strong><?php 
             if ($get_projet['optionProjet'] == "1"){
                 echo "Entre 1 à 5 messages par mois"; 

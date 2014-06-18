@@ -15,10 +15,14 @@ else
 	if(!empty($_POST['idUtilisateur'])){$idUtilisateur = $_POST['idUtilisateur'];}else{$idUtilisateur=NULL;}
 }
 
-if(!empty($_POST['tailleEntreprise'])){ $tailleEntreprise = $_POST['tailleEntreprise'];}
-if(!empty($_POST['caEntreprise'])){$caEntreprise = $_POST['caEntreprise'];}
+if(!empty($_POST['positionnementProjet'])){ $positionnementProjet = $_POST['positionnementProjet'];}else{$positionnementProjet=NULL;}
+if(!empty($_POST['referencesProjet'])){ $referencesProjet = $_POST['referencesProjet'];}else{$referencesProjet=NULL;}
+if(!empty($_POST['dontlikeProjet'])){ $dontlikeProjet = $_POST['dontlikeProjet'];}else{$dontlikeProjet=NULL;}
+if(!empty($_POST['commentaireProjet'])){ $commentaireProjet = $_POST['commentaireProjet'];}else{$commentaireProjet=NULL;}
+if(!empty($_POST['tailleEntreprise'])){ $tailleEntreprise = $_POST['tailleEntreprise'];}else{$tailleEntreprise=NULL;}
+if(!empty($_POST['caEntreprise'])){$caEntreprise = $_POST['caEntreprise'];}else{$caEntreprise=NULL;}
 if(!empty($_POST['ptsContactEntreprise'])){$ptsContactEntreprise = json_encode($_POST['ptsContactEntreprise']);}else{$ptsContactEntreprise=NULL;}
-if(!empty($_POST['optionProjet'])){$optionProjet = json_encode($_POST['optionProjet']);}else{$optionProjet=NULL;}
+if(!empty($_POST['optionProjet'])){$optionProjet = $_POST['optionProjet'];}else{$optionProjet=NULL;}
 if(!empty($_POST['nbARProjet'])){$nbARProjet = $_POST['nbARProjet'];}else{$nbARProjet = "0";}
 if(!empty($_POST['nbDesignerSouhaite'])){$nbDesignerSouhaite = $_POST['nbDesignerSouhaite'];}else{$nbDesignerSouhaite = "0";}
 if(!empty($_POST['idPack'])){$idPack = $_POST['idPack'];}
@@ -182,15 +186,53 @@ switch($type)
 		// INSERT
 		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($idPack))
 		{
-			$remplir_brief = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+
+
+			/*echo '<p>titreProjet :'. $titreProjet.'</p>';
+			echo '<p>descriptionProjet :'. $descriptionProjet.'</p>';
+			echo '<p>brandingProjet :'.$_FILES['fichier']['name'][0].'<p>';
+			echo '<p>positionnementProjet :'. $positionnementProjet.'</p>';
+			echo '<p>identiteProjet :'.$_FILES['fichier']['name'][1].'<p>';
+			echo '<p>referencesProjet :'. $referencesProjet.'</p>';
+			echo '<p>dontlikeProjet :'. $dontlikeProjet.'</p>';
+			echo '<p>commentaireProjet :'. $commentaireProjet.'</p>';
+			echo '<p>isActiveProjet :'. $isActiveProjet.'</p>';
+			echo '<p>idUtilisateur :'. $idUtilisateur.'</p>';
+			echo '<p>tailleEntreprise :'. $tailleEntreprise.'</p>';
+			echo '<p>caEntreprise :'. $caEntreprise.'</p>';
+			echo '<p>tailleEntreprise :'. $tailleEntreprise.'</p>';
+			echo '<p>ptsContactEntreprise :'. $ptsContactEntreprise.'</p>';
+			echo '<p>optionProjet :'. $optionProjet.'</p>';
+			echo '<p>nbARProjet :'. $nbARProjet.'</p>';
+			echo '<p>nbDesignerSouhaite :'. $nbDesignerSouhaite.'</p>';
+			echo '<p>idPack :'. $idPack.'</p>';*/
+
+
+			/*$verifBranding = Projet::verifFichier($_FILES['fichier']['name'][0], $_FILES['fichier']['tmp_name'][0], $_FILES['fichier']['size'][0]);
+			$verifIdentite = Projet::verifFichier($_FILES['fichier']['name'][1], $_FILES['fichier']['tmp_name'][1], $_FILES['fichier']['size'][1] );
+
+			if ($verifBranding == 'ok') 
+			{
+				$destination = 'public/brief_formulaire/branding/'.$_FILES['fichier']['name'][0]; 
+				move_uploaded_file($_FILES['fichier']['tmp_name'][0], $destination);
+			}
+			
+			if ($verifIdentite == 'ok') 
+			{
+				$destination = 'public/brief_formulaire/identite/'.$_FILES['fichier']['name'][1]; 
+        		move_uploaded_file($_FILES['fichier']['tmp_name'][1], $destination);
+			}*/
+
+			
+			
+			$remplir_brief = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 			// Verifie l'action sinon erreur
 			if($remplir_brief=="ok")
 			{
 				$_SESSION['typeNotif'] = "success";
 				$_SESSION['titreNotif'] = "MERCI pour votre confance !";
-				$_SESSION['msgNotif'] = "Nous vous contactons dans les meilleurs délais
-pour vous sélectionner les meilleurs designers..";
+				$_SESSION['msgNotif'] = "Nous vous contactons dans les meilleurs délais pour vous sélectionner les meilleurs designers..";
 
 				//Redirection vers page de payement a faire
 				header('Location:index.php?module=dashboard&action=afficher');
@@ -209,6 +251,8 @@ pour vous sélectionner les meilleurs designers..";
 				$_SESSION['msgNotif'] = "Le Brief éxiste déjà dans la base";
 				header('Location:index.php?module=entreprise&action=remplir_brief');
 			}
+
+			
 		}
 		// Formulaire incomplet => affichage du formulaire
 		elseif(empty($_POST))

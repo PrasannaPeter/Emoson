@@ -135,6 +135,40 @@ class M_Utilisateur extends Utilisateur
 		return($read_projet_utilisateur);
 	}
 
+	static function nb_utilisateur()
+	{
+		$bdd = PDO();
+
+		$nb_utilisateur = $bdd->query('SELECT COUNT(*) as nbUtilisateur
+												FROM utilisateurs 
+												WHERE roleUtilisateur = "GRAPHISTE"
+												OR roleUtilisateur = "ENTREPRISE"
+			');
+		return($nb_utilisateur);
+	}
+
+	static function nb_designer() 
+	{
+		$bdd = PDO();
+
+		$nb_designer = $bdd->query('SELECT COUNT(*) as nbDesigner
+									FROM utilisateurs 
+									WHERE roleUtilisateur = "GRAPHISTE"
+			');
+		return($nb_designer);
+	}
+
+	static function nb_entreprise()
+	{
+		$bdd = PDO();
+
+		$nb_entreprise = $bdd->query('SELECT COUNT(*) as nbEntreprise
+												FROM utilisateurs 
+												WHERE roleUtilisateur = "ENTREPRISE"
+			');
+		return($nb_entreprise);
+	}
+
 	static function get_projet_utilisateur($idUtilisateur)
 	{
 		$bdd = PDO();

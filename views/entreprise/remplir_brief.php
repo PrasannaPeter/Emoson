@@ -6,7 +6,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
 
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Brief<span>Projet</span>
+    <h1 class="inner title-2">Brief<span>Formulaire</span>
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
       </ul>
@@ -17,7 +17,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
     <!-- Content Inner -->
     <div class="content-inner candidate-list">
 
-<form class="form-horizontal" method="POST" action="index.php?module=projet&action=manage&type=remplir_brief<?php if(!empty($idEntreprise)){ echo '&idUtilisateur='.$idEntreprise; }else{} ?>">
+<form class="form-horizontal" enctype="multipart/form-data" method="POST" action="index.php?module=projet&action=manage&type=remplir_brief<?php if(!empty($idEntreprise)){ echo '&idUtilisateur='.$idEntreprise; }else{} ?>">
   <fieldset>
     <div id="legend">
       <legend class=""><h2>Faire une demande de projet</h2></legend><br />
@@ -43,10 +43,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <div class="controls">
         <br>
         <div style="position:relative;">
-        <a class='btn btn-primary' href='javascript:;'>
-            Choose File...
-            <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-        </a>
+          <input type="file" id="brandingProjet" name="fichier[]" placeholder="" class="input-xlarge">
         </div>
         <br>
         <p class="help-block" style="margin-top:-15px;">Si oui, pouvez-vous nous envoyer votre charte de marque : document résumant qui vous êtes ?</p>
@@ -56,7 +53,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
     <div class="control-group">
       <label class="control-label">Votre positionnement en 140 caractères</label>
       <div class="controls">
-        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <textarea class="form-control autogrow" required="required" name="positionnementProjet" style="width:408px; height:120px;"></textarea>
         <p class="help-block" style="margin-top:-15px;">Prévoir</p>
       </div>
     </div>
@@ -66,10 +63,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <div class="controls">
         <br>
         <div style="position:relative;">
-        <a class='btn btn-primary' href='javascript:;'>
-            Choose File...
-            <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="file_source" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
-        </a>
+          <input type="file" id="identiteProjet" name="fichier[]" placeholder="" class="input-xlarge">
         </div>
         <br>
         <p class="help-block" style="margin-top:-15px;">Pouvez-vous nous envoyer votre charte graphique ?</p>
@@ -79,7 +73,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
     <div class="control-group">
       <label class="control-label">Des références musicales ?</label>
       <div class="controls">
-        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <textarea class="form-control autogrow" required="required" name="referencesProjet" style="width:408px; height:120px;"></textarea>
         <p class="help-block" style="margin-top:-15px;">Envoyez-nous vos liens URLS Youtube</p>
       </div>
     </div>
@@ -87,7 +81,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
     <div class="control-group">
       <label class="control-label">Ce que vous ne souhaitez surtout pas...</label>
       <div class="controls">
-        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <textarea class="form-control autogrow" required="required" name="dontlikeProjet" style="width:408px; height:120px;"></textarea>
         <p class="help-block" style="margin-top:-15px;">Envoyez-nous vos liens URLS Youtube</p>
       </div>
     </div>
@@ -95,7 +89,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
     <div class="control-group">
       <label class="control-label">Commentaires</label>
       <div class="controls">
-        <textarea class="form-control autogrow" required="required" name="descriptionProjet" style="width:408px; height:120px;"></textarea>
+        <textarea class="form-control autogrow" required="required" name="commentaireProjet" style="width:408px; height:120px;"></textarea>
       </div>
     </div>
 <hr>
@@ -213,15 +207,15 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <label class="control-label" for="voixOffProjet">Voix off</label>
       <div class="controls">
           <div class="radio-field">
-            <input name="optionProjet[]" id="voixOffProjet_1" type="radio" value="1"/>
+            <input name="optionProjet" id="voixOffProjet_1" type="radio" value="1" selected = "selected"/>
             <label for="voixOffProjet_1">Entre 1 à 5 messages par mois</label>
           </div>
           <div class="radio-field">
-            <input name="optionProjet[]" id="voixOffProjet_2" type="radio" value="2"/>
+            <input name="optionProjet" id="voixOffProjet_2" type="radio" value="2"/>
             <label for="voixOffProjet_2">Entre 5 à 10 messages par mois</label>
           </div>
           <div class="radio-field">
-            <input name="optionProjet[]" id="voixOffProjet_3" type="radio" value="3"/>
+            <input name="optionProjet" id="voixOffProjet_3" type="radio" value="3"/>
             <label for="voixOffProjet_3">plus de 10</label>
           </div>
           <p class="help-block" style="margin-top:-15px;">Besoin d’une égérie vocale pour votre identité sonore ? Votre voix off  : porte parole vocale de votre marque<br>
@@ -250,7 +244,7 @@ Si oui, définissez le nombre de messages par mois </p>
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-        <button class="btn btn-success">Confirmer</button>
+        <button type="submit" class="btn btn-success">Confirmer</button>
       </div>
     </div>
   </fieldset>

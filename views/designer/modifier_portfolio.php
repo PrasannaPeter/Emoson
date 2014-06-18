@@ -28,13 +28,18 @@
            <legend class=""><h2>Ajouter votre photo</h2></legend><br />
        </div>
        <p>Telechargez une photo pour l'ajouter à votre portfolio.</p>
-       <p>Extension possible: "jpeg", "jpg", "gif"</p>
-       <p>Taille max: 1000000</p>
+       <p>Extension possible: "jpeg", "jpg", "gif", "png"</p>
+       <p>Taille max: 10Mo</p>
        <br />
        <div class="control-group">
            <label class="control-label" for="maphoto">Ma photo</label>
            <div class="controls">
-               <input type="file" id="urlLinkAdd" name="maphoto" placeholder="" class="input-xlarge">
+            <div style="position:relative;">
+              <a class='btn btn-primary' href='javascript:;'>
+                  Choisir un fichier...
+                  <input type="file" style='position:absolute;z-index:2;top:0;left:0;filter: alpha(opacity=0);-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";opacity:0;background-color:transparent;color:transparent;' name="maphoto" size="40"  onchange='$("#upload-file-info").html($(this).val());'>
+              </a>
+            </div>
            </div>
        </div>
           <div class="control-group">

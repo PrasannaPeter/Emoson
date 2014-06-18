@@ -42,10 +42,9 @@ class M_Proposition extends Proposition
 		}
 		elseif ($_SESSION['roleUtilisateur'] == "ENTREPRISE")
 		{
-			$mes_projets = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, acceptation, validation, isActiveProjet, raisonSocialeEntreprise
-														FROM propose, projets, entreprises, utilisateurs
-														WHERE projets.idProjet = propose.idProjet
-														AND projets.idUtilisateur = utilisateurs.idUtilisateur
+			$mes_projets = $bdd->query('SELECT DISTINCT projets.idProjet, titreProjet, descriptionProjet, isActiveProjet, raisonSocialeEntreprise
+														FROM projets, entreprises, utilisateurs
+														WHERE projets.idUtilisateur = utilisateurs.idUtilisateur
 														AND utilisateurs.idUtilisateur = entreprises.idUtilisateur
 														AND utilisateurs.idUtilisateur = '.$idUtilisateur.'');
 		}
