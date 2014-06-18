@@ -155,7 +155,7 @@ class M_Proposition extends Proposition
 		return($get_designer);
 
 	}
-
+        
 }
 
 

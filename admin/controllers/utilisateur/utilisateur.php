@@ -452,9 +452,9 @@ class Utilisateur
             	$get_designer_img = M_Utilisateur::get_designer_img($idUtilisateur);   
 		return($get_designer_img);
 	}
-
-}
-
+        
+      
+}       
 // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté
 if(site_admin() && !empty($controller))
 {

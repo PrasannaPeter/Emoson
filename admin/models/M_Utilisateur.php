@@ -402,5 +402,5 @@ class M_Utilisateur extends Utilisateur
 
 		return($verif_sql_compte_soundcloud['designer_img_designer_id']);
 	}
-
+        
 }

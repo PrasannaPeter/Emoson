@@ -189,7 +189,7 @@ class M_Projet extends Projet
 		');
 	}
 
-	// Verification intégritée BDD
+	// Verification intï¿½gritï¿½e BDD
 
 	static function verif_insert_projet($titreProjet)
 	{
@@ -209,17 +209,69 @@ class M_Projet extends Projet
 	static function verif_delete_projet($idProjet)
 	{
 		$bdd = PDO();
-		$verif_sql_delete = $bdd->query('
+		$sql = $bdd->query('
 			SELECT idProjet
 			FROM projets
 			WHERE idProjet = '.$idProjet.'
 		');
 
-		$verif_sql_delete = $verif_sql_delete->fetch();
+		$verif_sql_delete = $sql->fetch();
 
 		return($verif_sql_delete['idProjet']);
 	}
+        
+       // recuperation des donnÃ©es fichiers_lies
+        static function get_fichiers_lies($idProjet)
+	{
+		$bdd = PDO();
+		$sql = $bdd->query('
+			SELECT *, nomUtilisateur
+			FROM fichiers_lies, utilisateurs
+			WHERE fichiers_lies.idUtilisateur = utilisateurs.idUtilisateur
+                        AND idProjet = '.$idProjet.'
+		');
 
+		return($sql);
+	}
+        
+        // insertion des donnÃ©es fichiers_lies
+        static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)
+	{
+
+		$bdd = PDO();
+		$sql_insert = $bdd->query("
+			INSERT INTO fichiers_lies(libFichier, dateUploadFichier, idProjet, idUtilisateur)
+			VALUES ('$libFichier', '$dateUploadFichier', '$idProjet', '$idUtilisateur')
+					");
+                return($sql_insert); 
+	}
+        
+        static function get_nb_AR_Projet($idProjet)
+	{
+		$bdd = PDO();
+
+		$nb_AR_Projet = $bdd->query('SELECT nbARProjet
+                                                        FROM projets 
+                                                        WHERE idProjet = '.$idProjet.'
+		');
+                $verif_sql = $nb_AR_Projet->fetch();
+
+		return($verif_sql['nbARProjet']);
+	}
+        
+        static function count_nb_AR_Projet($idProjet)
+	{
+		$bdd = PDO();
+
+		$count_nb_AR_Projet = $bdd->query('SELECT count(idFichier)as nb
+                                                        FROM fichiers_lies 
+                                                        WHERE idProjet = '.$idProjet.'
+		');
+                $verif_sql = $count_nb_AR_Projet->fetch();
+
+		return($verif_sql['nb']);
+	}
+        
 }
 
 	// static function set_Statut($idProjet, $emailContact)
