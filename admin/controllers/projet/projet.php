@@ -255,7 +255,7 @@ class Projet
 			break;
 
 
-			/*case "delete":
+			case "delete":
 
 				$verif_sql_delete = M_Projet::verif_delete_projet($idProjet);
 
@@ -266,33 +266,20 @@ class Projet
 				}
 
 			break;
-			*/
+			
 		}
 	}
-}
 
-	/*static function verifFichier($name, $tmp_name, $size)
+
+    static function verifFichier($name, $tmp_name, $size)
     {
 		$extensionsAutorisees = array("doc", "docx", "pdf");
-
-<<<<<<< HEAD
 		// si un fichier a bien ï¿½tï¿½ transfï¿½rï¿½
-        if (is_uploaded_file($tmp_name))
-=======
-		// si un fichier a bien été transféré
-        if (is_uploaded_file($tmp_name))
->>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
-        {
+        if (is_uploaded_file($tmp_name)){
             $extraireExtension = explode(".", $name);
             $extension = $extraireExtension[1];
-<<<<<<< HEAD
             // Contrï¿½le de l'extension du fichier
-            if (!(in_array($extension, $extensionsAutorisees)))
-=======
-            // Contrôle de l'extension du fichier
-            if (!(in_array($extension, $extensionsAutorisees)))
->>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
-            {
+            if (!(in_array($extension, $extensionsAutorisees))){
             	$_SESSION['typeNotif'] = "error";
                 $_SESSION['titreNotif'] = 'Votre fichier '.$name.' n\a pas l\'extension attendue('.$extensionsAutorisees.')';
 
@@ -324,14 +311,7 @@ class Projet
 
 
 
-<<<<<<< HEAD
-         //Recuperation des donnï¿½es get_fichiers_lies
-         static function get_fichiers_lies($idProjet)
-=======
-    //Recuperation des données get_fichiers_lies
-	static function get_fichiers_lies($idProjet)
->>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
-	{
+         static function get_fichiers_lies($idProjet){
 		$get_fichiers_lies = M_Projet::get_fichiers_lies($idProjet);
 		return($get_fichiers_lies);
 	}
@@ -359,18 +339,16 @@ class Projet
 		return($get_nb_AR_Projet);
 	}
 
-	static function count_get_nb_AR_Projet($idProjet)
+	static function count_nb_AR_Projet($idProjet)
 	{
-		$get_nb_AR_Projet = M_Projet::count_get_nb_AR_Projet($idProjet);
+		$get_nb_AR_Projet = M_Projet::count_nb_AR_Projet($idProjet);
 		return($get_nb_AR_Projet);
 	}
-<<<<<<< HEAD
 
         static function deleteTrackByAdmin($idFichier)
 	{
             $verif_sql_delete = M_Projet::deleteTrack($idFichier);
-            echo $verif_sql_delete;
-            die();
+
             if(!empty($verif_sql_delete))
             {
                      $typeNotif = "ok";
@@ -381,9 +359,7 @@ class Projet
                     return $typeNotif;
             }
         }
-
-=======
-
+}
 		// static function set_Statut($idProjet, $emailContact)
 	// {
 		// $update_statut = M_Projet::set_Statut($idProjet, $emailContact);
@@ -439,8 +415,6 @@ class Projet
 			// $_SESSION['msgNotif'] = "";
 		// }
 	// }
->>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
-}
-*/
+
 //if(site_admin())
-		//require_once('views/'.$controller.'/'.$controller.'.php');
+//    require_once('views/'.$controller.'/'.$controller.'.php');

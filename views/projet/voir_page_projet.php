@@ -143,7 +143,7 @@ if ($_SESSION['roleUtilisateur'] == "ENTREPRISE" || ($acceptation == 1 && $valid
                     </tr>
                     <?php } ?>
                       
-                </tab
+                </table>
 
     <?php if ($_SESSION['roleUtilisateur'] == "GRAPHISTE"): ?>
                                     
