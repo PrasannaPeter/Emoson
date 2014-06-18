@@ -100,22 +100,22 @@
               <h2>Navigation</h2>
               <div class="left">
                 <ul>
-                  <li><a href="index.php">Accueil</a></li>
-                  <li><a href="index.php?module=projet">Projets</a></li>
-                  <li><a href="index.php?module=entreprise">Entreprises</a></li>
-                  <li><a href="index.php?module=apropos">A propos</a></li>
+                  <li> <a href="index.php">Accueil</a></li>
+                  <li><a href="index.php?module=partenaire&action=liste">Partenaires</a></li>
+                  <li><a href="index.php?module=apropos">Qui sommes-nous</a></li>
+                  <li><a href="index.php?module=contact">Contact</a></li>
                 </ul>
               </div>
-              <div class="right">
+<!--               <div class="right">
                 <ul>
                   <li><a href="index.php?module=contact">Contact</a></li>
                   <li><a href="index.php?module=conditions">Terms &amp; Conditions</a></li>
                   <li><a href="index.php?module=vieprivee">Privacy Policy</a></li>
                 </ul>
-              </div>
+              </div> -->
             </div>
             <div id="fol-menu" class="footer-menu">
-              <h2>Follow Us</h2>
+              <h2>Nous suivre</h2>
               <ul>
                 <li><a href="#">Blog</a></li>
                 <li><a href="#">Twitter</a></li>
@@ -123,7 +123,7 @@
                 <li><a href="#">Youtube</a></li>
               </ul>
             </div>
-            <div id="job-menu" class="footer-menu">
+<!--             <div id="job-menu" class="footer-menu">
               <h2>Popular Jobs</h2>
               <ul>
                 <li><a href="#">Web Developer</a></li>
@@ -131,7 +131,7 @@
                 <li><a href="#">UX Engineer</a></li>
                 <li><a href="#">Account Manager</a></li>
               </ul>
-            </div>
+            </div> -->
           </div>
         </section>
       </section>
@@ -146,7 +146,7 @@
   <div class="inner">
     <div class="row-fluid">
       <!-- Copyright Text -->
-      <div id="copyright-text">Copyright 2013-2014 <a href="http://uouapps.com/careers">EmoSon</a> | All Rights Reserved | Realised by <a href="http://uouapps.com/">ESGI students</a></div>
+      <div id="copyright-text">Reproduction non autorisée <a href="index.php">EmoSon</a> | Tous droits réservés| Création des étudiants de l'ESGI</div>
       <!-- /Copyright Text -->
       <!-- Copyright Social Link -->
       <div id="copyright-link">

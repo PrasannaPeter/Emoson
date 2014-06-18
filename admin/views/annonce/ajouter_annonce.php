@@ -24,16 +24,11 @@ if (isset($_SESSION['lastForm']['submit']))
 						</div>
 					</div>
 
-					<div class="form-group">
-						<label class="col-sm-3 control-label">Contenu</label>
-						<div class="col-sm-5">
-							<textarea class="form-control autogrow" required="required" name="content"><?php if(!empty($get_annonce['content'])){ echo $get_annonce['content']; }Else{echo "";}?></textarea>
-						</div>
-					</div>
-
-					<div class="form-group">
-		<textarea class="form-control wysihtml5" name="sample_wysiwyg" id="sample_wysiwyg"></textarea>
-	</div>
+							<div class="form-group">
+				<textarea class="form-control wysihtml5" name="content" id="sample_wysiwyg">
+					<?php if(!empty($get_annonce['content'])){ echo $get_annonce['content']; }Else{echo "";}?>
+				</textarea>
+			</div>
 
 
 					</br></br>

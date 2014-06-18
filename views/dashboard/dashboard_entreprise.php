@@ -65,7 +65,7 @@
                     echo "<td>".$projet['raisonSocialeEntreprise']."</td>";
                     if($projet['isActiveProjet'] == 0)
                     {
-                        echo '<td><span class=\'label label-info\'>En cours de validation</span></td>';
+                        echo '<td><span style=\'color:white\' class=\'label label-info\'>En cours de validation</span></td>';
                     }
                     elseif($projet['isActiveProjet'] == 1)
                     {
@@ -85,6 +85,18 @@
                     echo "</tr>";
                 }
 
+                /*
+                Yacine : Valentin j'ai retirer ta fonction
+                foreach ($projets as $projet) {
+                    $get_entreprise = Entreprise::get_entreprise($id=NULL, $type['byUserId'] = $projet['idUtilisateur']);
+                    dump($get_entreprise->fetch());
+                    echo "<tr>";
+                    echo "<td>".$projet['titreProjet']."</td>";
+                    echo "<td>".$projet['nomEntreprise']."</td>";
+                    echo "<td>".get_statut_projet($value)."</td>";
+                    echo "<td><a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a></td>";
+                    echo "</tr>";
+                }*/
                 ?></table><?php
             }else{
                 ?>

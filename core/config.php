@@ -8,7 +8,7 @@
 /** Configuration des informations gÃ©nÃ©rales. */
 
 define('SITE_COPYRIGHT', '&copy; Emoson ');
-define('SITE_TITLE', 'EmoSon - Le site qui met en relation designers et entreprise');
+define('SITE_TITLE', 'BRAND440 - Le site qui met en relation designers et entreprise');
 define('SITE_DESCRIPTION','Entreprise : trouvez un designer pour vos projets.');
 define('SITE_KEYWORDS','emoson, design, designer, projet, portfolio');
 define('SITE_AUTHOR','Valentin Giraud, Vikas Kumar, Prasana Peter, Yacine, Valentin');

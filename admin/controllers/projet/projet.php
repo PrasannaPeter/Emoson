@@ -72,11 +72,11 @@ class Projet
 	{
 		if(!empty($type))
 		{
-			$read_projet = Projet::get_projet($idProjet=NULL, $type);
+			$read_projet = Projet::get_projet($idProjet=NULL, $libProjet=NULL, $type);
 		}
 		else
 		{
-			$read_projet = Projet::get_projet($idProjet=NULL, $type=NULL);
+			$read_projet = Projet::get_projet($idProjet=NULL, $libProjet=NULL, $type=NULL);
 		}
 
 		// Boucle remplissage du tableau
@@ -106,17 +106,17 @@ class Projet
 				}
 				?></td>
 				<td class="actions">
-					<a href="index.php?module=projet&action=manage&type=modifier&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Editer" class="btn btn-default btn-sm btn-icon icon-left">
+					<a href="index.php?module=projet&action=manage&type=modifier&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Editer" class="btn btn-default btn-xs btn-icon icon-left">
 						<i class="entypo-pencil"></i>
 						Modifier
 					</a>
 
-					<a href="index.php?module=projet&action=manage&type=supprimer&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Supprimer" class="btn btn-danger btn-sm btn-icon icon-left">
+					<a href="index.php?module=projet&action=manage&type=supprimer&idProjet=<?php echo $tab_projet['idProjet']; ?>" title="Supprimer" class="btn btn-danger btn-xs btn-icon icon-left">
 						<i class="entypo-trash"></i>
 						Supprimer
 					</a>
 
-					<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-info btn-sm btn-icon icon-left">
+					<a href="index.php?module=projet&action=manage&type=voir_projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-info btn-xs btn-icon icon-left">
 						<i class="entypo-info"></i>
 						Voir
 					</a>
@@ -125,7 +125,7 @@ class Projet
 					if($tab_projet['isActiveProjet'] == "0")
 					{
 					?>
-						<a href="index.php?module=projet&action=manage&type=valider_projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-gold">
+						<a href="index.php?module=projet&action=manage&type=valider_projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-xs btn-gold">
 							<i class="entypo-info"></i>
 							Valider
 						</a>
@@ -134,7 +134,7 @@ class Projet
 					if ($tab_projet['isActiveProjet'] == "1")
 					{
 					?>
-					<a href="index.php?module=proposition&action=afficher_proposition&type_proposition=projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-success">
+					<a href="index.php?module=proposition&action=afficher_proposition&type_proposition=projet&idProjet=<?php echo $tab_projet['idProjet']; ?>" class="btn btn-xs btn-success">
 						<i class="entypo-info"></i>
 						Proposer ce projet
 					</a>
@@ -275,12 +275,12 @@ class Projet
 		$extensionsAutorisees = array("doc", "docx", "pdf");
 
 		// si un fichier a bien été transféré
-        if (is_uploaded_file($tmp_name)) 
+        if (is_uploaded_file($tmp_name))
         {
             $extraireExtension = explode(".", $name);
             $extension = $extraireExtension[1];
             // Contrôle de l'extension du fichier
-            if (!(in_array($extension, $extensionsAutorisees))) 
+            if (!(in_array($extension, $extensionsAutorisees)))
             {
             	$_SESSION['typeNotif'] = "error";
                 $_SESSION['titreNotif'] = 'Votre fichier '.$name.' n\a pas l\'extension attendue('.$extensionsAutorisees.')';
@@ -294,7 +294,7 @@ class Projet
                 }
             }
 
-            if ($size > 8000000) 
+            if ($size > 8000000)
             {
                 $_SESSION['typeNotif'] = "error";
                 $_SESSION['titreNotif'] = 'Votre fichier '.$name.'est trop volumineux';
@@ -311,6 +311,7 @@ class Projet
 	    }
     }
 
+
         
     //Recuperation des données get_fichiers_lies
 	static function get_fichiers_lies($idProjet)
@@ -318,6 +319,7 @@ class Projet
 		$get_fichiers_lies = M_Projet::get_fichiers_lies($idProjet);
 		return($get_fichiers_lies);
 	}
+
         
     //insertion de song get_fichiers_lies
 	static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)

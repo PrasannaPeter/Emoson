@@ -94,7 +94,7 @@
   <div class="inner">
 
     <!-- Logo -->
-    <div id="logo"> <a href="index.php"><img src="style/images/Logo.png" width="210" style="margin-top:10px;"   alt="logo"/></a><a class="menu-hider"></a></div>
+    <div id="logo"> <a href="index.php"><img src="style/images/Logo-old.png" width="210" style="margin-top:10px;"   alt="logo"/></a><a class="menu-hider"></a></div>
     <!-- /Logo -->
 
     <!-- Menu -->

@@ -3,7 +3,7 @@
 <div id="title">
   <h1 class="inner title-2">Partenaires
     <ul class="breadcrumb-inner">
-      <li> <a href="index.html">Accueil</a></li>
+      <li> <a href="index.php">Accueil</a></li>
       <li> <a href="partners.html">Partenaires</a></li>
     </ul>
   </h1>
@@ -68,21 +68,11 @@ if(count($projets)){
         <?php
         foreach ($projets as $projet) {
         ?>
-        <div class="partner">
-          <div class="partner-thumb"> <a href="#"><img class="part-img" src="style/images/partner-1.jpg"  alt="Partner"/></a>
-            <div class="partner-hover">
-              <h4>Nom de l'Entreprise</h4>
-              <p>Texte a mettre.</p>
-            </div>
-          </div>
-          <div class="partners-meta">
-            <div class="nav-buttons">
-              <ul>
-                <li class="search"><a><img src="style/images/p-zoom.png"  alt=""/></a></li>
-                <li class="link"><a href="job.html"><img src="style/images/p-zoom-02.png"  alt=""/></a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="partner" style="height:100px;">
+          <center>
+              <h4><?php echo $projet['raisonSocialeEntreprise']; ?> </h4>
+              <p>Secteur <?php echo $projet['secteurEntreprise']; ?> </p>
+           </center>
         </div>
         <?php
         }

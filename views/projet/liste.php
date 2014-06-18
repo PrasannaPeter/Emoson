@@ -3,7 +3,7 @@
   <div id="title">
     <h1 class="inner">Available Jobs<span id="jobs-counter">(350)</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Home</a></li>
+        <li> <a href="index.html">Accueil</a></li>
         <li> <a href="job.html">Job</a></li>
       </ul>
     </h1>
