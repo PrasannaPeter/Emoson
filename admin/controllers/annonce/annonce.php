@@ -37,14 +37,14 @@ class Annonce
 
 	//Tableau qui affiche le annonce
 	static function tab_annonce($type=NULL)
-	{
+		{
 		if(!empty($type))
 		{
-			$read_annonce = Annonce::get_annonce($id=NULL,$libAnnonce, $type);
+			$read_annonce = Annonce::get_annonce($id=NULL,$titre, $type);
 		}
 		else
 		{
-			$read_annonce = Annonce::get_annonce($id=NULL,$libAnnonce, $type=NULL);
+			$read_annonce = Annonce::get_annonce($id=NULL,$titre, $type=NULL);
 		}
 
 		// Boucle remplissage du tableau
@@ -79,6 +79,8 @@ class Annonce
 	{
 		$annonce['titre'] = $titre;
 		$annonce['content'] = $content;
+		$annonce['date'] = date('D-m-Y');
+
 
 		// Si on a pas d'ID, INSERT
 		if(empty($id))
