@@ -67,7 +67,7 @@ class Entreprise
 						<td><?php echo $tab_entreprise['adresseEntreprise']; ?></td>
 						<td><?php echo $tab_entreprise['villeEntreprise']; ?></td>
 						<td><?php echo $tab_entreprise['CPEntreprise']; ?></td>
-						<td><?php echo $tab_entreprise['libType']; ?></td>
+						<td><?php echo $tab_entreprise['typeEntreprise']; ?></td>
 						<td class="actions">
 						<center>
 							<a href="index.php?module=entreprise&action=detail_entreprise&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" class="btn btn-default btn-xs btn-icon icon-left"><i class="entypo-info"></i>
