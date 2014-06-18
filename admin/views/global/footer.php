@@ -2,10 +2,10 @@
 <footer class="main">
 
 		<div class="pull-right">
-		<a href="http://themeforest.net/item/neon-bootstrap-admin-theme/6434477" target="_blank"><strong>http://emoson.fr</strong></a>
+		<a href="index.php" target="_blank"><strong>http://brand440.fr</strong></a>
 	</div>
 
-	&copy; 2014 <strong>Emoson</strong> Admin
+	&copy; 2014 <strong>BRAND440</strong> Admin
 
 </footer>	</div>
 
