@@ -1,10 +1,10 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2"> Terms and Conditions
+    <h1 class="inner title-2"> Termes et conditions d'utilisation
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
-        <li> <a href="about-us.html">About Us</a></li>
+        <li> <a href="index.php?module=apropos">Qui sommes-nous</a></li>
         <li> <a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </h1>

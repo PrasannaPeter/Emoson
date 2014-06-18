@@ -4,7 +4,7 @@
     <h1 class="inner title-2">Qui sommes-nous
       <ul class="breadcrumb-inner">
         <li> <a href="index.html">Accueil</a></li>
-        <li> <a href="about-us.html">Qui sommes-nous</a></li>
+        <li> <a href="index.php?module=apropos">Qui sommes-nous</a></li>
       </ul>
     </h1>
   </div>
@@ -90,8 +90,8 @@ sonorisation des points de ventes, musique d'attente téléphonique, synchronisa
         <div class="">
           <ul>
             <li class="active"><a href="index.php?module=afaire.php">Qui sommes-nous</a></li>
-            <li><a href="index.php?module=afaire.php">Politique de garanti de la vie privée</a></li>
-            <li><a href="index.php?module=afaire.php">Termes et conditions d'utilisation</a></li>
+            <li><a href="index.php?module=vieprivee.php">Politique de garantie de la vie privée</a></li>
+            <li><a href="index.php?module=conditions.php">Termes et conditions d'utilisation</a></li>
           </ul>
         </div>
       </div>
