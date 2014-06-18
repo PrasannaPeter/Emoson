@@ -90,7 +90,7 @@
       <section class="row-fluid">
         <section class="inner">
           <div id="site-description">
-            <h3><img src="style/images/Logo.png" width="220" height="72"  alt=""/></h3>
+            <h3><img src="style/images/Logo-old.png" width="220" height="72"  alt=""/></h3>
             <p>
             Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous à contact@brand440.fr
             </p>

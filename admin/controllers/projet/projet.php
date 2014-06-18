@@ -269,14 +269,15 @@ class Projet
 			*/
 		}
 	}
+}
 
-	static function verifFichier($name, $tmp_name, $size)
+	/*static function verifFichier($name, $tmp_name, $size)
     {
 		$extensionsAutorisees = array("doc", "docx", "pdf");
 
 <<<<<<< HEAD
 		// si un fichier a bien ï¿½tï¿½ transfï¿½rï¿½
-        if (is_uploaded_file($tmp_name)) 
+        if (is_uploaded_file($tmp_name))
 =======
 		// si un fichier a bien été transféré
         if (is_uploaded_file($tmp_name))
@@ -286,7 +287,7 @@ class Projet
             $extension = $extraireExtension[1];
 <<<<<<< HEAD
             // Contrï¿½le de l'extension du fichier
-            if (!(in_array($extension, $extensionsAutorisees))) 
+            if (!(in_array($extension, $extensionsAutorisees)))
 =======
             // Contrôle de l'extension du fichier
             if (!(in_array($extension, $extensionsAutorisees)))
@@ -322,7 +323,7 @@ class Projet
     }
 
 
-        
+
 <<<<<<< HEAD
          //Recuperation des donnï¿½es get_fichiers_lies
          static function get_fichiers_lies($idProjet)
@@ -335,7 +336,7 @@ class Projet
 		return($get_fichiers_lies);
 	}
 
-        
+
     //insertion de song get_fichiers_lies
 	static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)
 	{
@@ -351,20 +352,20 @@ class Projet
                     return($res);
 		}
 	}
-        
+
 	static function get_nb_AR_Projet($idProjet)
 	{
-		$get_nb_AR_Projet = M_Projet::get_nb_AR_Projet($idProjet);  
+		$get_nb_AR_Projet = M_Projet::get_nb_AR_Projet($idProjet);
 		return($get_nb_AR_Projet);
 	}
 
 	static function count_get_nb_AR_Projet($idProjet)
 	{
-		$get_nb_AR_Projet = M_Projet::count_get_nb_AR_Projet($idProjet);  
+		$get_nb_AR_Projet = M_Projet::count_get_nb_AR_Projet($idProjet);
 		return($get_nb_AR_Projet);
 	}
 <<<<<<< HEAD
-        
+
         static function deleteTrackByAdmin($idFichier)
 	{
             $verif_sql_delete = M_Projet::deleteTrack($idFichier);
@@ -374,13 +375,13 @@ class Projet
             {
                      $typeNotif = "ok";
                     return $typeNotif;
-                   
+
             }  else {
                      $typeNotif = "error";
                     return $typeNotif;
             }
         }
-        
+
 =======
 
 		// static function set_Statut($idProjet, $emailContact)
@@ -440,6 +441,6 @@ class Projet
 	// }
 >>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
 }
-
+*/
 //if(site_admin())
 		//require_once('views/'.$controller.'/'.$controller.'.php');

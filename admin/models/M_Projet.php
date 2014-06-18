@@ -297,21 +297,22 @@ class M_Projet extends Projet
 
 		return($verif_sql['nb']);
 	}
-<<<<<<< HEAD
-        
+}
+/*<<<<<<< HEAD
+
          static function deleteTrack($idFichier)
 	{
 		$bdd = PDO();
-                
+
 		$sql_delete = $bdd->query("
 			DELETE FROM fichiers_lies
 			WHERE idFichier = '.$idFichier.'
 		");
-               
+
 		return $sql_delete;
 
 	}
-        
+
 =======
 
 >>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
@@ -350,4 +351,4 @@ class M_Projet extends Projet
 					// ));
 
 		// return($sql_update);
-	// }
+	// }*/
