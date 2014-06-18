@@ -61,12 +61,12 @@ var_dump($compter_pack); exit;
 						<td><?php echo $tab_pack['prixPack']." €"; ?></td>
 						<td><?php if($tab_pack['positionPack'] == 0){ echo "<div class=\"label label-danger\">Désactivé</div>"; }else{ echo "<div class=\"label label-info\">".$tab_pack['positionPack']."</div>"; } ?></td>
 						<td class="actions">
-							<a href="index.php?module=pack&action=manage&type=modifier&idPack=<?php echo $tab_pack['idPack']; ?>" title="Editer" class="btn btn-default btn-sm btn-icon icon-left">
+							<a href="index.php?module=pack&action=manage&type=modifier&idPack=<?php echo $tab_pack['idPack']; ?>" title="Editer" class="btn btn-default btn-xs btn-icon icon-left">
 								<i class="entypo-trash"></i>
 								Editer
 							</a>
 
-							<a href="index.php?module=pack&action=manage&type=supprimer&idPack=<?php echo $tab_pack['idPack']; ?>" title="Supprimer" class="btn btn-danger btn-sm btn-icon icon-left">
+							<a href="index.php?module=pack&action=manage&type=supprimer&idPack=<?php echo $tab_pack['idPack']; ?>" title="Supprimer" class="btn btn-danger btn-xs btn-icon icon-left">
 								<i class="entypo-pencil"></i>
 								Supprimer
 							</a>

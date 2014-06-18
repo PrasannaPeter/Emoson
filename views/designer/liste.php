@@ -2,9 +2,9 @@
 <!-- Content -->
 <div id="content">
   <div id="title">
-    <h1 class="inner title-2">Search Results <span>- Web Developer</span>
+    <h1 class="inner title-2">Résultats pour <span>- Web Developer</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Home</a></li>
+        <li> <a href="index.html">Accueil</a></li>
         <li> <a href="candidates.html">Candidates</a></li>
       </ul>
     </h1>

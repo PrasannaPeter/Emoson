@@ -70,9 +70,10 @@ class Entreprise
 						<td><?php echo $tab_entreprise['libType']; ?></td>
 						<td class="actions">
 						<center>
-							<li><a class="view tooltip" href="index.php?module=entreprise&action=detail_entreprise&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" title="Détail">Voir les détails</a></li>
-							<li><a class="edit tooltip" href="index.php?module=entreprise&action=manage&type=modifier&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" title="Editer">Editer</a></li>
-							<li><a class="delete tooltip" href="index.php?module=entreprise&action=manage&type=supprimer&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" title="Supprimer">Supprimer</a>
+							<a href="index.php?module=entreprise&action=detail_entreprise&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" class="btn btn-default btn-xs btn-icon icon-left"><i class="entypo-info"></i>
+						Voir</a>
+							<a href="index.php?module=entreprise&action=manage&type=modifier&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" class="btn btn-info btn-xs btn-icon icon-left"><i class="entypo-pencil"></i>Editer</a>
+							<a href="index.php?module=entreprise&action=manage&type=supprimer&idEntreprise=<?php echo $tab_entreprise['idEntreprise']; ?>" class="btn btn-danger btn-xs btn-icon icon-left"><i class="entypo-trash"></i>Supprimer</a>
 						</center>
 						</td>
 					</tr>

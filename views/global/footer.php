@@ -146,7 +146,7 @@
   <div class="inner">
     <div class="row-fluid">
       <!-- Copyright Text -->
-      <div id="copyright-text">Copyright 2013-2014 <a href="index.php">EmoSon</a> | All Rights Reserved | Realised by ESGI students</div>
+      <div id="copyright-text">Reproduction non autorisée <a href="index.php">EmoSon</a> | Tous droits réservés| Création des étudiants de l'ESGI</div>
       <!-- /Copyright Text -->
       <!-- Copyright Social Link -->
       <div id="copyright-link">

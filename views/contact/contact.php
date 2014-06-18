@@ -22,7 +22,7 @@
         <div id="contacts" class="block post-box box-1 contact-address">
           <div class="block-content">
             <div class="left">
-              <h3 class="title-3">BRAND440</h3>
+              <h3 class="title-3">EMOSON (EDITEUR)</h3>
               <div class="contact-field"><span class="label">Addresse :</span><span id="first-address" class="count">1 rue Camille Pelletan 92300 Levallois Perret, France</span></div>
               <div class="contact-field"><span class="label">Téléphone :</span><span class="count">06 26 58 03 94 </span></div>
               <div class="contact-field"><span class="label">E-mail :</span><span class="count"><a>contact@emoson.fr</a></span></div>
