@@ -40,14 +40,11 @@
           <h2 class="title-1">Envoyez nous un message</h2>
           <div class = "block-content">
             <form id = "contact" action="http://uouapps.com/careers/post">
-              <p>Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous ! 
-contact@emoson.fr
-
-
-Vous pouvez également nous contacter directement par téléphone : 
-Tiana Raoilison
-Directrice Commerciale et Marketing,
-06 26 58 03 94</p>
+                <p>Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous ! contact@emoson.fr</p>
+                <p>Vous pouvez également nous contacter directement par téléphone :</p>
+                <p>Tiana Raoilison</p>
+                <p>Directrice Commerciale et Marketing</p>
+                <p>06 26 58 03 94</p>
               <div id = "about">
                 <input title="Votre Nom" type="text" name="name" class="textfield" placeholder="Nom"/>
                 <input title="Votre E-Mail" type="text" name="email" class="textfield" placeholder="E-mail"/>

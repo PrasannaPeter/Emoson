@@ -25,8 +25,7 @@
           <p></p>
             <div class="video-container">
                 <iframe width="560" height="315" src="//www.youtube.com/embed/hPuzoY1B_gE" frameborder="0" allowfullscreen></iframe>
-            <!--<iframe src="http://player.vimeo.com/video/24456787" width="536" height="328" frameborder="0" ></iframe>-->
-            </div>
+             </div>
           <p>BRAND440 conçoit pour votre entreprise une identité sonore unique, distinctive et représentative de votre marque.
 Cette identité sonore traduit votre métier, votre histoire et votre culture d'entreprise.
 
