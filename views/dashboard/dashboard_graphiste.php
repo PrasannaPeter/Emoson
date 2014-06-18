@@ -108,7 +108,7 @@
                         echo '<a class=\'btn btn btn-success\' href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=1&validation=non&idUtilisateur='.$_SESSION['idUtilisateur'].'&idProjet='.$projet['idProjet'].'" role=\'button\'><i class=\'fa fa-check\'></i> <span>Accepter</span></a>';
                         echo '<a class=\'btn btn btn-error\' href="index.php?module=proposition&action=manage&type=set_proposition&type_proposition=designer&acceptation=2&validation=non&idUtilisateur='.$_SESSION['idUtilisateur'].'&idProjet='.$projet['idProjet'].'" role=\'button\'><i class=\'fa fa-times\'></i> <span>Décliner</span></a>';
                     }
-   
+
                     echo "<a class='btn btn btn-info' href='index.php?module=projet&action=voir_page_projet&idProjet=".$projet['idProjet']."' role='button'><i class='fa fa-file-text'></i> <span>Détails</span></a>";
 
                     echo '</td>';
@@ -127,7 +127,7 @@
 
     <?php } ?>
 
-    <?php    if($info_designer['certifUtilisateur'] == false){ ?>
+    <?php    if($info_designer['certifUtilisateur'] == "0"){ ?>
 
     <hr>
 
@@ -140,7 +140,7 @@
       <div class="modal-body">
         <p>Vous êtes sur le point d'envoyer votre candidature pour vérification.</p>
         <p>Merci de vérifier que vos informations sont correctes et que votre portfolio est complété.</p>
-        <br />fol
+        <br />
           <form method="post" action='connexion.php' name="login_form">
             <center>
                 <a class="btn btn-large btn-success" href="index.php?module=designer&action=soumettre_candidature" role="button">Valider</a>
@@ -162,15 +162,22 @@
           <a class="btn btn-large btn-error" href="#soumettreCandidatureModal" role="button" data-toggle="modal">Soumettre ma candidature</a>
         </center>
     </div>
-    <?php // }else{ ?>
+    <?php    }elseif($info_designer['certifUtilisateur'] == "1"){ ?>
+
+    <div class="alert alert-success">
+        <h6>Etat de la candidature</h6>
+        <p>Votre candidature a été acceptée.</p>
+        <p>Vous êtes maintenant certifié et pouvez être mis en relation avec des entreprises porteuses de projets audio.</p>
+        <br />
+    </div>
+    <?php  }else{ ?>
     <div class="alert alert-info">
         <h6>Etat de la candidature</h6>
         <p>Nous examinons votre candidature.</p>
-        <p>Vous serez prévenu par mail une fois notre décision prise concernant l'acceptation ou le rejet de votre candidature.</p>
+        <p>Vous serez prévenu sur cette page concernant l'acceptation ou le rejet de votre candidature.</p>
         <br />
     </div>
-    <?php // } ?>
-    <?php    } ?>
+    <?php  } ?>
 
 </div>
 </div>

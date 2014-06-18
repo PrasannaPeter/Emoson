@@ -67,7 +67,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 
 							<div class="col-sm-5">
 								<div class="make-switch">
-								    <input name="certifUtilisateur" type="checkbox" <?php if($get_utilisateur['certifUtilisateur']){ echo "checked='checked'"; }?> >
+								    <input name="certifUtilisateur" type="checkbox" <?php if($get_utilisateur['certifUtilisateur'] == "1"){ echo "checked='checked'"; }?> >
 								</div>
 							</div>
 						</div>
