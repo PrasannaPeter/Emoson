@@ -13,11 +13,13 @@ class M_Projet extends Projet
 		{
             $read_projet = $bdd->query("
                 SELECT *
-                FROM projets P, utilisateurs U, pack PA
+                FROM projets P, utilisateurs U, pack PA, entreprises E
                 WHERE idProjet = ".$idProjet."
                 AND PA.idPack = P.idPack
-                AND roleUtilisateur = 'ENTREPRISE'
                 AND P.idUtilisateur = U.idUtilisateur
+                AND P.idUtilisateur = E.idUtilisateur
+                AND roleUtilisateur = 'ENTREPRISE'
+
             ");
 
             $read_projet = $read_projet->fetch();
@@ -27,10 +29,11 @@ class M_Projet extends Projet
         {
             $read_projet = $bdd->query('
                 SELECT *
-				FROM projets P, utilisateurs U, pack PA
+				FROM projets P, utilisateurs U, pack PA, entreprises E
 				WHERE titreProjet ='.$titreProjet.'
 				AND PA.idPack = P.idPack
 				AND P.idUtilisateur = U.idUtilisateur
+				AND P.idUtilisateur = E.idUtilisateur
 				AND roleUtilisateur = "ENTREPRISE"
 			');
 		}
@@ -38,8 +41,9 @@ class M_Projet extends Projet
 		{
 			$read_projet = '
 				SELECT *
-				FROM projets P, pack PA
+				FROM projets P, pack PA, entreprises E
 				WHERE PA.idPack = P.idPack
+				AND P.idUtilisateur = E.idUtilisateur
 			';
 
 			// Filtre

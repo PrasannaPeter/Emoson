@@ -1,20 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Client :  127.0.0.1
--- Généré le :  Lun 16 Juin 2014 à 11:10
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Client :  localhost:8889
+-- Généré le :  Mer 18 Juin 2014 à 12:38
+-- Version du serveur :  5.5.34
+-- Version de PHP :  5.5.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
 
 --
 -- Base de données :  `emoson`
@@ -26,7 +20,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `commentaires`
 --
 
-CREATE TABLE IF NOT EXISTS `commentaires` (
+CREATE TABLE `commentaires` (
   `idUtilisateur` int(11) NOT NULL,
   `idProjet` int(11) NOT NULL,
   `dateCommentaire` varchar(45) NOT NULL,
@@ -42,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 -- Structure de la table `comptes_lies`
 --
 
-CREATE TABLE IF NOT EXISTS `comptes_lies` (
+CREATE TABLE `comptes_lies` (
   `idCompte` int(11) NOT NULL AUTO_INCREMENT,
   `authCompte` longtext NOT NULL,
   `typeCompte` varchar(45) NOT NULL,
@@ -55,20 +49,14 @@ CREATE TABLE IF NOT EXISTS `comptes_lies` (
 -- Structure de la table `compte_soundcloud`
 --
 
-CREATE TABLE IF NOT EXISTS `compte_soundcloud` (
+CREATE TABLE `compte_soundcloud` (
   `compte_soundcloud_id` int(100) NOT NULL AUTO_INCREMENT,
   `compte_soundcloud_designer_id` int(100) NOT NULL,
   `compte_soundcloud_soundcloud_id` int(100) NOT NULL,
   PRIMARY KEY (`compte_soundcloud_id`),
-  KEY `compte_soundcloud_designer_id` (`compte_soundcloud_designer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
-
---
--- Contenu de la table `compte_soundcloud`
---
-
-INSERT INTO `compte_soundcloud` (`compte_soundcloud_id`, `compte_soundcloud_designer_id`, `compte_soundcloud_soundcloud_id`) VALUES
-(5, 5, 92388047);
+  KEY `compte_soundcloud_designer_id` (`compte_soundcloud_designer_id`),
+  KEY `compte_soundcloud_designer_id_2` (`compte_soundcloud_designer_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 -- --------------------------------------------------------
 
@@ -76,19 +64,13 @@ INSERT INTO `compte_soundcloud` (`compte_soundcloud_id`, `compte_soundcloud_desi
 -- Structure de la table `designer_img`
 --
 
-CREATE TABLE IF NOT EXISTS `designer_img` (
+CREATE TABLE `designer_img` (
   `designer_img_id` int(100) NOT NULL AUTO_INCREMENT,
   `designer_img_designer_id` int(100) NOT NULL,
   `designer_img_url` varchar(100) NOT NULL,
-  PRIMARY KEY (`designer_img_id`)
+  PRIMARY KEY (`designer_img_id`),
+  KEY `designer_img_designer_id` (`designer_img_designer_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
-
---
--- Contenu de la table `designer_img`
---
-
-INSERT INTO `designer_img` (`designer_img_id`, `designer_img_designer_id`, `designer_img_url`) VALUES
-(3, 5, '947163_10200581901941340_1395013270_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -96,7 +78,7 @@ INSERT INTO `designer_img` (`designer_img_id`, `designer_img_designer_id`, `desi
 -- Structure de la table `entreprises`
 --
 
-CREATE TABLE IF NOT EXISTS `entreprises` (
+CREATE TABLE `entreprises` (
   `idEntreprise` int(11) NOT NULL AUTO_INCREMENT,
   `raisonSocialeEntreprise` varchar(90) NOT NULL,
   `secteurEntreprise` varchar(70) DEFAULT NULL,
@@ -109,7 +91,14 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
   `numSiretEntreprise` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEntreprise`),
   KEY `fk_entreprises_utilisateurs1_idx` (`idUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `entreprises`
+--
+
+INSERT INTO `entreprises` (`idEntreprise`, `raisonSocialeEntreprise`, `secteurEntreprise`, `siteWebEntreprise`, `adresseEntreprise`, `villeEntreprise`, `CPEntreprise`, `typeEntreprise`, `idUtilisateur`, `numSiretEntreprise`) VALUES
+(1, 'Emoson', 'Informatique', 'www.emoson.fr', 'Cité paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
 
 -- --------------------------------------------------------
 
@@ -117,16 +106,21 @@ CREATE TABLE IF NOT EXISTS `entreprises` (
 -- Structure de la table `fichiers_lies`
 --
 
-CREATE TABLE IF NOT EXISTS `fichiers_lies` (
+CREATE TABLE `fichiers_lies` (
   `idFichier` int(11) NOT NULL AUTO_INCREMENT,
-  `libFichier` varchar(45) NOT NULL,
-  `dateUploadFichier` varchar(45) NOT NULL,
+  `libFichier` varchar(1000) NOT NULL,
+  `dateUploadFichier` date NOT NULL,
   `idProjet` int(11) DEFAULT NULL,
   `idUtilisateur` int(11) NOT NULL,
   PRIMARY KEY (`idFichier`),
   KEY `fk_fichiers_lies_projets1_idx` (`idProjet`),
-  KEY `fk_fichiers_lies_commentaires1_idx` (`idUtilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  KEY `fk_fichiers_lies_commentaires1_idx` (`idUtilisateur`),
+  KEY `idProjet` (`idProjet`,`idUtilisateur`),
+  KEY `idProjet_2` (`idProjet`,`idUtilisateur`),
+  KEY `idProjet_3` (`idProjet`,`idUtilisateur`),
+  KEY `idUtilisateur` (`idUtilisateur`),
+  KEY `idUtilisateur_2` (`idUtilisateur`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 -- --------------------------------------------------------
 
@@ -134,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `fichiers_lies` (
 -- Structure de la table `pack`
 --
 
-CREATE TABLE IF NOT EXISTS `pack` (
+CREATE TABLE `pack` (
   `idPack` int(11) NOT NULL AUTO_INCREMENT,
   `titrePack` varchar(45) NOT NULL,
   `descPack` varchar(45) NOT NULL,
@@ -158,10 +152,16 @@ INSERT INTO `pack` (`idPack`, `titrePack`, `descPack`, `prixPack`, `positionPack
 -- Structure de la table `projets`
 --
 
-CREATE TABLE IF NOT EXISTS `projets` (
+CREATE TABLE `projets` (
   `idProjet` int(11) NOT NULL AUTO_INCREMENT,
   `titreProjet` varchar(90) NOT NULL,
   `descriptionProjet` longtext NOT NULL,
+  `brandingProjet` varchar(200) DEFAULT NULL,
+  `positionnementProjet` longtext,
+  `identiteProjet` varchar(200) DEFAULT NULL,
+  `referencesProjet` longtext,
+  `dontlikeProjet` longtext,
+  `commentaireProjet` longtext,
   `isActiveProjet` tinyint(1) DEFAULT '0',
   `idUtilisateur` int(11) NOT NULL,
   `tailleEntreprise` int(11) NOT NULL,
@@ -172,16 +172,16 @@ CREATE TABLE IF NOT EXISTS `projets` (
   `nbDesignerSouhaite` int(11) DEFAULT NULL,
   `idPack` int(11) NOT NULL,
   PRIMARY KEY (`idProjet`),
-  KEY `fk_projets_pack1_idx` (`idPack`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  KEY `fk_projets_pack1_idx` (`idPack`),
+  KEY `idUtilisateur` (`idUtilisateur`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `projets`
 --
 
-INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `isActiveProjet`, `idUtilisateur`, `tailleEntreprise`, `caEntreprise`, `ptsContactEntreprise`, `optionProjet`, `nbARProjet`, `nbDesignerSouhaite`, `idPack`) VALUES
-(1, 'Emoson', 'Lorem ipsum', 1, 2, 3, 2, '["1","2","7","8"]', '["1","2"]', 3, 5, 1),
-(2, 'Emosonvrvtcde', 'dioe efde', 1, 2, 2, 3, '["3","4","5"]', '["1","2"]', 3, 3, 1);
+INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `brandingProjet`, `positionnementProjet`, `identiteProjet`, `referencesProjet`, `dontlikeProjet`, `commentaireProjet`, `isActiveProjet`, `idUtilisateur`, `tailleEntreprise`, `caEntreprise`, `ptsContactEntreprise`, `optionProjet`, `nbARProjet`, `nbDesignerSouhaite`, `idPack`) VALUES
+(3, 'Emoson', 'vrejv,rlv,lrm', NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 1, '["1","2"]', '["1"]', 3, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -189,7 +189,7 @@ INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `isActive
 -- Structure de la table `propose`
 --
 
-CREATE TABLE IF NOT EXISTS `propose` (
+CREATE TABLE `propose` (
   `idUtilisateur` int(11) NOT NULL,
   `idProjet` int(11) NOT NULL,
   `acceptation` int(1) NOT NULL,
@@ -199,26 +199,17 @@ CREATE TABLE IF NOT EXISTS `propose` (
   KEY `fk_entreprises_has_projets_entreprises1_idx` (`idUtilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `propose`
---
-
-INSERT INTO `propose` (`idUtilisateur`, `idProjet`, `acceptation`, `validation`) VALUES
-(3, 1, 1, 1),
-(3, 2, 2, 0),
-(5, 1, 0, 1);
-
 -- --------------------------------------------------------
 
 --
 -- Structure de la table `utilisateurs`
 --
 
-CREATE TABLE IF NOT EXISTS `utilisateurs` (
+CREATE TABLE `utilisateurs` (
   `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nomUtilisateur` varchar(90) NOT NULL,
   `prenomUtilisateur` varchar(90) NOT NULL,
-  `telUtilisateur` int(15) DEFAULT NULL,
+  `telUtilisateur` varchar(15) DEFAULT NULL,
   `loginUtilisateur` varchar(90) NOT NULL,
   `passUtilisateur` varchar(200) DEFAULT NULL,
   `emailUtilisateur` varchar(90) NOT NULL,
@@ -229,17 +220,16 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   PRIMARY KEY (`idUtilisateur`),
   UNIQUE KEY `loginUtilisateur_UNIQUE` (`loginUtilisateur`),
   KEY `fk_utilisateurs_comptes_lies1_idx` (`idCompte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `telUtilisateur`, `loginUtilisateur`, `passUtilisateur`, `emailUtilisateur`, `roleUtilisateur`, `bioUtilisateur`, `idCompte`, `certifUtilisateur`) VALUES
-(1, 'AdminTest', 'testeur', 5478987, 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'test@test.com', 'ADMIN', NULL, NULL, 0),
-(2, 'Dupré', 'dehde', 1456421212, 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'dejhe@hyegd.de', 'ENTREPRISE', 'derf r fer', NULL, 1),
-(3, 'Delarue', 'Jean', 1242545214, 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', NULL, NULL, 1),
-(5, 'Peter ', 'Prasanna', 148659663, 'aa', 'cabdd66378e5d2df5338958ebde9d305fad44def', 'peter.prasana@gmail.com', 'GRAPHISTE', 'ergregt', NULL, 1);
+(1, 'AdminTest', 'testeur', '05478987', 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'test@test.com', 'ADMIN', NULL, NULL, 0),
+(2, 'Dupré', 'dehde', '01456421212', 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'dejhe@hyegd.de', 'ENTREPRISE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1),
+(3, 'Delarue', 'Jean', '01242545214', 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -247,7 +237,7 @@ INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateu
 -- Structure de la table `widgets_lies`
 --
 
-CREATE TABLE IF NOT EXISTS `widgets_lies` (
+CREATE TABLE `widgets_lies` (
   `idWidget` int(11) NOT NULL AUTO_INCREMENT,
   `libWidget` varchar(45) DEFAULT NULL,
   `codeWidget` longtext NOT NULL,
@@ -274,6 +264,12 @@ ALTER TABLE `compte_soundcloud`
   ADD CONSTRAINT `compte_soundcloud_ibfk_1` FOREIGN KEY (`compte_soundcloud_designer_id`) REFERENCES `utilisateurs` (`idUtilisateur`);
 
 --
+-- Contraintes pour la table `designer_img`
+--
+ALTER TABLE `designer_img`
+  ADD CONSTRAINT `designer_img_ibfk_1` FOREIGN KEY (`designer_img_id`) REFERENCES `utilisateurs` (`idUtilisateur`);
+
+--
 -- Contraintes pour la table `entreprises`
 --
 ALTER TABLE `entreprises`
@@ -283,13 +279,13 @@ ALTER TABLE `entreprises`
 -- Contraintes pour la table `fichiers_lies`
 --
 ALTER TABLE `fichiers_lies`
-  ADD CONSTRAINT `fk_fichiers_lies_commentaires1` FOREIGN KEY (`idUtilisateur`) REFERENCES `commentaires` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_fichiers_lies_projets1` FOREIGN KEY (`idProjet`) REFERENCES `projets` (`idProjet`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fichiers_lies_ibfk_2` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `projets`
 --
 ALTER TABLE `projets`
+  ADD CONSTRAINT `projets_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`),
   ADD CONSTRAINT `fk_projets_pack1` FOREIGN KEY (`idPack`) REFERENCES `pack` (`idPack`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -310,7 +306,3 @@ ALTER TABLE `utilisateurs`
 --
 ALTER TABLE `widgets_lies`
   ADD CONSTRAINT `fk_widgets_lies_utilisateurs1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

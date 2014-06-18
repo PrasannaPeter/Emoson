@@ -74,8 +74,8 @@
     </div>
 
     <br>
-    <center><a href="#infoModal" role="button" class="btn btn-success" data-toggle="modal"><i class="fa fa-info"></i> <span>Comment ça marche ?</span></a>
-    </center>
+    <!--center><a href="#infoModal" role="button" class="btn btn-success" data-toggle="modal"><i class="fa fa-info"></i> <span>Comment ça marche ?</span></a>
+    </center-->
     <br>
 
 
@@ -386,6 +386,7 @@
 <?php
 
 require_once(CONTROLLERS.'/projet/projet.php');
+require_once(CONTROLLERS."entreprise/entreprise.php");
 
 // @TODO mettre uniquement les projets terminé
 $projets = Projet::get_projet();
@@ -406,19 +407,19 @@ $projets = Projet::get_projet();
               {
                   ?>
                     <li>
-                      <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
-                        <div class="nav-buttons">
+                      <!--div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
+                        <!--div class="nav-buttons">
                           <ul>
                             <li class="search"><a><i class="fa fa-search"></i></a></li>
                             <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
                           </ul>
-                        </div>
-                      </div>
+                        </div-->
+                      </div-->
                       <div class="company-text">
                         <div class="title"><a href="#"><?php echo $projet['titreProjet']; ?></a>
-                          <div class="location">Mettre nom entreprise</div>
+                          <div class="location"><?php echo $projet['raisonSocialeEntreprise']; ?></div>
                         </div>
-                        <div class="description"><?php echo $projet['descriptionProjet']; ?> <a>Voir +</a></div>
+                        <div class="description"><?php echo $projet['descriptionProjet']; ?> <!--a>Voir +</a--></div>
                       </div>
                     </li>
                   <?php
@@ -435,12 +436,13 @@ $projets = Projet::get_projet();
         require_once(CONTROLLERS.'/entreprise/entreprise.php');
 
         // @TODO mettre uniquement les projets terminé
-        $entreprises = Entreprise::get_entreprise();
-        if($entreprises > 1){
+        //$entreprises = Entreprise::get_entreprise();
+        
+        //if($entreprises > 1){
         ?>
 
         <!--Partenaires Block-->
-        <div id="partners">
+        <!--div id="partners">
           <div class="heading-l">
             <h2> Nos Partenaires </h2>
           </div>
@@ -448,18 +450,18 @@ $projets = Projet::get_projet();
             <section class="row-fluid">
               <ul class="partner-list span4">
               <?php
-                foreach ($entreprises as $entreprise) {
+                //foreach ($entreprises as $entreprise) {
                   ?>
                     <li><a href="#"><img src="style/images/client-logo.png"  alt=""/></a></li>
                   <?php
-                }
+                //}
               ?>
               </ul>
             </section>
           </div>
-        </div>
+        </div-->
 
-        <?php } ?>
+        <?php //} ?>
 
       <br>
       <br>
