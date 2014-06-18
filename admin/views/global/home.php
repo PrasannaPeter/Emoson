@@ -212,6 +212,8 @@ function getRandomInt(min, max)
     while($tab_nb_projet = $nb_projet->fetch())
     {
         $nb_proj = $tab_nb_projet['nbProjet'];
+
+        
     }
 
 
