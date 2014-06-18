@@ -18,7 +18,7 @@ SC.connect(function(){
 </script>
 
 <?php
-  require_once('admin/controllers/utilisateur/utilisateur.php');
+  require_once CONTROLLERS.'/utilisateur/utilisateur.php';
   $info_designer = Utilisateur::get_utilisateur($idUtilisateur=$_SESSION['idUtilisateur'], $type=NULL);
 ?>
 <div id="returnModifierPortfolio">
