@@ -347,13 +347,13 @@ class Projet
     {
 		$extensionsAutorisees = array("doc", "docx", "pdf");
 
-		// si un fichier a bien été transféré
+		// si un fichier a bien ï¿½tï¿½ transfï¿½rï¿½
         if (is_uploaded_file($tmp_name)) 
         {
 
             $extraireExtension = explode(".", $name);
             $extension = $extraireExtension[1];
-            // Contrôle de l'extension du fichier
+            // Contrï¿½le de l'extension du fichier
             if (!(in_array($extension, $extensionsAutorisees))) 
             {
             	echo "extention nok";
@@ -374,7 +374,7 @@ class Projet
     }
 
         
-         //Recuperation des données get_fichiers_lies
+         //Recuperation des donnï¿½es get_fichiers_lies
          static function get_fichiers_lies($idProjet)
 	{
 		$get_fichiers_lies = M_Projet::get_fichiers_lies($idProjet);
@@ -408,6 +408,23 @@ class Projet
             	$get_nb_AR_Projet = M_Projet::count_nb_AR_Projet($idProjet);  
 		return($get_nb_AR_Projet);
 	}
+        
+        static function deleteTrackByAdmin($idFichier)
+	{
+            $verif_sql_delete = M_Projet::deleteTrack($idFichier);
+            echo $verif_sql_delete;
+            die();
+            if(!empty($verif_sql_delete))
+            {
+                     $typeNotif = "ok";
+                    return $typeNotif;
+                   
+            }  else {
+                     $typeNotif = "error";
+                    return $typeNotif;
+            }
+        }
+        
 }
 
 //if(site_admin())

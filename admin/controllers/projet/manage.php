@@ -319,4 +319,29 @@ switch($type)
           case "voir_projet" :
             require_once VIEWS.$controller.'/voir_projet.php';
 	break; 
+    
+      //only admin
+        case "deleteTrack" :
+            // DELETE Compte Soundcloud
+                if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
+                if(!empty($_GET['idFichier'])){$idFichier = $_GET['idFichier'];}
+                    
+		if(!empty($idProjet))
+		{
+			$deleteTrack = Projet::deleteTrackByAdmin($idFichier);
+		}
+
+		if(!empty($deleteTrack))
+		{
+			if($deleteTrack=="error")
+			{
+			
+                                echo "Le track n'a pas pu être supprimé";
+				header('Location:index.php?module=projet&action=manage&type=voir_projet&idProjet='.$idProjet);}
+			else if($deleteTrack=="ok")
+			{
+				 echo "Le track a bien été supprimé";
+                                header('Location:index.php?module=projet&action=manage&type=voir_projet&idProjet='.$idProjet);}
+		}
+        break;    
 }

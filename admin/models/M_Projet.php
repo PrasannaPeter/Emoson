@@ -298,6 +298,19 @@ class M_Projet extends Projet
 		return($verif_sql['nb']);
 	}
         
+         static function deleteTrack($idFichier)
+	{
+		$bdd = PDO();
+                
+		$sql_delete = $bdd->query("
+			DELETE FROM fichiers_lies
+			WHERE idFichier = '.$idFichier.'
+		");
+               
+		return $sql_delete;
+
+	}
+        
 }
 
 	// static function set_Statut($idProjet, $emailContact)

@@ -139,6 +139,41 @@
 	echo '<p><strong>Prénom contact : </strong>'.$get_projet['prenomUtilisateur'].'</p>';
 	echo '<p><strong>Email contact : </strong><a href="mailto:'.$get_projet['emailUtilisateur'].'">'.$get_projet['emailUtilisateur'].'</a></p>';
 	echo '<p><strong>N° de telephone contact : </strong>'.$get_projet['telUtilisateur'].'</p>';
-
-
+        
+        echo "</p>";
+	echo '<h4>Sons</h4>';
+        $info_fichier_lies = Projet::get_fichiers_lies($idProjet);
+        $nbARProjetMax = Projet::get_nb_AR_Projet($idProjet);
+        $nbARProjet = Projet::count_nb_AR_Projet($idProjet);
 ?>
+<div class="well">
+                <table class="table">
+                    <thead>
+                    <th>Proposé par</th>
+                    <th>Date</th>
+                    <th>Son</th>
+                    <th>Nombre de tracks pour le projet <?php echo $nbARProjetMax ?> max</th>
+                    <th>Action</th>
+                    </thead>
+                    
+                    <?php
+                   $i=0;
+                         while ($tab_info_fichier_lies = $info_fichier_lies->fetch()) {
+                        $idDesignerProjet = $tab_info_fichier_lies['idUtilisateur'];   
+                        $i=$i+1;
+                    ?>
+                    <tr>
+                        <td><?php echo $tab_info_fichier_lies['nomUtilisateur'] ?></td>
+
+                        <td><?php echo $tab_info_fichier_lies['dateUploadFichier'] ?></td>
+                        <td>
+                            <iframe width="100%" height="100" scrolling="no" frameborder="no"src="http://w.soundcloud.com/player/?url=<?php echo $tab_info_fichier_lies['libFichier'] ?>&auto_play=false&color=915f33&theme_color=00FF00"></iframe>
+                        <td><?php echo $i ?>/<?php echo $nbARProjetMax ?> </td>
+                        <td>          
+                            <a href="index.php?module=projet&action=manage&type=deleteTrack&idProjet=<?php echo $idProjet; ?>&idFichier=<?php echo $tab_info_fichier_lies['idFichier']; ?><button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer </button></a>
+                        </td>
+                    </tr>
+                    <?php } ?>
+                 </table>
+                    
+                      
