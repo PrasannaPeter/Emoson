@@ -14,7 +14,7 @@ class M_Commentaire extends Commentaire
               "SELECT *
               FROM commentaires
               WHERE idProjet = $idProjet
-              ORDER BY idCommentaire DESC
+              ORDER BY dateCommentaire DESC
               LIMIT 15");
         }
 
