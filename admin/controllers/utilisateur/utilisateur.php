@@ -474,8 +474,9 @@ class Utilisateur
             	$get_designer_img = M_Utilisateur::get_designer_img($idUtilisateur);
 		return($get_designer_img);
 	}
-<<<<<<< HEAD
-        
+}
+/*<<<<<<< HEAD
+
         static function deleteCompteSoundcloud($idUtilisateur)
 	{
             $verif_sql_delete = M_Utilisateur::deleteCompteSoundcloud($idUtilisateur);
@@ -484,20 +485,20 @@ class Utilisateur
             {
                      $typeNotif = "ok";
                     return $typeNotif;
-                   
+
             }  else {
                      $typeNotif = "error";
                     return $typeNotif;
             }
         }
-      
-}       
+
+}
 =======
 
 
 }
 >>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
-// Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté
+*/ // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté
 if(site_admin() && !empty($controller))
 {
 	if($_GET['action'] != "change_password")
