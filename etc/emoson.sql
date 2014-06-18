@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 18, 2014 at 08:23 PM
+-- Generation Time: Jun 18, 2014 at 11:41 PM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.12
 
@@ -58,6 +58,13 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   KEY `fk_utilisateurs_has_projets_projets1_idx` (`idProjet`),
   KEY `fk_utilisateurs_has_projets_utilisateurs1_idx` (`idUtilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `commentaires`
+--
+
+INSERT INTO `commentaires` (`idUtilisateur`, `idProjet`, `dateCommentaire`, `texteCommentaire`) VALUES
+(2, 6, '', 'Bonjour, le statut est toujours en attente de');
 
 -- --------------------------------------------------------
 
@@ -185,6 +192,20 @@ INSERT INTO `pack` (`idPack`, `titrePack`, `descPack`, `prixPack`, `positionPack
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `paypal_log`
+--
+
+CREATE TABLE IF NOT EXISTS `paypal_log` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `txn_id` varchar(600) NOT NULL,
+  `log` text NOT NULL,
+  `posted_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `projets`
 --
 
@@ -238,6 +259,42 @@ CREATE TABLE IF NOT EXISTS `propose` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `purchases`
+--
+
+CREATE TABLE IF NOT EXISTS `purchases` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `invoice` varchar(300) NOT NULL,
+  `trasaction_id` varchar(600) NOT NULL,
+  `log_id` int(10) NOT NULL,
+  `product_id` varchar(300) NOT NULL,
+  `product_name` varchar(300) NOT NULL,
+  `product_quantity` varchar(300) NOT NULL,
+  `product_amount` varchar(300) NOT NULL,
+  `payer_fname` varchar(300) NOT NULL,
+  `payer_lname` varchar(300) NOT NULL,
+  `payer_address` varchar(300) NOT NULL,
+  `payer_city` varchar(300) NOT NULL,
+  `payer_state` varchar(300) NOT NULL,
+  `payer_zip` varchar(300) NOT NULL,
+  `payer_country` varchar(300) NOT NULL,
+  `payer_email` text NOT NULL,
+  `payment_status` varchar(300) NOT NULL,
+  `posted_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `purchases`
+--
+
+INSERT INTO `purchases` (`id`, `invoice`, `trasaction_id`, `log_id`, `product_id`, `product_name`, `product_quantity`, `product_amount`, `payer_fname`, `payer_lname`, `payer_address`, `payer_city`, `payer_state`, `payer_zip`, `payer_country`, `payer_email`, `payment_status`, `posted_date`) VALUES
+(1, '2333086053', '', 0, '39555', 'Crocodile Shoes', '3', '40.00', 'Mohamed', 'Asif', 'Address of me', 'City of me', 'State of me', '123456', 'US', 'asif18@asif18.com', 'pending', '2014-06-19 01:33:09'),
+(2, '2335119547', '', 0, '13152', 'Crocodile Shoes', '1', '40.00', 'Mohamed', 'Asif', 'Address of me', 'City of me', 'State of me', '123456', 'US', 'asif18@asif18.com', 'pending', '2014-06-19 01:36:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `utilisateurs`
 --
 
@@ -256,7 +313,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   PRIMARY KEY (`idUtilisateur`),
   UNIQUE KEY `loginUtilisateur_UNIQUE` (`loginUtilisateur`),
   KEY `fk_utilisateurs_comptes_lies1_idx` (`idCompte`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `utilisateurs`
@@ -265,7 +322,8 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 INSERT INTO `utilisateurs` (`idUtilisateur`, `nomUtilisateur`, `prenomUtilisateur`, `telUtilisateur`, `loginUtilisateur`, `passUtilisateur`, `emailUtilisateur`, `roleUtilisateur`, `bioUtilisateur`, `idCompte`, `certifUtilisateur`) VALUES
 (1, 'AdminTest', 'testeur', '05478987', 'admin', 'c759eaf09e4638954f63ace0ce1b53b40f62ccb7', 'test@test.com', 'ADMIN', NULL, NULL, 0),
 (2, 'Dupré', 'dehde', '01456421212', 'entreprise', '596fed20aa89037d670e419403c205068d484654', 'dejhe@hyegd.de', 'ENTREPRISE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1),
-(3, 'Delarue', 'Jean', '01242545214', 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1);
+(3, 'Delarue', 'Jean', '01242545214', 'designer', '3cffd736dfac1e79687f168cf697611b35060da3', 'hde@test.fr', 'GRAPHISTE', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu posuere ligula, nec eleifend sapien. Fusce tempor dolor rhoncus magna posuere blandit. Praesent placerat at justo a pretium. Sed venenatis diam elementum sem posuere auctor. Nunc aliquam lacus tortor, sit amet iaculis lorem vehicula quis. Etiam a enim porta, mollis diam non, condimentum eros. Proin eu pretium massa. Nunc faucibus egestas fermentum.', NULL, 1),
+(4, 'Incididunt irure laborum nisi ab lorem rerum quia est', 'Officia quis eos et et do officia officia sed', '0148842547', 'Aspernatur debitis ut amet eaque dolore voluptatum culpa obcaecati saepe deserunt voluptas', '5f1b783832c6448613added870fc16b72b998289', 'dovelyni@gmail.com', 'VISITEUR', 'Ut nesciunt, tempora consequuntur tempor qui enim et quia duis et necessitatibus iusto non minus omnis non perferendis tempore.', NULL, 1);
 
 -- --------------------------------------------------------
 

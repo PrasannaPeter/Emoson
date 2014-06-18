@@ -150,6 +150,11 @@ class Utilisateur
 	}
 
 
+	static function demander_certif()
+	{
+ 		M_Utilisateur::demander_certif($_SESSION['idUtilisateur']);
+		header('Location:index.php?module=dashboard&action=afficher');
+	}
 
 	// Function relative aux tickets
 
