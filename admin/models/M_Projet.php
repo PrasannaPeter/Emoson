@@ -128,18 +128,24 @@ class M_Projet extends Projet
 	}
 
 
-	static function insert_projet($titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
+	static function insert_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		$bdd = PDO();
 
 		$sql_insert =$bdd->prepare('
-			INSERT INTO projets(titreProjet, descriptionProjet, isActiveProjet, idUtilisateur, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, idPack)
-			VALUES (:titreProjet, :descriptionProjet, :isActiveProjet, :idUtilisateur, :tailleEntreprise, :caEntreprise, :ptsContactEntreprise, :optionProjet, :nbARProjet, :nbDesignerSouhaite, :idPack)
+			INSERT INTO projets(titreProjet, descriptionProjet, brandingProjet, positionnementProjet, identiteProjet, referencesProjet, dontlikeProjet, commentaireProjet, isActiveProjet, idUtilisateur, tailleEntreprise, caEntreprise, ptsContactEntreprise, optionProjet, nbARProjet, nbDesignerSouhaite, idPack)
+			VALUES (:titreProjet, :descriptionProjet, :brandingProjet, :positionnementProjet, :identiteProjet, :referencesProjet, :dontlikeProjet, :commentaireProjet, :isActiveProjet, :idUtilisateur, :tailleEntreprise, :caEntreprise, :ptsContactEntreprise, :optionProjet, :nbARProjet, :nbDesignerSouhaite, :idPack)
 					');
 
 		$sql_insert->execute(array(
 						'titreProjet' => $titreProjet,
 						'descriptionProjet' => $descriptionProjet,
+						'brandingProjet' => $brandingProjet,
+						'positionnementProjet' => $positionnementProjet,
+						'identiteProjet' => $identiteProjet,
+						'referencesProjet' => $referencesProjet,
+						'dontlikeProjet' => $dontlikeProjet,
+						'commentaireProjet' => $commentaireProjet,
 						'isActiveProjet' => $isActiveProjet,
 						'idUtilisateur' => $idUtilisateur,
 						'tailleEntreprise' => $tailleEntreprise,
@@ -155,18 +161,24 @@ class M_Projet extends Projet
 	}
 
 
-	static function update_projet($idProjet, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
+	static function update_projet($idProjet, $titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		$bdd = PDO();
 		$sql_update = $bdd->prepare('
 			UPDATE projets
-			SET titreProjet=:titreProjet, descriptionProjet=:descriptionProjet, isActiveProjet=:isActiveProjet, idUtilisateur=:idUtilisateur, tailleEntreprise=:tailleEntreprise, caEntreprise=:caEntreprise, ptsContactEntreprise=:ptsContactEntreprise, optionProjet=:optionProjet, nbARProjet=:nbARProjet, nbDesignerSouhaite=:nbDesignerSouhaite, idPack=:idPack
+			SET titreProjet=:titreProjet, descriptionProjet=:descriptionProjet, brandingProjet=:brandingProjet, positionnementProjet=:positionnementProjet, identiteProjet=:identiteProjet, referencesProjet=:referencesProjet, dontlikeProjet=:dontlikeProjet, commentaireProjet=:commentaireProjet,  isActiveProjet=:isActiveProjet, idUtilisateur=:idUtilisateur, tailleEntreprise=:tailleEntreprise, caEntreprise=:caEntreprise, ptsContactEntreprise=:ptsContactEntreprise, optionProjet=:optionProjet, nbARProjet=:nbARProjet, nbDesignerSouhaite=:nbDesignerSouhaite, idPack=:idPack
 			WHERE idProjet = '.$idProjet.'
 		');
 
 		$sql_update->execute(array(
 						'titreProjet' => $titreProjet,
 						'descriptionProjet' => $descriptionProjet,
+						'brandingProjet' => $brandingProjet,
+						'positionnementProjet' => $positionnementProjet,
+						'identiteProjet' => $identiteProjet,
+						'referencesProjet' => $referencesProjet,
+						'dontlikeProjet' => $dontlikeProjet,
+						'commentaireProjet' => $commentaireProjet,
 						'isActiveProjet' => $isActiveProjet,
 						'idUtilisateur' => $idUtilisateur,
 						'tailleEntreprise' => $tailleEntreprise,
@@ -175,7 +187,7 @@ class M_Projet extends Projet
 						'optionProjet' => $optionProjet,
 						'nbARProjet' => $nbARProjet,
 						'nbDesignerSouhaite' => $nbDesignerSouhaite,
-						'idPack' => $idPack
+						'idPack' => $idPack,
 					));
 
 		return($sql_update);

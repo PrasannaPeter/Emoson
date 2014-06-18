@@ -73,11 +73,11 @@ class Projet
 	{
 		if(!empty($type))
 		{
-			$read_projet = Projet::get_projet($idProjet=NULL,$libProjet, $type);
+			$read_projet = Projet::get_projet($idProjet=NULL, $type);
 		}
 		else
 		{
-			$read_projet = Projet::get_projet($idProjet=NULL,$libProjet, $type=NULL);
+			$read_projet = Projet::get_projet($idProjet=NULL, $type=NULL);
 		}
 
 		// Boucle remplissage du tableau
@@ -154,7 +154,7 @@ class Projet
 	// Fonction CRUD
 	// Retourne $typeNotif & $msgNotif si erreur
 
-	static function set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise,  $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
+	static function set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		// Si on a pas d'ID, INSERT
 		if(empty($idProjet))
@@ -178,7 +178,7 @@ class Projet
 			else
 			{
 
-				$sql_insert = M_Projet::insert_projet($titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+				$sql_insert = M_Projet::insert_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 				if($sql_insert)
 					return $sql_insert = "ok";
@@ -201,7 +201,7 @@ class Projet
 			}
 			else
 			{
-				$sql_update = M_Projet::update_projet($idProjet, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+				$sql_update = M_Projet::update_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 				$updateProjet = "ok";
 				return($updateProjet);
 			}
@@ -343,6 +343,36 @@ class Projet
 			*/
 		}
 	}
+
+	static function verifFichier($name, $tmp_name, $size)
+    {
+		$extensionsAutorisees = array("doc", "docx", "pdf");
+
+		// si un fichier a bien été transféré
+        if (is_uploaded_file($tmp_name)) 
+        {
+
+            $extraireExtension = explode(".", $name);
+            $extension = $extraireExtension[1];
+            // Contrôle de l'extension du fichier
+            if (!(in_array($extension, $extensionsAutorisees))) 
+            {
+            	echo "extention nok";
+            	$_SESSION['typeNotif'] = "error";
+                $_SESSION['titreNotif'] = 'Votre fichier '.$name.' na pas lextension attendue('.$extensionsAutorisees.')';
+                header('Location:index.php?module=entreprise&action=remplir_brief');
+            }
+
+            if ($size > 8000000) 
+            {
+            	echo "size nok";
+                $_SESSION['typeNotif'] = "error";
+                $_SESSION['titreNotif'] = 'Votre fichier '.$name.'est trop volumineux';
+                header('Location:index.php?module=entreprise&action=remplir_brief');
+            }
+            return 'ok';
+	    }
+    }
 }
 
 //if(site_admin())

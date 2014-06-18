@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost:8889
--- Généré le :  Mer 18 Juin 2014 à 12:38
+-- Généré le :  Mer 18 Juin 2014 à 19:25
 -- Version du serveur :  5.5.34
 -- Version de PHP :  5.5.10
 
@@ -56,7 +56,7 @@ CREATE TABLE `compte_soundcloud` (
   PRIMARY KEY (`compte_soundcloud_id`),
   KEY `compte_soundcloud_designer_id` (`compte_soundcloud_designer_id`),
   KEY `compte_soundcloud_designer_id_2` (`compte_soundcloud_designer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -70,7 +70,14 @@ CREATE TABLE `designer_img` (
   `designer_img_url` varchar(100) NOT NULL,
   PRIMARY KEY (`designer_img_id`),
   KEY `designer_img_designer_id` (`designer_img_designer_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `designer_img`
+--
+
+INSERT INTO `designer_img` (`designer_img_id`, `designer_img_designer_id`, `designer_img_url`) VALUES
+(5, 3, 'Capture d’écran 2014-05-30 à 11.50.30.png');
 
 -- --------------------------------------------------------
 
@@ -98,7 +105,7 @@ CREATE TABLE `entreprises` (
 --
 
 INSERT INTO `entreprises` (`idEntreprise`, `raisonSocialeEntreprise`, `secteurEntreprise`, `siteWebEntreprise`, `adresseEntreprise`, `villeEntreprise`, `CPEntreprise`, `typeEntreprise`, `idUtilisateur`, `numSiretEntreprise`) VALUES
-(1, 'Emoson', 'Informatique', 'www.emoson.fr', 'Cité paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
+(1, 'Brand 440', 'Informatique', 'www.emoson.fr', 'Cité paradis ', 'Paris', '750000', 'SARL', 2, '1245121.240');
 
 -- --------------------------------------------------------
 
@@ -120,7 +127,7 @@ CREATE TABLE `fichiers_lies` (
   KEY `idProjet_3` (`idProjet`,`idUtilisateur`),
   KEY `idUtilisateur` (`idUtilisateur`),
   KEY `idUtilisateur_2` (`idUtilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -174,14 +181,14 @@ CREATE TABLE `projets` (
   PRIMARY KEY (`idProjet`),
   KEY `fk_projets_pack1_idx` (`idPack`),
   KEY `idUtilisateur` (`idUtilisateur`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Contenu de la table `projets`
 --
 
 INSERT INTO `projets` (`idProjet`, `titreProjet`, `descriptionProjet`, `brandingProjet`, `positionnementProjet`, `identiteProjet`, `referencesProjet`, `dontlikeProjet`, `commentaireProjet`, `isActiveProjet`, `idUtilisateur`, `tailleEntreprise`, `caEntreprise`, `ptsContactEntreprise`, `optionProjet`, `nbARProjet`, `nbDesignerSouhaite`, `idPack`) VALUES
-(3, 'Emoson', 'vrejv,rlv,lrm', NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 1, 1, '["1","2"]', '["1"]', 3, 2, 1);
+(6, 'frcfv', 'drcfvf', 'BrandingTEST.docx', 'fcfdre', 'Identitetest.docx', 'frcfv', 'frc', 'frfvf', 0, 2, 1, 2, '["2","3"]', '2', 3, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -267,7 +274,7 @@ ALTER TABLE `compte_soundcloud`
 -- Contraintes pour la table `designer_img`
 --
 ALTER TABLE `designer_img`
-  ADD CONSTRAINT `designer_img_ibfk_1` FOREIGN KEY (`designer_img_id`) REFERENCES `utilisateurs` (`idUtilisateur`);
+  ADD CONSTRAINT `designer_img_ibfk_1` FOREIGN KEY (`designer_img_designer_id`) REFERENCES `utilisateurs` (`idUtilisateur`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `entreprises`
@@ -285,8 +292,8 @@ ALTER TABLE `fichiers_lies`
 -- Contraintes pour la table `projets`
 --
 ALTER TABLE `projets`
-  ADD CONSTRAINT `projets_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`),
-  ADD CONSTRAINT `fk_projets_pack1` FOREIGN KEY (`idPack`) REFERENCES `pack` (`idPack`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_projets_pack1` FOREIGN KEY (`idPack`) REFERENCES `pack` (`idPack`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `projets_ibfk_1` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`idUtilisateur`);
 
 --
 -- Contraintes pour la table `propose`

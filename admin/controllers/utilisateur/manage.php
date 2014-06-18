@@ -264,9 +264,9 @@ switch($type)
         break;    
     
         case "modifier_designer_img" :
-             if(!empty($idUtilisateur))
+            if(!empty($idUtilisateur))
             {
-		echo 'modifier_portfolio'.$idUtilisateur;
+				echo 'modifier_portfolio'.$idUtilisateur;
                         
                 $extensionsAutorisees = array("jpeg", "jpg", "gif", "png");
                 // si un fichier maphoto a bien été transféré
@@ -285,7 +285,7 @@ switch($type)
                     }
                     if ($_FILES["maphoto"]["size"] > 8000000) {
                         $_SESSION['typeNotif'] = "error";
-                        $_SESSION['titreNotif'] = "Votre photo est trop volimineux".$_FILES["maphoto"]["size"]."  1000000";
+                        $_SESSION['titreNotif'] = "Votre photo est trop volimineuse".$_FILES["maphoto"]["size"]."  1000000";
                         header('Location:index.php?module=designer&action=modifier_portfolio');
                     }
                     $destination = 'style/designer_img/'.$_FILES['maphoto']['name']; 
