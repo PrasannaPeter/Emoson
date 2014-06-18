@@ -181,7 +181,7 @@
   </div>
   <div class="modal-footer">
             <p>
-    Nouveau sur Emoson ?
+    Nouveau sur Brand440 ?
 
           <a class="btn btn-info" href="index.php?module=designer&action=inscription_designer">Inscription designer sonore</a>
           <a class="btn btn-warning" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>

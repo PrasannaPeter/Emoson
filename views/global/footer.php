@@ -92,7 +92,7 @@
           <div id="site-description">
             <h3><img src="style/images/Logo.png" width="220" height="72"  alt=""/></h3>
             <p>
-            Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous à contact@emoson.fr
+            Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous à contact@brand440.fr
             </p>
           </div>
           <div id="footer-menu">
@@ -146,7 +146,7 @@
   <div class="inner">
     <div class="row-fluid">
       <!-- Copyright Text -->
-      <div id="copyright-text">Reproduction non autorisée <a href="index.php">EmoSon</a> | Tous droits réservés| Création des étudiants de l'ESGI</div>
+      <div id="copyright-text">Reproduction non autorisée <a href="index.php">BRAND440</a> | Tous droits réservés| Création des étudiants de l'ESGI</div>
       <!-- /Copyright Text -->
       <!-- Copyright Social Link -->
       <div id="copyright-link">
