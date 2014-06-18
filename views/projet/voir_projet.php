@@ -4,7 +4,7 @@
   <div id="title">
     <h1 class="inner title-2">Visualisation<span>d'un brief</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
       </ul>
     </h1>
   </div>
@@ -17,7 +17,7 @@
     $get_projet = Projet::get_projet($idProjet);
 
     $nb_designer_actuel = Projet::nb_designer_actuel($idProjet);
-   
+
     foreach ($nb_designer_actuel as $tab_nb_designer) {
         $nb_designer = $tab_nb_designer['nb_designer_actuel'];
     }
@@ -44,9 +44,9 @@
     <p><strong>Ce que vous ne souhaitez pas : </strong><?php echo $get_projet['dontlikeProjet'];?></p>
     <p><strong>Commentaires : </strong><?php echo $get_projet['commentaireProjet'];?></p>
     <p><strong>Pack : </strong><?php echo $get_projet['titrePack'];?></p>
-    <p><strong>Voix off : </strong><?php 
+    <p><strong>Voix off : </strong><?php
             if ($get_projet['optionProjet'] == "1"){
-                echo "Entre 1 à 5 messages par mois"; 
+                echo "Entre 1 à 5 messages par mois";
             }
             else if ($get_projet['optionProjet'] == "2"){
                 echo  "Entre 5 à 10 messages par mois";
@@ -63,7 +63,7 @@
     <p><strong>Etat : <?php
                 if ($get_projet['isActiveProjet'] == "0")
                 {
-                    echo  "<span class='label label-info'>En attente de validation </span>";
+                    echo  "<span style='color:white' class='label label-info'>En attente de validation </span>";
                 }
                 else if ($get_projet['isActiveProjet'] == "1")
                 {

@@ -94,7 +94,7 @@
   <div class="inner">
 
     <!-- Logo -->
-    <div id="logo"> <a href="index.php"><img src="style/images/Logo.png" width="210" style="margin-top:10px;"   alt="logo"/></a><a class="menu-hider"></a></div>
+    <div id="logo"> <a href="index.php"><img src="style/images/Logo-old.png" width="210" style="margin-top:10px;"   alt="logo"/></a><a class="menu-hider"></a></div>
     <!-- /Logo -->
 
     <!-- Menu -->
@@ -181,7 +181,7 @@
   </div>
   <div class="modal-footer">
             <p>
-    Nouveau sur Emoson ?
+    Nouveau sur Brand440 ?
 
           <a class="btn btn-info" href="index.php?module=designer&action=inscription_designer">Inscription designer sonore</a>
           <a class="btn btn-warning" href="index.php?module=entreprise&action=inscription_entreprise">Inscription entreprise</a>

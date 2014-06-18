@@ -8,7 +8,7 @@
         <!-- logo -->
         <div class="logo">
             <a href="index.php">
-                <img src="assets/images/logo.png" alt="" />
+                <img src="../style/images/Logo.png" width="150px"  alt="" />
             </a>
         </div>
 
@@ -30,12 +30,12 @@
     </header>
 
     <ul id="main-menu" class="">
-        <li id="search">
+<!--         <li id="search">
             <form method="get" action="#">
                 <input type="text" name="q" class="search-input" placeholder="Rechercher..." />
                 <button type="submit"><i class="entypo-search"></i></button>
             </form>
-         </li>
+         </li> -->
 
         <li class="opened active">
             <a href="index.php"><i class="entypo-home"></i><span>Tableau de bord</span></a>

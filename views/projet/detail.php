@@ -3,7 +3,7 @@
   <div id="title">
     <h1 class="inner job_page title-2">Front-End Developer <span id="jobs-counter">- Envato, Sydney, AU</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Home</a></li>
+        <li> <a href="index.html">Accueil</a></li>
         <li> <a href="job-listing-1.html">Jobs</a></li>
         <li> <a href="job.html">Job Page</a></li>
       </ul>

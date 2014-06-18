@@ -4,7 +4,7 @@
   <div id="title">
     <h1 class="inner title-2">Modifier<span> mon profil</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
       </ul>
     </h1>
   </div>
@@ -66,12 +66,11 @@
 
     <input type="hidden" name="roleUtilisateur" value="GRAPHISTE" />
   </fieldset>
-  <fieldset>
+<!--   <fieldset>
     <div id="legend">
       <legend class=""><h2>Ajouter un compte externe</h2></legend><br />
     </div>
       <div class="control-group">
-        <!-- Button -->
         <div class="controls">
           <button class="btn" style="background-color:#133783;"><i class="fa fa-facebook"> | Facebook</i></button>
           <button class="btn" style="background-color:#4393bb;"><i class="fa fa-linkedin"> | LinkedIn</i></button>
@@ -79,7 +78,7 @@
       </div>
       <br/>
   </fieldset>
-
+ -->
     <div class="control-group">
       <!-- Button -->
       <div class="controls">

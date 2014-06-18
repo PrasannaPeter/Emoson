@@ -4,7 +4,7 @@
   <div id="title">
     <h1 class="inner title-2">Inscription<span>Entreprise</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
         <li> <a href="candidates.html">Entreprises partenaires</a></li>
       </ul>
     </h1>

@@ -8,7 +8,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
   <div id="title">
     <h1 class="inner title-2">Brief<span>Formulaire</span>
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
       </ul>
     </h1>
   </div>
@@ -207,7 +207,7 @@ $idEntreprise = $_SESSION['idUtilisateur'];
       <label class="control-label" for="voixOffProjet">Voix off</label>
       <div class="controls">
           <div class="radio-field">
-            <input name="optionProjet" id="voixOffProjet_1" type="radio" value="1" selected = "selected"/>
+            <input name="optionProjet" checked="checked" id="voixOffProjet_1" type="radio" value="1" selected = "selected"/>
             <label for="voixOffProjet_1">Entre 1 à 5 messages par mois</label>
           </div>
           <div class="radio-field">

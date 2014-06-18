@@ -234,17 +234,17 @@ class Utilisateur
 						<td><?php echo $tab_utilisateur['telUtilisateur']; ?></td>
 						<td><?php echo $tab_utilisateur['roleUtilisateur']; ?></td>
 						<td class="actions">
-							<a href="index.php?module=utilisateur&action=manage&type=modifier&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" title="Editer" class="btn btn-default btn-sm btn-icon icon-left">
+							<a href="index.php?module=utilisateur&action=manage&type=modifier&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" title="Editer" class="btn btn-default btn-xs btn-icon icon-left">
 								<i class="entypo-pencil"></i>
 								Edit
 							</a>
 
-							<a href="index.php?module=utilisateur&action=manage&type=supprimer&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" title="Supprimer" class="btn btn-danger btn-sm btn-icon icon-left">
+							<a href="index.php?module=utilisateur&action=manage&type=supprimer&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" title="Supprimer" class="btn btn-danger btn-xs btn-icon icon-left">
 								<i class="entypo-trash"></i>
 								Delete
 							</a>
 
-							<a href="../index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" target="_blank" class="btn btn-info btn-sm btn-icon icon-left">
+							<a href="../index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" target="_blank" class="btn btn-info btn-xs btn-icon icon-left">
 								<i class="entypo-info"></i>
 								Profil
 							</a>
@@ -252,7 +252,7 @@ class Utilisateur
 						<?php
 						if ($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE" && $tab_utilisateur['certifUtilisateur'] == "1")
 						{?>
-							<a href="../admin/index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-success">
+							<a href="../admin/index.php?module=proposition&action=afficher_proposition&type_proposition=utilisateur&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-xs btn-success">
 								<i class="entypo-info"></i>
 								Proposer un projet
 							</a>
@@ -424,14 +424,14 @@ class Utilisateur
 			break;
 		}
 	}
-        
-        
+
+
         static function get_compte_soundcloud($idUtilisateur)
 	{
             	$get_compte_soundcloud = M_Utilisateur::get_compte_soundcloud($idUtilisateur);
 		return($get_compte_soundcloud);
 	}
-        
+
         static function souncloud_utilisateur($idUtilisateur,$soundcloudID)
 	{
             $verif_sql = M_Utilisateur::verif_compte_soundcloud($idUtilisateur);
@@ -452,9 +452,9 @@ class Utilisateur
                         return $error;
                 }
             }
-                
+
 	}
-        
+
         static function modifier_designer_img($idUtilisateur,$img)
 	{
             $verif_sql = M_Utilisateur::verif_designer_img($idUtilisateur);
@@ -466,14 +466,15 @@ class Utilisateur
                 $get_compte_soundcloud = M_Utilisateur::add_designer_img($idUtilisateur,$img);
 		return($get_compte_soundcloud);
             }
-            	
+
 	}
-        
+
         static function get_designer_img($idUtilisateur)
 	{
-            	$get_designer_img = M_Utilisateur::get_designer_img($idUtilisateur);   
+            	$get_designer_img = M_Utilisateur::get_designer_img($idUtilisateur);
 		return($get_designer_img);
 	}
+<<<<<<< HEAD
         
         static function deleteCompteSoundcloud($idUtilisateur)
 	{
@@ -491,6 +492,11 @@ class Utilisateur
         }
       
 }       
+=======
+
+
+}
+>>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
 // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté
 if(site_admin() && !empty($controller))
 {

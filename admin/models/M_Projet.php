@@ -73,7 +73,7 @@ class M_Projet extends Projet
 			$read_projet .= ' ORDER BY titreProjet';
 			$read_projet = $bdd->query($read_projet);
 		}
-                
+
 		return($read_projet);
 	}
 
@@ -117,12 +117,12 @@ class M_Projet extends Projet
 		return($nb_designer_actuel);
 	}
 
-	static function nb_projet() 
+	static function nb_projet()
 	{
 		$bdd = PDO();
 
 		$nb_projet = $bdd->query('SELECT COUNT(*) as nbProjet
-									FROM projets 
+									FROM projets
 			');
 		return($nb_projet);
 	}
@@ -245,7 +245,7 @@ class M_Projet extends Projet
 
 		return($verif_sql_delete['idProjet']);
 	}
-        
+
        // recuperation des données fichiers_lies
         static function get_fichiers_lies($idProjet)
 	{
@@ -259,7 +259,7 @@ class M_Projet extends Projet
 
 		return($sql);
 	}
-        
+
         // insertion des données fichiers_lies
         static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)
 	{
@@ -269,34 +269,35 @@ class M_Projet extends Projet
 			INSERT INTO fichiers_lies(libFichier, dateUploadFichier, idProjet, idUtilisateur)
 			VALUES ('$libFichier', '$dateUploadFichier', '$idProjet', '$idUtilisateur')
 					");
-                return($sql_insert); 
+                return($sql_insert);
 	}
-        
+
         static function get_nb_AR_Projet($idProjet)
 	{
 		$bdd = PDO();
 
 		$nb_AR_Projet = $bdd->query('SELECT nbARProjet
-                                                        FROM projets 
+                                                        FROM projets
                                                         WHERE idProjet = '.$idProjet.'
 		');
                 $verif_sql = $nb_AR_Projet->fetch();
 
 		return($verif_sql['nbARProjet']);
 	}
-        
+
         static function count_nb_AR_Projet($idProjet)
 	{
 		$bdd = PDO();
 
 		$count_nb_AR_Projet = $bdd->query('SELECT count(idFichier)as nb
-                                                        FROM fichiers_lies 
+                                                        FROM fichiers_lies
                                                         WHERE idProjet = '.$idProjet.'
 		');
                 $verif_sql = $count_nb_AR_Projet->fetch();
 
 		return($verif_sql['nb']);
 	}
+<<<<<<< HEAD
         
          static function deleteTrack($idFichier)
 	{
@@ -311,6 +312,9 @@ class M_Projet extends Projet
 
 	}
         
+=======
+
+>>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
 }
 
 	// static function set_Statut($idProjet, $emailContact)

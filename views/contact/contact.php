@@ -4,8 +4,8 @@
   <div id="title">
     <h1 class="inner title-2">Contactez-nous
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
-        <li> <a href="contacts.html">Contactez-nous</a></li>
+        <li> <a href="index.php">Accueil</a></li>
+        <li> <a href="index.php?module=contact">Contactez-nous</a></li>
       </ul>
     </h1>
   </div>
@@ -22,13 +22,13 @@
         <div id="contacts" class="block post-box box-1 contact-address">
           <div class="block-content">
             <div class="left">
-              <h3 class="title-3">BRAND440</h3>
+              <h3 class="title-3">EMOSON (EDITEUR)</h3>
               <div class="contact-field"><span class="label">Addresse :</span><span id="first-address" class="count">1 rue Camille Pelletan 92300 Levallois Perret, France</span></div>
               <div class="contact-field"><span class="label">Téléphone :</span><span class="count">06 26 58 03 94 </span></div>
               <div class="contact-field"><span class="label">E-mail :</span><span class="count"><a>contact@emoson.fr</a></span></div>
               <div class="contact-field"><span class="label">Site Web :</span><span class="count"><a>http://emoson.fr</a></span></div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -53,9 +53,7 @@
               <div id = "mess">
                 <textarea title="Votre Message" name="message" cols="30" rows="6" class="textarea" onclick="this.value='';" onfocus="$(this).addClass('active');" onblur="$(this).removeClass('active');">Comment pouvons nous vous aider ?</textarea>
               </div>
-              <div id = "send">
                 <button class="btn blue">Envoyer</button>
-              </div>
             </form>
           </div>
         </div>

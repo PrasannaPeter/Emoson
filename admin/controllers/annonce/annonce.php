@@ -37,14 +37,14 @@ class Annonce
 
 	//Tableau qui affiche le annonce
 	static function tab_annonce($type=NULL)
-	{
+		{
 		if(!empty($type))
 		{
-			$read_annonce = Annonce::get_annonce($id=NULL,$libAnnonce, $type);
+			$read_annonce = Annonce::get_annonce($id=NULL,$titre, $type);
 		}
 		else
 		{
-			$read_annonce = Annonce::get_annonce($id=NULL,$libAnnonce, $type=NULL);
+			$read_annonce = Annonce::get_annonce($id=NULL,$titre, $type=NULL);
 		}
 
 		// Boucle remplissage du tableau
@@ -56,12 +56,12 @@ class Annonce
 				<td><?php echo $tab_annonce['titre']; ?></td>
 				<td><?php echo $tab_annonce['content']; ?></td>
 				<td class="actions">
-					<a href="index.php?module=annonce&action=manage&type=modifier&id=<?php echo $tab_annonce['id']; ?>" title="Editer" class="btn btn-default btn-sm btn-icon icon-left">
+					<a href="index.php?module=annonce&action=manage&type=modifier&id=<?php echo $tab_annonce['id']; ?>" title="Editer" class="btn btn-default btn-xs btn-icon icon-left">
 						<i class="entypo-pencil"></i>
 						Modifier
 					</a>
 
-					<a href="index.php?module=annonce&action=manage&type=supprimer&id=<?php echo $tab_annonce['id']; ?>" title="Supprimer" class="btn btn-danger btn-sm btn-icon icon-left">
+					<a href="index.php?module=annonce&action=manage&type=supprimer&id=<?php echo $tab_annonce['id']; ?>" title="Supprimer" class="btn btn-danger btn-xs btn-icon icon-left">
 						<i class="entypo-trash"></i>
 						Supprimer
 					</a>
@@ -79,6 +79,8 @@ class Annonce
 	{
 		$annonce['titre'] = $titre;
 		$annonce['content'] = $content;
+		$annonce['date'] = date('D-m-Y');
+
 
 		// Si on a pas d'ID, INSERT
 		if(empty($id))

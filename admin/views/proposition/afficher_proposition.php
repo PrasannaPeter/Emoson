@@ -57,9 +57,9 @@ if($type_proposition == "projet")
 					echo '<td>';
                         if($tab_proposer['acceptation'] == 1 && $tab_proposer['validation'] == 0)
                         {
-                            echo'<a href="index.php?module=proposition&action=manage&type=set_proposition&acceptation=1&validation=1&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-info btn-sm btn-icon icon-left"> Valider</a>';
+                            echo'<a href="index.php?module=proposition&action=manage&type=set_proposition&acceptation=1&validation=1&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-info btn-xs btn-icon icon-left"> Valider</a>';
                         }
-                        echo '<a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer</a>';
+                        echo '<a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=projet&idProjet='.$idProjet.'&idUtilisateur='.$tab_proposer['idUtilisateur'].'" class="btn btn-danger btn-xs btn-icon icon-left"> Supprimer</a>';
                         echo'</td>';
                     ?>
 
@@ -171,9 +171,9 @@ else if ($type_proposition == "utilisateur")
                     echo '<td>';
                             if($tab_proposer['acceptation'] == 1 && $tab_proposer['validation'] == 0)
                             {
-                                echo'<a href="index.php?module=proposition&action=manage&type=set_proposition&acceptation=1&validation=1&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-info btn-sm btn-icon icon-left"> Valider</a>';
+                                echo'<a href="index.php?module=proposition&action=manage&type=set_proposition&acceptation=1&validation=1&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-info btn-xs btn-icon icon-left"> Valider</a>';
                             }
-                            echo '<a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-danger btn-sm btn-icon icon-left"> Supprimer</a>';
+                            echo '<a href="index.php?module=proposition&action=manage&type=del_proposition&type_proposition=utilisateur&idUtilisateur='.$idUtilisateur.'&idProjet='.$tab_proposer['idProjet'].'" class="btn btn-danger btn-xs btn-icon icon-left"> Supprimer</a>';
                        echo '</td>'; ?>
                 </tr>
             <?php
