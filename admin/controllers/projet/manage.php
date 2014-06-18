@@ -27,7 +27,9 @@ if(!empty($_POST['nbARProjet'])){$nbARProjet = $_POST['nbARProjet'];}else{$nbARP
 if(!empty($_POST['nbDesignerSouhaite'])){$nbDesignerSouhaite = $_POST['nbDesignerSouhaite'];}else{$nbDesignerSouhaite = "0";}
 if(!empty($_POST['idPack'])){$idPack = $_POST['idPack'];}
 if(!empty($_POST['isActiveProjet'])){ $isActiveProjet = $_POST['isActiveProjet'];}else{ $isActiveProjet = "0";}
-
+if(!empty($_POST['libFichier'])){ $libFichier = $_POST['libFichier'];}
+if(!empty($_POST['idProjet'])){ $idProjet = $_POST['idProjet'];}
+if(!empty($_POST['idUtilisateur'])){ $idUtilisateur = $_POST['idUtilisateur'];}
 switch($type)
 {
 	case "ajouter" :
@@ -35,7 +37,6 @@ switch($type)
 		// INSERT
 		if(!empty($titreProjet) && !empty($descriptionProjet) && !empty($idUtilisateur) && !empty($caEntreprise) && !empty($idPack) )
 		{
-			echo "cest bon ?"; exit;
 			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 			// Verifie l'action sinon erreur
@@ -270,6 +271,48 @@ switch($type)
 		}
 
 	break;
+        
+        case "demande_view_add_fichiers_lies" :
+            require_once VIEWS.$controller.'/add_fichiers_lies.php';
+	break;  
+    
+    	case "ajouter_fichiers_lies" :
+
+		// INSERT
+		if(!empty($libFichier) && !empty($idUtilisateur) && !empty($idProjet))
+		{   
+                        $dateUploadFichier = date('Y-m-d');
+
+			$res = Projet::insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur);
+
+			// Verifie l'action sinon erreur
+			if($res=="ok")
+			{
+				$_SESSION['typeNotif'] = "success";
+				$_SESSION['titreNotif'] = "Votre fichier a bien été ajouté";
+				$_SESSION['msgNotif'] = "Votre fichier a bien été ajouté";
+				header("Location:index.php?module=projet&action=voir_page_projet&idProjet=$idProjet");
+                        }
+			else if($res=="error")
+			{
+				$_SESSION['typeNotif'] = "error";
+				$_SESSION['titreNotif'] = "Votre fichier n'a pas été ajouté";
+				$_SESSION['msgNotif'] = "Votre fichier n'a pas été ajouté";
+				header("Location:index.php?module=projet&action=voir_page_projet&idProjet=$idProjet");
+			}
+		}
+		// Formulaire incomplet => affichage du formulaire
+		else
+		{
+
+			$_SESSION['typeNotif'] = "error";
+			$_SESSION['titreNotif'] = "Vous devez remplir tout les champs du formulaire";
+			$_SESSION['msgNotif'] = "Vous devez remplir tout les champs du formulaire";
+			$_SESSION['lastForm'] = $_POST;
+
+			header("Location:index.php?module=projet&action=voir_page_projet&idProjet=$idProjet");
+		}
 
 
+	break;    
 }

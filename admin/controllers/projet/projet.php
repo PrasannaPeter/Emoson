@@ -1,6 +1,6 @@
 <?php
 
-// On inclus le modèle néccéssaire
+// On inclus le modï¿½le nï¿½ccï¿½ssaire
 require_once MODELS.'M_Projet.php';
 
 class Projet
@@ -30,7 +30,6 @@ class Projet
 				$get_projet = M_Projet::read_projet();
 			}
 		}
-
 		return($get_projet);
 	}
 
@@ -99,11 +98,11 @@ class Projet
 				}
 				else if ($tab_projet['isActiveProjet'] == "2")
 				{
-					echo "Terminé";
+					echo "Terminï¿½";
 				}
 				else if ($tab_projet['isActiveProjet'] == "3")
 				{
-					echo "Non validé";
+					echo "Non validï¿½";
 				}
 				?></td>
 				<td class="actions">
@@ -216,13 +215,13 @@ class Projet
 		// if($update_statut == true)
 		// {
 			// $_SESSION['typeNotif'] = "success";
-			// $_SESSION['titreNotif'] = "Le statut du projet a bien été modifié";
+			// $_SESSION['titreNotif'] = "Le statut du projet a bien ï¿½tï¿½ modifiï¿½";
 			// $_SESSION['msgNotif'] = "";
 		// }
 		// else
 		// {
 			// $_SESSION['typeNotif'] = "error";
-			// $_SESSION['titreNotif'] = "Le statut du projet n'a pu être modifié";
+			// $_SESSION['titreNotif'] = "Le statut du projet n'a pu ï¿½tre modifiï¿½";
 			// $_SESSION['msgNotif'] = "";
 		// }
 	// }
@@ -235,13 +234,13 @@ class Projet
 		// if($update_isRead == true)
 		// {
 			// $_SESSION['typeNotif'] = "success";
-			// $_SESSION['titreNotif'] = "Le projet sera désormais marqué comme \"lu\"";
+			// $_SESSION['titreNotif'] = "Le projet sera dï¿½sormais marquï¿½ comme \"lu\"";
 			// $_SESSION['msgNotif'] = "";
 		// }
 		// else
 		// {
 			// $_SESSION['typeNotif'] = "error";
-			// $_SESSION['titreNotif'] = "Le projet sera désormais marqué comme \"non lu\"";
+			// $_SESSION['titreNotif'] = "Le projet sera dï¿½sormais marquï¿½ comme \"non lu\"";
 			// $_SESSION['msgNotif'] = "";
 		// }
 	// }
@@ -254,13 +253,13 @@ class Projet
 		// if($update_categorie == true)
 		// {
 			// $_SESSION['typeNotif'] = "success";
-			// $_SESSION['titreNotif'] = "La catégorie du projet a bien été modifiée";
+			// $_SESSION['titreNotif'] = "La catï¿½gorie du projet a bien ï¿½tï¿½ modifiï¿½e";
 			// $_SESSION['msgNotif'] = "";
 		// }
 		// else
 		// {
 			// $_SESSION['typeNotif'] = "error";
-			// $_SESSION['titreNotif'] = "La catégorie du projet n'a pu être modifiée";
+			// $_SESSION['titreNotif'] = "La catï¿½gorie du projet n'a pu ï¿½tre modifiï¿½e";
 			// $_SESSION['msgNotif'] = "";
 		// }
 	// }
@@ -373,6 +372,42 @@ class Projet
             return 'ok';
 	    }
     }
+
+        
+         //Recuperation des données get_fichiers_lies
+         static function get_fichiers_lies($idProjet)
+	{
+		$get_fichiers_lies = M_Projet::get_fichiers_lies($idProjet);
+		return($get_fichiers_lies);
+	}
+        
+         //insertion de song get_fichiers_lies
+         static function insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur)
+	{
+		$insert_fichiers_lies = M_Projet::insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur);
+		if(!empty($insert_fichiers_lies))
+		{
+                          $res = "ok";
+                    return($res);
+		}
+		else
+		{
+                     $res = "error";
+                    return($res);
+		}
+	}
+        
+        static function get_nb_AR_Projet($idProjet)
+	{
+            	$get_nb_AR_Projet = M_Projet::get_nb_AR_Projet($idProjet);  
+		return($get_nb_AR_Projet);
+	}
+        
+        static function count_nb_AR_Projet($idProjet)
+	{
+            	$get_nb_AR_Projet = M_Projet::count_nb_AR_Projet($idProjet);  
+		return($get_nb_AR_Projet);
+	}
 }
 
 //if(site_admin())

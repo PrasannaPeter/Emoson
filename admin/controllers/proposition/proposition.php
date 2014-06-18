@@ -64,8 +64,8 @@ class Proposition
 		$get_utilisateur = M_Proposition::get_utilisateur();
 		return($get_utilisateur);
 	}
+        
 
-	
 }
 
 

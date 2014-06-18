@@ -1,51 +1,52 @@
 <?php
-    require 'connexionSoudcloud.php';
+require 'connexionSoudcloud.php';
 ?>
+
 <script>
 SC.connect(function(){
     SC.get('/me', function(me) { 
-//         alert('Hello, 92388047 ' + me.id); 
-         var id = me.id;
-         if(id !== 0){
-            var location = "https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/"+id;
-           document.getElementById("sc-widget").src=location;
-           document.getElementById("divIframe").style.display='block';
-         }
+            var idUser = me.id;
+            if(idUser !== null){
+                $('#soundcloudID').attr('value', idUser);
+                $('#showForm').show();
+            }else{
+                 $('#showForm').hide();
+            }
 
   });
+  
+    SC.get('/me/tracks', { limit: 1 }, function(tracks) {
+    var track = tracks[0];
+    alert(track.id);
+  });
+  
 });
 </script>
 
-<div id="divIframe" style="display:none">
-    <iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/" width="100%" height="465" scrolling="no" frameborder="no"></iframe>
-    <script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      (function(){
-        var widgetIframe = document.getElementById('sc-widget'),
-            widget       = SC.Widget(widgetIframe);
-
-        widget.bind(SC.Widget.Events.READY, function() {
-          widget.bind(SC.Widget.Events.PLAY, function() {
-            // get information about currently playing sound
-            widget.getCurrentSound(function(currentSound) {
-              console.log('sound ' + currentSound.get('') + 'began to play');
-            });
-          });
-          // get current level of volume
-          widget.getVolume(function(volume) {
-            console.log('current volume value is ' + volume);
-          });
-          // set new volume level
-          widget.setVolume(50);
-          // get the value of the current position
-        });
-
-      }());
-    </script>
+<?php
+  require_once('admin/controllers/utilisateur/utilisateur.php');
+  $info_designer = Utilisateur::get_utilisateur($idUtilisateur=$_SESSION['idUtilisateur'], $type=NULL);
+?>
+<div id="returnModifierPortfolio">
+    <a class="btn btn-large btn-info" href="index.php?module=designer&action=modifier_portfolio" role="button"><i class="fa fa-music"></i> <span>Modifier portfolio</span></a>
+</div>
+<div id="showForm" style="display:none;">
+    <form class="form-horizontal" enctype="multipart/form-data" method="POST" action="index.php?module=utilisateur&action=manage&type=ajouter_compte_soundcloud<?php if(!empty($info_designer['idUtilisateur'])){ echo '&idUtilisateur='.$info_designer['idUtilisateur']; }else{} ?>"> 
+        <div id="legend">
+            <legend class=""><h2>La connexion avec Soundcloud a été reussi</h2></legend><br />
+        </div>
+        <p>Ajouter votre compte soundcloud?</p>
+        <br />
+           <input type="hidden" id="soundcloudID" name="soundcloudID" placeholder="" class="input-xlarge">   
+      <br />
+        <div class="control-group">
+          <!-- Button -->
+          <div class="controls">
+            <button class="btn btn-success">Confirmer</button>
+          </div>
+        </div>
+    </form>
 </div>
 
 
-
-
-<?php
 

@@ -407,17 +407,27 @@ $projets = Projet::get_projet();
               {
                   ?>
                     <li>
+<<<<<<< HEAD
                       <!--div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
                         <!--div class="nav-buttons">
+=======
+                      <div class="company-logo"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><img src="style/images/job-thumb.jpg"  alt=""/></a>
+                        <div class="nav-buttons">
+>>>>>>> 259a26baaf9ed5d6d7a9e44a0acc3842b7555b88
                           <ul>
                             <li class="search"><a><i class="fa fa-search"></i></a></li>
-                            <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
+                            <li class="link"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><i class="fa fa-link"></i></a></li>
                           </ul>
                         </div-->
                       </div-->
                       <div class="company-text">
+<<<<<<< HEAD
                         <div class="title"><a href="#"><?php echo $projet['titreProjet']; ?></a>
                           <div class="location"><?php echo $projet['raisonSocialeEntreprise']; ?></div>
+=======
+                        <div class="title"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><?php echo $projet['titreProjet']; ?></a>
+                          <div class="location">Mettre nom entreprise</div>
+>>>>>>> 259a26baaf9ed5d6d7a9e44a0acc3842b7555b88
                         </div>
                         <div class="description"><?php echo $projet['descriptionProjet']; ?> <!--a>Voir +</a--></div>
                       </div>
@@ -436,9 +446,15 @@ $projets = Projet::get_projet();
         require_once(CONTROLLERS.'/entreprise/entreprise.php');
 
         // @TODO mettre uniquement les projets terminé
+<<<<<<< HEAD
         //$entreprises = Entreprise::get_entreprise();
         
         //if($entreprises > 1){
+=======
+        $entreprises = Entreprise::get_entreprise();
+        $nbEntreprise = count($entreprises);
+        if($nbEntreprise > 1){
+>>>>>>> 259a26baaf9ed5d6d7a9e44a0acc3842b7555b88
         ?>
 
         <!--Partenaires Block-->
