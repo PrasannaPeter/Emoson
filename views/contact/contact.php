@@ -28,7 +28,7 @@
               <div class="contact-field"><span class="label">E-mail :</span><span class="count"><a>contact@emoson.fr</a></span></div>
               <div class="contact-field"><span class="label">Site Web :</span><span class="count"><a>http://emoson.fr</a></span></div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -53,9 +53,7 @@
               <div id = "mess">
                 <textarea title="Votre Message" name="message" cols="30" rows="6" class="textarea" onclick="this.value='';" onfocus="$(this).addClass('active');" onblur="$(this).removeClass('active');">Comment pouvons nous vous aider ?</textarea>
               </div>
-              <div id = "send">
                 <button class="btn blue">Envoyer</button>
-              </div>
             </form>
           </div>
         </div>

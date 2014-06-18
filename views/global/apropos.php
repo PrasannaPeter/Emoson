@@ -34,8 +34,8 @@ D'un air identifiable dès les premières notes ?
 D'un air en commun avec vos cibles ?</p>
           <p>Nous conseillons :
 stratégie de com' sonore, audit des besoins,
-veille des tendances, 
-benchmark sectoriel et/ou 
+veille des tendances,
+benchmark sectoriel et/ou
 concurrentiel.</p>
            <p>Nous créons :
 logo sonore, musique de marque, déclinaisons, musique originale,
@@ -44,7 +44,7 @@ mastering.</p>
             <p>Nous diffusons :
 sonorisation des points de ventes, musique d'attente téléphonique, synchronisation des vidéos et du son, optimisation du mastering selon vos supports de diffusion.</p>
 
-        <div id="about-us-our-team" class="block">
+<!--         <div id="about-us-our-team" class="block">
           <h2 class="title-1">Our Team</h2>
           <div class="block-content">
             <div class="team-worker">
@@ -78,7 +78,7 @@ sonorisation des points de ventes, musique d'attente téléphonique, synchronisa
               <div class="post">Administrator</div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
      </div>
@@ -89,9 +89,9 @@ sonorisation des points de ventes, musique d'attente téléphonique, synchronisa
       <div id="about-us-navigation" class="box-1">
         <div class="">
           <ul>
-            <li class="active"><a href="about-us.html">About Us</a></li>
-            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-            <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+            <li class="active"><a href="index.php?module=afaire.php">About Us</a></li>
+            <li><a href="index.php?module=afaire.php">Privacy Policy</a></li>
+            <li><a href="index.php?module=afaire.php">Terms and Conditions</a></li>
           </ul>
         </div>
       </div>

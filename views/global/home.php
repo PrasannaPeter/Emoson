@@ -356,7 +356,7 @@
                 <i style='font-size: 48px;margin-left:45%;margin-top:15px;' class="fa fa-file-text"></i>
                 <div class="caption">
                   <center><strong>ETUDE DE VOTRE BRIEF</strong></center>
-                  <p>Inscrivez-vous et déposez en ligne votre brief. Nous vous proposerons la formule la plus adaptée</p>
+                  <p>Inscrivez-vous et déposez en ligne votre brief.<br/>Nous vous proposerons la formule la plus adaptée</p>
                 </div>
               </div>
             </li>
@@ -438,7 +438,7 @@ $projets = Projet::get_projet();
         // @TODO mettre uniquement les projets terminé
 
         //$entreprises = Entreprise::get_entreprise();
-        
+
         //if($entreprises > 1){
         ?>
 
