@@ -43,9 +43,8 @@
 
         </ul>
 
+<!--
         <ul class="user-info pull-left pull-right-xs pull-none-xsm">
-
-            <!-- Raw Notifications -->
             <li class="notifications dropdown">
 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -155,8 +154,8 @@
 
         </ul>
 
+ -->
     </div>
-
 
     <!-- Raw Links -->
     <div class="col-md-6 col-sm-4 clearfix hidden-xs">
