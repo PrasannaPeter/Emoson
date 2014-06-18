@@ -406,16 +406,16 @@ $projets = Projet::get_projet();
               {
                   ?>
                     <li>
-                      <div class="company-logo"><a href="#"><img src="style/images/job-thumb.jpg"  alt=""/></a>
+                      <div class="company-logo"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><img src="style/images/job-thumb.jpg"  alt=""/></a>
                         <div class="nav-buttons">
                           <ul>
                             <li class="search"><a><i class="fa fa-search"></i></a></li>
-                            <li class="link"><a href="job.html"><i class="fa fa-link"></i></a></li>
+                            <li class="link"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><i class="fa fa-link"></i></a></li>
                           </ul>
                         </div>
                       </div>
                       <div class="company-text">
-                        <div class="title"><a href="#"><?php echo $projet['titreProjet']; ?></a>
+                        <div class="title"><a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $projet['idProjet'];?>"><?php echo $projet['titreProjet']; ?></a>
                           <div class="location">Mettre nom entreprise</div>
                         </div>
                         <div class="description"><?php echo $projet['descriptionProjet']; ?> <a>Voir +</a></div>
@@ -436,7 +436,8 @@ $projets = Projet::get_projet();
 
         // @TODO mettre uniquement les projets terminé
         $entreprises = Entreprise::get_entreprise();
-        if($entreprises > 1){
+        $nbEntreprise = count($entreprises);
+        if($nbEntreprise > 1){
         ?>
 
         <!--Partenaires Block-->

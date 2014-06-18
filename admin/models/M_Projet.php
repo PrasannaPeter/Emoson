@@ -69,7 +69,7 @@ class M_Projet extends Projet
 			$read_projet .= ' ORDER BY titreProjet';
 			$read_projet = $bdd->query($read_projet);
 		}
-
+                
 		return($read_projet);
 	}
 

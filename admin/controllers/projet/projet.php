@@ -30,7 +30,6 @@ class Projet
 				$get_projet = M_Projet::read_projet();
 			}
 		}
-
 		return($get_projet);
 	}
 

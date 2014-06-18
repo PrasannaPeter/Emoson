@@ -146,27 +146,7 @@ if ($_SESSION['roleUtilisateur'] == "ENTREPRISE" || ($acceptation == 1 && $valid
                 </tab
 
     <?php if ($_SESSION['roleUtilisateur'] == "GRAPHISTE"): ?>
-                                     <?php 
-                        $compte_soundcloud = Utilisateur::get_compte_soundcloud($idDesignerProjet);
-                        $urlz = strip_tags("http://api.soundcloud.com/users/$compte_soundcloud.json?client_id=e81b2e10ea9abad8f48cbef75335b0ef");
-                        $ch = curl_init();
-                        curl_setopt($ch, CURLOPT_URL, $urlz);
-                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                        curl_setopt($ch, CURLOPT_USERAGENT, 'http://www.google.com');
-                        $resultat = curl_exec($ch);
-                        if($errno = curl_error($ch)) {
-                             echo "<p>".$errno."</p>"; 
-                        }  else {
-                          $parsed_json = json_decode($resultat);
-                          echo $parsed_json->{'track_count'};
-                          
-                        }
-                        // On ferme la connexion cURL
-                        curl_close($ch);
-                        
-                         echo '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/92388047"></iframe>';
-                   
-                        ?>
+                                    
                  <h2>Ajouter un fichier</h2>
                   <?php if ($nbARProjet < $nbARProjetMax): ?>
                     <br />

@@ -17,17 +17,32 @@
         <div class="body">
           <div class="clear"></div>
           <div class="heading-l">
-            <h2>Hello, nice to meet you!</h2>
+            <h2>BRAND440 AGENCE SPECIALISEE DANS L'INDENTITE SONORE</h2>
           </div>
           <div class="post-box box-1">
 
-          <p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</strong></p>
-          <p>Cras vel lorem. Etiam pellentesque aliquet tellus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+          <p><strong>NE MANQUEZ PLUS D'AIR !</strong></p>
+          <p></p>
             <div class="video-container">
             <iframe src="http://player.vimeo.com/video/24456787" width="536" height="328" frameborder="0" ></iframe>
             </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</p>
-          <p>Cras vel lorem. Etiam pellentesque aliquet tellus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+          <p>BRAND440 conçoit pour votre entreprise une identité sonore unique, distinctive et représentative de votre marque.
+Cette identité sonore traduit votre métier, votre histoire et votre culture d'entreprise.
+
+Besoin d'un air sur-mesure, propre à votre marque ?
+D'un air identifiable dès les premières notes ?
+D'un air en commun avec vos cibles ?</p>
+          <p>Nous conseillons :
+stratégie de com' sonore, audit des besoins,
+veille des tendances, 
+benchmark sectoriel et/ou 
+concurrentiel.</p>
+           <p>Nous créons :
+logo sonore, musique de marque, déclinaisons, musique originale,
+design sonore, mixage,
+mastering.</p>
+            <p>Nous diffusons :
+sonorisation des points de ventes, musique d'attente téléphonique, synchronisation des vidéos et du son, optimisation du mastering selon vos supports de diffusion.</p>
 
         <div id="about-us-our-team" class="block">
           <h2 class="title-1">Our Team</h2>
