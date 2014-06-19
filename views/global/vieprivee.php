@@ -19,7 +19,7 @@
         <div class="body">
           <div class="clear"></div>
           <div class="heading-l">
-            <h2> General Conditions </h2>
+            <h2>Politique de garantie de la vie privée</h2>
           </div>
           <p><strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi.</strong></p>
           <p>Cras vel lorem. Etiam pellentesque aliquet tellus. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
