@@ -26,7 +26,7 @@
     <a class="btn btn-large btn-info" href="index.php?module=utilisateur&action=change_password" role="button"><i class="fa fa-cog"></i> <span>Modifier mdp.</span></a>
     <a class="btn btn-large btn-warning" href="index.php?module=designer&action=modifier_profil" role="button"><i class="fa fa-user"></i> <span>Modifier profil</span></a>
     <a class="btn btn-large btn-info" href="index.php?module=designer&action=modifier_portfolio" role="button"><i class="fa fa-music"></i> <span>Modifier portfolio</span></a>
-
+    <a class="btn btn-large btn-success" href="index.php?module=designer&action=profil&idUtilisateur=<?php echo $_SESSION['idUtilisateur']; ?>" role="button"><i class="fa fa-eye"></i> <span>Voir mon profil</span></a>
     <hr>
 
     <!--a class="btn btn-large btn-info" href="index.php?module=projet&action=liste" role="button"><i class="fa fa-book"></i> <span>Voir les projets</span></a-->

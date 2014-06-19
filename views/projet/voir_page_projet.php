@@ -57,9 +57,14 @@ $get_projet = Projet::get_projet($idProjet);
         <?php
         while ($tab_designer = $info_designer->fetch()) {
             $designer_img = Utilisateur::get_designer_img($tab_designer['idUtilisateur']);
+
             ?>
                                     <div class="team-worker" style="margin-left:200px;">
+                                        <?php if(!empty($designer_img)){ ?>
                                         <div class="photo"><img src="style/designer_img/<?php echo $designer_img;?>" height="154" width="154" alt="<?php echo $tab_designer['nomUtilisateur'] ?>"></div>
+                                        <?php }else{ ?>
+                                        <div class="photo"><img src="style/images/pas-de-photo.jpg" height="154" width="154" alt="<?php echo $tab_designer['nomUtilisateur'] ?>"></div>
+                                        <?php } ?>
                                         <div class="name"><?php echo $tab_designer['nomUtilisateur'] . ' ' . $tab_designer['prenomUtilisateur']; ?></div>
                                         <center><a target="blank" href="index.php?module=designer&action=profil&idProjet=<?php echo $_GET['idProjet']; ?>&idUtilisateur=<?php echo $tab_designer['idUtilisateur']; ?>">Voir profil</a></center>
                                     </div>

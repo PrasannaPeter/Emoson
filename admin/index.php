@@ -3,7 +3,7 @@
 // Initialisation
 require_once 'core/init.php';
 
-if($_SERVER['REQUEST_URI'] != $_SESSION['lastREQUEST_URI'])
+if(@$_SERVER['REQUEST_URI'] != @$_SESSION['lastREQUEST_URI'])
 	$_SESSION['lastForm'] = array();
 
 $_SESSION['lastREQUEST_URI'] = $_SERVER['REQUEST_URI'];

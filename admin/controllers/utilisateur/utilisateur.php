@@ -249,12 +249,12 @@ class Utilisateur
 								<i class="entypo-trash"></i>
 								Delete
 							</a>
-
-							<a href="../index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" target="_blank" class="btn btn-info btn-xs btn-icon icon-left">
+                                                        <?php if($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE"){ ?>
+							<a href="../index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" class="btn btn-info btn-xs btn-icon icon-left">
 								<i class="entypo-info"></i>
 								Profil
 							</a>
-
+                                                        <?php } ?>
 						<?php
 						if ($tab_utilisateur['roleUtilisateur'] == "GRAPHISTE" && $tab_utilisateur['certifUtilisateur'] == "1")
 						{?>
