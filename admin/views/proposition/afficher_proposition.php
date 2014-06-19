@@ -135,7 +135,8 @@ else if ($type_proposition == "utilisateur")
         }
         else
         {
-            echo '<h4>Ce designer à déja été proposé à </h4>
+            echo '<h1>Designer</h1>';
+            echo '<h4>Ces designers ont été proposés :</h4>
                     <table class="table table-bordered datatable" >
                     <thead>
                         <tr>
