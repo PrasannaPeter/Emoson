@@ -176,7 +176,7 @@
                             <iframe width="100%" height="100" scrolling="no" frameborder="no"src="http://w.soundcloud.com/player/?url=<?php echo $tab_info_fichier_lies['libFichier'] ?>&auto_play=false&color=915f33&theme_color=00FF00"></iframe>
                         <td><?php echo $i ?>/<?php echo $nbARProjetMax ?> </td>
                         <td>          
-                            <a href="index.php?module=projet&action=manage&type=deleteTrack&idProjet=<?php echo $idProjet; ?>&idFichier=<?php echo $tab_info_fichier_lies['idFichier']; ?>"<button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer </button></a>
+                            <a onclick="if(!confirm('Voulez-vous Supprimer')) return false;" href="index.php?module=projet&action=manage&type=deleteTrack&idProjet=<?php echo $idProjet; ?>&idFichier=<?php echo $tab_info_fichier_lies['idFichier']; ?>"<button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer </button></a>
                         </td>
                     </tr>
                     <?php } ?>

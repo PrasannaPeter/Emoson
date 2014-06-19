@@ -58,7 +58,7 @@
     </div>
       <div class="control-group">
         <div class="controls">
-            <a href="index.php?module=utilisateur&action=manage&type=deleteCompteSoundcloud<?php if(!empty($info_designer['idUtilisateur'])){ echo '&idUtilisateur='.$info_designer['idUtilisateur']; }else{} ?>"<button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer votre compte soundcloud</button></a>
+            <a onclick="if(!confirm('Voulez-vous Supprimer votre compte soundcloud?')) return false;" href="index.php?module=utilisateur&action=manage&type=deleteCompteSoundcloud<?php if(!empty($info_designer['idUtilisateur'])){ echo '&idUtilisateur='.$info_designer['idUtilisateur']; }else{} ?>"<button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer votre compte soundcloud</button></a>
          
         </div>
       </div>

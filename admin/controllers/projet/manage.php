@@ -302,6 +302,8 @@ switch($type)
 		// INSERT
 		if(!empty($libFichier) && !empty($idUtilisateur) && !empty($idProjet))
 		{   
+                    //verification url soundcloud
+                     if(strstr($libFichier, "https://soundcloud.com/")) { 
                         $dateUploadFichier = date('Y-m-d');
 
 			$res = Projet::insert_fichiers_lies($libFichier, $dateUploadFichier, $idProjet, $idUtilisateur);
@@ -321,14 +323,21 @@ switch($type)
 				$_SESSION['msgNotif'] = "Votre fichier n'a pas été ajouté";
 				header("Location:index.php?module=projet&action=voir_page_projet&idProjet=$idProjet");
 			}
+                    }else{
+                        $_SESSION['typeNotif'] = "error";
+                        $_SESSION['titreNotif'] = "Votre url n'est pas valide";
+                        $_SESSION['msgNotif'] = "Votre url n'est pas valide";
+                        header("Location:index.php?module=projet&action=voir_page_projet&idProjet=$idProjet");
+                    }
+                        
 		}
 		// Formulaire incomplet => affichage du formulaire
 		else
 		{
 
 			$_SESSION['typeNotif'] = "error";
-			$_SESSION['titreNotif'] = "Vous devez remplir tout les champs du formulaire";
-			$_SESSION['msgNotif'] = "Vous devez remplir tout les champs du formulaire";
+			$_SESSION['titreNotif'] = "Vous devez saisir un URL";
+			$_SESSION['msgNotif'] = "Vous devez saisir un URL";
 			$_SESSION['lastForm'] = $_POST;
 
 			header("Location:index.php?module=projet&action=voir_page_projet&idProjet=$idProjet");
