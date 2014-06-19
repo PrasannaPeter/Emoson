@@ -305,9 +305,8 @@ class M_Projet extends Projet
 
 		$sql_delete = $bdd->query("
 			DELETE FROM fichiers_lies
-			WHERE idFichier = '.$idFichier.'
+			WHERE idFichier = $idFichier
 		");
-
 		return $sql_delete;
 
 	}

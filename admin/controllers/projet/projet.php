@@ -348,7 +348,7 @@ class Projet
         static function deleteTrackByAdmin($idFichier)
 	{
             $verif_sql_delete = M_Projet::deleteTrack($idFichier);
-
+           
             if(!empty($verif_sql_delete))
             {
                      $typeNotif = "ok";
