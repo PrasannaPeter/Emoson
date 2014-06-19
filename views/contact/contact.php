@@ -39,7 +39,7 @@
         <div class="block background">
           <h2 class="title-1">Envoyez nous un message</h2>
           <div class = "block-content">
-            <form id = "contact" action="http://uouapps.com/careers/post">
+            <form id = "contact" action="">
                 <p>Une interrogation, un besoin d'air ou juste envie d'un café ? Écrivez-nous ! contact@emoson.fr</p>
                 <p>Vous pouvez également nous contacter directement par téléphone :</p>
                 <p>Tiana Raoilison</p>

@@ -3,7 +3,7 @@
   <div id="title">
     <h1 class="inner title-2">Privacy Policy
       <ul class="breadcrumb-inner">
-        <li> <a href="index.html">Accueil</a></li>
+        <li> <a href="index.php">Accueil</a></li>
         <li> <a href="index.php?module=apropos">Qui sommes-nous ?</a></li>
         <li><a href="index.php?module=vieprivee">Politique de garantie de la vie privée</a></li>
       </ul>
@@ -36,7 +36,7 @@
         <div id="about-us-navigation" class="box-1">
           <div class="">
             <ul>
-                <li><a href="index.php?module=afaire">Qui sommes-nous</a></li>
+                <li><a href="index.php?module=apropos">Qui sommes-nous ?</a></li>
                 <li class="active"><a href="index.php?module=vieprivee">Politique de garantie de la vie privée</a></li>
                 <li><a href="index.php?module=conditions">Termes et conditions d'utilisation</a></li>
             </ul>
