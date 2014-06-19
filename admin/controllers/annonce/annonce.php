@@ -44,7 +44,7 @@ class Annonce
 		}
 		else
 		{
-			$read_annonce = Annonce::get_annonce($id=NULL,$titre, $type=NULL);
+			$read_annonce = Annonce::get_annonce($id=NULL,$titre=NULL, $type=NULL);
 		}
 
 		// Boucle remplissage du tableau
