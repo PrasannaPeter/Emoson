@@ -3,20 +3,18 @@
 	if(!empty($_GET['idProjet'])){$idProjet = $_GET['idProjet'];}
 
 	$get_projet = Projet::get_projet($idProjet);
-
-	echo '<h4>Détail du projet</h4>';
-	echo '<p><strong>ID : </strong>'.$get_projet['idProjet'].'</p>';
-	echo '<p><strong>Titre projet : </strong>'.$get_projet['titreProjet'].'</p>';
-	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
-	echo '<p><strong>Branding projet : </strong>'.$get_projet['brandingProjet'].'</p>';
-	echo '<p><strong>Positionnement projet : </strong>'.$get_projet['positionnementProjet'].'</p>';
-	echo '<p><strong>Identité : </strong>'.$get_projet['identiteProjet'].'</p>';
-	echo '<p><strong>Réferences : </strong>'.$get_projet['referencesProjet'].'</p>';
-	echo '<p><strong>Ce que vous ne voulez pas voir : </strong>'.$get_projet['dontlikeProjet'].'</p>';
-	echo '<p><strong>Commentaire projet : </strong>'.$get_projet['commentaireProjet'].'</p>';
-	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
-	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
-	echo '<p><strong>Taille : </strong>';
+          echo '<h4>Détail du projet '.$get_projet['titreProjet'].'</h4>';
+          ?>
+<div class="panel panel-primary" style="padding:15px;background-color:#f5f5f6">
+		<?php
+        if(!empty($get_projet['descriptionProjet'])){ echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';}
+        if(!empty($get_projet['brandingProjet'])){echo '<p><strong>Branding projet : </strong>'.$get_projet['brandingProjet'].'</p>';}
+	if(!empty($get_projet['positionnementProjet'])){echo '<p><strong>Positionnement projet : </strong>'.$get_projet['positionnementProjet'].'</p>';}
+	if(!empty($get_projet['identiteProjet'])){echo '<p><strong>Identité : </strong>'.$get_projet['identiteProjet'].'</p>';}
+	if(!empty($get_projet['referencesProjet'])){echo '<p><strong>Réferences : </strong>'.$get_projet['referencesProjet'].'</p>';}
+	if(!empty($get_projet['dontlikeProjet'])){echo '<p><strong>Ce que vous ne voulez pas voir : </strong>'.$get_projet['dontlikeProjet'].'</p>';}
+	if(!empty($get_projet['commentaireProjet'])){echo '<p><strong>Commentaire projet : </strong>'.$get_projet['commentaireProjet'].'</p>';}
+	if(!empty($get_projet['tailleEntreprise'])){echo '<p><strong>Taille : </strong>';
 		if ($get_projet['tailleEntreprise'] == "1")
 		{
 			echo  "1 &agrave; 10 personnes -TPE";
@@ -37,8 +35,8 @@
 		{
 			echo  "Aucun";
 		}
-		echo "</p>";
-	echo '<p><strong>Chiffre d\'affaire : </strong>';
+                echo "</p>";}
+	if(!empty($get_projet['caEntreprise'])){ echo '<p><strong>Chiffre d\'affaire : </strong>';
 		if ($get_projet['caEntreprise'] == "1")
 		{
 			echo  "0 à 500 000€";
@@ -51,8 +49,8 @@
 		{
 			echo  "plus d’1 millions d’euros";
 		}
-		echo "</p>";
-	echo '<p><strong>Points : </strong></p>';
+                echo "</p>"; }
+	if(!empty($get_projet['ptsContactEntreprise'])){ echo '<p><strong>Points : </strong></p>';
 		$pts = json_decode($get_projet['ptsContactEntreprise']);
 		echo '<ul>';
 		for ($i = 0; $i < count($pts); $i++)
@@ -101,34 +99,26 @@
 				echo  "Aucun";
 			}
 		}
-		echo '</ul>';
-	echo '<p><strong>Options : </strong></p>';
-		$options = json_decode($get_projet['optionProjet']);
-		echo '<ul>';
-		for ($i = 0; $i < count($options); $i++)
+                        echo '</ul>';}
+	if(!empty($get_projet['optionProjet'])){ echo '<p><strong>Options : </strong>';
+		
+		if ($get_projet['optionProjet'] == "1")
 		{
-			if ($options[$i] == "1")
-			{
-				echo "<li>Entre 1 à 5 messages par mois</li>"; 
-			}
-			else if ($options[$i] == "2")
-			{
-				echo  "<li>Entre 5 à 10 messages par mois</li>";
-			}
-			else if ($options[$i] == "3")
-			{
-				echo  "<li>Plus de 10</li>";
-			}
-			else if ($options[$i] == "NULL")
-			{
-				echo  "Aucun";
-			}
+			echo  "0 à 500 000€";
 		}
-		echo "</ul>";
-	echo '<p><strong>Aller-Retour : </strong>'.$get_projet['nbARProjet'].'</p>';
-	echo '<p><strong>Nombre de designer : </strong>'.$get_projet['nbDesignerSouhaite'].'</p>';
-	echo '<p><strong>Pack : </strong>'.$get_projet['titrePack'].'</p>';
-	echo '<p><strong>Etat : </strong>';
+		else if ($get_projet['optionProjet'] == "2")
+		{
+			echo  "entre 500 000 € et 1 millions d’Euros";
+		}
+		else if ($get_projet['optionProjet'] == "3")
+		{
+			echo  "plus d’1 millions d’euros";
+		}
+                }
+        if(!empty($get_projet['nbARProjet'])){echo '<p><strong>Aller-Retour : </strong>'.$get_projet['nbARProjet'].'</p>';}
+        if(!empty($get_projet['nbDesignerSouhaite'])){echo '<p><strong>Nombre de designer : </strong>'.$get_projet['nbDesignerSouhaite'].'</p>';}
+        if(!empty($get_projet['titrePack'])){echo '<p><strong>Pack : </strong>'.$get_projet['titrePack'].'</p>';}
+	if(!empty($get_projet['isActiveProjet'])){echo '<p><strong>Etat : </strong>';
 		if ($get_projet['isActiveProjet'] == "0")
 		{
 			echo  "En attente de validation";
@@ -141,13 +131,20 @@
 		{
 			echo "Terminé";
 		}
-	echo "</p>";
-	echo '<h4>Info du contact</h4>';
-	echo '<p><strong>Nom contact : </strong>'.$get_projet['nomUtilisateur'].'</p>';
-	echo '<p><strong>Prénom contact : </strong>'.$get_projet['prenomUtilisateur'].'</p>';
-	echo '<p><strong>Email contact : </strong><a href="mailto:'.$get_projet['emailUtilisateur'].'">'.$get_projet['emailUtilisateur'].'</a></p>';
-	echo '<p><strong>N° de telephone contact : </strong>'.$get_projet['telUtilisateur'].'</p>';
-        
+        echo "</p>";}
+         ?> 
+		</div>
+            
+                <?php echo '<h4>Informations du contact</h4>'; ?>
+<div class="panel panel-primary">
+                <div class='texteProjet' style="padding:15px;background-color:#f5f5f6">
+		<?php
+        if(!empty($get_projet['nomUtilisateur'])){echo '<p><strong>Nom du contact : </strong>'.$get_projet['nomUtilisateur'].'</p>';}
+        if(!empty($get_projet['prenomUtilisateur'])){echo '<p><strong>Prénom du contact : </strong>'.$get_projet['prenomUtilisateur'].'</p>';}
+        if(!empty($get_projet['emailUtilisateur'])){echo '<p><strong>Email du contact : </strong><a href="mailto:'.$get_projet['emailUtilisateur'].'">'.$get_projet['emailUtilisateur'].'</a></p>';}
+        if(!empty($get_projet['telUtilisateur'])){echo '<p><strong>N° de telephone contact : </strong>'.$get_projet['telUtilisateur'].'</p>';}
+        ?> </div>
+                </div> <?php
         echo "</p>";
 	echo '<h4>Sons</h4>';
         $info_fichier_lies = Projet::get_fichiers_lies($idProjet);
@@ -186,7 +183,7 @@
                  </table>
     <?php   else: ?>
             Pas de proposition de son pour l'instant...
-    <?php endif; ?>
+    <?php endif; ?> </div>
 
                     
                       

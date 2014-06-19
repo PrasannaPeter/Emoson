@@ -1,5 +1,5 @@
 <?php
-if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
+if(is_array($_SESSION['lastForm']) && isset($_SESSION['lastForm']['submit']))
 	$get_pack = $_SESSION['lastForm'];
 ?>
 <div class="row">
@@ -22,7 +22,7 @@ if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Description</label>
 							<div class="col-sm-5">
-								<textarea class="form-control autogrow" required="required" name="descPack"><?php if(!empty($get_projet['descPack'])){ echo $get_projet['descPack']; }Else{echo "";}?></textarea>
+								<textarea class="form-control autogrow" required="required" name="descPack"><?php if(!empty($get_pack['descPack'])){ echo $get_pack['descPack']; }Else{echo "";}?></textarea>
 							</div>
 						</div>
 

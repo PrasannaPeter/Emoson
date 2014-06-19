@@ -102,7 +102,7 @@
 
                 <li>
                     <a href="index.php?module=projet&action=afficher_projet&type=enattente"><i class="entypo-clock"></i>
-                    <span>En attentes</span></a>
+                    <span>En attente</span></a>
                 </li>
 
                 <li>
