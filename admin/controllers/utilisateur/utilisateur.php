@@ -1,4 +1,4 @@
-<?php
+f<?php
 
 // On inclus le modèle néccéssaire
 require_once MODELS.'M_Utilisateur.php';
@@ -242,12 +242,12 @@ class Utilisateur
 						<td class="actions">
 							<a href="index.php?module=utilisateur&action=manage&type=modifier&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" title="Editer" class="btn btn-default btn-xs btn-icon icon-left">
 								<i class="entypo-pencil"></i>
-								Edit
+								Editer
 							</a>
 
 							<a href="index.php?module=utilisateur&action=manage&type=supprimer&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" title="Supprimer" class="btn btn-danger btn-xs btn-icon icon-left">
 								<i class="entypo-trash"></i>
-								Delete
+								Supprimer
 							</a>
 
 							<a href="../index.php?module=designer&action=profil&idUtilisateur=<?php echo $tab_utilisateur['idUtilisateur']; ?>" target="_blank" class="btn btn-info btn-xs btn-icon icon-left">
