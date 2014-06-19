@@ -105,7 +105,40 @@ switch($type)
 		if(!empty($titreProjet) || !empty($descriptionProjet) || !empty($positionnementProjet) || !empty($referencesProjet) || !empty($dontlikeProjet) || !empty($commentaireProjet) || !empty($idUtilisateur) || !empty($caEntreprise) || !empty($idPack))
 		{
 
-			$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+			echo $_POST['brandingProjet'];
+			//Si ya deja un fichier dans la BDD alors
+			/*if(!empty($_GET['brandingProjet']))
+			{
+				$_FILES['fichier']['name'][0] = $_GET['brandingProjet']; 
+			}
+			//Sinon on upload
+			else			
+			{
+				$verifBranding = Projet::verifFichier($_FILES['fichier']['name'][0], $_FILES['fichier']['tmp_name'][0], $_FILES['fichier']['size'][0]);
+				if ($verifBranding == 'ok') 
+				{
+					$destination = '../public/brief_formulaire/branding/'.$_FILES['fichier']['name'][0]; 
+					move_uploaded_file($_FILES['fichier']['tmp_name'][0], $destination);
+				}
+			}
+
+			if(!empty($_GET['identiteProjet']))
+			{
+				$_FILES['fichier']['name'][0] = $_GET['identiteProjet']; 
+			}
+			//Sinon on upload
+			else
+			{
+				$verifIdentite = Projet::verifFichier($_FILES['fichier']['name'][1], $_FILES['fichier']['tmp_name'][1], $_FILES['fichier']['size'][1] );
+				if ($verifIdentite == 'ok') 
+				{
+					$destination = '../public/brief_formulaire/identite/'.$_FILES['fichier']['name'][1]; 
+		    		move_uploaded_file($_FILES['fichier']['tmp_name'][1], $destination);
+				}
+			}*/
+
+
+			//$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 			
 			// Verifie l'action sinon erreur
 			/*if($set_projet=="error")
