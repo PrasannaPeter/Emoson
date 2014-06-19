@@ -147,6 +147,7 @@
         $nbARProjet = Projet::count_nb_AR_Projet($idProjet);
 ?>
 <div class="well">
+    <?php    if ($nbARProjet>0): ?>
                 <table class="table">
                     <thead>
                     <th>Proposé par</th>
@@ -170,10 +171,14 @@
                             <iframe width="100%" height="100" scrolling="no" frameborder="no"src="http://w.soundcloud.com/player/?url=<?php echo $tab_info_fichier_lies['libFichier'] ?>&auto_play=false&color=915f33&theme_color=00FF00"></iframe>
                         <td><?php echo $i ?>/<?php echo $nbARProjetMax ?> </td>
                         <td>          
-                            <a href="index.php?module=projet&action=manage&type=deleteTrack&idProjet=<?php echo $idProjet; ?>&idFichier=<?php echo $tab_info_fichier_lies['idFichier']; ?><button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer </button></a>
+                            <a href="index.php?module=projet&action=manage&type=deleteTrack&idProjet=<?php echo $idProjet; ?>&idFichier=<?php echo $tab_info_fichier_lies['idFichier']; ?>"<button class="btn btn-danger btn-large"><i class="icon-white icon-trash"> </i> supprimer </button></a>
                         </td>
                     </tr>
                     <?php } ?>
                  </table>
+    <?php   else: ?>
+            Pas de proposition de son pour l'instant...
+    <?php endif; ?>
+
                     
                       

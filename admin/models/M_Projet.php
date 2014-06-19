@@ -297,8 +297,7 @@ class M_Projet extends Projet
 
 		return($verif_sql['nb']);
 	}
-}
-/*<<<<<<< HEAD
+
 
          static function deleteTrack($idFichier)
 	{
@@ -306,16 +305,11 @@ class M_Projet extends Projet
 
 		$sql_delete = $bdd->query("
 			DELETE FROM fichiers_lies
-			WHERE idFichier = '.$idFichier.'
+			WHERE idFichier = $idFichier
 		");
-
 		return $sql_delete;
 
 	}
-
-=======
-
->>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
 }
 
 	// static function set_Statut($idProjet, $emailContact)

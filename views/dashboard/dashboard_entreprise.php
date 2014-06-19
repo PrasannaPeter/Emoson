@@ -118,6 +118,7 @@
     </div>
 
     <br />
+    <a class="btn btn-large btn-info" href="index.php?module=paypal&action=form" role="button"><i class="fa fa-dollar"></i> <span>Payer</span></a
 
     <div class="alert alert-info">
         <p>Aucun paiement enregistré.</p>

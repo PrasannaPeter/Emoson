@@ -12,21 +12,6 @@
   <div class="inner">
 
     <!-- Content Inner -->
- <form class="form-horizontal validate" method="POST" action="index.php?module=utilisateur&action=manage&type=ajouter">
-    <div class="content-inner candidate-list">
-  <fieldset>
-    <div id="legend">
-      <legend class=""><h2>Connecter un compte</h2></legend><br />
-    </div>
-      <div class="control-group">
-        <!-- Button -->
-        <div class="controls">
-           <a href="index.php?module=soundcloud&action=soundcloud" title="Connecter avec un compte Soundcloud"><img src="style/images/btn-connect-sc-l.png"></a>
-        </div>
-      </div>
-  </fieldset>
-</div>
-
 <form class="form-horizontal validate" method="POST" action="index.php?module=utilisateur&action=manage&type=ajouter">
   <fieldset>
     <div id="legend">

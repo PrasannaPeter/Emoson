@@ -215,8 +215,8 @@ div#login-panel > div > div:first-child { z-index: 40; }
 div#login-panel div.left { float: left; margin-right: 20px; }
 div#login-panel div.right { float: right; }
 div#login-panel div.first { border-radius: 5px 5px 5px 5px; -moz-border-radius: 5px 5px 5px 5px; -webkit-border-radius: 5px 5px 5px 5px; position: relative; }
-div#login-panel div.left div.first { background: url("../content/login-find-job-br.png") no-repeat scroll center center rgb(242, 242, 242); border-bottom: 3px solid #CECECE; }
-div#login-panel div.right div.first { background: url("../content/login-post-job-br.png") no-repeat scroll center center rgb(242, 242, 242); border-bottom: 3px solid #CECECE; }
+div#login-panel div.left div.first { background: url("../content/login-find-job-br.png") no-repeat scroll center center rgb(242, 242, 242); box-shadow: 1px 1px 12px black; }
+div#login-panel div.right div.first { background: url("../content/login-post-job-br.png") no-repeat scroll center center rgb(242, 242, 242); box-shadow: 1px 1px 12px black; }
 div#login-panel div.left div.first div.counter { position: absolute; right: 40px; top: 40px; }
 div#login-panel div.left div.first div.counter ul#counter { height: 42px; padding: 0px 6px; }
 div#login-panel div.left div.first div.counter ul#counter li { display: block; float: left; height: 42px; line-height: 42px; width: 28px; background: url("../images/counter.png") no-repeat scroll center center transparent; margin-left: 2px; text-align: center; font-size: 26px; color: rgb(52, 52, 52); }
@@ -645,7 +645,7 @@ div#footer-menu div.footer-menu { float: left; margin: 35px 0px 0px; }
 div#footer-menu div#fol-menu { width: 140px; }
 div#footer-menu div#job-menu { width: 150px; }
 div#footer-menu div#nav-menu { width: 320px; }
-div#footer-menu div.footer-menu div.left { float: left; width: 130px; }
+div#footer-menu div.footer-menu div.left { float: left; width: 200px; }
 div#footer-menu div.footer-menu div.right { float: right; width: 190px; }
 div#footer-menu div.footer-menu h2 { font-family: 'Roboto Condensed', sans-serif; font-weight: bold; text-transform: uppercase; color: #4d4d4d; font-size: 16px; }
 div#footer-menu div.footer-menu ul { padding: 10px 0px 0px; }

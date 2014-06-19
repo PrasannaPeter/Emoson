@@ -1,16 +1,5 @@
 <?php
 
-//require_once('admin/controllers/projet/projet.php');
-//$info_projet = Projet::get_projet($_GET['idProjet']);
-//
-//    foreach ($info_projet as $info) 
-//    {
-//
-//      $titreProjet = $info_projet['titreProjet'];
-//
-//    }
-
-
 require_once('admin/controllers/utilisateur/utilisateur.php');
 $info_designer = Utilisateur::get_utilisateur($_GET['idUtilisateur']);
 $designer_img = Utilisateur::get_designer_img($_GET['idUtilisateur']);
@@ -36,9 +25,7 @@ foreach ($info_designer as $info) {
       <ul class="breadcrumb-inner">
         <li> <a href="index.php">Accueil</a></li>
         <li> <a href="index.php?module=dashboard&action=afficher">Mon espace</a></li>
-        <li> <a href="index.php?module=projet&action=voir_page_projet&idProjet=<?php echo $_GET['idProjet']; ?>">Projet : <?php echo $titreProjet; ?></a></li>
-        <li><a href="index.php?module=designer&action=profil&idProjet=<?php echo $_GET['idProjet'];?>&idUtilisateur=<?php echo $_GET['idUtilisateur']; ?>">Profil : <?php echo $nom.' '.$prenom; ?></a></li>
-      </ul>
+     </ul>
     </h1>
   </div>
   <div class="inner">

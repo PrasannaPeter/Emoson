@@ -57,6 +57,23 @@ class M_Utilisateur extends Utilisateur
 	}
 
 
+	static function demander_certif($idUtilisateur)
+	{
+		$bdd = PDO();
+
+		// Requete SQL
+		$demander_certif = $bdd->prepare('
+			UPDATE utilisateurs
+			SET certifUtilisateur = 2
+			WHERE idUtilisateur = :idUtilisateur
+		');
+
+		$demander_certif->execute(array(
+								  'idUtilisateur' => $idUtilisateur
+								 ));
+
+		return($demander_certif);
+	}
 
 
 	// Function relative aux utilisateurs
@@ -100,7 +117,7 @@ class M_Utilisateur extends Utilisateur
 				break;
 
 				case 'enattente':
-					$req .= " WHERE certifUtilisateur = 0 AND roleUtilisateur = 'GRAPHISTE' ";
+					$req .= " WHERE certifUtilisateur = 2 AND roleUtilisateur = 'GRAPHISTE' ";
 				break;
 
 				case 'contact':
@@ -126,7 +143,7 @@ class M_Utilisateur extends Utilisateur
 		$bdd = PDO();
 
 		$read_projet_utilisateur = $bdd->query('SELECT *
-												FROM propose P, utilisateurs U 
+												FROM propose P, utilisateurs U
 												WHERE P.idUtilisateur = U.idUtilisateur
 												AND acceptation = 1
 												AND validation = 1
@@ -140,19 +157,19 @@ class M_Utilisateur extends Utilisateur
 		$bdd = PDO();
 
 		$nb_utilisateur = $bdd->query('SELECT COUNT(*) as nbUtilisateur
-												FROM utilisateurs 
+												FROM utilisateurs
 												WHERE roleUtilisateur = "GRAPHISTE"
 												OR roleUtilisateur = "ENTREPRISE"
 			');
 		return($nb_utilisateur);
 	}
 
-	static function nb_designer() 
+	static function nb_designer()
 	{
 		$bdd = PDO();
 
 		$nb_designer = $bdd->query('SELECT COUNT(*) as nbDesigner
-									FROM utilisateurs 
+									FROM utilisateurs
 									WHERE roleUtilisateur = "GRAPHISTE"
 			');
 		return($nb_designer);
@@ -163,7 +180,7 @@ class M_Utilisateur extends Utilisateur
 		$bdd = PDO();
 
 		$nb_entreprise = $bdd->query('SELECT COUNT(*) as nbEntreprise
-												FROM utilisateurs 
+												FROM utilisateurs
 												WHERE roleUtilisateur = "ENTREPRISE"
 			');
 		return($nb_entreprise);
@@ -203,7 +220,7 @@ class M_Utilisateur extends Utilisateur
 						'roleUtilisateur' => $roleUtilisateur,
 						'certifUtilisateur' => $certifUtilisateur,
 					));
-                
+
                if(!empty($sql_insert)){
                    $lastUserId = $bdd->lastInsertId();
                    $_SESSION['lastInsertId'] = $lastUserId;
@@ -327,7 +344,7 @@ class M_Utilisateur extends Utilisateur
 
 		return($verif_sql_delete['idUtilisateur']);
 	}
-        
+
         static function add_compte_soundcloud($idUtilisateur,$soundcloudID)
 	{
 		$bdd = PDO();
@@ -344,7 +361,7 @@ class M_Utilisateur extends Utilisateur
 
 		return($sql_insert);
 	}
-        
+
         static function verif_compte_soundcloud($idUtilisateur)
 	{
 		$bdd = PDO();
@@ -359,7 +376,7 @@ class M_Utilisateur extends Utilisateur
 
 		return($verif_sql_compte_soundcloud['compte_soundcloud_designer_id']);
 	}
-        
+
         static function get_compte_soundcloud($idUtilisateur)
 	{
 		$bdd = PDO();
@@ -373,8 +390,8 @@ class M_Utilisateur extends Utilisateur
 		$verif_sql_compte_soundcloud = $verif_sql->fetch();
 		return($verif_sql_compte_soundcloud['compte_soundcloud_soundcloud_id']);
 	}
-        
-        
+
+
          static function add_designer_img($idUtilisateur,$img)
 	{
 		$bdd = PDO();
@@ -390,8 +407,8 @@ class M_Utilisateur extends Utilisateur
                         ));
 
 		return($sql_insert);
-	}  
-        
+	}
+
          static function get_designer_img($idUtilisateur)
 	{
 		$bdd = PDO();
@@ -406,7 +423,7 @@ class M_Utilisateur extends Utilisateur
 
 		return($verif_sql_compte_soundcloud['designer_img_url']);
 	}
-        
+
         static function update_designer_img($idUtilisateur,$img)
 	{
 		$bdd = PDO();
@@ -436,7 +453,7 @@ class M_Utilisateur extends Utilisateur
 
 		return($verif_sql_compte_soundcloud['designer_img_designer_id']);
 	}
-        
+
         static function deleteCompteSoundcloud($idUtilisateur)
 	{
 		$bdd = PDO();
@@ -449,6 +466,6 @@ class M_Utilisateur extends Utilisateur
 		return $sql_delete;
 
 	}
-        
-        
+
+
 }

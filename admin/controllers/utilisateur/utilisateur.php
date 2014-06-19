@@ -150,6 +150,11 @@ class Utilisateur
 	}
 
 
+	static function demander_certif()
+	{
+ 		M_Utilisateur::demander_certif($_SESSION['idUtilisateur']);
+		header('Location:index.php?module=dashboard&action=afficher');
+	}
 
 	// Function relative aux tickets
 
@@ -474,8 +479,6 @@ class Utilisateur
             	$get_designer_img = M_Utilisateur::get_designer_img($idUtilisateur);
 		return($get_designer_img);
 	}
-}
-/*<<<<<<< HEAD
 
         static function deleteCompteSoundcloud($idUtilisateur)
 	{
@@ -492,13 +495,8 @@ class Utilisateur
             }
         }
 
-}
-=======
-
 
 }
->>>>>>> 0f0ab1fcc961e7545a08f4a509340743b21b0706
-*/ // Au cas ou l'utilisateur reviens à la page de connexion en étant déjà connecté
 if(site_admin() && !empty($controller))
 {
 	if($_GET['action'] != "change_password")
