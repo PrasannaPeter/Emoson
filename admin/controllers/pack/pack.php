@@ -300,4 +300,5 @@ var_dump($compter_pack); exit;
 	}
 }
 
-require_once('views/'.$controller.'/'.$controller.'.php');
+if(!$_GET['action'] == "manage" && !$_GET['module'] == "projet" && !$_GET['type'] == "ajouter")
+    require_once('views/'.$controller.'/'.$controller.'.php');

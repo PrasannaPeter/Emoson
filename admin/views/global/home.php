@@ -236,7 +236,7 @@ function getRandomInt(min, max)
     <div class="col-sm-3">
 
         <div class="tile-stats tile-green">
-            <div class="icon"><i class="entypo-chart-bar"></i></div>
+            <div class="icon"><i class="entypo-note-beamed"></i></div>
             <div class="num" data-start="0" data-end="<?php echo $nb_des; ?>" data-postfix="" data-duration="1500" data-delay="600">0</div>
 
             <h3>Designers</h3>
@@ -248,7 +248,7 @@ function getRandomInt(min, max)
     <div class="col-sm-3">
 
         <div class="tile-stats tile-aqua">
-            <div class="icon"><i class="entypo-mail"></i></div>
+            <div class="icon"><i class="entypo-docs"></i></div>
             <div class="num" data-start="0" data-end="<?php echo $nb_ent; ?>" data-postfix="" data-duration="1500" data-delay="1200">0</div>
 
             <h3>Entreprises</h3>
@@ -260,7 +260,7 @@ function getRandomInt(min, max)
     <div class="col-sm-3">
 
         <div class="tile-stats tile-blue">
-            <div class="icon"><i class="entypo-rss"></i></div>
+            <div class="icon"><i class="entypo-eye"></i></div>
             <div class="num" data-start="0" data-end="<?php echo $nb_proj; ?>" data-postfix="" data-duration="1500" data-delay="1800">0</div>
 
             <h3>Projets</h3>
