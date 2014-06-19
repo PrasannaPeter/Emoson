@@ -311,7 +311,6 @@ if (isset($_SESSION['lastForm']['submit']))
 								{
 									require_once('controllers/pack/pack.php');
 									Pack::vignette_pack($type="admin");
-
 								}
 								else
 								{

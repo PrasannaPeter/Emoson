@@ -58,7 +58,7 @@ if(is_array($_SESSION['lastForm']) && isset($_SESSION['lastForm']['submit']))
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Role</label>
 							<div class="col-sm-5">
-								<?php Liste::Role($get_utilisateur['roleUtilisateur']); ?>
+								<?php @Liste::Role($get_utilisateur['roleUtilisateur']); ?>
 							</div>
 						</div>
 
@@ -67,7 +67,7 @@ if(is_array($_SESSION['lastForm']) && isset($_SESSION['lastForm']['submit']))
 
 							<div class="col-sm-5">
 								<div class="make-switch">
-								    <input name="certifUtilisateur" type="checkbox" <?php if($get_utilisateur['certifUtilisateur'] == "1"){ echo "checked='checked'"; }?> >
+								    <input name="certifUtilisateur" type="checkbox" <?php if(@$get_utilisateur['certifUtilisateur'] == "1"){ echo "checked='checked'"; }?> >
 								</div>
 							</div>
 						</div>
