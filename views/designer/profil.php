@@ -35,7 +35,7 @@ foreach ($info_designer as $info) {
       <!-- Content Left -->
       <div class="content-left">
         <div class="block background job_block">
-          <div id="map-container"> <img src="style/designer_img/<?php echo $designer_img;?>" alt="Candidate picture"/> </div>
+          <div id="map-container"> <?php if($designer_img == null){?><img src="style/images/pas-de-photo.jpg" alt="Candidate picture"/> <?php } else { ?> <img src="style/designer_img/<?php echo $designer_img;?>" alt="Candidate picture"/> <?php } ?> </div>
           <h2 class="title-3">Détails du designer</h2>
           <div class="block-content">
             <table  border="1" class="list_info">
