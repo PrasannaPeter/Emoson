@@ -15,11 +15,13 @@ if($type_proposition == "projet")
     }
     else
     {
+        require_once 'controllers/projet/projet.php';
         $idProjet = $_GET['idProjet'];
+        $get_projet = Projet::get_projet($idProjet);
 
 		$projet_proposer = Proposition::get_tab_proposition($idProjet, $type_proposition);
-
-			echo '<h4>Ce projet à déja été proposé à </h4>';
+                        echo '<h1>Projet '.$get_projet['titreProjet'].'</h1>';
+			echo '<h4>Ce projet est actuellement proposé à : </h4>';
 			echo '<table class="table table-bordered datatable" >
 					<thead>
 						<tr>
