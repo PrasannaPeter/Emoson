@@ -153,7 +153,7 @@ class Projet
 	// Fonction CRUD
 	// Retourne $typeNotif & $msgNotif si erreur
 
-	static function set_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
+	static function set_projet($idProjet, $titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack)
 	{
 		// Si on a pas d'ID, INSERT
 		if(empty($idProjet))
@@ -199,7 +199,7 @@ class Projet
 			}
 			else
 			{
-				$sql_update = M_Projet::update_projet($titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+				$sql_update = M_Projet::update_projet($idProjet, $titreProjet, $descriptionProjet, $brandingProjet, $positionnementProjet, $identiteProjet, $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 				$updateProjet = "ok";
 				return($updateProjet);
 			}

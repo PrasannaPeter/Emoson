@@ -26,7 +26,7 @@ if (isset($_SESSION['lastForm']['submit']))
 			</div>
 
 			<div class="panel-body">
-				<form method="POST" enctype="multipart/form-data" action="index.php?module=projet&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idProjet'])){ echo '&idProjet='.$_GET['idProjet']; }else{} ?>" class="form-horizontal form-groups-bordered">
+				<form method="POST" enctype="multipart/form-data" action="index.php?module=projet&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} if(!empty($_GET['idProjet'])){ echo '&idProjet='.$_GET['idProjet']; }else{} if(!empty($get_projet['brandingProjet'])){ echo '&brandingProjet='.$get_projet['brandingProjet'];}else{} if(!empty($get_projet['identiteProjet'])){ echo '&identiteProjet='.$get_projet['identiteProjet']; }else{} ?>" class="form-horizontal form-groups-bordered">
 					
 					<div class="form-group">
 						<label class="col-sm-3 control-label">Titre</label>

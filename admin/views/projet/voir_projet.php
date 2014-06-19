@@ -8,6 +8,14 @@
 	echo '<p><strong>ID : </strong>'.$get_projet['idProjet'].'</p>';
 	echo '<p><strong>Titre projet : </strong>'.$get_projet['titreProjet'].'</p>';
 	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
+	echo '<p><strong>Branding projet : </strong>'.$get_projet['brandingProjet'].'</p>';
+	echo '<p><strong>Positionnement projet : </strong>'.$get_projet['positionnementProjet'].'</p>';
+	echo '<p><strong>Identité : </strong>'.$get_projet['identiteProjet'].'</p>';
+	echo '<p><strong>Réferences : </strong>'.$get_projet['referencesProjet'].'</p>';
+	echo '<p><strong>Ce que vous ne voulez pas voir : </strong>'.$get_projet['dontlikeProjet'].'</p>';
+	echo '<p><strong>Commentaire projet : </strong>'.$get_projet['commentaireProjet'].'</p>';
+	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
+	echo '<p><strong>Description projet : </strong>'.$get_projet['descriptionProjet'].'</p>';
 	echo '<p><strong>Taille : </strong>';
 		if ($get_projet['tailleEntreprise'] == "1")
 		{

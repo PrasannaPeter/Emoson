@@ -35,7 +35,7 @@ switch($type)
 				$_FILES['fichier']['name'][0] = NULL;	
 			}
 
-			if(isset($_FILES['fichier']['name'][1]) &&empty($_FILES['fichier']['name'][1]))
+			if(isset($_FILES['fichier']['name'][1]) && empty($_FILES['fichier']['name'][1]))
 			{
 				$_FILES['fichier']['name'][1] = NULL;	
 			}
@@ -55,7 +55,7 @@ switch($type)
 	    		move_uploaded_file($_FILES['fichier']['tmp_name'][1], $destination);
 			}
 
-			$set_projet = Projet::set_projet($titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+			$set_projet = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 			// Verifie l'action sinon erreur
 			if($set_projet=="ok")
@@ -105,9 +105,10 @@ switch($type)
 		if(!empty($titreProjet) || !empty($descriptionProjet) || !empty($positionnementProjet) || !empty($referencesProjet) || !empty($dontlikeProjet) || !empty($commentaireProjet) || !empty($idUtilisateur) || !empty($caEntreprise) || !empty($idPack))
 		{
 
-			echo $_POST['brandingProjet'];
+			echo $idProjet.'<br>'.$titreProjet.'<br>'.$descriptionProjet.'<br>'.$_GET['brandingProjet'].'<br>'.$positionnementProjet.'<br>'.$_GET['identiteProjet'].'<br>'.$referencesProjet.'<br>'.$dontlikeProjet.'<br>'.$commentaireProjet.'<br>'.$isActiveProjet.'<br>'.$idUtilisateur.'<br>'.$tailleEntreprise.'<br>'.$caEntreprise.'<br>'.$ptsContactEntreprise.'<br>'.$optionProjet.'<br>'.$nbARProjet.'<br>'.$nbDesignerSouhaite.'<br>'.$idPack;
+
 			//Si ya deja un fichier dans la BDD alors
-			/*if(!empty($_GET['brandingProjet']))
+			if(!empty($_GET['brandingProjet']))
 			{
 				$_FILES['fichier']['name'][0] = $_GET['brandingProjet']; 
 			}
@@ -135,13 +136,12 @@ switch($type)
 					$destination = '../public/brief_formulaire/identite/'.$_FILES['fichier']['name'][1]; 
 		    		move_uploaded_file($_FILES['fichier']['tmp_name'][1], $destination);
 				}
-			}*/
+			}
 
-
-			//$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+			$set_projet = Projet::set_projet($idProjet, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 			
 			// Verifie l'action sinon erreur
-			/*if($set_projet=="error")
+			if($set_projet=="error")
 			{
 				$_SESSION['typeNotif'] = "error";
 				$_SESSION['titreNotif'] = "Le Projet n'a pas pu être modifié";
@@ -155,7 +155,7 @@ switch($type)
 				$_SESSION['msgNotif'] = "";
 
 				header('Location:index.php?module=projet&action=afficher_projet');
-			}*/
+			}
 		}
 		// Formulaire incomplet => affichage du formulaire
 		else if(empty($_POST['submit']))
@@ -246,7 +246,7 @@ switch($type)
         		move_uploaded_file($_FILES['fichier']['tmp_name'][1], $destination);
 			}
 			
-			$remplir_brief = Projet::set_projet($titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
+			$remplir_brief = Projet::set_projet($idProjet=NULL, $titreProjet, $descriptionProjet, $_FILES['fichier']['name'][0], $positionnementProjet, $_FILES['fichier']['name'][1], $referencesProjet, $dontlikeProjet, $commentaireProjet, $isActiveProjet, $idUtilisateur, $tailleEntreprise, $caEntreprise, $ptsContactEntreprise, $optionProjet, $nbARProjet, $nbDesignerSouhaite, $idPack);
 
 			// Verifie l'action sinon erreur
 			if($remplir_brief=="ok")
