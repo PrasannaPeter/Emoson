@@ -1,5 +1,5 @@
 <?php
-if(is_array($_SESSION['lastForm']) && $_SESSION['lastForm']['submit'])
+if(is_array($_SESSION['lastForm']) && isset($_SESSION['lastForm']['submit']))
 	$get_entreprise = $_SESSION['lastForm'];
 ?>
 <div class="row">

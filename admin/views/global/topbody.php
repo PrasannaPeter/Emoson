@@ -12,8 +12,7 @@
             <!-- Profile Info -->
             <li class="profile-info dropdown"><!-- add class "pull-right" if you want to place this from right -->
 
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                     <img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="font-weight: bold">
                   <?php if(!empty($_SESSION['loginUtilisateur'])){ ?>
                     <?php echo "Bonjour ".$_SESSION['loginUtilisateur']; ?>
                   <?php } ?>
