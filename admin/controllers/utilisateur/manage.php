@@ -239,18 +239,21 @@ switch($type)
 			{
 				$_SESSION['typeNotif'] = "error";
 				$_SESSION['titreNotif'] = "L'utilisateur n'a pas pu être supprimé";
+                                $_SESSION['msgNotif'] = "L'utilisateur n'a pas pu être supprimé";
 				header('Location:index.php?module=designer&action=modifier_portfolio');
 			}
                         else if($souncloud_utilisateur=="errorUserExist")
 			{
 				$_SESSION['typeNotif'] = "success";
 				$_SESSION['titreNotif'] = "Votre compte soundcloud a été deja ajouté";
+                                $_SESSION['msgNotif'] = "Votre compte soundcloud a été deja ajouté";
 				header('Location:index.php?module=designer&action=modifier_portfolio');
 			}
 			else if($souncloud_utilisateur=="ok")
 			{
 				$_SESSION['typeNotif'] = "success";
 				$_SESSION['titreNotif'] = "Votre compte soundcloud a été bien ajouté";
+                                $_SESSION['msgNotif'] = "Votre compte soundcloud a été bien ajouté";
 				header('Location:index.php?module=designer&action=modifier_portfolio');
 			}
 		}
