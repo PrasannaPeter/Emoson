@@ -203,7 +203,7 @@ if ($_SESSION['roleUtilisateur'] == "ENTREPRISE" || ($acceptation == 1 && $valid
                         ?>
                             <div class="comment-item">
                                 <div class="comment-post">
-                            <?php echo $comment['dateCommentaire'] ?> par <strong><?php echo $comment['user']['loginUtilisateur'] ?></strong> <span> : </span>
+                            <?php echo date('d-m-Y_h:i:s', $comment['dateCommentaire']); ?> par <strong><?php echo $comment['user']['loginUtilisateur'] ?></strong> <span> : </span>
                             <?php echo $comment['texteCommentaire'] ?><br>
                                 </div>
                             </div>

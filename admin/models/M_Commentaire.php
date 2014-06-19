@@ -23,6 +23,9 @@ class M_Commentaire extends Commentaire
 
     static function set_commentaire($idProjet, $idUtilisateur, $commentaire)
     {
+        
+        $dateCommentaire = time();
+        
         $bdd = PDO();
 
         if(!empty($idProjet))
@@ -31,12 +34,13 @@ class M_Commentaire extends Commentaire
 
             $set_commentaire = $bdd->prepare("
               INSERT INTO commentaires
-              (idUtilisateur, idProjet, texteCommentaire)
-              VALUES(:idUtilisateur, :idProjet, :commentaire)");
+              (idUtilisateur, idProjet, dateCommentaire, texteCommentaire)
+              VALUES(:idUtilisateur, :idProjet, :dateCommentaire, :commentaire)");
 
             $set_commentaire = $set_commentaire->execute(array(
                 'idUtilisateur' => $idUtilisateur,
                 'idProjet' => $idProjet,
+                'dateCommentaire' => $dateCommentaire,
                 'commentaire' => $commentaire
             ));
         }

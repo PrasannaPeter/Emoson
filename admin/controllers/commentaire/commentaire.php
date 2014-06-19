@@ -17,7 +17,7 @@ class Commentaire
     }
 
     static function set_commentaire($idProjet, $idUtilisateur, $commentaire){
-        if(!empty($idProjet) && count($commentaire) && !empty($idUtilisateur)){
+        if(!empty($idProjet) && !empty($commentaire) && !empty($idUtilisateur)){
             $set_commentaire = M_Commentaire::set_commentaire($idProjet, $idUtilisateur, $commentaire);
         }
 
