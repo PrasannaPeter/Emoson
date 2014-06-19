@@ -118,8 +118,13 @@
     </div>
 
     <br />
-    <a class="btn btn-large btn-info" href="index.php?module=paypal&action=form" role="button"><i class="fa fa-dollar"></i> <span>Payer</span></a
-
+    <!-- <a class="btn btn-large btn-info" href="index.php?module=paypal&action=form" role="button"><i class="fa fa-dollar"></i> <span>Payer</span></a> -->
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="P2PR2TZZMP6L2">
+<input type="image" src="https://www.sandbox.paypal.com/fr_FR/FR/i/btn/btn_buynow_SM.gif" border="0" name="submit" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !">
+<img alt="" border="0" src="https://www.sandbox.paypal.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+</form>
     <div class="alert alert-info">
         <p>Aucun paiement enregistré.</p>
     </div>

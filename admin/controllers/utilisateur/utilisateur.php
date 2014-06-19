@@ -1,4 +1,4 @@
-f<?php
+<?php
 
 // On inclus le modèle néccéssaire
 require_once MODELS.'M_Utilisateur.php';
