@@ -88,11 +88,12 @@ class M_Pack extends Pack
 			SET titrePack=:titrePack,
 			descPack=:descPack,
 			prixPack=:prixPack,
-			positionPack=:positionPack,
-			WHERE idPack = :idPack
+			positionPack=:positionPack
+			WHERE idPack =:idPack
 		');
 
 		$sql_update->execute(array(
+						'idPack' => $idPack,
 						'titrePack' => $titrePack,
 						'descPack' => $descPack,
 						'prixPack' => $prixPack,

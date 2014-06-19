@@ -124,7 +124,7 @@ var_dump($compter_pack); exit;
 	// Fonction CRUD
 	// Retourne $typeNotif & $msgNotif si erreur
 
-	static function set_pack($idPack=NULL, $titrePack, $descPack, $prixPack, $positionPack)
+	static function set_pack($idPack, $titrePack, $descPack, $prixPack, $positionPack)
 	{
 
 		// Si on a pas d'ID, INSERT

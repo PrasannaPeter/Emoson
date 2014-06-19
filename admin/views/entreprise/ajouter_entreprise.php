@@ -10,7 +10,39 @@ if(is_array($_SESSION['lastForm']) && isset($_SESSION['lastForm']['submit']))
 			</div>
 
 			<div class="panel-body">
-				<form method="POST" action="index.php?module=entreprise&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idUtilisateur'])){ echo '&idUtilisateur='.$_GET['idUtilisateur']; }else{} ?>" class="form-horizontal form-groups-bordered validate">
+				<form method="POST" action="index.php?module=entreprise&action=manage<?php if(!empty($_GET['type'])){ echo '&type='.$_GET['type']; }else{} ?><?php if(!empty($_GET['idEntreprise'])){ echo '&idEntreprise='.$_GET['idEntreprise']; }else{} ?>" class="form-horizontal form-groups-bordered validate">
+				<?php
+					require_once'controllers/projet/projet.php';
+					$contact = Projet::get_contact();
+
+					echo '<div class="form-group">
+						<label class="col-sm-3 control-label">Nom du contact</label>
+						<div class="col-sm-5">';
+					if(empty($contact))
+		    		{
+		    			echo "<p>Pas de resultat</p>";
+		    		}
+		    		else
+		    		{
+		    			echo '<select name="idUtilisateur">';
+						while($tab_contact = $contact->fetch())
+						{
+							if ($tab_contact['idUtilisateur'])
+							{
+								echo '<option value ="'.$tab_contact['idUtilisateur'].'" ">';
+							}
+							else
+							{
+								echo '<option value ="'.$tab_contact['idUtilisateur'].'">';
+							}
+
+							echo $tab_contact['nomUtilisateur'].' '.$tab_contact['prenomUtilisateur'].'</option>';
+						};
+						echo '</select>';
+						echo "</div>
+						</div>";
+		    		}
+				?>	
 
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Raison sociale</label>

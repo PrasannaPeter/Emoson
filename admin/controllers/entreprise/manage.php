@@ -15,7 +15,7 @@ if(!empty($_POST['typeEntreprise'])){$typeEntreprise = $_POST['typeEntreprise'];
 require_once CONTROLLERS.'/utilisateur/utilisateur.php';
 
 // recup front inscription :
-if(!empty($_GET['idUtilisateur'])){$idUtilisateur = $_GET['idUtilisateur'];}
+if(!empty($_POST['idUtilisateur'])){$idUtilisateur = $_POST['idUtilisateur'];}
 if(!empty($_POST['nomUtilisateur'])){$nomUtilisateur = $_POST['nomUtilisateur'];}
 if(!empty($_POST['prenomUtilisateur'])){$prenomUtilisateur = $_POST['prenomUtilisateur'];}
 if(!empty($_POST['telUtilisateur'])){$telUtilisateur = $_POST['telUtilisateur'];}
@@ -25,7 +25,7 @@ if(!empty($_POST['emailUtilisateur'])){$emailUtilisateur = $_POST['emailUtilisat
 
 // security because user can modify html and send bad value
 if(!site_admin() && $type=="modifier"){
-	$idUtilisateur=$_SESSION['idUtilisateur'];
+	$idUtilisateur = $_SESSION['idUtilisateur'];
 }
 
 switch($type)
@@ -35,6 +35,9 @@ switch($type)
 		// INSERT
 		if(!empty($raisonSocialeEntreprise) && !empty($secteurEntreprise) && !empty($siteWebEntreprise) && !empty($adresseEntreprise) && !empty($villeEntreprise) && !empty($CPEntreprise) && !empty($typeEntreprise))
 		{
+			
+			//echo $idEntreprise=NULL.' '.$raisonSocialeEntreprise.' '.$secteurEntreprise.' '.$siteWebEntreprise.' '.$adresseEntreprise.' '.$villeEntreprise.' '.$CPEntreprise.' '.$idUtilisateur.' '.$numSiretEntreprise.' '.$typeEntreprise;
+
 			$set_entreprise = Entreprise::set_entreprise($idEntreprise=NULL, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise);
 
 			// Verifie l'action sinon erreur
@@ -79,41 +82,44 @@ switch($type)
 
 		// UPDATE
 		if(!empty($raisonSocialeEntreprise) && !empty($secteurEntreprise) && !empty($siteWebEntreprise) && !empty($adresseEntreprise) && !empty($villeEntreprise) && !empty($CPEntreprise) && !empty($typeEntreprise))
-		{
+		{	
+			//echo $idEntreprise, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise;
+
 			$set_entreprise = Entreprise::set_entreprise($idEntreprise, $raisonSocialeEntreprise, $secteurEntreprise, $siteWebEntreprise, $adresseEntreprise, $villeEntreprise, $CPEntreprise, $idUtilisateur, $numSiretEntreprise, $typeEntreprise);
-				if(site_admin()){
-					// Verifie l'action sinon erreur
-					if($set_entreprise=="error")
-					{
-						$_SESSION['typeNotif'] = "error";
-						$_SESSION['titreNotif'] = "L'entreprise n'a pas pu être modifié";
-						$_SESSION['msgNotif'] = "";
-						header('Location:index.php?module=entreprise&action=afficher_entreprise');
-					}
-					else if($set_entreprise=="ok")
-					{
-						$_SESSION['typeNotif'] = "success";
-						$_SESSION['titreNotif'] = "L'entreprise a bien été modifié";
-						$_SESSION['msgNotif'] = "";
-						header('Location:index.php?module=entreprise&action=afficher_entreprise');
-					}
-				}else{
-					// Verifie l'action sinon erreur
-					if($set_entreprise=="error")
-					{
-						$_SESSION['typeNotif'] = "error";
-						$_SESSION['titreNotif'] = "Une erreur est survenue lors de la modification des informations de l'entreprise";
-						$_SESSION['msgNotif'] = "";
-						header('Location:index.php?module=entreprise&action=modifier_info_entreprise');
-					}
-					else if($set_entreprise=="ok")
-					{
-						$_SESSION['typeNotif'] = "success";
-						$_SESSION['titreNotif'] = "Les informations de l'entreprise ont bien été modifiées";
-						$_SESSION['msgNotif'] = "";
-						header('Location:index.php?module=entreprise&action=modifier_info_entreprise');
-					}
+				
+			if(site_admin()){
+				// Verifie l'action sinon erreur
+				if($set_entreprise=="error")
+				{
+					$_SESSION['typeNotif'] = "error";
+					$_SESSION['titreNotif'] = "L'entreprise n'a pas pu être modifié";
+					$_SESSION['msgNotif'] = "";
+					header('Location:index.php?module=entreprise&action=afficher_entreprise');
 				}
+				else if($set_entreprise=="ok")
+				{
+					$_SESSION['typeNotif'] = "success";
+					$_SESSION['titreNotif'] = "L'entreprise a bien été modifié";
+					$_SESSION['msgNotif'] = "";
+					header('Location:index.php?module=entreprise&action=afficher_entreprise');
+				}
+			}else{
+				// Verifie l'action sinon erreur
+				if($set_entreprise=="error")
+				{
+					$_SESSION['typeNotif'] = "error";
+					$_SESSION['titreNotif'] = "Une erreur est survenue lors de la modification des informations de l'entreprise";
+					$_SESSION['msgNotif'] = "";
+					header('Location:index.php?module=entreprise&action=modifier_info_entreprise');
+				}
+				else if($set_entreprise=="ok")
+				{
+					$_SESSION['typeNotif'] = "success";
+					$_SESSION['titreNotif'] = "Les informations de l'entreprise ont bien été modifiées";
+					$_SESSION['msgNotif'] = "";
+					header('Location:index.php?module=entreprise&action=modifier_info_entreprise');
+				}
+			}
 		}
 		// Formulaire incomplet => affichage du formulaire
 		else if(empty($_POST['submit']))
@@ -176,14 +182,14 @@ switch($type)
 			{
 				$_SESSION['typeNotif'] = "error";
 				$_SESSION['titreNotif'] = "L'utilisateur n'a pas été ajouté à l'application.";
-				$_SESSION['msgNotif'] = "L'utilisateur entrée éxiste déjà dans la base.";
+				$_SESSION['msgNotif'] = "L'utilisateur entrée existe déjà dans la base.";
 				header('Location:index.php?module=entreprise&action=inscription_entreprise');
 			}
 			else if($set_utilisateur=="error")
 			{
 				$_SESSION['typeNotif'] = "error";
 				$_SESSION['titreNotif'] = "L'utilisateur n'a pas été ajouté à l'application.";
-				$_SESSION['msgNotif'] = "L'utilisateur éxiste déjà dans la base.";
+				$_SESSION['msgNotif'] = "L'utilisateur existe déjà dans la base.";
 				header('Location:index.php?module=entreprise&action=inscription_entreprise');
 			}
                         else if($set_utilisateur=="errorEmailExist")

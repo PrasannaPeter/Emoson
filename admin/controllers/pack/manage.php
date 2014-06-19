@@ -60,6 +60,7 @@ switch($type)
 		// UPDATE
 		if(!empty($titrePack) && !empty($descPack) && !empty($prixPack))
 		{
+			echo $idPack, $titrePack, $descPack, $prixPack, $positionPack;
 			$set_pack = Pack::set_pack($idPack, $titrePack, $descPack, $prixPack, $positionPack);
 
 			// Verifie l'action sinon erreur

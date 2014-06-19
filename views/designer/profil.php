@@ -209,7 +209,7 @@ foreach ($info_designer as $info) {
                 <!--/div-->
               </div>
               <div class="buttons-field applybtns">
-                <div class="apply"><a href="#">Contacter</a></div>
+                <div class="apply"><?php echo'<a href="mailto:'.$email.'">Contacter</a>';?></div>
                 <!--div class="full"><a href="#">Contact On MotibU</a></div-->
               </div>
             </div>
