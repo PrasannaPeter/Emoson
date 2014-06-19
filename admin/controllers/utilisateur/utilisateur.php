@@ -150,8 +150,9 @@ class Utilisateur
 	}
 
 
-	static function demander_certif()
+	static function demander_certif_designer()
 	{
+
  		M_Utilisateur::demander_certif($_SESSION['idUtilisateur']);
 		header('Location:index.php?module=dashboard&action=afficher');
 	}

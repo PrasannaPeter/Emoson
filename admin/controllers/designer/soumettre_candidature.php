@@ -4,4 +4,4 @@
     require_once('admin/controllers/utilisateur/utilisateur.php');
 
 
-    Utilisateur::demander_certif();
+    Utilisateur::demander_certif_designer();
